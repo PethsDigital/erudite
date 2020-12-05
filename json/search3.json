@@ -1,0 +1,705 @@
+{
+  "results": {
+    "ACCOUNTING TECHNOLOGY ": {
+      "subjects": {
+        "compulsory": [1.0, 2.0, 6.0],
+        "optional": { "subject 1": [4.0, 7.0, 3.0] },
+        "others": []
+      },
+      "schools": [
+        "Abubakar Tafawa Balewa University",
+        "Ladoke Akintola University of Technology"
+      ]
+    },
+    "AGRIC COOPERATIVE MANAGEMENT ": {
+      "subjects": {
+        "compulsory": [1.0, 4.0],
+        "optional": { "subject 1": [2.0, 3.0, 7.0], "subject 2": [3.0, 14.0] },
+        "others": []
+      },
+      "schools": ["Olabisi Onabanjo University"]
+    },
+    "AGRIC EXTENSION AND RURAL DEVELOPMENT": {
+      "subjects": {
+        "compulsory": [1.0, 4.0],
+        "optional": { "subject 1": [7.0, 2.0], "subject 2": [3.0, 14.0] },
+        "others": []
+      },
+      "schools": [
+        "Crawford University",
+        "Federal University of Agriculture, Abeokuta",
+        "University of Ibadan",
+        "Landmark University",
+        "Ladoke Akintola University of Technology",
+        "Obafemi Awolowo University",
+        "Rivers State University"
+      ]
+    },
+    "AGRIC EXTENSION SERVICE": {
+      "subjects": {
+        "compulsory": [1.0, 4.0],
+        "optional": { "subject 1": [7.0, 2.0], "subject 2": [3.0, 14.0] },
+        "others": []
+      },
+      "schools": ["University of Nigeria"]
+    },
+    "AGRIC-ECONOMICS AND EXTENSION": {
+      "subjects": {
+        "compulsory": [1.0, 4.0],
+        "optional": { "subject 1": [7.0, 2.0], "subject 2": [3.0, 14.0] },
+        "others": []
+      },
+      "schools": [
+        "Ambrose Alli University",
+        "Abia State University",
+        "Adamawa State University",
+        "Akwa Ibom State University ",
+        "Abubakar Tafawa Balewa University",
+        "Bayero University",
+        "University of Calabar",
+        "Chukwuemeka Odumegwu Ojukwu University",
+        "Ebonyi State University",
+        "Ekiti State University, Ado Ekiti",
+        "Enugu State University of Science and Technology",
+        "Joseph Ayo Babalola University",
+        "Ibrahim Badamasi Babangida University",
+        "Ladoke Akintola University of Technology",
+        "University of Agriculture, Makurdi",
+        "Modibo Adama University of Technology",
+        "Federal University of Technology,Minna",
+        "Nasarawa State University",
+        "University of Port Harcourt",
+        "Rivers State University",
+        "Taraba State University",
+        "University of Uyo"
+      ]
+    },
+    "AGRIC-EXTENSION AND RURAL SOCIOLOGY": {
+      "subjects": {
+        "compulsory": [1.0, 4.0],
+        "optional": { "subject 1": [7.0, 2.0], "subject 2": [3.0, 14.0] },
+        "others": []
+      },
+      "schools": [
+        "Niger Delta University",
+        "Olabisi Onabanjo University",
+        "Michael Okpara University of Agriculture"
+      ]
+    },
+    "AGRICULTURAL ADMINISTRATION": {
+      "subjects": {
+        "compulsory": [1.0, 4.0],
+        "optional": { "subject 1": [7.0, 2.0], "subject 2": [3.0, 14.0] },
+        "others": []
+      },
+      "schools": ["Federal University of Agriculture, Abeokuta"]
+    },
+    "AGRICULTURAL ECONOMICS ": {
+      "subjects": {
+        "compulsory": [1.0, 4.0],
+        "optional": { "subject 1": [7.0, 2.0], "subject 2": [3.0, 14.0] },
+        "others": []
+      },
+      "schools": [
+        "University of Benin",
+        "Delta State University",
+        "Federal University of Technology, Owerri",
+        "University of Ibadan",
+        "Igbinedion University, Okada",
+        "Landmark University",
+        "Ladoke Akintola University of Technology",
+        "Obafemi Awolowo University",
+        "Michael Okpara University of Agriculture",
+        "Osun State University",
+        "University of Nigeria"
+      ]
+    },
+    "AGRICULTURAL ECONOMICS AND FARM MANAGEMENT": {
+      "subjects": {
+        "compulsory": [4.0, 1.0],
+        "optional": { "subject 1": [7.0, 2.0], "subject 2": [3.0, 14.0] },
+        "others": []
+      },
+      "schools": []
+    },
+    "AGRICULTURAL EXTENSION AND COMMUNICATION TECHNOLOGY": {
+      "subjects": {
+        "compulsory": [4.0, 1.0],
+        "optional": { "subject 1": [7.0, 2.0], "subject 2": [3.0, 14.0] },
+        "others": []
+      },
+      "schools": ["Federal University of Technology,Akure"]
+    },
+    "AGRICULTURAL EXTENSION AND MANAGEMENT": {
+      "subjects": {
+        "compulsory": [4.0, 1.0],
+        "optional": { "subject 1": [7.0, 2.0], "subject 2": [3.0, 14.0] },
+        "others": []
+      },
+      "schools": [
+        "Ahmadu Bello University",
+        "National Open University of Nigeria"
+      ]
+    },
+    "AGRICULTURAL PRODUCTION AND MANAGEMENT SCIENCE AND EDUCATION": {
+      "subjects": {
+        "compulsory": [1.0],
+        "optional": { "subject 1": [4.0, 3.0, 14.0, 7.0, 2.0, 6.0, 10.0] },
+        "others": []
+      },
+      "schools": [
+        "Modibo Adama University of Technology",
+        "Tai Solarin University of Education"
+      ]
+    },
+    "AGRICULTURAL SCIENCE AND EDUCATION": {
+      "subjects": {
+        "compulsory": [1.0],
+        "optional": { "subject 1": [4.0, 3.0, 14.0, 7.0, 2.0, 6.0, 10.0] },
+        "others": []
+      },
+      "schools": [
+        "Ambrose Alli University",
+        "Abia State University",
+        "University of Abuja",
+        "Ahmadu Bello University",
+        "Abubakar Tafawa Balewa University",
+        "Bayero University",
+        "University of Benin",
+        "Benson Idahosa University",
+        "Bowen University",
+        "Imo State University",
+        "Chukwuemeka Odumegwu Ojukwu University",
+        "Cross River University of Technology",
+        "Delta State University",
+        "Ebonyi State University",
+        "Ekiti State University, Ado Ekiti",
+        "Enugu State University of Science and Technology",
+        "Federal University, Kashere",
+        "Alex Ekwueme Federal University,Ndufu-Alike",
+        "Federal University,Oye-Ekiti",
+        "Ignatius Ajuru University of Education",
+        "University of Ilorin",
+        "Imo State University",
+        "Kebbi State University of Science and Technology",
+        "Kano University of Science and Technology",
+        "Ibrahim Badamasi Babangida University",
+        "University of Maiduguri",
+        "University of Agriculture, Makurdi",
+        "Nasarawa State University",
+        "Niger Delta University",
+        "National Open University of Nigeria",
+        "Rivers State University",
+        "Michael Okpara University of Agriculture",
+        "University of Nigeria",
+        "University of Uyo"
+      ]
+    },
+    "AGRICULTURAL TECHNOLOGY AND EDUCATION": {
+      "subjects": {
+        "compulsory": [1.0],
+        "optional": { "subject 1": [4.0, 3.0, 14.0, 7.0, 2.0, 6.0, 10.0] },
+        "others": []
+      },
+      "schools": []
+    },
+    "AGRICULTURE ": {
+      "subjects": {
+        "compulsory": [4.0, 1.0],
+        "optional": { "subject 1": [7.0, 2.0], "subject 2": [3.0, 14.0] },
+        "others": []
+      },
+      "schools": [
+        "Ambrose Alli University",
+        "Adekunle Ajasin University",
+        "Ahmadu Bello University",
+        "Afe Babalola University",
+        "University of Abuja",
+        "Adamawa State University",
+        "Akwa Ibom State University ",
+        "Babcock University",
+        "Abubakar Tafawa Balewa University",
+        "Bayero University",
+        "University of Benin",
+        "Benson Idahosa University",
+        "Bowen University",
+        "Chukwuemeka Odumegwu Ojukwu University",
+        "Crawford University",
+        "Cross River University of Technology",
+        "Delta State University",
+        "Ebonyi State University",
+        "Edwin Clark University",
+        "Ekiti State University, Ado Ekiti",
+        "Enugu State University of Science and Technology",
+        "Federal University,Dutse",
+        "Federal University, Wukari",
+        "Federal University, Dutsin-Ma",
+        "Federal University,Oye-Ekiti",
+        "Federal University, Gashua",
+        "Federal University, Kashere",
+        "Alex Ekwueme Federal University,Ndufu-Alike",
+        "Federal University of Technology, Owerri",
+        "Gregory University, Uturu ",
+        "University of Ibadan",
+        "Igbinedion University, Okada",
+        "University of Ibadan",
+        "Igbinedion University, Okada",
+        "University of Ilorin",
+        "Imo State University",
+        "Kaduna State University",
+        "Kogi State University",
+        "Kebbi State University of Science and Technology",
+        "Kano University of Science and Technology",
+        "Kwara State University",
+        "Landmark University",
+        "Ibrahim Badamasi Babangida University",
+        "Lagos State University",
+        "Ladoke Akintola University of Technology",
+        "University of Maiduguri",
+        "University of Agriculture, Makurdi",
+        "Federal University of Technology,Minna",
+        "Nasarawa State University",
+        "Olabisi Onabanjo University",
+        "Ondo State University of Science and Technology",
+        "University of Port Harcourt",
+        "Plateau State University",
+        "Rivers State University",
+        "Usmanu Danfodio University",
+        "Michael Okpara University of Agriculture",
+        "University of Africa",
+        "Nnamdi Azkiwe University",
+        "University of Nigeria",
+        "University of Uyo",
+        "Wesley University of Science and Technology"
+      ]
+    },
+    "AGRONOMY": {
+      "subjects": {
+        "compulsory": [4.0, 1.0],
+        "optional": { "subject 1": [7.0, 2.0], "subject 2": [3.0, 14.0] },
+        "others": []
+      },
+      "schools": [
+        "Adamawa State University",
+        "Enugu State University of Science and Technology",
+        "University of Ibadan",
+        "Taraba State University",
+        "Osun State University"
+      ]
+    },
+    "ANATOMY": {
+      "subjects": {
+        "compulsory": [1.0, 3.0, 4.0, 7.0],
+        "optional": {},
+        "others": []
+      },
+      "schools": [
+        "Ambrose Alli University",
+        "Abia State University",
+        "Ahmadu Bello University",
+        "Afe Babalola University",
+        "Babcock University",
+        "Bayero University",
+        "University of Benin",
+        "Bingham University",
+        "Bowen University",
+        "Benue State University",
+        "Chukwuemeka Odumegwu Ojukwu University",
+        "Delta State University",
+        "Ebonyi State University",
+        "Eko University of Medical and Health Sciences",
+        "Ekiti State University, Ado Ekiti",
+        "Enugu State University of Science and Technology",
+        "Federal University, Lafia",
+        "Alex Ekwueme Federal University,Ndufu-Alike",
+        "Gregory University, Uturu ",
+        "Gombe State University",
+        "Igbinedion University, Okada",
+        "University of Ilorin",
+        "University of Jos",
+        "Ladoke Akintola University of Technology",
+        "Lead City University",
+        "Madonna University, Okija",
+        "University of Maiduguri",
+        "Yusuf Maitama Sule University",
+        "Olabisi Onabanjo University",
+        "Ondo State University of Science and Technology",
+        "PAMO University of Medical Sciences",
+        "University of Port Harcourt",
+        "Rivers State University",
+        "Osun State University",
+        "Nnamdi Azkiwe University"
+      ]
+    },
+    "ANIMAL PHYSIOLOGY": {
+      "subjects": {
+        "compulsory": [4.0, 1.0],
+        "optional": { "subject 1": [7.0, 2.0], "subject 2": [3.0, 14.0] },
+        "others": []
+      },
+      "schools": ["Federal University of Agriculture, Abeokuta"]
+    },
+    "EDUCATION AND COMPUTER SCIENCE ": {
+      "subjects": {
+        "compulsory": [2.0, 7.0, 1.0],
+        "optional": { "subject 1": [3.0, 4.0, 10.0] },
+        "others": []
+      },
+      "schools": [
+        "Ahmadu Bello University",
+        "Ajayi Crowther University",
+        "Al-Hikmah University",
+        "Anchor University,Lagos",
+        "Bauchi State University",
+        "Abubakar Tafawa Balewa University",
+        "University of Benin",
+        "Benson Idahosa University",
+        "Bowen University",
+        "Benue State University",
+        "Chukwuemeka Odumegwu Ojukwu University",
+        "Delta State University",
+        "Ebonyi State University",
+        "Ekiti State University, Ado Ekiti",
+        "Enugu State University of Science and Technology",
+        "Federal University, Kashere",
+        "Godfrey Okoye University",
+        "University of Ilorin",
+        "Kebbi State University of Science and Technology",
+        "Ibrahim Badamasi Babangida University",
+        "Lagos State University",
+        "Lead City University",
+        "University of Port Harcourt",
+        "Sokoto State University",
+        "Tai Solarin University of Education",
+        "Michael Okpara University of Agriculture",
+        "University of Nigeria",
+        "Nnamdi Azkiwe University"
+      ]
+    },
+    "EDUCATION AND INTEGRATED SCIENCE ": {
+      "subjects": {
+        "compulsory": [1.0],
+        "optional": { "subject 1": [2.0, 4.0, 7.0, 3.0, 14.0] },
+        "others": []
+      },
+      "schools": [
+        "Adekunle Ajasin University",
+        "Abia State University",
+        "Ahmadu Bello University",
+        "University of Abuja",
+        "Akwa Ibom State University ",
+        "Abubakar Tafawa Balewa University",
+        "University of Benin",
+        "Benue State University",
+        "Chukwuemeka Odumegwu Ojukwu University",
+        "Ebonyi State University",
+        "Ekiti State University, Ado Ekiti",
+        "Enugu State University of Science and Technology",
+        "Federal University, Kashere",
+        "Ignatius Ajuru University of Education",
+        "University of Lagos",
+        "University of Agriculture, Makurdi",
+        "Nasarawa State University",
+        "Ondo State University of Science and Technology",
+        "National Open University of Nigeria",
+        "Obafemi Awolowo University",
+        "Olabisi Onabanjo University",
+        "Tai Solarin University of Education",
+        "Michael Okpara University of Agriculture",
+        "Nnamdi Azkiwe University",
+        "University of Nigeria",
+        "University of Uyo"
+      ]
+    },
+    "EDUCATION AND MATHEMATICS": {
+      "subjects": {
+        "compulsory": [2.0, 1.0],
+        "optional": { "subject 1": [7.0, 4.0, 3.0] },
+        "others": []
+      },
+      "schools": [
+        "Ambrose Alli University",
+        "Adekunle Ajasin University",
+        "Abia State University",
+        "Ahmadu Bello University",
+        "University of Abuja",
+        "Adamawa State University",
+        "Akwa Ibom State University ",
+        "Al-Hikmah University",
+        "Al-Qalam University, Kastina",
+        "Anchor University,Lagos",
+        "Bauchi State University",
+        "Abubakar Tafawa Balewa University",
+        "Bayero University",
+        "Federal University of Agriculture, Abeokuta",
+        "Benson Idahosa University",
+        "Bowen University",
+        "Benue State University",
+        "University of Calabar",
+        "Chukwuemeka Odumegwu Ojukwu University",
+        "Cross River University of Technology",
+        "University of Maiduguri",
+        "Ebonyi State University",
+        "Ekiti State University, Ado Ekiti",
+        "Enugu State University of Science and Technology",
+        "Edo University",
+        "Federal University, Dutsin-Ma",
+        "Federal University, Gusau",
+        "Federal University, Kashere",
+        "Alex Ekwueme Federal University,Ndufu-Alike",
+        "Federal University, Otuoke",
+        "Federal University,Oye-Ekiti",
+        "Godfrey Okoye University",
+        "Gombe State University",
+        "Ignatius Ajuru University of Education",
+        "University of Ibadan",
+        "University of Ilorin",
+        "Imo State University",
+        "University of Jos",
+        "Kogi State University",
+        "Kebbi State University of Science and Technology",
+        "Kano University of Science and Technology",
+        "University of Lagos",
+        "Ibrahim Badamasi Babangida University",
+        "Lagos State University",
+        "Lead City University",
+        "University of Maiduguri",
+        "Yusuf Maitama Sule University",
+        "Modibo Adama University of Technology",
+        "Federal University of Technology,Minna",
+        "University of Mkar",
+        "Nasarawa State University",
+        "Niger Delta University",
+        "National Open University of Nigeria",
+        "Obafemi Awolowo University",
+        "Olabisi Onabanjo University",
+        "University of Port Harcourt",
+        "Rivers State University",
+        "Sule Lamido University",
+        "Sokoto State University",
+        "Tai Solarin University of Education",
+        "Taraba State University",
+        "Usmanu Danfodio University",
+        "Michael Okpara University of Agriculture",
+        "Umaru Musa Yar'Adua University",
+        "Nnamdi Azkiwe University",
+        "University of Nigeria",
+        "University of Uyo"
+      ]
+    },
+    "EDUCATIONAL TECHNOLOGY": {
+      "subjects": {
+        "compulsory": [2.0, 7.0, 1.0],
+        "optional": { "subject 1": [3.0, 4.0] },
+        "others": []
+      },
+      "schools": ["Federal University,Oye-Ekiti", "University of Calabar"]
+    },
+    "EDUCATIONAL TECHNOLOGY / INTRODUCTORY TECHNOLOGY": {
+      "subjects": {
+        "compulsory": [2.0, 7.0, 1.0],
+        "optional": { "subject 1": [3.0, 4.0] },
+        "others": []
+      },
+      "schools": ["Benue State University", "University of Ilorin"]
+    },
+    "ELECTRONICS": {
+      "subjects": {
+        "compulsory": [2.0, 7.0, 1.0],
+        "optional": { "subject 1": [4.0, 3.0] },
+        "others": []
+      },
+      "schools": [
+        "Bayero University",
+        "Nigeria Army University",
+        "Wesley University of Science and Technology"
+      ]
+    },
+    "ELECTRONICS AND COMPUTER TECHNOLOGY": {
+      "subjects": {
+        "compulsory": [2.0, 7.0, 1.0],
+        "optional": { "subject 1": [4.0, 6.0, 3.0] },
+        "others": []
+      },
+      "schools": ["University of Calabar"]
+    },
+    "ENERGY AND PETROLEUM STUDIES": {
+      "subjects": {
+        "compulsory": [3.0, 4.0, 1.0],
+        "optional": { "subject 1": [7.0, 2.0] },
+        "others": []
+      },
+      "schools": ["Novena University"]
+    },
+    "ENERGY STUDIES": {
+      "subjects": {
+        "compulsory": [7.0, 2.0, 1.0],
+        "optional": { "subject 1": [4.0, 3.0] },
+        "others": []
+      },
+      "schools": ["Salem University"]
+    },
+    "ENGINEERING PHYSICS": {
+      "subjects": {
+        "compulsory": [4.0, 3.0, 1.0],
+        "optional": { "subject 1": [7.0, 2.0] },
+        "others": []
+      },
+      "schools": ["Obafemi Awolowo University"]
+    },
+    "ENVIRONMENTAL EDUCATION": {
+      "subjects": {
+        "compulsory": [2.0, 1.0],
+        "optional": { "subject 1": [7.0, 3.0, 4.0] },
+        "others": []
+      },
+      "schools": [
+        "University of Abuja",
+        "University of Benin",
+        "University of Calabar"
+      ]
+    },
+    "ENVIRONMENTAL BIOLOGY": {
+      "subjects": {
+        "compulsory": [3.0, 1.0],
+        "optional": { "subject 1": [7.0, 4.0, 2.0] },
+        "others": []
+      },
+      "schools": ["University of Maiduguri"]
+    },
+    "ENVIRONMENTAL BIOLOGY AND FISHERIES": {
+      "subjects": {
+        "compulsory": [3.0, 1.0],
+        "optional": { "subject 1": [7.0, 4.0, 2.0] },
+        "others": []
+      },
+      "schools": ["Adekunle Ajasin University"]
+    },
+    "ENVIRONMENTAL HEALTH SCIENCE": {
+      "subjects": {
+        "compulsory": [3.0, 4.0, 1.0],
+        "optional": { "subject 1": [2.0, 7.0] },
+        "others": []
+      },
+      "schools": ["University of Ibadan", "Nnamdi Azkiwe University"]
+    },
+    "ENVIRONMENTAL MANAGEMENT AND POLLUTION CONTROL": {
+      "subjects": {
+        "compulsory": [3.0, 4.0, 1.0],
+        "optional": { "subject 1": [2.0, 7.0] },
+        "others": []
+      },
+      "schools": ["Nigerian Maritime University, Okerenkoko"]
+    },
+    "ENVIRONMENTAL MANAGEMENT AND TOXICOLOGY": {
+      "subjects": {
+        "compulsory": [3.0, 4.0, 1.0],
+        "optional": { "subject 1": [2.0, 7.0] },
+        "others": []
+      },
+      "schools": [
+        "University of Benin",
+        "Benue State University",
+        "Caleb University",
+        "Elizade University",
+        "Federal University of Petroleum Resources",
+        "Kwara State University",
+        "Lead City University",
+        "Michael Okpara University of Agriculture",
+        "Western Delta University",
+        "Federal University of Agriculture, Abeokuta"
+      ]
+    },
+    "ENVIRONMENTAL SCIENCE AND TECHNOLOGY": {
+      "subjects": {
+        "compulsory": [3.0, 1.0],
+        "optional": { "subject 1": [7.0, 4.0, 2.0] },
+        "others": []
+      },
+      "schools": ["Wesley University of Science and Technology"]
+    },
+    "FAMILY NUTRITION AND CONSUMER SCIENCES": {
+      "subjects": {
+        "compulsory": [4.0, 1.0],
+        "optional": { "subject 1": [3.0, 14.0], "subject 2": [2.0, 7.0] },
+        "others": []
+      },
+      "schools": ["Obafemi Awolowo University"]
+    },
+    "FISHERIES": {
+      "subjects": {
+        "compulsory": [4.0, 1.0],
+        "optional": { "subject 1": [3.0, 14.0], "subject 2": [2.0, 7.0] },
+        "others": []
+      },
+      "schools": [
+        "University of Benin",
+        "University of Calabar",
+        "Delta State University",
+        "Ekiti State University, Ado Ekiti",
+        "University of Ibadan",
+        "Kebbi State University of Science and Technology",
+        "Kwara State University",
+        "Ibrahim Badamasi Babangida University",
+        "Lagos State University",
+        "University of Maiduguri",
+        "Modibo Adama University of Technology",
+        "Nasarawa State University",
+        "Olabisi Onabanjo University",
+        "Ondo State University of Science and Technology",
+        "University of Port Harcourt",
+        "Usmanu Danfodio University",
+        "University of Lagos",
+        "Ondo State University of Science and Technology"
+      ]
+    },
+    "FISHERIES AND AQUACULTURE TECHNOLOGY": {
+      "subjects": {
+        "compulsory": [4.0, 1.0],
+        "optional": { "subject 1": [3.0, 14.0], "subject 2": [2.0, 7.0] },
+        "others": []
+      },
+      "schools": [
+        "Federal University of Technology,Akure",
+        "Federal University of Technology, Owerri"
+      ]
+    },
+    "FISHERIES AND AQUACULTURE": {
+      "subjects": {
+        "compulsory": [3.0, 4.0, 1.0],
+        "optional": { "subject 1": [2.0, 7.0] },
+        "others": []
+      },
+      "schools": [
+        "Adamawa State University",
+        "Federal University of Technology,Akure",
+        "University of Calabar",
+        "Ebonyi State University",
+        "Federal University,Oye-Ekiti",
+        "Federal University, Wukari",
+        "Kogi State University",
+        "University of Agriculture, Makurdi",
+        "Nigerian Maritime University, Okerenkoko",
+        "Modibo Adama University of Technology",
+        "Salem University",
+        "Osun State University",
+        "University of Uyo",
+        "Crescent University, Abeokuta",
+        "Adekunle Ajasin University",
+        "Ahmadu Bello University",
+        "Bayero University",
+        "Bowen University",
+        "Chukwuemeka Odumegwu Ojukwu University",
+        "Federal University,Dutse",
+        "Federal University, Dutsin-Ma",
+        "Federal University, Gashua",
+        "Alex Ekwueme Federal University,Ndufu-Alike",
+        "Federal University,Oye-Ekiti",
+        "University of Ilorin",
+        "Kogi State University",
+        "Federal University of Technology,Minna",
+        "University of Africa"
+      ]
+    }
+  }
+}

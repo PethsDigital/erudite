@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./nav-and-footer/nav.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Jambito</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1 class="logo">Jambito</h1>
+      <i class="fa fa-bars fa-2x"></i>
+      <ul class="nav-menu">
+        <li class="nav-item active"><a href="#">Home</a></li>
+        <li class="nav-item"><a href="./about/about.html">About Us</a></li>
+        <li class="nav-item"><a href="#">Hire A Tutor</a></li>
+        <li class="nav-item"><a href="#">News</a></li>
+      </ul>
+    </nav>
+    <header>
+      <div class="header-text">
+        <h1>
+          Welcome To
+          <br />
+          Jambito
+        </h1>
+        <p>Made Just For You</p>
+        <a href="./signup-login/signup.html" class="btn">Sign Up</a>
+      </div>
+      <div class="header-img">
+        <img src="images/header-img.png" alt="header-img" />
+      </div>
+    </header>
+
+    <section class="courses">
+      <h2 class="heading">Check Courses You Can Study</h2>
+      <p>
+        Check out courses you can study by selecting your JAMB subject
+        combination.
+      </p>
+      <form class="course-combo" id="check-by-sub" autocomplete="off">
+        <div class="form-group">
+          <label for="sub1">Subject 1:</label>
+          <div class="autocomplete">
+            <p class="course-select" data-input-value="1" id="sub1">
+              Use of English
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sub2">Subject 2:</label>
+          <div class="autocomplete">
+            <input
+              type="text"
+              class="course-select select"
+              id="sub2"
+              placeholder="Enter Subject Name"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sub3">Subject 3:</label>
+          <div class="autocomplete">
+            <input
+              type="text"
+              class="course-select select"
+              id="sub3"
+              placeholder="Enter Subject Name"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sub4">Subject 4:</label>
+          <div class="autocomplete">
+            <input
+              type="text"
+              class="course-select select"
+              id="sub4"
+              placeholder="Enter Subject Name"
+              required
+            />
+          </div>
+        </div>
+        <button type="submit" id="btn" class="btn">Check</button>
+      </form>
+    </section>
+
+    <section class="courses">
+      <h2 class="heading">Check Jamb Combination For Your Course</h2>
+      <p>
+        Find out the right subject combination you need in JAMB to enable you
+        eligible to study your preferred course.
+      </p>
+      <form id="course-combo" class="course-combo" autocomplete="off">
+        <div class="form-group">
+          <label for="course">Course: </label>
+          <div class="autocomplete">
+            <input
+              type="text"
+              class="course-select"
+              id="course"
+              placeholder="Enter Desired Your Course"
+              required
+            />
+          </div>
+        </div>
+        <button type="submit" class="btn">Check</button>
+      </form>
+    </section>
+
+    <section class="question">
+      <div class="question-img">
+        <img src="images/vector.png" alt="question img" />
+      </div>
+      <div class="text">
+        <h3>Got Questions?</h3>
+        <p>
+          There's a community of erudite scholars ready to answer your questions
+        </p>
+        <button id="show-fd-modal" class="btn">Ask Now</button>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <div class="overlay"></div>
+    <div class="feedback-modal modal">
+      <i class="fa fa-times-circle"></i>
+      <div class="rating">
+        <h3>Rate Your Experience</h3>
+        <div class="stars">
+          <img src="./images/Star 3.svg" alt="star1" class="star" />
+          <img src="./images/Star 3.svg" alt="star2" class="star" />
+          <img src="./images/Star 3.svg" alt="star3" class="star" />
+          <img src="./images/Star 3.svg" alt="star4" class="star" />
+          <img src="./images/Star 3.svg" alt="star5" class="star" />
+        </div>
+      </div>
+      <form class="feedback-form">
+        <h3>Leave A Message</h3>
+        <textarea id="feedback" minlength="50" required></textarea>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+
+    <div class="course-result-modal modal">
+      <i class="fa fa-times-circle"></i>
+      <h2>Courses You Can Study</h2>
+      <div class="course">
+        <!-- form result is dynamically loaded here with this template down here-->
+        <!-- <h4 class="course-title">Agriculture Science:</h4>
+        <p class="course-child">Agriculture</p>
+        <p class="course-child">Agriculture</p>
+        <p class="course-child">Agriculture</p>
+        <p class="course-child">Agriculture</p>
+        <p class="course-child">Agriculture</p> -->
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div class="footer-link-wrap">
+        <h4>Quick Links</h4>
+        <a href="#" class="footer-link">News</a>
+        <a href="#" class="footer-link">Articles</a>
+        <a href="#" class="footer-link">Resources</a>
+      </div>
+      <div class="footer-link-wrap">
+        <h4>Services</h4>
+        <a href="#" class="footer-link">News</a>
+        <a href="#" class="footer-link">Articles</a>
+        <a href="#" class="footer-link">Resources</a>
+      </div>
+      <div class="follow">
+        <h4>Follow Us</h4>
+        <a href="#" class="footer-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="footer-link"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="footer-link"><i class="fab fa-facebook"></i></a>
+      </div>
+    </footer>
+    <script src="./nav-and-footer/nav.js"></script>
+    <script src="./js-homepage/autocomplete.js"></script>
+    <script src="./js-homepage/app.js"></script>
+    <script src="./js-homepage/feedback.js"></script>
+  </body>
+</html>
