@@ -40,12 +40,13 @@ main h1 {
 .about-img {
   width: 80%;
   max-width: 300px;
-  height: 300px;
+  height: 250px;
 }
 
 .about-text {
   font-size: 0.95rem;
   margin: 1.3rem auto;
+  line-height: 2;
   color: var(--primary-color);
 }
 

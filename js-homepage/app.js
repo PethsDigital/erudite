@@ -15,13 +15,19 @@ let courseCodes;
 
 // default aysyn function to be used later
 async function fetchData(url) {
+    // disable btn
+    btn.textContent = "loading...";
+    btn.disabled = true;
     try {
         const res = await fetch(url);
         const json = await res.json();
         return json;
     } catch (err) {
-        // $(".oops").style.display = "flex";
         console.log(err);
+        displayMsg("error", "Request failed please try again later :)", checkCourse);
+    } finally {
+        btn.textContent = "Check";
+        btn.disabled = false;
     }
 }
 
@@ -33,9 +39,6 @@ function selectSubjects(el, callback) {
         .then(res => res.json())
         .then(data => {
             courseCodes = data;
-            // for (key in data) {
-            //     el.setAttribute("data-input-value", key);
-            // }
             callback(el, Object.values(data));
         })
         .catch(err => console.log(err))
@@ -112,7 +115,13 @@ courseCombo.addEventListener("submit", e => {
     fetchData("./json/results.json")
         .then(data => {
             for (let key in data.results) {
-                if (key == course.value) displayCourseSubject(key, data.results[key].subjects);
+                if (key == course.value) {
+                    displayCourseSubject(key, data.results[key].subjects);
+                    courseDiv.innerHTML += `<h4 class="course-title">List Of Schools:</h4>`
+                    data.results[key].schools.forEach(sch => {
+                        courseDiv.innerHTML += `<span>${sch}</span> &nbsp;&nbsp;`
+                    })
+                }
             }
         })
         .catch(err => {
@@ -125,13 +134,10 @@ courseCombo.addEventListener("submit", e => {
 function getKeyByValue(object, value) {
     return Object.keys(object).find(key => object[key] === value);
 }
-// const map = { "first": "1", "second": "2" };
-// console.log(getKeyByValue(map, "2"));
 
 checkCourse.addEventListener("submit", e => {
-    // disable btn
-    btn.textContent = "loading...";
-    btn.disabled = true;
+    $("#loader").style.cssText = "clip-path: inset(0 0 0 0);"
+
     selects.forEach(sub => {
         for (let key in courseCodes) {
             if (sub.value === courseCodes[key]) {
@@ -142,14 +148,13 @@ checkCourse.addEventListener("submit", e => {
     let values = `1+${$("#sub2").getAttribute("data-input-value")}+${$("#sub3").getAttribute("data-input-value")}+${$("#sub4").getAttribute("data-input-value")}`
     let urls = `https://jambito-api.herokuapp.com/subjects/${values}`;
     fetchData(urls)
-        .then(data => displayCourseResult(data.results))
+        .then(data => {
+            $("#loader").style.cssText = "clip-path: inset(0 0 100% 0);";
+            setTimeout(() => displayCourseResult(data.results), 400);
+        })
         .catch(err => {
             displayMsg("error", "Request failed please try again later :)", checkCourse);
             console.log(`Error: ${err}`);
-        })
-        .finally(_ => {
-            btn.textContent = "Register";
-            btn.disabled = false;
         })
     e.preventDefault();
 });
@@ -160,5 +165,5 @@ closeBtn.forEach(btn => btn.addEventListener("click", () => {
     $(".feedback-modal.modal").style.cssText = "display: none";
     $(".overlay").style.display = "none";
     course.value = '';
-    subjects.forEach(sub => sub.value = '');
+    selects.forEach(sub => sub.value = '');
 }))

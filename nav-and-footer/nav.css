@@ -27,7 +27,7 @@ a {
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  padding: 9px;
+  padding: 9px 0;
   position: sticky;
   top: 0;
   left: 0;
@@ -39,16 +39,17 @@ a {
   color: var(--primary-color);
   font-size: 2rem;
   user-select: none;
-  padding-left: 0.5rem;
+  padding-left: 1.2rem;
 }
 .navbar i {
   color: var(--primary-color);
-  /* padding-right: 0.5rem; */
   cursor: pointer;
+  padding-right: 1.2rem;
 }
 .nav-menu {
-  display: flex;
-  justify-content: center;
+  display: none;
+  padding-right: 1.2rem;
+  /* justify-content: center;
   align-content: center;
   position: absolute;
   flex-direction: column;
@@ -57,10 +58,10 @@ a {
   left: 0;
   list-style: none;
   width: 100%;
-  /* text-align: center; */
+  text-align: center;
   clip-path: inset(0 0 100% 0);
   transition: clip-path 0.5s;
-  background: var(--primary-color);
+  background: var(--primary-color); */
 }
 .nav-item a {
   padding: 1rem;
@@ -72,6 +73,42 @@ a {
 .nav-item a:hover {
   color: var(--primary-color);
   background-color: var(--white-bg);
+}
+
+.nav2 {
+  overflow-y: auto;
+  padding: 1.5rem auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  list-style: none;
+  z-index: 100;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  width: 100vw;
+  background-color: var(--primary-color);
+  transition: -webkit-clip-path 0.7s;
+  transition: clip-path 0.7s;
+  transition: clip-path 0.7s, -webkit-clip-path 0.7s;
+  -webkit-clip-path: circle(0% at 100% 1rem);
+  clip-path: circle(0% at 100% 1rem);
+}
+.nav2 i {
+  position: absolute;
+  top: 1rem;
+  z-index: 120;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: white;
+}
+.nav2 a {
+  display: block;
+  width: 100vw;
+  text-align: center !important;
 }
 
 footer {
@@ -110,9 +147,9 @@ footer {
     position: static;
     flex-direction: row;
     display: flex;
+    list-style: none;
     width: 60%;
     justify-content: flex-end;
-    padding-right: 0.9rem;
     clip-path: inset(0 0 0 0);
     background: none;
   }

@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jambito | About Us</title>
-    <link rel="stylesheet" href="about.css" />
+    <title>Jambito | Consult</title>
     <link rel="stylesheet" href="../nav-and-footer/nav.css" />
+    <link rel="stylesheet" href="../signup-login/style.css" />
+    <link rel="stylesheet" href="consult.css" />
     <link
       rel="stylesheet"
       href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
@@ -15,6 +16,20 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap"
       rel="stylesheet"
     />
+    <style>
+      section.signup-wrap {
+        width: 90%;
+        max-width: 800px;
+        min-height: 80vh;
+        margin: 1rem auto;
+      }
+      textarea {
+        width: 100%;
+        height: 250px;
+        resize: none;
+        padding: 0.5rem;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar">
@@ -22,7 +37,7 @@
       <i class="fa fa-bars fa-2x"></i>
       <ul class="nav-menu">
         <li class="nav-item"><a href="../index.html">Home</a></li>
-        <li class="nav-item active"><a href="#">About Us</a></li>
+        <li class="nav-item"><a href="../about/about.html">About Us</a></li>
         <li class="nav-item">
           <a href="../hire-tutor/hire.html">Hire A Tutor</a>
         </li>
@@ -34,25 +49,43 @@
         <i class="fa fa-times"></i>
       </a>
       <li class="nav-item"><a href="../index.html">Home</a></li>
-      <li class="nav-item"><a href="#">About Us</a></li>
+      <li class="nav-item"><a href="../about/about.html">About Us</a></li>
       <li class="nav-item">
         <a href="../hire-tutor/hire.html">Hire A Tutor</a>
       </li>
       <li class="nav-item"><a href="#">News</a></li>
     </ul>
-    <main>
-      <h1>About Us</h1>
-      <img src="../images/about-img.png" alt="about img" class="about-img" />
-      <p class="about-text">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde esse amet
-        sapiente, veniam officia quibusdam nam corporis voluptatibus tempore
-        odit vel inventore provident nobis harum? Ullam deserunt odit illum
-        nobis, molestias placeat. Doloribus repellat perferendis iste quo
-        suscipit illo culpa, sunt laboriosam doloremque accusamus necessitatibus
-        accusantium veniam autem quasi fugit!
-      </p>
-    </main>
+    <section class="signup-wrap">
+      <form class="signup-form">
+        <h3>Consults</h3>
+        <div class="form-group">
+          <input type="text" id="name" required placeholder="Full Name" />
+          <label for="name">Full Name</label>
+        </div>
+        <div class="form-group">
+          <input type="text" id="email" required placeholder="Email" />
+          <label for="email">Email</label>
+        </div>
 
+        <div class="form-group">
+          <input type="tel" id="pwd" required placeholder="Phone Number" />
+          <label for="pwd">Phone Number</label>
+        </div>
+
+        <div class="form-group">
+          <textarea
+            id="feedback"
+            placeholder="Message"
+            minlength="50"
+            required
+          ></textarea>
+
+          <label for="pwd">Message</label>
+        </div>
+
+        <button type="submit" class="btn">Request Consultation</button>
+      </form>
+    </section>
     <footer>
       <div class="footer-link-wrap">
         <h4>Quick Links</h4>

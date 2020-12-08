@@ -15,6 +15,7 @@ body {
   background: var(--white-bg);
   color: var(--text-color);
   font-family: "Poppins";
+  /* font-family: "Nunito" !important; */
   overflow-x: hidden;
   font-weight: 400;
 }
@@ -25,7 +26,7 @@ a {
 section {
   width: 90vw;
   margin: 2rem auto 3.6rem auto;
-  max-width: 800px;
+  max-width: 1000px;
 }
 .btn {
   background: var(--primary-color);
@@ -38,8 +39,8 @@ section {
   border: none;
   font-size: 1rem;
   outline: none;
-  display: flex;
-  align-self: center;
+  display: grid;
+  place-items: center;
   cursor: pointer;
 }
 .btn:hover {
@@ -87,6 +88,8 @@ textarea:focus {
   top: 100%;
   left: 0;
   right: 0;
+  max-height: 70vh;
+  overflow-y: auto;
 }
 .autocomplete-items div {
   padding: 10px;
@@ -127,6 +130,11 @@ header,
   position: relative;
 }
 
+.header-text .btn {
+  margin: 0.7rem 0 !important;
+  align-self: flex-start;
+}
+
 .questions {
   justify-content: center;
 }
@@ -143,6 +151,12 @@ header,
 .heading {
   font-size: 1.3rem;
   margin-top: 1rem;
+  /* font-family: ; */
+}
+.header-text {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 0.6rem;
+  align-items: flex-start !important;
 }
 .text {
   text-align: center;
@@ -161,8 +175,6 @@ header,
   font-weight: 500;
 }
 .header-text h1 {
-  border-left: 4px solid var(--primary-color);
-  padding-left: 0.6rem;
   font-weight: 700;
 }
 
@@ -178,7 +190,7 @@ section p {
   margin: 0.6rem 0;
 }
 section p {
-  color: var(--primary-color);
+  /* color: var(--primary-color); */
   font-size: 0.9rem;
 }
 
@@ -200,7 +212,7 @@ section p {
   transform: scaleY(0);
   padding: 0.5rem 1rem;
   transform-origin: top;
-  width: 90%;
+  width: 95%;
   display: block;
   -webkit-animation: msg 0.5s ease forwards;
   animation: msg 0.5s ease forwards;
@@ -251,9 +263,9 @@ form {
   }
 }
 .modal i {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  position: sticky;
+  float: right;
+  top: 0;
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--text-color);
@@ -307,12 +319,83 @@ form {
   color: var(--primary-color);
   margin: 0.2rem 0;
 }
+.course-result-modal span {
+  color: var(--primary-color);
+}
+/* loader */
+.loader {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  pointer-events: none;
+  user-select: none;
+  color: white;
+  transition: 0.5s;
+}
+.loader img {
+  width: 50%;
+  transform: scaleY(1.1);
+}
+#loader {
+  clip-path: inset(0 0 100% 0);
+}
+
+.preloader.loader {
+  z-index: 30;
+  background: white;
+  color: var(--primary-color);
+  animation: closeLoader 0.6s 4s ease forwards;
+}
+@keyframes closeLoader {
+  from {
+    clip-path: inset(0 0 0 0);
+    /* opacity: 1; */
+  }
+  to {
+    clip-path: inset(0 0 100% 0);
+    /* opacity: 0; */
+  }
+}
+.preloader.loader h1 {
+  animation: preload 0.7s ease-out forwards;
+  font-size: 3rem;
+  transform: translateY(100px);
+  opacity: 0;
+}
+.preloader.loader p {
+  animation: preload 0.8s 1.5s ease-out forwards;
+  transform: translate(-70px);
+  font-size: 1.3rem;
+  opacity: 0;
+}
+
+@keyframes preload {
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
 /* Footer style in nav folder*/
 
 @media (min-width: 760px) {
   .heading {
     font-size: 1.6rem;
   }
+  /* .header-text h1 {
+    font-size: 2.4rem;
+  }
+  .header-text {
+    font-size: 1.2rem;
+  } */
   .header-text,
   .text,
   .header-img,
@@ -328,8 +411,12 @@ form {
   .question-img {
     order: 2;
   }
+  .question-img {
+    width: 37%;
+    height: 230px;
+  }
   .header-text .btn {
-    margin: 0.7rem 0 !important;
+    /* margin: 0.7rem 0 !important; */
     align-self: flex-start;
   }
   section h2,
