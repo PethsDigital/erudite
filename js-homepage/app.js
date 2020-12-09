@@ -78,19 +78,21 @@ function displayCourseResult(sub) {
     $(".course-result-modal.modal").style.cssText = "display: block;";
     $(".overlay").style.display = "block";
     $(".course-result-modal.modal h2").textContent = 'Courses You Can Study';
-
-    for (let key in sub) {
+    for(let el of sub){
+        courseDiv.innerHTML += `<h4 class="course-title">${el}</h4>`;
+    }
+    /* for (let key in sub) {
         courseDiv.innerHTML += `<h4 class="course-title">${key}</h4>`;
-        sub[key].subjects.compulsory.forEach(code => {
+         sub[key].subjects.compulsory.forEach(code => {
             courseDiv.innerHTML += `<p class="course-child">${courseCodes[code]} (Compulsory)</p>`;
         });
 
-        for (let place in sub[key].subjects.optional) {
+         for (let place in sub[key].subjects.optional) {
             sub[key].subjects.optional[place].forEach(code => {
                 courseDiv.innerHTML += `<p class="course-child">${courseCodes[code]} (Optional)</p>`;
             });
-        }
-    }
+        } 
+   } */
 }
 
 function displayCourseSubject(key, sub) {
@@ -145,12 +147,20 @@ checkCourse.addEventListener("submit", e => {
             }
         }
     })
-    let values = `1+${$("#sub2").getAttribute("data-input-value")}+${$("#sub3").getAttribute("data-input-value")}+${$("#sub4").getAttribute("data-input-value")}`
-    let urls = `https://jambito-api.herokuapp.com/subjects/${values}`;
-    fetchData(urls)
+    let values = `1${$("#sub2").getAttribute("data-input-value")}${$("#sub3").getAttribute("data-input-value")}${$("#sub4").getAttribute("data-input-value")}`
+    //let urls = `https://jambito-api.herokuapp.com/subjects/${values}`;
+    fetchData("./json/checker.json")
         .then(data => {
+            let result  = [];
             $("#loader").style.cssText = "clip-path: inset(0 0 100% 0);";
-            setTimeout(() => displayCourseResult(data.results), 400);
+            //setTimeout(() => displayCourseResult(data.result), 400);
+            for(let i = 0; i<data.result.length;i++){
+                if(values.split('').sort().every( val =>((data.result[i].Subject).sort()).includes(val))){
+                    result.push(data.result[i].Course);
+                }
+            }
+            setTimeout(() => displayCourseResult(result, 400));
+            //console.log(data.result,values.split(''));
         })
         .catch(err => {
             displayMsg("error", "Request failed please try again later :)", checkCourse);
