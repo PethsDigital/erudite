@@ -148,7 +148,7 @@ checkCourse.addEventListener("submit", e => {
             }
         }
     })
-    let values = `1${$("#sub2").getAttribute("data-input-value")}${$("#sub3").getAttribute("data-input-value")}${$("#sub4").getAttribute("data-input-value")}`
+    let values = `1,${$("#sub2").getAttribute("data-input-value")},${$("#sub3").getAttribute("data-input-value")},${$("#sub4").getAttribute("data-input-value")}`;
     //let urls = `https://jambito-api.herokuapp.com/subjects/${values}`;
     fetchData("./json/checker.json")
         .then(data => {
@@ -156,7 +156,7 @@ checkCourse.addEventListener("submit", e => {
             $("#loader").style.cssText = "clip-path: inset(0 0 100% 0);";
             //setTimeout(() => displayCourseResult(data.result), 400);
             for(let i = 0; i<data.result.length;i++){
-                if(values.split('').every( val =>((data.result[i].Subject)).includes(val))){
+                if(values.split(',').every( val =>((data.result[i].Subject)).includes(val))){
                     result.push(data.result[i].Course);
                 }
             }
