@@ -156,7 +156,7 @@ checkCourse.addEventListener("submit", e => {
             $("#loader").style.cssText = "clip-path: inset(0 0 100% 0);";
             //setTimeout(() => displayCourseResult(data.result), 400);
             for(let i = 0; i<data.result.length;i++){
-                if(values.split('').sort().every( val =>((data.result[i].Subject).sort()).includes(val))){
+                if(values.split('').every( val =>((data.result[i].Subject)).includes(val))){
                     result.push(data.result[i].Course);
                 }
             }
