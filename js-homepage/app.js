@@ -32,7 +32,7 @@ async function fetchData(url) {
 }
 
 // `https://jambito-api.herokuapp.com/codes/subjects`
-
+// https://jambito-api.herokuapp.com/
 // dynamically load SUBJECT input option from the api
 function selectSubjects(el, callback) {
     fetch('./json/subjects.json')
@@ -46,14 +46,13 @@ function selectSubjects(el, callback) {
 selects.forEach(select => selectSubjects(select, autocomplete));
 
 // dynamically load COURSE input option from the api
-fetch(`./json/results.json`)
+//fetch(`./json/resultUpdated.json`)
+fetch(`https://jambito-api.herokuapp.com/`)
     .then(res => res.json())
     .then(data => {
-        autocomplete(course, Object.keys(data.results));
+        autocomplete(course, Object.keys(data.results.results));
     })
     .catch(err => console.log(err));
-
-
 
 // function to handle success or error msg
 function displayMsg(type, resMsg, el) {
@@ -65,7 +64,7 @@ function displayMsg(type, resMsg, el) {
         msg.innerHTML = `&check; &nbsp; ${resMsg}`;
     } else {
         msg.innerHTML = `&#9888; &nbsp;${resMsg}`;
-        msg.style.background = "rgba(248, 20, 3, 0.658)"
+        msg.style.background = "rgba(248, 20, 3, 0.658)";
     }
     setTimeout(() => {
         msg.style.display = "none";
@@ -78,19 +77,21 @@ function displayCourseResult(sub) {
     $(".course-result-modal.modal").style.cssText = "display: block;";
     $(".overlay").style.display = "block";
     $(".course-result-modal.modal h2").textContent = 'Courses You Can Study';
-
-    for (let key in sub) {
+    for(let el of sub){
+        courseDiv.innerHTML += `<h4 class="course-title">${el}</h4>`;
+    }
+    /* for (let key in sub) {
         courseDiv.innerHTML += `<h4 class="course-title">${key}</h4>`;
-        sub[key].subjects.compulsory.forEach(code => {
+         sub[key].subjects.compulsory.forEach(code => {
             courseDiv.innerHTML += `<p class="course-child">${courseCodes[code]} (Compulsory)</p>`;
         });
 
-        for (let place in sub[key].subjects.optional) {
+         for (let place in sub[key].subjects.optional) {
             sub[key].subjects.optional[place].forEach(code => {
                 courseDiv.innerHTML += `<p class="course-child">${courseCodes[code]} (Optional)</p>`;
             });
-        }
-    }
+        } 
+   } */
 }
 
 function displayCourseSubject(key, sub) {
@@ -100,34 +101,36 @@ function displayCourseSubject(key, sub) {
     $(".course-result-modal.modal h2").textContent = 'Jamb Combination For Your Course';
     courseDiv.innerHTML += `<h4 class="course-title">${course.value}</h4>`;
     sub.compulsory.forEach(code => {
-        courseDiv.innerHTML += `<p class="course-child">${courseCodes[code]} (Compulsory)</p>`;
+        courseDiv.innerHTML += `<p class="course-child">${code} (Compulsory)</p>`;
     });
 
     for (key in sub.optional) {
         sub.optional[key].forEach(code => {
-            courseDiv.innerHTML += `<p class="course-child">${courseCodes[code]} (Optional)</p>`;
+            courseDiv.innerHTML += `<p class="course-child">${code} (Optional)</p>`;
         });
     }
 }
 
 // function for courses subject combo
 courseCombo.addEventListener("submit", e => {
-    fetchData("./json/results.json")
+    fetchData("https://jambito-api.herokuapp.com/")
         .then(data => {
-            for (let key in data.results) {
-                if (key == course.value) {
-                    displayCourseSubject(key, data.results[key].subjects);
-                    courseDiv.innerHTML += `<h4 class="course-title">List Of Schools:</h4>`
-                    data.results[key].schools.forEach(sch => {
-                        courseDiv.innerHTML += `<span>${sch}</span> &nbsp;&nbsp;`
-                    })
+            //console.log(data);
+            for (let key in data.results.results) {
+                //console.log(`${key}`,course.value);
+                if (`${key}` == course.value) {
+                    displayCourseSubject(key, data.results.results[key].subjects);
+                    courseDiv.innerHTML += `<h4 class="course-title">List Of Schools:</h4>`;
+                    data.results.results[key].schools.forEach(sch => {
+                        courseDiv.innerHTML += `<span>${sch}</span> &nbsp;&nbsp;`;
+                    });
                 }
             }
         })
         .catch(err => {
             displayMsg("error", "Request failed please try again later :)", courseCombo);
             console.log(`Error: ${err}`);
-        })
+        });
     e.preventDefault();
 });
 
@@ -136,7 +139,7 @@ function getKeyByValue(object, value) {
 }
 
 checkCourse.addEventListener("submit", e => {
-    $("#loader").style.cssText = "clip-path: inset(0 0 0 0);"
+    $("#loader").style.cssText = "clip-path: inset(0 0 0 0);";
 
     selects.forEach(sub => {
         for (let key in courseCodes) {
@@ -145,12 +148,20 @@ checkCourse.addEventListener("submit", e => {
             }
         }
     })
-    let values = `1+${$("#sub2").getAttribute("data-input-value")}+${$("#sub3").getAttribute("data-input-value")}+${$("#sub4").getAttribute("data-input-value")}`
-    let urls = `https://jambito-api.herokuapp.com/subjects/${values}`;
-    fetchData(urls)
+    let values = `1,${$("#sub2").getAttribute("data-input-value")},${$("#sub3").getAttribute("data-input-value")},${$("#sub4").getAttribute("data-input-value")}`;
+    //let urls = `https://jambito-api.herokuapp.com/subjects/${values}`;
+    fetchData("./json/checker.json")
         .then(data => {
+            let result  = [];
             $("#loader").style.cssText = "clip-path: inset(0 0 100% 0);";
-            setTimeout(() => displayCourseResult(data.results), 400);
+            //setTimeout(() => displayCourseResult(data.result), 400);
+            for(let i = 0; i<data.result.length;i++){
+                if(values.split(',').every( val =>((data.result[i].Subject)).includes(val))){
+                    result.push(data.result[i].Course);
+                }
+            }
+            setTimeout(() => displayCourseResult(result, 400));
+            //console.log(data.result,values.split(''));
         })
         .catch(err => {
             displayMsg("error", "Request failed please try again later :)", checkCourse);
