@@ -7,7 +7,7 @@ const checkCourse = $("#check-by-sub")
 const courseDiv = $(".course");
 const course = $('#course');
 const closeBtn = Array.from($$('.modal .fa'));
-const btn = $("#btn");
+const btn = $$("form .btn");
 
 // functionalities
 let jsonData;
@@ -16,17 +16,20 @@ let courseCodes;
 // default aysyn function to be used later
 async function fetchData(url) {
     // disable btn
-    btn.disabled = true;
+    btn.forEach(btn => btn.disabled = true);
+    $("#loader").style.cssText = "clip-path: inset(0 0 0 0);";
+
     try {
         const res = await fetch(url);
         const json = await res.json();
+        $("#loader").style.cssText = "clip-path: inset(0 0 100% 0);";
         return json;
     } catch (err) {
         console.log(err);
-        displayMsg("error", "Request failed please try again later :)", checkCourse);
+        // displayMsg("error", "Request failed please try again later :)", checkCourse);
     } finally {
-        btn.textContent = "Check";
-        btn.disabled = false;
+        btn.forEach(btn => btn.textContent = "Check");
+        btn.forEach(btn => btn.disabled = false);
     }
 }
 
@@ -112,6 +115,8 @@ function displayCourseSubject(key, sub) {
 
 // function for courses subject combo
 courseCombo.addEventListener("submit", e => {
+    $("#course-combo button").textContent = "loading...";
+
     fetchData("https://jambito-api.herokuapp.com/")
         .then(data => {
             //console.log(data);
@@ -138,8 +143,7 @@ function getKeyByValue(object, value) {
 }
 
 checkCourse.addEventListener("submit", e => {
-    btn.textContent = "loading...";
-    $("#loader").style.cssText = "clip-path: inset(0 0 0 0);";
+    $("#check-by-sub button").textContent = "loading...";
 
     selects.forEach(sub => {
         for (let key in courseCodes) {
@@ -153,7 +157,6 @@ checkCourse.addEventListener("submit", e => {
     fetchData("./json/checker.json")
         .then(data => {
             let result = [];
-            $("#loader").style.cssText = "clip-path: inset(0 0 100% 0);";
             //setTimeout(() => displayCourseResult(data.result), 400);
             for (let i = 0; i < data.result.length; i++) {
                 if (values.split(',').every(val => ((data.result[i].Subject)).includes(val))) {
