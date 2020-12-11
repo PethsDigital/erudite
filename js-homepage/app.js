@@ -16,7 +16,6 @@ let courseCodes;
 // default aysyn function to be used later
 async function fetchData(url) {
     // disable btn
-    btn.textContent = "loading...";
     btn.disabled = true;
     try {
         const res = await fetch(url);
@@ -77,8 +76,8 @@ function displayCourseResult(sub) {
     $(".course-result-modal.modal").style.cssText = "display: block;";
     $(".overlay").style.display = "block";
     $(".course-result-modal.modal h2").textContent = 'Courses You Can Study';
-    for(let el of sub){
-        courseDiv.innerHTML += `<h4 class="course-title">${el}</h4>`;
+    for (let el of sub) {
+        courseDiv.innerHTML += `<h4 class="course-child">${el}</h4>`;
     }
     /* for (let key in sub) {
         courseDiv.innerHTML += `<h4 class="course-title">${key}</h4>`;
@@ -139,6 +138,7 @@ function getKeyByValue(object, value) {
 }
 
 checkCourse.addEventListener("submit", e => {
+    btn.textContent = "loading...";
     $("#loader").style.cssText = "clip-path: inset(0 0 0 0);";
 
     selects.forEach(sub => {
@@ -152,11 +152,11 @@ checkCourse.addEventListener("submit", e => {
     //let urls = `https://jambito-api.herokuapp.com/subjects/${values}`;
     fetchData("./json/checker.json")
         .then(data => {
-            let result  = [];
+            let result = [];
             $("#loader").style.cssText = "clip-path: inset(0 0 100% 0);";
             //setTimeout(() => displayCourseResult(data.result), 400);
-            for(let i = 0; i<data.result.length;i++){
-                if(values.split(',').every( val =>((data.result[i].Subject)).includes(val))){
+            for (let i = 0; i < data.result.length; i++) {
+                if (values.split(',').every(val => ((data.result[i].Subject)).includes(val))) {
                     result.push(data.result[i].Course);
                 }
             }

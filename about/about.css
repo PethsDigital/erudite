@@ -47,6 +47,8 @@ main h1 {
   font-size: 0.95rem;
   margin: 1.3rem auto;
   line-height: 2;
+}
+.about-text a {
   color: var(--primary-color);
 }
 

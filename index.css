@@ -312,11 +312,11 @@ form {
   font-weight: 600;
   padding: 1rem 0;
 }
-.course-result-modal p {
+.course-result-modal .course-child {
   background: white;
   padding: 0.6rem 1rem;
   border: 0.2px solid #b1b1b1;
-  color: var(--primary-color);
+  /* color: var(--primary-color); */
   margin: 0.2rem 0;
 }
 .course-result-modal span {
