@@ -5,7 +5,7 @@
 }
 :root {
   --primary-color: #3d90ef;
-  --bg-color: rgb(224, 226, 232);
+  --bg-color: rgba(61, 144, 239, 0.5);
   --hover: rgb(95, 161, 236);
   --text-color: #222;
   --white-bg: #fafafa;
@@ -59,6 +59,19 @@ a {
   font-size: 2rem;
   user-select: none;
   padding-left: 1.2rem;
+}
+.logo-text a {
+  text-decoration: none;
+  margin-left: 1rem;
+}
+.logo-text a:link,
+.logo-text a:visited,
+.logo-text a:hover,
+.logo-text a:active {
+  font-weight: 400;
+  color: var(--primary-color);
+  font-size: 2rem;
+  padding: 0.5rem;
 }
 .navbar i {
   color: var(--primary-color);

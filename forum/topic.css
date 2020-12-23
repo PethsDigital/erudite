@@ -1,0 +1,332 @@
+/* presets and css variables are in nav and footer css */
+:root {
+  --input-border: #e6e6e6;
+  --grey: #aaaaaa;
+}
+button {
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
+.btn-group {
+  display: flex;
+  gap: 20px;
+}
+.btn.btn-cancel {
+  background-color: var(--input-border);
+  color: #cf0808;
+}
+form,
+input[type="search"] {
+  flex-grow: 2;
+}
+
+main {
+  width: 90vw;
+  max-width: 1100px;
+  margin: 1rem auto;
+}
+.top-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.6rem auto 2rem auto;
+  width: 100%;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 40px;
+}
+
+.form-group input {
+  height: 100%;
+  background-color: white;
+  border: 1px solid var(--input-border);
+  border-radius: 10px 0 0 10px;
+  padding: 5px 10px;
+}
+::placeholder {
+  color: var(--grey);
+  font-family: "Poppins";
+}
+.form-group button {
+  border-radius: 0 10px 10px 0;
+  width: 30px;
+  height: 100%;
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  font-size: 1.1rem;
+}
+
+/* top-search left */
+.left {
+  display: inline-flex;
+  justify-content: flex-end;
+  gap: 17px;
+  align-items: center;
+  width: 25%;
+}
+.profile-pic,
+.unanswered img,
+.comments img {
+  height: 25px;
+  width: 25px;
+}
+.left button {
+  background-color: transparent;
+  color: black;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  border: none;
+  gap: 8px;
+}
+.left button img {
+  height: 0.9rem;
+  width: 0.9rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid var(--primary-color);
+}
+
+/* main */
+.main {
+  display: flex;
+  gap: 30px;
+  font-size: 14.5px;
+}
+.main-fr {
+  gap: 50px;
+}
+.breadcrumb-link {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* thread wrap */
+.thread-wrap {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  align-items: flex-start;
+}
+.thread-wrap img {
+  width: 40px;
+  height: 40px;
+}
+
+/* main-question */
+.info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 0.3rem;
+}
+.info .time-posted {
+  color: var(--grey);
+  font-size: 0.7rem;
+}
+
+/* comment box */
+.comment-box-wrap .btn {
+  margin: 1rem 0;
+}
+textarea {
+  border: 1px solid var(--input-border);
+  transition: 0.5s;
+  width: 80%;
+  height: 200px;
+  resize: none;
+  border-radius: 10px;
+  padding: 0.8rem 0.6rem;
+}
+
+/* commentsss */
+.comments {
+  margin: 1rem 0;
+  width: 80%;
+}
+.comments textarea {
+  width: 95%;
+}
+.comments .first-level-comment {
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.comments .first-level-comment::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 108%;
+  left: 1.15rem;
+  z-index: -1;
+  padding: 0 1px;
+  background-color: var(--grey);
+}
+.comments .first-level-comment:last-child::after {
+  display: none;
+}
+.info button {
+  background-color: transparent;
+  color: var(--text-color);
+  border: none;
+}
+.info button:hover {
+  color: var(--primary-color);
+}
+
+/* aside */
+.main .aside {
+  width: 35%;
+}
+.aside a {
+  font-size: 13px;
+  color: var(--text-color);
+  margin: 0.4rem 0;
+}
+.topic-child a {
+  margin: 0.4rem 0.3rem 0.4rem 0;
+}
+.aside .topics h3 {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.topics .topic-child,
+.stat {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.stat {
+  gap: 8px;
+  font-size: 0.8rem;
+}
+
+/* unawsered topics */
+.unanswered {
+  font-size: 14px;
+}
+.un-text {
+  font-size: 12px;
+  color: grey;
+  margin: 0.5rem 0;
+}
+.unanswered .info {
+  gap: 7px;
+  font-size: 0.7rem;
+}
+
+.un-topic-child {
+  margin: 0.9rem 0;
+}
+.un-topic-child a,
+.topics-card .question {
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  z-index: 10;
+}
+
+.stat img {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+/* forums page style */
+.wrap {
+  width: 100%;
+}
+.tag {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.7rem 0.7rem 0.4rem 0.7rem;
+  display: inline;
+  text-align: left;
+  font-weight: 400;
+}
+.hr {
+  padding: 1.3px;
+  background: var(--primary-color);
+  margin-top: 4px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.topics-card {
+  background-color: white;
+  border-radius: 5px;
+  gap: 16px;
+  font-size: 14px;
+  margin: 1rem auto;
+}
+.topics-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 1.4rem;
+}
+.stat-info {
+  width: 150px;
+  text-align: center;
+  color: var(--primary-color);
+  border-left: 1px solid var(--grey);
+  height: 100%;
+}
+.stat-info p {
+  padding: 7px;
+}
+.stat-info hr {
+  background-color: var(--grey);
+}
+.stat-info .cm-icon {
+  background: url("../images/comment_chat.svg") no-repeat center center;
+  background-size: 100% 100%;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+.topics-card h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.ct-topic-child,
+.topics-card,
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+}
+.ct-topic-child .num {
+  background-color: rgba(61, 144, 239, 0.5);
+  padding: 3px 6px;
+  font-size: 0.7rem;
+  border-radius: 20px;
+}
+
+.topics {
+  background: white;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+#categories h3 {
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--grey);
+}

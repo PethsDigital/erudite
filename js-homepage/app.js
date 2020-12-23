@@ -32,8 +32,8 @@ async function fetchData(url) {
   }
 }
 
-// `https://jambito-api.herokuapp.com/codes/subjects`
-// https://jambito-api.herokuapp.com/
+// `https://Erudite-api.herokuapp.com/codes/subjects`
+// https://Erudite-api.herokuapp.com/
 // dynamically load SUBJECT input option from the api
 function selectSubjects(el, callback) {
   fetch("./json/subjects.json")
@@ -47,7 +47,7 @@ function selectSubjects(el, callback) {
 selects.forEach((select) => selectSubjects(select, autocomplete));
 
 // dynamically load COURSE input option from the api
-fetch(`https://jambito-api.herokuapp.com/`)
+fetch(`https://Erudite-api.herokuapp.com/`)
   .then((res) => res.json())
   .then((data) => {
     autocomplete(course, Object.keys(data.results.results));
@@ -184,7 +184,7 @@ checkCourse.addEventListener("submit", (e) => {
 courseCombo.addEventListener("submit", (e) => {
   $("#course-combo button").textContent = "loading...";
 
-  fetchData("https://jambito-api.herokuapp.com/")
+  fetchData("https://Erudite-api.herokuapp.com/")
     .then((data) => {
       //console.log(data);
       for (let key in data.results.results) {

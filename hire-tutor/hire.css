@@ -1,16 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-:root {
-  --primary-color: #3d90ef;
-  --bg-color: rgb(224, 226, 232);
-  --hover: rgb(95, 161, 236);
-  --text-color: #222;
-  --white-bg: #fafafa;
-  scroll-behavior: smooth;
-}
 body {
   background: var(--white-bg);
   color: var(--text-color);
