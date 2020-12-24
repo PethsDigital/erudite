@@ -23,7 +23,9 @@
       <i class="fa fa-bars fa-2x"></i>
       <ul class="nav-menu">
         <li class="nav-item"><a href="../index.html">Home</a></li>
-        <li class="nav-item"><a href="../about/about.html">About Us</a></li>
+        <li class="nav-item">
+          <a href="../about/about.html">About Us</a>
+        </li>
         <li class="nav-item">
           <a href="../hire-tutor/hire.html">Hire A Tutor</a>
         </li>
@@ -45,6 +47,46 @@
       <li class="nav-item"><a href="../news/news.html">News</a></li>
       <li class="nav-item"><a href="../forum/forums.html">Forums</a></li>
     </ul>
+
+    <!-- new discussion modal -->
+    <div class="overlay"></div>
+    <section class="discuss-pop-up modal">
+      <div class="btns">
+        <button id="close-msg" style="color: red">Close</button>
+        <button type="submit" id="post-msg" style="color: #3d90ef">Post</button>
+      </div>
+      <form class="add-categories">
+        <div class="category-wrap">
+          <h3>Category</h3>
+          <p class="category-placeholder">Select to add category</p>
+          <div class="form-control-group">
+            <input type="radio" name="category" id="ui" />
+            <label for="ui">UI/ UX</label>
+          </div>
+          <div class="form-control-group">
+            <input type="radio" name="category" id="utme" />
+            <label for="utme">UI/ UX</label>
+          </div>
+          <div class="form-control-group">
+            <input type="radio" name="category" id="putme" />
+            <label for="putme">UI/ UX</label>
+          </div>
+          <div class="form-control-group">
+            <input type="radio" name="category" id="ut-4" />
+            <label for="ut-4">UI/ UX</label>
+          </div>
+          <div class="form-control-group">
+            <input type="radio" name="category" id="ut-5" />
+            <label for="ut-5">UI/ UX</label>
+          </div>
+        </div>
+        <textarea
+          placeholder="write message here"
+          id="discussion-input-txt"
+        ></textarea>
+      </form>
+    </section>
+
     <main>
       <section class="top-search">
         <form class="form-group" id="search-title">
@@ -59,7 +101,7 @@
               class="profile-pic"
             />
           </a>
-          <button>
+          <button class="st-discuss">
             <img src="../images/pen.svg" alt="start discussion" />
             Start a discussion
           </button>
@@ -84,11 +126,11 @@
                 <h2 class="tp-title">
                   How can I change my course on jamb portal?
                 </h2>
-                <p class="question">
+                <a href="./topic.html" class="question">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Asperiores modi pariatur suscipit vel accusamus vitae minima
                   nulla?
-                </p>
+                </a>
               </div>
             </div>
             <div class="stat-info">
@@ -110,11 +152,11 @@
                 <h2 class="tp-title">
                   How can I change my course on jamb portal?
                 </h2>
-                <p class="question">
+                <a href="./topic.html" class="question">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Asperiores modi pariatur suscipit vel accusamus vitae minima
                   nulla?
-                </p>
+                </a>
               </div>
             </div>
             <div class="stat-info">
@@ -136,11 +178,11 @@
                 <h2 class="tp-title">
                   How can I change my course on jamb portal?
                 </h2>
-                <p class="question">
+                <a href="./topic.html" class="question">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Asperiores modi pariatur suscipit vel accusamus vitae minima
                   nulla?
-                </p>
+                </a>
               </div>
             </div>
             <div class="stat-info">
@@ -162,11 +204,11 @@
                 <h2 class="tp-title">
                   How can I change my course on jamb portal?
                 </h2>
-                <p class="question">
+                <a href="./topic.html" class="question">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Asperiores modi pariatur suscipit vel accusamus vitae minima
                   nulla?
-                </p>
+                </a>
               </div>
             </div>
             <div class="stat-info">
@@ -188,11 +230,11 @@
                 <h2 class="tp-title">
                   How can I change my course on jamb portal?
                 </h2>
-                <p class="question">
+                <a href="./topic.html" class="question">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Asperiores modi pariatur suscipit vel accusamus vitae minima
                   nulla?
-                </p>
+                </a>
               </div>
             </div>
             <div class="stat-info">
@@ -335,5 +377,6 @@
       </div>
     </footer>
     <script src="../nav-and-footer/nav.js"></script>
+    <script src="./js/discussion.js"></script>
   </body>
 </html>

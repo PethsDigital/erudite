@@ -5,6 +5,7 @@
 }
 button {
   cursor: pointer;
+  font-family: "Poppins";
 }
 button:focus {
   outline: none;
@@ -20,6 +21,84 @@ button:focus {
 form,
 input[type="search"] {
   flex-grow: 2;
+}
+
+/* pop-up */
+.discuss-pop-up .btns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.category-placeholder {
+  color: var(--grey);
+  margin: 1rem 0;
+}
+.category-wrap {
+  padding: 1rem;
+  margin: 1rem auto;
+  border-radius: 10px;
+  border: 1px solid var(--input-border);
+}
+
+.discuss-pop-up input {
+  height: 17px;
+  width: 17px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 1px solid var(--input-border);
+  outline: none;
+  transition-duration: 0.2s;
+  cursor: pointer;
+  border-radius: 3px;
+  background: white;
+  position: relative;
+}
+
+.discuss-pop-up input:checked {
+  background: var(--primary-color);
+}
+#reply-comment-wrap {
+  display: none !important;
+}
+
+.discuss-pop-up input:checked::before {
+  content: "\2713";
+  display: block;
+  font-weight: bold;
+  font-size: 0.7rem;
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.discuss-pop-up label {
+  cursor: pointer;
+}
+.discuss-pop-up .btns button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.discuss-pop-up .btns button:hover,
+.discuss-pop-up .btns button:focus {
+  background: var(--input-border);
+}
+.discuss-pop-up .form-control-group {
+  width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.discuss-pop-up textarea {
+  width: 100%;
 }
 
 main {
@@ -56,7 +135,7 @@ main {
 }
 .form-group button {
   border-radius: 0 10px 10px 0;
-  width: 30px;
+  width: 50px;
   height: 100%;
   color: white;
   background-color: var(--primary-color);
@@ -169,10 +248,10 @@ textarea {
   content: "";
   position: absolute;
   top: 0;
-  height: 108%;
+  height: 100%;
   left: 1.15rem;
   z-index: -1;
-  padding: 0 1px;
+  padding: 0 0.5px;
   background-color: var(--grey);
 }
 .comments .first-level-comment:last-child::after {
@@ -240,6 +319,7 @@ textarea {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   z-index: 10;
+  color: var(--text-color);
 }
 
 .stat img {

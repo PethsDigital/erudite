@@ -11,7 +11,7 @@
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="topic.css" />
@@ -56,10 +56,7 @@
       <form class="add-categories">
         <div class="category-wrap">
           <h3>Category</h3>
-          <p class="category-placeholder">
-            <i class="fas fa-tag" style="font-size: 1.3rem"></i>&nbsp; Select to
-            add category
-          </p>
+          <p class="category-placeholder">Select to add category</p>
           <div class="form-control-group">
             <input type="radio" name="category" id="ui" />
             <label for="ui">UI/ UX</label>
@@ -108,137 +105,145 @@
           </button>
         </div>
       </section>
-
-      <section class="main">
+      <section class="main main-fr">
         <div class="main-discussion right">
-          <a href="#" class="breadcrumb-link">
-            <span class="forum-category">Forum Title</span>
-            <span class="topic">> Topic</span>
-          </a>
-          <br />
-          <br />
-
-          <article class="main-question thread-wrap">
-            <img src="../images/Ellipse 27 (1).png" alt="avatar" />
-            <div class="text">
-              <div class="info">
-                <b class="name">James Mba</b>
-                <p class="time-posted">3 hours ago</p>
+          <div class="wrap">
+            <div class="title-n-nav">
+              <h1 class="tag">UTME FORUM</h1>
+            </div>
+            <hr class="hr" />
+          </div>
+          <article class="topics-card">
+            <div class="wrapper">
+              <img
+                src="../images/Ellipse 27 (1).png"
+                alt="avatar"
+                class="topic-img"
+              />
+              <div class="text">
+                <h2 class="tp-title">
+                  How can I change my course on jamb portal?
+                </h2>
+                <a href="./topic.html" class="question">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Asperiores modi pariatur suscipit vel accusamus vitae minima
+                  nulla?
+                </a>
               </div>
-              <p class="text-msg">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-                repudiandae dolorum dolorem est reprehenderit consectetur
-                aperiam magnam ullam tempora hic?
-              </p>
+            </div>
+            <div class="stat-info">
+              <p class="cm-icon">300</p>
+              <hr />
+              <p class="views"><i class="fa fa-eye"></i> 500</p>
+              <hr />
+              <p class="views"><i class="fa fa-clock"></i> 500</p>
             </div>
           </article>
-          <br />
-
-          <div class="comment-box-wrap thread-wrap">
-            <img
-              src="../images/Ellipse 27.png"
-              alt="forum avatar"
-              class="avatar"
-            />
-            <form id="first-level" class="comment-box">
-              <textarea
-                required
-                id="comment-input"
-                placeholder="Type here to comment or reply the question"
-              ></textarea>
-              <button class="btn" type="submit">Post comment</button>
-            </form>
-          </div>
-
-          <div class="comments">
-            <h4>60 comments.</h4>
-            <br />
-            <article class="first-level-comment thread-wrap">
-              <img src="../images/Ellipse 27 (1).png" alt="avatar" />
+          <article class="topics-card">
+            <div class="wrapper">
+              <img
+                src="../images/Ellipse 27 (1).png"
+                alt="avatar"
+                class="topic-img"
+              />
               <div class="text">
-                <div class="info">
-                  <b class="name">James Mba</b>
-                </div>
-                <p class="text-msg">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-                  repudiandae dolorum dolorem est reprehenderit consectetur
-                  aperiam magnam ullam tempora hic?
-                </p>
-                <br />
-                <div class="info">
-                  <button type="button" class="like">Like</button>
-                  <button type="button" class="reply">Reply</button>
-                  <p class="time-posted">3 hrs ago</p>
-                  <p class="time-posted like-count">22 Likes</p>
-                </div>
-                <br />
-
-                <!-- PS: this form below is a template for javascript to hold onto it wont be displayed but cloned -->
-                <div
-                  id="reply-comment-wrap"
-                  class="comment-box-wrap thread-wrap reply-comment-wrap"
-                >
-                  <form class="comment-box reply-comment">
-                    <textarea
-                      required
-                      id="comment-input"
-                      placeholder="Type here to comment or reply the question"
-                    ></textarea>
-                    <div class="btn-group">
-                      <button class="btn submit-reply" type="submit">
-                        Post comment
-                      </button>
-                      <button type="reset" class="btn btn-cancel" type="button">
-                        Cancel
-                      </button>
-                    </div>
-                  </form>
-                  <br />
-                </div>
-                <article class="second-level-commentm thread-wrap">
-                  <img src="../images/Ellipse 27 (1).png" alt="avatar" />
-                  <div class="text">
-                    <div class="info">
-                      <b class="name">James Mba</b>
-                    </div>
-                    <p class="text-msg">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Optio repudiandae dolorum dolorem est reprehenderit
-                      consectetur aperiam magnam ullam tempora hic?
-                    </p>
-                    <br />
-                    <div class="info">
-                      <button type="button" class="like">Like</button>
-                      <p class="time-posted">3 hrs ago</p>
-                      <p class="time-posted like-count">22 Likes</p>
-                    </div>
-                  </div>
-                </article>
+                <h2 class="tp-title">
+                  How can I change my course on jamb portal?
+                </h2>
+                <a href="./topic.html" class="question">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Asperiores modi pariatur suscipit vel accusamus vitae minima
+                  nulla?
+                </a>
               </div>
-            </article>
-            <article class="first-level-comment thread-wrap">
-              <img src="../images/Ellipse 27 (1).png" alt="avatar" />
+            </div>
+            <div class="stat-info">
+              <p class="cm-icon">300</p>
+              <hr />
+              <p class="views"><i class="fa fa-eye"></i> 500</p>
+              <hr />
+              <p class="views"><i class="fa fa-clock"></i> 500</p>
+            </div>
+          </article>
+          <article class="topics-card">
+            <div class="wrapper">
+              <img
+                src="../images/Ellipse 27 (1).png"
+                alt="avatar"
+                class="topic-img"
+              />
               <div class="text">
-                <div class="info">
-                  <b class="name">James Mba</b>
-                </div>
-                <p class="text-msg">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-                  repudiandae dolorum dolorem est reprehenderit consectetur
-                  aperiam magnam ullam tempora hic?
-                </p>
-                <br />
-                <div class="info">
-                  <button type="button" class="like">Like</button>
-                  <button type="button" class="reply">Reply</button>
-                  <p class="time-posted">3 hrs ago</p>
-                  <p class="time-posted like-count">22 Likes</p>
-                </div>
+                <h2 class="tp-title">
+                  How can I change my course on jamb portal?
+                </h2>
+                <a href="./topic.html" class="question">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Asperiores modi pariatur suscipit vel accusamus vitae minima
+                  nulla?
+                </a>
               </div>
-            </article>
-          </div>
+            </div>
+            <div class="stat-info">
+              <p class="cm-icon">300</p>
+              <hr />
+              <p class="views"><i class="fa fa-eye"></i> 500</p>
+              <hr />
+              <p class="views"><i class="fa fa-clock"></i> 500</p>
+            </div>
+          </article>
+          <article class="topics-card">
+            <div class="wrapper">
+              <img
+                src="../images/Ellipse 27 (1).png"
+                alt="avatar"
+                class="topic-img"
+              />
+              <div class="text">
+                <h2 class="tp-title">
+                  How can I change my course on jamb portal?
+                </h2>
+                <a href="./topic.html" class="question">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Asperiores modi pariatur suscipit vel accusamus vitae minima
+                  nulla?
+                </a>
+              </div>
+            </div>
+            <div class="stat-info">
+              <p class="cm-icon">300</p>
+              <hr />
+              <p class="views"><i class="fa fa-eye"></i> 500</p>
+              <hr />
+              <p class="views"><i class="fa fa-clock"></i> 500</p>
+            </div>
+          </article>
+          <article class="topics-card">
+            <div class="wrapper">
+              <img
+                src="../images/Ellipse 27 (1).png"
+                alt="avatar"
+                class="topic-img"
+              />
+              <div class="text">
+                <h2 class="tp-title">
+                  How can I change my course on jamb portal?
+                </h2>
+                <a href="./topic.html" class="question">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Asperiores modi pariatur suscipit vel accusamus vitae minima
+                  nulla?
+                </a>
+              </div>
+            </div>
+            <div class="stat-info">
+              <p class="cm-icon">300</p>
+              <hr />
+              <p class="views"><i class="fa fa-eye"></i> 500</p>
+              <hr />
+              <p class="views"><i class="fa fa-clock"></i> 500</p>
+            </div>
+          </article>
         </div>
-
         <aside class="aside">
           <div class="popular topics">
             <h3>Popular Topics</h3>
@@ -379,13 +384,13 @@
       <div class="follow">
         <h4>Follow Us</h4>
         <a href="#" class="footer-link"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
+          ><i class="fab fa-instagram" aria-hidden="true"></i
         ></a>
         <a href="#" class="footer-link"
-          ><i class="fa fa-twitter" aria-hidden="true"></i
+          ><i class="fab fa-twitter" aria-hidden="true"></i
         ></a>
         <a href="#" class="footer-link"
-          ><i class="fa fa-facebook" aria-hidden="true"></i
+          ><i class="fab fa-facebook" aria-hidden="true"></i
         ></a>
       </div>
     </footer>

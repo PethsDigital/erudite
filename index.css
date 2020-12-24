@@ -195,40 +195,9 @@ section p {
 }
 
 /* Modals */
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 40;
-  background-color: rgba(0, 0, 0, 0.479);
-  width: 100vw;
-  height: 100vh;
-}
+
 form {
   width: 100%;
-}
-.modal {
-  padding: 1rem 2rem;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 50;
-  background-color: var(--white-bg);
-  border-radius: 10px;
-  width: 90vw;
-  max-width: 600px;
-  overflow-y: auto;
-  display: none;
-  max-height: 90vh;
-  color: var(--text-color);
-  transform: translate(-50%, -50%) scale(0);
-  animation: modal 0.5s ease forwards;
-}
-@keyframes modal {
-  to {
-    transform: translate(-50%, -50%) scale(1);
-  }
 }
 
 .modal i {
