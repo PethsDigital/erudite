@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Erudite | Sign-Up</title>
+    <link rel="stylesheet" href="../nav-and-footer/nav.css" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+    />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap"
@@ -12,9 +17,36 @@
     />
   </head>
   <body>
-    <nav>
+    <nav class="navbar">
       <h1 class="logo-text"><a href="../index.html">Erudite</a></h1>
+      <i class="fa fa-bars fa-2x"></i>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="../index.html">Home</a></li>
+        <li class="nav-item">
+          <a href="../about/about.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a href="../hire-tutor/hire.html">Hire A Tutor</a>
+        </li>
+        <li class="nav-item"><a href="../news/news.html">News</a></li>
+        <li class="nav-item active">
+          <a href="../forum/forums.html">Forums</a>
+        </li>
+      </ul>
     </nav>
+    <ul class="nav2">
+      <a href="#">
+        <i class="fa fa-times"></i>
+      </a>
+      <li class="nav-item"><a href="../index.html">Home</a></li>
+      <li class="nav-item"><a href="../about/about.html">About Us</a></li>
+      <li class="nav-item">
+        <a href="../hire-tutor/hire.html">Hire A Tutor</a>
+      </li>
+      <li class="nav-item"><a href="../news/news.html">News</a></li>
+      <li class="nav-item"><a href="../forum/forums.html">Forums</a></li>
+    </ul>
+
     <main class="container">
       <section class="signup-wrap">
         <div class="signup-text">
@@ -66,5 +98,7 @@
         </div>
       </section>
     </main>
+    
+    <script src="../nav-and-footer/nav.js"></script>
   </body>
 </html>

@@ -52,7 +52,7 @@ textarea:focus {
   border: 1px solid var(--primary-color);
 }
 
-.logo-text {
+/* .logo-text {
   position: static;
   width: 100%;
   background-color: var(--white-bg);
@@ -63,7 +63,7 @@ textarea:focus {
   user-select: none;
   display: inline-block;
   padding: 0.5rem;
-}
+} */
 main {
   display: flex;
   align-items: center;
@@ -177,12 +177,12 @@ textarea:focus + label {
   border: 1px solid white;
 }
 @media screen and (min-width: 1000px) {
-  .logo-text {
+/*   .logo-text {
     width: 50%;
     position: absolute;
     top: 0;
     left: 0;
-  }
+  } */
   section.signup-wrap,
   .img-wrap {
     width: 50%;
@@ -190,7 +190,7 @@ textarea:focus + label {
   }
   .img-wrap {
     order: 2;
-    z-index: 30;
+    z-index: 0;
     height: 100vh;
     min-height: 600px;
   }
