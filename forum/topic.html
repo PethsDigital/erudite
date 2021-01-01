@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erudite | Forums</title>
+    <link rel="stylesheet" href="../nav-and-footer/nav.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="topic.css" />
+    <link rel="stylesheet" href="mobile.css" media="(max-width: 790px)" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1 class="logo-text"><a href="../index.html">Erudite</a></h1>
+      <i class="fa fa-bars fa-2x"></i>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="../index.html">Home</a></li>
+        <li class="nav-item"><a href="../about/about.html">About Us</a></li>
+        <li class="nav-item">
+          <a href="../hire-tutor/hire.html">Hire A Tutor</a>
+        </li>
+        <li class="nav-item"><a href="../news/news.html">News</a></li>
+        <li class="nav-item active">
+          <a href="../forum/forums.html">Forums</a>
+        </li>
+      </ul>
+    </nav>
+    <ul class="nav2">
+      <a href="#">
+        <i class="fa fa-times"></i>
+      </a>
+      <li class="nav-item"><a href="../index.html">Home</a></li>
+      <li class="nav-item"><a href="../about/about.html">About Us</a></li>
+      <li class="nav-item">
+        <a href="../hire-tutor/hire.html">Hire A Tutor</a>
+      </li>
+      <li class="nav-item"><a href="../news/news.html">News</a></li>
+      <li class="nav-item"><a href="../forum/forums.html">Forums</a></li>
+    </ul>
+
+    <!-- new discussion modal -->
+    <div class="overlay"></div>
+    <section class="discuss-pop-up modal">
+      <div class="btns">
+        <button id="close-msg" style="color: red">Close</button>
+        <button type="submit" id="post-msg" style="color: #3d90ef">Post</button>
+      </div>
+      <form class="add-categories">
+        <div class="category-wrap">
+          <h3>Category</h3>
+          <p class="category-placeholder">
+            <i class="fas fa-tag" style="font-size: 1.3rem"></i>&nbsp; Select to
+            add category
+          </p>
+          <div class="form-control-group">
+            <input type="radio" name="category" id="ui" />
+            <label for="ui">UI/ UX</label>
+          </div>
+          <div class="form-control-group">
+            <input type="radio" name="category" id="utme" />
+            <label for="utme">UI/ UX</label>
+          </div>
+          <div class="form-control-group">
+            <input type="radio" name="category" id="putme" />
+            <label for="putme">UI/ UX</label>
+          </div>
+          <div class="form-control-group">
+            <input type="radio" name="category" id="ut-4" />
+            <label for="ut-4">UI/ UX</label>
+          </div>
+          <div class="form-control-group">
+            <input type="radio" name="category" id="ut-5" />
+            <label for="ut-5">UI/ UX</label>
+          </div>
+        </div>
+        <textarea
+          placeholder="write message here"
+          id="discussion-input-txt"
+        ></textarea>
+      </form>
+    </section>
+
+    <main>
+      <section class="top-search">
+        <form class="form-group" id="search-title">
+          <input type="search" placeholder="Search for a topic" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <div class="left">
+          <a href="#" class="profile">
+            <img
+              src="../images/Ellipse 27 (1).png"
+              alt="profile"
+              class="profile-pic"
+            />
+          </a>
+          <button class="st-discuss">
+            <img src="../images/pen.svg" alt="start discussion" />
+            Start a discussion
+          </button>
+        </div>
+      </section>
+
+      <section class="main">
+        <div class="main-discussion right">
+          <a href="#" class="breadcrumb-link">
+            <span class="forum-category">Forum Title</span>
+            <span class="topic">> Topic</span>
+          </a>
+          <br />
+          <br />
+
+          <article class="main-question thread-wrap">
+            <img src="../images/Ellipse 27 (1).png" alt="avatar" />
+            <div class="text">
+              <div class="info">
+                <b class="name">James Mba</b>
+                <p class="time-posted">3 hours ago</p>
+              </div>
+              <p class="text-msg">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+                repudiandae dolorum dolorem est reprehenderit consectetur
+                aperiam magnam ullam tempora hic?
+              </p>
+            </div>
+          </article>
+          <br />
+
+          <div class="comment-box-wrap thread-wrap">
+            <img
+              src="../images/Ellipse 27.png"
+              alt="forum avatar"
+              class="avatar"
+            />
+            <form id="first-level" class="comment-box">
+              <textarea
+                required
+                id="comment-input"
+                placeholder="Type here to comment or reply the question"
+              ></textarea>
+              <button class="btn" type="submit">Post comment</button>
+            </form>
+          </div>
+
+          <div class="comments">
+            <h4>60 comments.</h4>
+            <br />
+            <article class="first-level-comment thread-wrap">
+              <img src="../images/Ellipse 27 (1).png" alt="avatar" />
+              <div class="text">
+                <div class="info">
+                  <b class="name">James Mba</b>
+                </div>
+                <p class="text-msg">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+                  repudiandae dolorum dolorem est reprehenderit consectetur
+                  aperiam magnam ullam tempora hic?
+                </p>
+                <br />
+                <div class="info">
+                  <button type="button" class="like">Like</button>
+                  <button type="button" class="reply">Reply</button>
+                  <p class="time-posted">3 hrs ago</p>
+                  <p class="time-posted like-count">22 Likes</p>
+                </div>
+                <br />
+
+                <!-- PS: this form below is a template for javascript to hold onto it wont be displayed but cloned -->
+                <div
+                  id="reply-comment-wrap"
+                  class="comment-box-wrap thread-wrap reply-comment-wrap"
+                >
+                  <form class="comment-box reply-comment">
+                    <textarea
+                      required
+                      id="comment-input"
+                      placeholder="Type here to comment or reply the question"
+                    ></textarea>
+                    <div class="btn-group">
+                      <button class="btn submit-reply" type="submit">
+                        Post comment
+                      </button>
+                      <button type="reset" class="btn btn-cancel" type="button">
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
+                  <br />
+                </div>
+                <article class="second-level-commentm thread-wrap">
+                  <img src="../images/Ellipse 27 (1).png" alt="avatar" />
+                  <div class="text">
+                    <div class="info">
+                      <b class="name">James Mba</b>
+                    </div>
+                    <p class="text-msg">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Optio repudiandae dolorum dolorem est reprehenderit
+                      consectetur aperiam magnam ullam tempora hic?
+                    </p>
+                    <br />
+                    <div class="info">
+                      <button type="button" class="like">Like</button>
+                      <p class="time-posted">3 hrs ago</p>
+                      <p class="time-posted like-count">22 Likes</p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </article>
+            <article class="first-level-comment thread-wrap">
+              <img src="../images/Ellipse 27 (1).png" alt="avatar" />
+              <div class="text">
+                <div class="info">
+                  <b class="name">James Mba</b>
+                </div>
+                <p class="text-msg">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+                  repudiandae dolorum dolorem est reprehenderit consectetur
+                  aperiam magnam ullam tempora hic?
+                </p>
+                <br />
+                <div class="info">
+                  <button type="button" class="like">Like</button>
+                  <button type="button" class="reply">Reply</button>
+                  <p class="time-posted">3 hrs ago</p>
+                  <p class="time-posted like-count">22 Likes</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="aside">
+          <div class="popular topics">
+            <h3>Popular Topics</h3>
+            <article class="topic-child">
+              <a href="#"> What is the cause of down syndrome? </a>
+              <p class="stat">
+                <img
+                  src="../images/msg-sq.svg"
+                  alt="forum avatar"
+                  class="comment-icon"
+                />
+                46
+              </p>
+            </article>
+            <article class="topic-child">
+              <a href="#"> What is the cause of down syndrome? </a>
+              <p class="stat">
+                <img
+                  src="../images/msg-sq.svg"
+                  alt="forum avatar"
+                  class="comment-icon"
+                />
+                46
+              </p>
+            </article>
+            <article class="topic-child">
+              <a href="#"> What is the cause of down syndrome? </a>
+              <p class="stat">
+                <img
+                  src="../images/msg-sq.svg"
+                  alt="forum avatar"
+                  class="comment-icon"
+                />
+                46
+              </p>
+            </article>
+          </div>
+          <br />
+          <div class="unanswered topics">
+            <h3>Unanswered Topics</h3>
+            <p class="un-text">
+              These are questions that have not been answered by any member of
+              the forum
+            </p>
+            <article class="un-topic-child">
+              <div class="info">
+                <img
+                  src="../images/Ellipse 27 (1).png"
+                  alt="avatar"
+                  class="avatar"
+                />
+                <b class="name">James Mba</b>
+                <p class="time-posted">3 hours ago</p>
+              </div>
+              <a href="#">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Exercitationem repellat.</a
+              >
+              <p class="stat">
+                <img
+                  src="../images/msg-sq.svg"
+                  alt="forum avatar"
+                  class="comment-icon"
+                />
+                46 comments
+              </p>
+            </article>
+
+            <article class="un-topic-child">
+              <div class="info">
+                <img
+                  src="../images/Ellipse 27 (1).png"
+                  alt="avatar"
+                  class="avatar"
+                />
+                <b class="name">James Mba</b>
+                <p class="time-posted">3 hours ago</p>
+              </div>
+              <a href="#">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Exercitationem repellat.</a
+              >
+              <p class="stat">
+                <img
+                  src="../images/msg-sq.svg"
+                  alt="forum avatar"
+                  class="comment-icon"
+                />
+                46 comments
+              </p>
+            </article>
+
+            <article class="un-topic-child">
+              <div class="info">
+                <img
+                  src="../images/Ellipse 27 (1).png"
+                  alt="avatar"
+                  class="avatar"
+                />
+                <b class="name">James Mba</b>
+                <p class="time-posted">3 hours ago</p>
+              </div>
+              <a href="#">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Exercitationem repellat.</a
+              >
+              <p class="stat">
+                <img
+                  src="../images/msg-sq.svg"
+                  alt="forum avatar"
+                  class="comment-icon"
+                />
+                46 comments
+              </p>
+            </article>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-link-wrap">
+        <div class="ft-wrap">
+          <h4>Quick Links</h4>
+          <a href="../news/news.html" class="footer-link">News</a>
+          <a href="#" class="footer-link">Articles</a>
+          <a href="#" class="footer-link">Resources</a>
+        </div>
+      </div>
+      <div class="footer-link-wrap">
+        <div class="ft-wrap">
+          <h4>Services</h4>
+          <a href="../hire-tutor/hire.html" class="footer-link">Hire A Tutor</a>
+          <a href="../forum/forums.html" class="footer-link">Forums</a>
+          <a href="#" class="footer-link">Registration</a>
+        </div>
+      </div>
+      <div class="follow">
+        <h4>Follow Us</h4>
+        <a href="#" class="footer-link"
+          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ></a>
+        <a href="#" class="footer-link"
+          ><i class="fa fa-twitter" aria-hidden="true"></i
+        ></a>
+        <a href="#" class="footer-link"
+          ><i class="fa fa-facebook" aria-hidden="true"></i
+        ></a>
+      </div>
+    </footer>
+    <script src="../nav-and-footer/nav.js"></script>
+    <script src="./js/discussion.js"></script>
+  </body>
+</html>

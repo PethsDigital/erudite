@@ -1,0 +1,144 @@
+body {
+  background: var(--white-bg);
+  color: var(--text-color);
+  font-family: "Poppins";
+  overflow-x: hidden;
+  font-weight: 400;
+}
+a {
+  text-decoration: none;
+}
+main {
+  width: 90vw;
+  margin: 2rem auto 3.6rem auto;
+  max-width: 1000px;
+}
+.headline {
+  width: 300px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  z-index: 10;
+  color: white;
+}
+/* .headline-bottom {
+  max-width: 30ch;
+  text-overflow: ellipsis;
+} */
+
+/* header */
+
+.news {
+  display: inline-flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 1rem;
+  align-items: flex-start;
+  background-size: 100% 100%;
+  position: relative;
+  box-shadow: 1px -112px 35px -8px rgba(0, 0, 0, 0.62) inset;
+  -webkit-box-shadow: 1px -112px 35px -8px rgba(0, 0, 0, 0.62) inset;
+  -moz-box-shadow: 1px -112px 35px -8px rgba(0, 0, 0, 0.62) inset;
+}
+
+header {
+  width: 100%;
+  height: 65vh;
+  margin-bottom: 2rem;
+  max-height: 600px;
+  min-height: 500px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.big-component {
+  grid-area: 1 / 1 / 7 / 4;
+}
+.sm1 {
+  grid-area: 1 / 4 / 4 / 6;
+}
+.sm2 {
+  grid-area: 4 / 4 / 7 / 6;
+}
+
+/* header media query */
+@media (max-width: 760px) {
+  header {
+    height: auto;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .news {
+    margin-bottom: 0.6rem;
+    height: 35vh;
+    min-height: 250px;
+  }
+}
+
+.news .news-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.news-slider,
+.news-container {
+  width: 90vw;
+  max-width: 1000px;
+  height: auto;
+  margin: 4rem auto 3.6rem auto;
+}
+
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-news {
+  width: 57%;
+}
+.for-you-news {
+  width: 38%;
+}
+@media (max-width: 760px) {
+  body {
+    font-size: 15px;
+  }
+  .top-news,
+  .for-you-news {
+    width: 100%;
+  }
+}
+.hr-news-wrap {
+  border-left: 1px solid grey;
+}
+.hr-news {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 1rem 0.4rem 0.5rem 0;
+  margin-left: 1rem;
+  border-bottom: 1px solid grey;
+}
+.hr-news img {
+  width: 80px;
+  height: 80px;
+  margin-right: 1rem;
+}
+.text {
+  color: var(--text-color);
+}
+.text:hover {
+  color: var(--primary-color);
+}
