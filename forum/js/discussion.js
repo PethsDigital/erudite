@@ -6,7 +6,8 @@ const discussModalbtn = $(".st-discuss");
 const categoryInput = Array.from($$("input[type='radio']"));
 const discussMessageInput = $(".discuss-pop-up textarea");
 const firstLevelReply = $("#first-level");
-const replyBtn = Array.from($$(".reply"));
+// const replyBtn = Array.from($$(".reply"));
+const comments = $(".comments");
 const replyCommentWrap = $("#reply-comment-wrap");
 let replyClone;
 

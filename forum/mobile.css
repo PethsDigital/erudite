@@ -1,6 +1,15 @@
 .main {
   flex-direction: column;
 }
+
+.main-discussion, .btn.submit-reply{
+  margin-right: 0;
+}
+
+.left{
+  margin-left: 0;
+}
+
 .btn-group {
   display: flex;
   flex-direction: column;
