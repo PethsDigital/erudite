@@ -12,7 +12,6 @@ button:focus {
 }
 .btn-group {
   display: flex;
-  gap: 20px;
 }
 .btn.btn-cancel {
   background-color: var(--input-border);
@@ -95,7 +94,7 @@ input[type="search"] {
   margin: 1rem 0;
   display: flex;
   align-items: center;
-  gap: 10px;
+  /* gap: 10px; */
 }
 .discuss-pop-up textarea {
   width: 100%;
@@ -112,7 +111,6 @@ main {
   align-items: center;
   margin: 0.6rem auto 2rem auto;
   width: 100%;
-  gap: 20px;
 }
 
 .form-group {
@@ -128,6 +126,22 @@ main {
   border: 1px solid var(--input-border);
   border-radius: 10px 0 0 10px;
   padding: 5px 10px;
+}
+::-webkit-input-placeholder {
+  color: var(--grey);
+  font-family: "Poppins";
+}
+::-moz-placeholder {
+  color: var(--grey);
+  font-family: "Poppins";
+}
+:-ms-input-placeholder {
+  color: var(--grey);
+  font-family: "Poppins";
+}
+::-ms-input-placeholder {
+  color: var(--grey);
+  font-family: "Poppins";
 }
 ::placeholder {
   color: var(--grey);
@@ -146,8 +160,7 @@ main {
 /* top-search left */
 .left {
   display: inline-flex;
-  justify-content: flex-end;
-  gap: 17px;
+  justify-content: flex-start;
   align-items: center;
   width: 25%;
 }
@@ -164,7 +177,6 @@ main {
   display: flex;
   align-items: center;
   border: none;
-  gap: 8px;
 }
 .left button img {
   height: 0.9rem;
@@ -180,12 +192,9 @@ textarea:focus {
 /* main */
 .main {
   display: flex;
-  gap: 30px;
   font-size: 14.5px;
 }
-.main-fr {
-  gap: 50px;
-}
+
 .breadcrumb-link {
   font-size: 1.3rem;
   font-weight: 500;
@@ -196,7 +205,6 @@ textarea:focus {
 .thread-wrap {
   display: flex;
   justify-content: flex-start;
-  gap: 15px;
   align-items: flex-start;
 }
 .thread-wrap img {
@@ -209,7 +217,6 @@ textarea:focus {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 16px;
   margin-bottom: 0.3rem;
 }
 .info .time-posted {
@@ -290,8 +297,30 @@ textarea {
 }
 
 .stat {
-  gap: 8px;
-  font-size: 0.8rem;
+   font-size: 0.8rem;
+}
+.stat img, button img, input[type="radio"]{
+  margin-right: 10px;
+}
+
+.text{
+  width: 100%;
+}
+
+.unanswered .info *:not(img){
+margin: 7px;
+}
+
+.left{
+  margin: 20px;
+}
+.left .profile, .btn.submit-reply, .text .info *, .thread-wrap img{
+  margin-right: 17px;
+}
+
+
+.main-discussion{
+  margin-right: 50px;
 }
 
 /* unawsered topics */
@@ -304,7 +333,6 @@ textarea {
   margin: 0.5rem 0;
 }
 .unanswered .info {
-  gap: 7px;
   font-size: 0.7rem;
 }
 
@@ -349,7 +377,6 @@ textarea {
 .topics-card {
   background-color: white;
   border-radius: 5px;
-  gap: 16px;
   font-size: 14px;
   margin: 1rem auto;
 }
