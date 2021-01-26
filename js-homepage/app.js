@@ -1,4 +1,5 @@
 // short cut selectors function $ aand $$ are in ./nav-and-footer/nav.js
+// function to handle success or error msg is in the nav.js file
 
 // grab all elements here with the shortcut selector from above comment
 const selects = Array.from($$(".course-select.select"));
@@ -16,7 +17,7 @@ let courseCodes;
 // default aysyn function to be used later
 async function fetchData(url) {
   // disable btn
-  btn.forEach((btn) => (btn.disabled = true));
+  btn.forEach(btn => (btn.disabled = true));
   $("#loader").style.cssText = "clip-path: inset(0 0 0 0);";
 
   try {
@@ -24,11 +25,12 @@ async function fetchData(url) {
     const json = await res.json();
     $("#loader").style.cssText = "clip-path: inset(0 0 100% 0);";
     return json;
-  } catch (err) {
-    console.log(err);
   } finally {
-    btn.forEach((btn) => (btn.textContent = "Check"));
-    btn.forEach((btn) => (btn.disabled = false));
+    //  catch (err) {
+    //   console.log(err);
+    // }
+    btn.forEach(btn => (btn.textContent = "Check"));
+    btn.forEach(btn => (btn.disabled = false));
   }
 }
 
@@ -37,39 +39,22 @@ async function fetchData(url) {
 // dynamically load SUBJECT input option from the api
 function selectSubjects(el, callback) {
   fetch("./json/subjects.json")
-    .then((res) => res.json())
-    .then((data) => {
+    .then(res => res.json())
+    .then(data => {
       courseCodes = data;
       callback(el, Object.values(data));
     })
-    .catch((err) => console.log(err));
+    .catch(err => console.log(err));
 }
-selects.forEach((select) => selectSubjects(select, autocomplete));
+selects.forEach(select => selectSubjects(select, autocomplete));
 
 // dynamically load COURSE input option from the api
 fetch(`https://Erudite-api.herokuapp.com/`)
-  .then((res) => res.json())
-  .then((data) => {
+  .then(res => res.json())
+  .then(data => {
     autocomplete(course, Object.keys(data.results.results));
   })
-  .catch((err) => console.log(err));
-
-// function to handle success or error msg
-function displayMsg(type, resMsg, el) {
-  let msg;
-  msg = document.createElement("p");
-  msg.className = "msg";
-  el.appendChild(msg);
-  if (type === "success") {
-    msg.innerHTML = `&check; &nbsp; ${resMsg}`;
-  } else {
-    msg.innerHTML = `&#9888; &nbsp;${resMsg}`;
-    msg.style.background = "rgba(248, 20, 3, 0.658)";
-  }
-  setTimeout(() => {
-    msg.style.display = "none";
-  }, 4000);
-}
+  .catch(err => console.log(err));
 
 // template to display courses from selected subjects (form1)
 function displayCourseResult(sub) {
@@ -102,12 +87,12 @@ function displayCourseSubject(key, sub) {
   $(".course-result-modal.modal h2").textContent =
     "Jamb Combination For Your Course";
   courseDiv.innerHTML += `<h4 class="course-title">${course.value}</h4>`;
-  sub.compulsory.forEach((code) => {
+  sub.compulsory.forEach(code => {
     courseDiv.innerHTML += `<p class="course-child">${code} (Compulsory)</p>`;
   });
 
   for (key in sub.optional) {
-    sub.optional[key].forEach((code) => {
+    sub.optional[key].forEach(code => {
       courseDiv.innerHTML += `<p class="course-child">${code} (Optional)</p>`;
     });
   }
@@ -115,18 +100,18 @@ function displayCourseSubject(key, sub) {
 
 // function snippets to be invoked later
 function getKeyByValue(object, value) {
-  return Object.keys(object).find((key) => object[key] === value);
+  return Object.keys(object).find(key => object[key] === value);
 }
 function checkForDuplicates(array) {
   return new Set(array).size !== array.length;
 }
 
 // function for checking courses by subjects (form1)
-checkCourse.addEventListener("submit", (e) => {
+checkCourse.addEventListener("submit", e => {
   $("#check-by-sub button").textContent = "loading...";
 
   //   set data attribute for each selected subject
-  selects.forEach((sub) => {
+  selects.forEach(sub => {
     for (let key in courseCodes) {
       if (sub.value === courseCodes[key]) {
         sub.setAttribute(
@@ -139,7 +124,7 @@ checkCourse.addEventListener("submit", (e) => {
 
   //   a little form validation for valid input
   let values;
-  let arrVal = selects.map((sub) => sub.getAttribute("data-input-value"));
+  let arrVal = selects.map(sub => sub.getAttribute("data-input-value"));
   let valPlaceholder = `1,${$("#sub2").getAttribute("data-input-value")},${$(
     "#sub3"
   ).getAttribute("data-input-value")},${$("#sub4").getAttribute(
@@ -158,18 +143,18 @@ checkCourse.addEventListener("submit", (e) => {
   }
 
   fetchData("./json/checker.json")
-    .then((data) => {
+    .then(data => {
       let result = [];
       for (let i = 0; i < data.result.length; i++) {
         if (
-          values.split(",").every((val) => data.result[i].Subject.includes(val))
+          values.split(",").every(val => data.result[i].Subject.includes(val))
         ) {
           result.push(data.result[i].Course);
         }
       }
       setTimeout(() => displayCourseResult(result, 400));
     })
-    .catch((err) => {
+    .catch(err => {
       displayMsg(
         "error",
         "Request failed please try again later :)",
@@ -181,24 +166,24 @@ checkCourse.addEventListener("submit", (e) => {
 });
 
 // function for courses subject combo (form2)
-courseCombo.addEventListener("submit", (e) => {
+courseCombo.addEventListener("submit", e => {
   $("#course-combo button").textContent = "loading...";
 
   fetchData("https://Erudite-api.herokuapp.com/")
-    .then((data) => {
+    .then(data => {
       //console.log(data);
       for (let key in data.results.results) {
         //console.log(`${key}`,course.value);
         if (`${key}` == course.value) {
           displayCourseSubject(key, data.results.results[key].subjects);
           courseDiv.innerHTML += `<h4 class="course-title">List Of Schools:</h4>`;
-          data.results.results[key].schools.forEach((sch) => {
+          data.results.results[key].schools.forEach(sch => {
             courseDiv.innerHTML += `<span>${sch}</span> &nbsp;&nbsp;`;
           });
         }
       }
     })
-    .catch((err) => {
+    .catch(err => {
       displayMsg(
         "error",
         "Request failed please try again later :)",
@@ -210,12 +195,12 @@ courseCombo.addEventListener("submit", (e) => {
 });
 
 // close modals function
-closeBtn.forEach((btn) =>
+closeBtn.forEach(btn =>
   btn.addEventListener("click", () => {
     $(".course-result-modal.modal").style.cssText = "display: none";
     $(".feedback-modal.modal").style.cssText = "display: none";
     $(".overlay").style.display = "none";
     course.value = "";
-    selects.forEach((sub) => (sub.value = ""));
+    selects.forEach(sub => (sub.value = ""));
   })
 );

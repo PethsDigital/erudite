@@ -1,11 +1,3 @@
-body {
-  background: var(--white-bg);
-  color: var(--text-color);
-  font-family: "Poppins";
-  /* font-family: "Nunito" !important; */
-  overflow-x: hidden;
-  font-weight: 400;
-}
 /* general stylings */
 a {
   text-decoration: none;
@@ -18,12 +10,13 @@ section {
 
 .course-select,
 textarea {
-  border: 1px solid #a3a2a2;
+  /* border: 0 solid #a3a2a2; */
   transition: 0.5s;
+  border: none;
 }
 .course-select:focus,
 .course-select:checked {
-  border: none;
+  box-shadow: none !important;
   outline: none;
   border-bottom: 3px solid var(--primary-color);
 }
@@ -172,26 +165,6 @@ section p {
 
 .text h3 {
   align-self: center;
-}
-
-.msg {
-  background-color: rgba(4, 182, 4, 0.781);
-  border-radius: 5px;
-  color: white;
-  margin: 0.5rem auto;
-  transform: scaleY(0);
-  padding: 0.5rem 1rem;
-  transform-origin: top;
-  width: 95%;
-  display: block;
-  -webkit-animation: msg 0.5s ease forwards;
-  animation: msg 0.5s ease forwards;
-}
-
-@keyframes msg {
-  to {
-    transform: scaleY(1);
-  }
 }
 
 /* Modals */

@@ -22,48 +22,16 @@ body {
   text-decoration: none;
 } */
 
-.btn {
-  background: var(--primary-color);
-  color: white;
-  padding: 0.4rem 2rem;
-  border-radius: 6px;
-  text-decoration: none;
-  margin: 1rem auto;
-  transition: 0.5s;
-  border: none;
-  font-size: 1rem;
-  outline: none;
-  display: flex;
-  align-self: center;
-  cursor: pointer;
-}
-.btn:hover {
-  background: var(--hover);
-  border: none;
-}
 input,
 textarea {
   border: 1px solid #a3a2a2;
   transition: 0.5s;
 }
-input:focus,
 textarea:focus {
   outline: none;
   border: 1px solid var(--primary-color);
 }
 
-/* .logo-text {
-  position: static;
-  width: 100%;
-  background-color: var(--white-bg);
-  z-index: 20;
-  font-weight: 400;
-  color: var(--primary-color);
-  font-size: 2rem;
-  user-select: none;
-  display: inline-block;
-  padding: 0.5rem;
-} */
 main {
   display: flex;
   align-items: center;
@@ -71,7 +39,7 @@ main {
   width: 100vw;
   overflow-x: hidden;
   flex-wrap: wrap;
-  height: 100vh;
+  height: calc(100vh - 70px);
 }
 section.signup-wrap {
   display: flex;
@@ -96,7 +64,19 @@ section.signup-wrap {
   flex-direction: column-reverse;
 }
 
+.flex-form-grp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.sm-grp {
+  width: 100%;
+}
+
 input,
+select,
 textarea {
   width: 100%;
   height: 45px;
@@ -105,6 +85,30 @@ textarea {
   padding: 0.5rem;
   background-color: transparent;
 }
+
+.pwd-wrap {
+  position: relative;
+  height: auto;
+  width: auto;
+}
+.view-pwd {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 45px;
+  padding: 0.6rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  border-radius: 0 8px 8px 0;
+}
+.view-pwd:focus {
+  box-shadow: none;
+}
+
 label {
   font-size: 0.95rem;
   font-weight: 500;
@@ -142,7 +146,7 @@ textarea:focus + label {
   width: 90%;
   max-width: 650px;
   height: 70vh;
-  min-height: 450px;
+  min-height: 400px;
   background: url("../images/signup-img.png") center center no-repeat;
   background-size: 100% 100%;
   color: white;
@@ -177,12 +181,15 @@ textarea:focus + label {
   border: 1px solid white;
 }
 @media screen and (min-width: 1000px) {
-/*   .logo-text {
+  /*   .logo-text {
     width: 50%;
     position: absolute;
     top: 0;
     left: 0;
   } */
+  .sm-grp {
+    width: 45%;
+  }
   section.signup-wrap,
   .img-wrap {
     width: 50%;

@@ -7,6 +7,7 @@
   --primary-color: #3d90ef;
   --bg-color: rgba(61, 144, 239, 0.5);
   --hover: rgb(95, 161, 236);
+  --focus-shadow: 0 0 0 4px rgba(95, 161, 236, 0.651);
   --text-color: #222;
   --white-bg: #fafafa;
   scroll-behavior: smooth;
@@ -15,12 +16,41 @@ body {
   background: var(--white-bg);
   color: var(--text-color);
   font-family: "Poppins";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   font-weight: 400;
 }
 a {
   text-decoration: none;
 }
+
+.msg {
+  background-color: rgba(4, 182, 4, 0.781);
+  border-radius: 5px;
+  color: white;
+  margin: 0.5rem auto;
+  transform: scaleY(0);
+  padding: 0.5rem 1rem;
+  transform-origin: top;
+  width: 95%;
+  display: block;
+  -webkit-animation: msg 0.5s ease forwards;
+  animation: msg 0.5s ease forwards;
+}
+
+@keyframes msg {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes msg {
+  to {
+    transform: scaleY(1);
+  }
+}
+
 /* btn styling */
 .btn {
   background: var(--primary-color);
@@ -39,6 +69,14 @@ a {
 }
 .btn:hover {
   background: var(--hover);
+}
+
+button:focus,
+.btn:active,
+select:focus,
+input:not([type="radio"]):focus {
+  box-shadow: var(--focus-shadow);
+  outline: none;
 }
 
 .navbar {
