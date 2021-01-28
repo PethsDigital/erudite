@@ -50,7 +50,7 @@ loginForm.addEventListener("submit", e => {
     })
     .finally(_ => {
       Array.from($$(".login-form input")).forEach(input => (input.value = ""));
-      loginBtn.textContent = "Submit";
+      loginBtn.textContent = "Login";
       loginBtn.disabled = false;
     });
 });

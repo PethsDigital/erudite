@@ -52,7 +52,7 @@ signupForm.addEventListener("submit", e => {
         Array.from($$(".signup-form input")).forEach(
           input => (input.value = "")
         );
-        loginBtn.textContent = "Submit";
+        loginBtn.textContent = "Sign Up";
         loginBtn.disabled = false;
       });
   } else {
