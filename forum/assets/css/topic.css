@@ -3,6 +3,13 @@
   --input-border: #e6e6e6;
   --grey: #aaaaaa;
 }
+a {
+  color: var(--text-color);
+  transition: 0.4s;
+}
+/* a:hover {
+  color: var(--primary-color);
+} */
 button {
   cursor: pointer;
   font-family: "Poppins";
@@ -39,7 +46,7 @@ input[type="search"] {
   border: 1px solid var(--input-border);
 }
 
-.discuss-pop-up input {
+.discuss-pop-up input[type="radio"] {
   height: 17px;
   width: 17px;
   -webkit-appearance: none;
@@ -55,14 +62,14 @@ input[type="search"] {
   position: relative;
 }
 
-.discuss-pop-up input:checked {
+.discuss-pop-up input[type="radio"]:checked {
   background: var(--primary-color);
 }
 #reply-comment-wrap {
   display: none !important;
 }
 
-.discuss-pop-up input:checked::before {
+.discuss-pop-up input[type="radio"]:checked::before {
   content: "\2713";
   display: block;
   font-weight: bold;
@@ -96,6 +103,20 @@ input[type="search"] {
   align-items: center;
   /* gap: 10px; */
 }
+
+.discuss-pop-up input[type="text"] {
+  width: 100%;
+  height: 45px;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  border: 1px solid var(--input-border);
+}
+.discuss-pop-up input[type="text"]:focus {
+  box-shadow: none;
+  border: 1px solid var(--primary-color);
+}
+
 .discuss-pop-up textarea {
   width: 100%;
 }
@@ -297,30 +318,35 @@ textarea {
 }
 
 .stat {
-   font-size: 0.8rem;
+  font-size: 0.8rem;
 }
-.stat img, button img, input[type="radio"]{
+.stat img,
+button img,
+input[type="radio"] {
   margin-right: 10px;
 }
 
-.text{
+.text {
   width: 100%;
 }
 
-.unanswered .info *:not(img){
-margin: 7px;
+.unanswered .info *:not(img) {
+  margin: 7px;
 }
 
-.left{
+.left {
   margin: 20px;
 }
-.left .profile, .btn.submit-reply, .text .info *, .thread-wrap img{
+.left .profile,
+.btn.submit-reply,
+.text .info *,
+.thread-wrap img {
   margin-right: 17px;
 }
 
-
-.main-discussion{
+.main-discussion {
   margin-right: 50px;
+  flex-grow: 3;
 }
 
 /* unawsered topics */
@@ -400,7 +426,7 @@ margin: 7px;
   background-color: var(--grey);
 }
 .stat-info .cm-icon {
-  background: url("../images/comment_chat.svg") no-repeat center center;
+  background: url("../../../images/comment_chat.svg") no-repeat center center;
   background-size: 100% 100%;
   color: white;
   margin-bottom: 0.5rem;

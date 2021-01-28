@@ -68,3 +68,61 @@ function changeInputType(oldObject, oType) {
   oldObject.parentNode.replaceChild(newObject, oldObject);
   return newObject;
 }
+
+// for start a discussion modal
+const discussModal = $(".discuss-pop-up");
+const discussModalbtn = $(".st-discuss");
+const categoryInput = Array.from($$("input[type='radio']"));
+const discussMessageInput = $(".discuss-pop-up textarea");
+const firstLevelReply = $("#first-level");
+const replyBtn = Array.from($$(".reply"));
+const comments = $(".comments");
+const replyCommentWrap = $("#reply-comment-wrap");
+let replyClone;
+
+discussModalbtn.addEventListener("click", e => {
+  discussModal.style.cssText = "display: block;";
+  $(".overlay").style.display = "block";
+});
+
+// close modal section
+Array.from($$(".close-msg")).forEach(btn => {
+  btn.addEventListener("click", () => {
+    discussModal.style.cssText = "display: none;";
+    $(".overlay").style.display = "none";
+    discussMessageInput.value = "";
+    categoryInput.forEach(radio => (radio.checked = false));
+  });
+});
+
+// to store userVerification
+let userAuth = JSON.parse(localStorage.getItem("erudite_auth"));
+let token = userAuth.token;
+
+function getData(url) {
+  return fetch(url, {
+    headers: {
+      Authorization: `bearer ${token}`,
+    },
+  })
+    .then(res => res.json())
+    .then(json => {
+      document.body.style.pointerEvents = "all";
+      $(".ball-loader").style.display = "none";
+      return json.data;
+    })
+    .catch(err => {
+      if (!token) {
+        displayMsg(
+          "error",
+          `pls <a href="../registration/login.html" target="_blank" rel="noopener noreferrer">Login</a>
+          or <a href="../registration/signup.html" target="_blank" rel="noopener noreferrer">Sign-up</a> to enable this action`,
+          $("form.discuss-pop-up")
+        );
+      }
+      $("main").style.display = "none";
+      $(".ball-loader").style.display = "none";
+      $(".oops").style.display = "flex";
+      console.log(err);
+    });
+}

@@ -115,6 +115,7 @@ label {
   transition: 0.4s;
   transform: scaleY(0);
   transform-origin: bottom;
+  position: relative;
 }
 input::placeholder,
 textarea::placeholder {
@@ -131,6 +132,7 @@ textarea:focus::placeholder {
 }
 
 input:focus + label,
+.pwd-wrap input:active ~ label,
 textarea:focus + label {
   color: var(--primary-color);
   transform: scaleY(1);
