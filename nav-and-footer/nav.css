@@ -99,7 +99,10 @@ a {
     transform: scaleY(1);
   }
 }
-
+button,
+input {
+  border-radius: 6px;
+}
 /* btn styling */
 .btn {
   background: var(--primary-color);
@@ -119,6 +122,10 @@ a {
 .btn:hover {
   background: var(--hover);
 }
+.btn:disabled {
+  background-color: #96b7db;
+  cursor: wait;
+}
 
 button:focus,
 .btn:active,
@@ -127,7 +134,9 @@ input:not([type="radio"]):focus {
   box-shadow: var(--focus-shadow);
   outline: none;
 }
-
+input {
+  font-family: "Poppins";
+}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -188,6 +197,7 @@ input:not([type="radio"]):focus {
   font-size: 0.92rem;
   align-self: center;
   color: var(--white-bg);
+  border-radius: 5px;
 }
 .nav-item a:hover {
   color: var(--primary-color);
@@ -279,6 +289,10 @@ footer {
   }
   .nav-item.active a {
     color: var(--primary-color);
+  }
+  .nav-item a:hover {
+    background-color: rgba(149, 182, 219, 0.158);
+    border-radius: 5px;
   }
   .nav-item.active a::before {
     content: "";

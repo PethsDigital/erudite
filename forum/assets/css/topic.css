@@ -245,6 +245,17 @@ textarea:focus {
   font-size: 0.7rem;
 }
 
+.info button i {
+  margin: 0 !important;
+  color: #7a7a7a;
+}
+.info .liked {
+  color: var(--primary-color);
+}
+.info .liked i {
+  color: var(--primary-color);
+}
+
 /* comment box */
 .comment-box-wrap .btn {
   margin: 1rem 0;
@@ -290,10 +301,21 @@ textarea {
   color: var(--text-color);
   border: none;
 }
-.info button:hover {
-  color: var(--primary-color);
-}
 
+.st-discuss,
+.info button {
+  padding: 0.5rem;
+  /* background-color: rgba(120, 121, 122, 0.158) !important; */
+}
+.st-discuss:hover,
+.info button:hover {
+  background-color: var(--input-border);
+}
+.info button:focus,
+.form-group input:focus,
+.form-group button:focus {
+  box-shadow: none;
+}
 /* aside */
 .main .aside {
   width: 35%;
@@ -457,6 +479,9 @@ input[type="radio"] {
   background: white;
   border-radius: 5px;
   padding: 1rem;
+  min-height: 40vh;
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
 #categories h3 {

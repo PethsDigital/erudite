@@ -1,5 +1,5 @@
 // get fetch request (function getData) declaration and short cut selectors function $ aand $$ are in ./nav-and-footer/nav.js
-// let replyClone;
+
 // open reply box to comments (one-level-deep)
 let parent;
 comments.addEventListener("click", e => {
@@ -8,40 +8,32 @@ comments.addEventListener("click", e => {
     replyClone = replyCommentWrap.cloneNode(true);
     replyClone.id = "";
     parent.insertAdjacentElement("afterend", replyClone);
-    e.target.disabled = true;
 
     // invoke event for second level comment
   } else if (e.target.className === "btn btn-cancel") {
     // close comment form
-    Array.from($$(".reply")).forEach(btn => (btn.disabled = false));
     e.target.parentElement.parentElement.parentElement.style.display = "none";
-    // e.target.parentElement.parentElement.parentElement.removeChild(replyClone);
   }
 });
 let replyVal;
 
 // a functional template to display comment based on level (first or second)
 function replyCommentEvent(el, level, parent) {
-  el.addEventListener("submit", e => {
-    e.preventDefault();
-
-    replyVal = `<article class="${level}-level-comment thread-wrap"><img src="../images/Ellipse 27 (1).png" alt="avatar" /><div class="text"><div class="info"><b class="name">James Mba</b></div><p class="text-msg">${
-      el.firstElementChild.firstElementChild?.value ||
-      el.firstElementChild.value
-    }</p><br /><div class="info"><button type="button" class="like">Like</button>${
-      level === "first"
-        ? '<button type="button" class="reply">Reply</button>'
-        : ""
-    }<p class="time-posted">3 hrs ago</p><p class="time-posted like-count">22 Likes</p></div></div></article>`;
-
-    // empty or close comment box depending on level
+  replyVal = `<article class="${level}-level-comment thread-wrap"><img src="../images/Ellipse 27 (1).png" alt="avatar" /><div class="text"><div class="info"><b class="name">James Mba</b></div><p class="text-msg">${
+    el.firstElementChild.firstElementChild?.value || el.firstElementChild.value
+  }</p><br /><div class="info"><button role="checkbox" type="button" class="like"><i class="fa fa-heart"></i>0</button>${
     level === "first"
-      ? (el.firstElementChild.value = "")
-      : (el.style.display = "none");
-    // parent.insertAdjacentHTML("afterend", replyVal);
-    parent.innerHTML += replyVal;
-    Array.from($$(".reply")).forEach(btn => (btn.disabled = false));
-  });
+      ? '<button type="button" class="reply">Reply</button>'
+      : ""
+  }<p class="time-posted">3 hrs ago</p></div></div></article>
+           </div>`;
+
+  // empty or close comment box depending on level
+  level === "first"
+    ? (el.firstElementChild.value = "")
+    : (el.parentElement.parentElement.style.display = "none");
+  // parent.insertAdjacentHTML("afterend", replyVal);
+  parent.innerHTML += replyVal;
 }
 
 const firstLevelComment = $(".comments-wrapper");
@@ -49,7 +41,7 @@ $("#first-level").addEventListener("submit", e => {
   e.preventDefault();
 
   const comment = $("#first-level #comment-input");
-  let url = `https://erudite-be.herokuapp.com/v1/comments/add/topic/${35467}`;
+  let url = `https://erudite-be.herokuapp.com/v1/comments/add/topic/${topicId}`;
   let topicDetails = {
     comment: comment.value,
     userId: JSON.parse(localStorage.getItem("erudite_auth")).userId,
@@ -66,12 +58,19 @@ $("#first-level").addEventListener("submit", e => {
   };
   // activate reply event for geneeral (first-level) comments
   replyApi(url, requestBody, firstLevelReply, "first", firstLevelComment);
+  // console.log();
+  // replyCommentEvent(firstLevelReply, "first", firstLevelComment);
 });
 
-Array.from($$(".reply-comment")).forEach(el => {
-  el.addEventListener("submit", e => {
+comments.addEventListener("submit", e => {
+  e.preventDefault();
+  if (e.target.className === "comment-box reply-comment") {
     const reply = $("#comment-input");
-    let url = `https://erudite-be.herokuapp.com/v1/comments/reply/${35467}`;
+    console.log(
+      e.target.parentElement.parentElement.parentElement.id,
+      e.target.parentElement.parentElement.parentElement
+    );
+    let url = `https://erudite-be.herokuapp.com/v1/comments/reply/${e.target.parentElement.parentElement.parentElement.id}`;
     let topicDetails = {
       reply: reply.value,
       userId: JSON.parse(localStorage.getItem("erudite_auth")).userId,
@@ -95,17 +94,20 @@ Array.from($$(".reply-comment")).forEach(el => {
       "second",
       replyClone
     );
-  });
+  }
 });
 
 function replyApi(url, requestBody, el, level, parent) {
+  el.querySelector("button[type='submit']").innerHTML = "loading...";
+  el.querySelector("button[type='submit']").disabled = true;
   return fetch(url, requestBody)
     .then(res => res.json())
     .then(response => {
       console.log(response);
       if (response.success == true) {
-        displayMsg("success", response.message, $(".error"));
+        displayMsg("success", response.message, $(".msg-wrap"));
         replyCommentEvent(el, level, parent);
+        console.log(el, parent, level);
       } else {
         displayMsg("error", response.message, $(".msg-wrap"));
       }
@@ -123,6 +125,9 @@ function replyApi(url, requestBody, el, level, parent) {
       displayMsg("error", err, $(".msg-wrap"));
     })
     .finally(_ => {
-      $("form").reset();
+      Array.from($$("form")).forEach(form => form.reset());
+      el.querySelector("button[type='submit']").textContent = "Post Comment";
+      el.querySelector("button[type='submit']").disabled = false;
+      console.log(el.querySelector("button[type='submit']"));
     });
 }

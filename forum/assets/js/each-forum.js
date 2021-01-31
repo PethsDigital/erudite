@@ -1,12 +1,15 @@
 // get fetch request (function getData) declaration and short cut selectors function $ aand $$ are in ./nav-and-footer/nav.js
 
 // template function to get topics depending on route
-// let url = window.location.href.split("?").pop().split("=")[1];
+let urlId = window.location.href.split("?").pop().split("=")[1];
 
-getData("./assets/json/forumsbyid.json").then(json => {
-  let parentEl = $(".topics-wrap");
-  json.topics.forEach(el => {
-    let templateTopicsCard = `<article class="topics-card">
+getData(`https://erudite-be.herokuapp.com/v1/topics/forum/${urlId}`).then(
+  json => {
+    console.log(json);
+    $(".title-n-nav .tag").innerHTML = `${json.forum} Forum`;
+    let parentEl = $(".topics-wrap");
+    json.topics.reverse().forEach(el => {
+      let templateTopicsCard = `<article class="topics-card">
             <div class="wrapper">
               <img
                 src="../images/profile-pic.png"
@@ -15,11 +18,11 @@ getData("./assets/json/forumsbyid.json").then(json => {
               />
               <div class="text">
                 <h2 class="tp-title">
-                  <a href="./topic.html">
+                  <a href="./topic.html?id=${el._id}">
                     ${el.title}
                   </a>
                 </h2>
-                <a href="./topic.html" class="question">
+                <a href="./topic.html?id=${el._id}" class="question">
                  ${el.description}
                 </a>
               </div>
@@ -32,10 +35,11 @@ getData("./assets/json/forumsbyid.json").then(json => {
               <p class="views"><i class="fa fa-heart"> &nbsp; </i>${el.likes.length}</p>
             </div>
             </article>`;
-    if (json.length === 0) {
-      $(".oops").style.display = "flex";
-      $(".oops p").style.display = "No Topic has been created yet";
-    }
-    parentEl.innerHTML += templateTopicsCard;
-  });
-});
+      if (json.length === 0) {
+        $(".oops").style.display = "flex";
+        $(".oops p").style.display = "No Topic has been created yet";
+      }
+      parentEl.innerHTML += templateTopicsCard;
+    });
+  }
+);

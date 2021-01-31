@@ -98,7 +98,20 @@ Array.from($$(".close-msg")).forEach(btn => {
 // to store userVerification
 let userAuth = JSON.parse(localStorage.getItem("erudite_auth"));
 let token = userAuth.token;
-
+let avatars = [
+  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046507/erudite/Ellipse_68_vgi4ez.png",
+  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046507/erudite/Avatar_ng07if.png",
+  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046507/erudite/Ellipse_60_zhre1e.png",
+  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046507/erudite/Avatar_1_bu2acu.png",
+  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046507/erudite/Ellipse_59_jpwyp0.png",
+  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046507/erudite/Ellipse_69_zxhsxx.png",
+  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046506/erudite/Ellipse_66_bo7gaq.png",
+  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046506/erudite/Ellipse_63_gejtgh.png",
+  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046506/erudite/Ellipse_62_csuyyx.png",
+  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046506/erudite/Ellipse_67_r59opf.png",
+  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046506/erudite/Ellipse_64_ggrymu.png",
+  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046506/erudite/Ellipse_65_gsipfj.png",
+];
 function getData(url) {
   return fetch(url, {
     headers: {

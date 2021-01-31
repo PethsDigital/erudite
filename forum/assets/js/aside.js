@@ -1,16 +1,15 @@
 // get fetch request (function getData) declaration and short cut selectors function $ aand $$ are in ./nav-and-footer/nav.js
 
 // template for unanswered topics
-getData("./assets/json/alltitles.json").then(json => {
+getData("https://erudite-be.herokuapp.com/v1/topics/").then(json => {
   let parentEl = $("#unanswered");
   let data = json.filter(el => el.comments.length == 0);
-  let name;
-  data.forEach(el => {
-    // getData(`https://erudite-be.herokuapp.com/v1/users/${el.userId}`).then(
-    //   res => {
-    //     name = res.name;
-    //   }
-    // );
+  if (data.length == 0) {
+    parentEl.innerHTML += `<h1 class="un-text"  style="color: #222; text-align: center; margin: 2rem auto;">
+      0 topics...
+    </h1>`;
+  }
+  data.reverse().forEach(el => {
     let templateTopicsCard = ` <article class="un-topic-child">
             <div class="info">
               <img
@@ -18,9 +17,9 @@ getData("./assets/json/alltitles.json").then(json => {
                 alt="avatar"
                 class="avatar"
               />
-              <b class="name">${name}</b>
+              <b class="name">${el.user.name}</b>
             </div>
-            <a href="#">
+            <a href="./topic.html?id=${el._id}">
              ${el.description}</a
             >
             <p class="stat">
@@ -34,15 +33,10 @@ getData("./assets/json/alltitles.json").then(json => {
           </article>`;
     parentEl.innerHTML += templateTopicsCard;
   });
-  if (data.length == 0) {
-    parentEl.innerHTML += `<h1 class="un-text"  style="color: #222; text-align: center; margin: 2rem auto;">
-      0 topics...
-    </h1>`;
-  }
 });
 
 // template for popular topics
-getData("./assets/json/alltitles.json").then(json => {
+getData("https://erudite-be.herokuapp.com/v1/topics/").then(json => {
   let parentEl = $(".popular.topics");
   let data = json.filter(el => el.comments.length >= 50);
   data.forEach(el => {
@@ -66,13 +60,14 @@ getData("./assets/json/alltitles.json").then(json => {
   }
 });
 
-getData("./assets/json/allforums.json").then(json => {
+getData("https://erudite-be.herokuapp.com/v1/forums/").then(json => {
   let categories = $(".category-wrap");
   json.forEach(el => {
     let categoryRadio = ` <div class="form-control-group">
-    <input required value="${el.forumId}" type="radio" name="category" id="${el.forumId}" />
-    <label for="${el.forumId}">${el.name}</label>
+    <input required value="${el._id}" type="radio" name="category" id="${el._id}" />
+    <label for="${el._id}">${el.name}</label>
   </div>`;
     categories.innerHTML += categoryRadio;
+    console.log(el._id, el.name);
   });
 });

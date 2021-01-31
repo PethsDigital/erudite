@@ -17,7 +17,7 @@ $("form.discuss-pop-up").addEventListener("submit", e => {
     title: title.value,
     userId: JSON.parse(localStorage.getItem("erudite_auth")).userId,
   };
-
+  console.log(topicDetails);
   let requestBody = {
     method: "POST",
     headers: {
@@ -34,6 +34,10 @@ $("form.discuss-pop-up").addEventListener("submit", e => {
       console.log(response);
       if (response.success == true) {
         displayMsg("success", response.message, $(".error"));
+      } else if (
+        response.message.includes("E11000 duplicate key error collection:")
+      ) {
+        displayMsg("error", "Topic already exists", $(".error"));
       } else {
         displayMsg("error", response.message, $(".error"));
       }
