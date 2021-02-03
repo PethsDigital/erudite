@@ -227,7 +227,46 @@ label.star {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
+/* notify section */
+#notify {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.notify-text {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.notify-text h2 {
+  font-weight: 500;
+}
+.notify-text h4 {
+  font-weight: 400;
+  font-size: 1rem;
+}
 
+.notify-email {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem 1rem;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  background: #ebf3fc;
+  border-radius: 15px 0 15px 15px;
+}
+.notify-email input,
+.notify-email button {
+  width: 90%;
+  height: 45px;
+  margin: 0.5rem auto;
+  border: none;
+}
+.notify-email input {
+  padding-left: 0.5rem;
+  font-family: "Poppins";
+}
 input.star:checked ~ label.star:before {
   content: "\f005";
   color: #fd4;
@@ -319,12 +358,10 @@ input.star-2:checked ~ label.star:before {
   .heading {
     font-size: 1.6rem;
   }
-  /* .header-text h1 {
-    font-size: 2.4rem;
+  .notify-email,
+  .notify-text {
+    width: 47%;
   }
-  .header-text {
-    font-size: 1.2rem;
-  } */
   label.star:before {
     font-size: 1.6rem;
   }
@@ -351,8 +388,8 @@ input.star-2:checked ~ label.star:before {
     /* margin: 0.7rem 0 !important; */
     align-self: flex-start;
   }
-  section h2,
-  section p {
+  section:not(#notify) h2,
+  section:not(#notify) p {
     text-align: center;
   }
   /* modal */

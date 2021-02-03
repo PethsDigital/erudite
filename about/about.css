@@ -41,7 +41,7 @@ main h1 {
 
 @media screen and (min-width: 768px) {
   main {
-    height: 80vh;
+    min-height: 80vh;
     padding: 1rem 2rem;
     width: 80vw;
   }

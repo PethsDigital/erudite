@@ -19,23 +19,20 @@ async function fetchData(url) {
   // disable btn
   btn.forEach(btn => (btn.disabled = true));
   $("#loader").style.cssText = "clip-path: inset(0 0 0 0);";
+  document.body.style.pointerEvents = "none";
 
   try {
     const res = await fetch(url);
     const json = await res.json();
-    $("#loader").style.cssText = "clip-path: inset(0 0 100% 0);";
     return json;
   } finally {
-    //  catch (err) {
-    //   console.log(err);
-    // }
+    $("#loader").style.cssText = "clip-path: inset(0 0 100% 0);";
+    document.body.style.pointerEvents = "all";
     btn.forEach(btn => (btn.textContent = "Check"));
     btn.forEach(btn => (btn.disabled = false));
   }
 }
 
-// `https://Erudite-api.herokuapp.com/codes/subjects`
-// https://Erudite-api.herokuapp.com/
 // dynamically load SUBJECT input option from the api
 function selectSubjects(el, callback) {
   fetch("./json/subjects.json")
@@ -85,7 +82,7 @@ function displayCourseSubject(key, sub) {
   $(".course-result-modal.modal").style.cssText = "display: block;";
   $(".overlay").style.display = "block";
   $(".course-result-modal.modal h2").textContent =
-    "Jamb Combination For Your Course";
+    "UTME Combination For Your Course";
   courseDiv.innerHTML += `<h4 class="course-title">${course.value}</h4>`;
   sub.compulsory.forEach(code => {
     courseDiv.innerHTML += `<p class="course-child">${code} (Compulsory)</p>`;

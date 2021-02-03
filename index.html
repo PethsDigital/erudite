@@ -50,15 +50,46 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="shortcut icon"
+      href="./images/logo-blue.png"
+      type="image/x-icon"
+    />
     <title>Erudite</title>
+    <link rel="canonical" href="https://erudite.ng" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Erudite is an educational platform made up of a team of professionals dedicated to guiding students towards academic success."
+    />
+    <meta
+      property="og:title"
+      content="Erudite - Your guide to academic success"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://erudite.ng" />
+    <meta property="og:image" content="./images/mockup.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@eruditeng_" />
+    <meta name="twitter:creator" content="@eruditeng_" />
+    <meta name="twitter:image" content="./images/mockup.png" />
+    <meta name="twitter:title" content="Erudite" />
+    <meta
+      name="twitter:description"
+      content="Erudite is an educational platform made up of a team of professionals dedicated to guiding students towards academic success."
+    />
   </head>
   <body>
-    <div class="preloader loader">
+    <!-- <div class="preloader loader">
       <h1>Erudite</h1>
-      <p>Made Just For You...</p>
-    </div>
+      <p>Your guide to academic success...</p>
+    </div> -->
     <nav class="navbar">
-      <h1 class="logo-text"><a href="../">Erudite</a></h1>
+      <a href="#" class="logo">
+        <img src="./images/logo-blue.png" alt="" class="logo-img" />
+        <p class="logo-text">Erudite</p>
+      </a>
+      <!-- <h1 class="logo-text"><a href="../">Erudite</a></h1> -->
       <i class="fa fa-bars fa-2x"></i>
       <ul class="nav-menu">
         <li class="nav-item active"><a href="#">Home</a></li>
@@ -77,18 +108,18 @@
     <header>
       <div class="header-text">
         <h1>Welcome To Erudite</h1>
-        <p>Let’s make your journey a seamless one.</p>
+        <p>Your guide to academic success...</p>
         <a href="#notify" class="btn">Get Notified</a>
       </div>
       <div class="header-img">
-        <img src="images/header-img.png" alt="header-img" />
+        <img src="images/header-img2.png" alt="header-img" />
       </div>
     </header>
 
     <section class="courses">
       <h2 class="heading">Check Courses You Can Study</h2>
       <p>
-        Check out courses you can study by selecting your JAMB subject
+        Check out courses you can study by selecting your UTME subject
         combination.
       </p>
       <form class="course-combo" id="check-by-sub" autocomplete="off">
@@ -141,9 +172,9 @@
     </section>
 
     <section class="courses">
-      <h2 class="heading">Check Jamb Combination For Your Course</h2>
+      <h2 class="heading">Check UTME Combination For Your Course</h2>
       <p>
-        Find out the right subject combination you need in JAMB to enable you
+        Find out the right subject combination you need in UTME to enable you
         eligible to study your preferred course.
       </p>
       <form id="course-combo" class="course-combo" autocomplete="off">
@@ -162,7 +193,7 @@
         <button type="submit" class="btn check-btn">Check</button>
       </form>
     </section>
-
+    <!---
     <section class="question" id="#notify">
       <div class="question-img">
         <img src="images/Vector.png" alt="question img" />
@@ -176,7 +207,7 @@
       </div>
     </section>
 
-    <!-- Modals -->
+     Modals
     <div class="overlay"></div>
     <div class="feedback-modal modal">
       <i class="fa fa-times-circle"></i>
@@ -200,19 +231,26 @@
         <textarea id="feedback" minlength="30" required></textarea>
         <button type="submit" class="btn">Send</button>
       </form>
-    </div>
-
+    </div> --->
+    <br />
+    <section id="notify">
+      <div class="notify-text">
+        <h2>COMING SOON...</h2>
+        <h4>
+          We are currently working on a forum and tutoring platform for you.
+        </h4>
+        <p>Be the first to know when it happens</p>
+      </div>
+      <form class="notify-email">
+        <input type="email" id="get-email" />
+        <button type="submit" class="btn">Notify Me!</button>
+      </form>
+    </section>
     <div class="course-result-modal modal">
       <i class="fa fa-times-circle"></i>
       <h2>Courses You Can Study</h2>
       <div class="course">
         <!-- form result is dynamically loaded here with this template down here-->
-        <!-- <h4 class="course-title">Agriculture Science:</h4>
-        <p class="course-child">Agriculture</p>
-        <p class="course-child">Agriculture</p>
-        <p class="course-child">Agriculture</p>
-        <p class="course-child">Agriculture</p>
-        <p class="course-child">Agriculture</p> -->
       </div>
     </div>
 
@@ -222,28 +260,15 @@
       <h2>Loading...</h2>
     </div>
 
-    <!-- footer
-    <footer>
-      <div class="footer-link-wrap">
-        <div class="ft-wrap">
-          <h4>Quick Links</h4>
-          <a href="./news/" class="footer-link">News</a>
-          <a href="#" class="footer-link">Articles</a>
-          <a href="#" class="footer-link">Resources</a>
-        </div>
+    <footer class="footer-sm">
+      <div class="logo footer-link-wrap">
+        <img src="./images/logo-white.png" alt="" class="logo-img" />
+        <p class="logo-text">Erudite</p>
       </div>
       <div class="footer-link-wrap">
-        <div class="ft-wrap">
-          <h4>Services</h4>
-          <a href="../hire-tutor/" class="footer-link">Hire A Tutor</a>
-          <a href="../consult/consult.html" class="footer-link">Consult</a>
-          <a href="./registration/signup.html" class="footer-link"
-            >Registration</a
-          >
-        </div>
+        <p>Your guide to academic success...</p>
       </div>
       <div class="follow">
-        <h4>Follow Us</h4>
         <a href="#" class="footer-link"
           ><i class="fab fa-instagram" aria-hidden="true"></i
         ></a>
@@ -254,7 +279,7 @@
           ><i class="fab fa-facebook" aria-hidden="true"></i
         ></a>
       </div>
-    </footer> -->
+    </footer>
     <script src="./nav-and-footer/nav.js"></script>
     <script src="./js-homepage/autocomplete.js"></script>
     <script src="./js-homepage/app.js"></script>

@@ -113,11 +113,7 @@ let avatars = [
   "https://res.cloudinary.com/tomiwadev/image/upload/v1612046506/erudite/Ellipse_65_gsipfj.png",
 ];
 function getData(url) {
-  return fetch(url, {
-    headers: {
-      Authorization: `bearer ${token}`,
-    },
-  })
+  return fetch(url)
     .then(res => res.json())
     .then(json => {
       document.body.style.pointerEvents = "all";
