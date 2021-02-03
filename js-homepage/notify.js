@@ -39,7 +39,7 @@ subscribe.addEventListener("submit", e => {
     })
     .finally(_ => {
       subscribe.reset();
-      subscribeBtn.textContent = "Login";
+      subscribeBtn.textContent = "Notify Me!";
       subscribeBtn.disabled = false;
     });
 });
