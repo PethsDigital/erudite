@@ -160,15 +160,16 @@ nav {
   align-items: center;
   text-decoration: none;
 }
+
 .logo img {
-  margin: 0 0.7rem;
-  width: 50px;
-  height: 50px;
+  margin: 0 0.5rem;
+  width: 37px;
+  height: 37px;
 }
 .logo-text {
+  font-size: 1.7rem;
   font-weight: 400 !important;
   color: var(--primary-color);
-  font-size: 2rem;
   user-select: none;
 }
 .logo:link,
@@ -185,19 +186,6 @@ nav {
 .nav-menu {
   display: none;
   padding-right: 1.2rem;
-  /* justify-content: center;
-  align-content: center;
-  position: absolute;
-  flex-direction: column;
-  top: 50px;
-  z-index: 20;
-  left: 0;
-  list-style: none;
-  width: 100%;
-  text-align: center;
-  clip-path: inset(0 0 100% 0);
-  transition: clip-path 0.5s;
-  background: var(--primary-color); */
 }
 .nav-item a {
   padding: 1rem;
@@ -301,6 +289,13 @@ footer .logo-text {
   .navbar {
     width: 95vw;
     padding: 9px 1rem;
+  }
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+  .logo-text {
+    font-size: 2rem;
   }
   .nav-menu {
     position: static;
