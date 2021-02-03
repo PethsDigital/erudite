@@ -60,7 +60,7 @@
     <meta name="robots" content="index, follow" />
     <meta
       name="description"
-      content="Erudite is an educational platform made up of a team of professionals dedicated to guiding students towards academic success."
+      content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
     />
     <meta
       property="og:title"
@@ -76,26 +76,28 @@
     <meta name="twitter:title" content="Erudite" />
     <meta
       name="twitter:description"
-      content="Erudite is an educational platform made up of a team of professionals dedicated to guiding students towards academic success."
+      content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
     />
   </head>
   <body>
-    <!-- <div class="preloader loader">
+    <div class="preloader loader">
       <h1>Erudite</h1>
       <p>Your guide to academic success...</p>
-    </div> -->
-    <nav class="navbar">
-      <a href="#" class="logo">
-        <img src="./images/logo-blue.png" alt="" class="logo-img" />
-        <p class="logo-text">Erudite</p>
-      </a>
-      <!-- <h1 class="logo-text"><a href="../">Erudite</a></h1> -->
-      <i class="fa fa-bars fa-2x"></i>
-      <ul class="nav-menu">
-        <li class="nav-item active"><a href="#">Home</a></li>
-        <li class="nav-item"><a href="./about/">About Us</a></li>
-        <li class="nav-item"><a href="#notify">Get Notified</a></li>
-      </ul>
+    </div>
+    <nav>
+      <div class="navbar">
+        <a href="#" class="logo">
+          <img src="./images/logo-blue.png" alt="" class="logo-img" />
+          <p class="logo-text">Erudite</p>
+        </a>
+        <!-- <h1 class="logo-text"><a href="../">Erudite</a></h1> -->
+        <i class="fa fa-bars fa-2x"></i>
+        <ul class="nav-menu">
+          <li class="nav-item active"><a href="#">Home</a></li>
+          <li class="nav-item"><a href="./about/">About Us</a></li>
+          <li class="nav-item"><a href="#notify">Get Notified</a></li>
+        </ul>
+      </div>
     </nav>
     <ul class="nav2">
       <a href="#">
@@ -208,7 +210,6 @@
     </section>
 
      Modals
-    <div class="overlay"></div>
     <div class="feedback-modal modal">
       <i class="fa fa-times-circle"></i>
       <div class="rating">
@@ -246,6 +247,8 @@
         <button type="submit" class="btn">Notify Me!</button>
       </form>
     </section>
+    <div class="overlay"></div>
+
     <div class="course-result-modal modal">
       <i class="fa fa-times-circle"></i>
       <h2>Courses You Can Study</h2>
@@ -269,13 +272,25 @@
         <p>Your guide to academic success...</p>
       </div>
       <div class="follow">
-        <a href="#" class="footer-link"
+        <a
+          href="https://instagram.com/eruditeng_"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-link"
           ><i class="fab fa-instagram" aria-hidden="true"></i
         ></a>
-        <a href="#" class="footer-link"
+        <a
+          href="https://twitter.com/eruditeng_"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-link"
           ><i class="fab fa-twitter" aria-hidden="true"></i
         ></a>
-        <a href="#" class="footer-link"
+        <a
+          href="https://facebook.com/eruditeng_"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-link"
           ><i class="fab fa-facebook" aria-hidden="true"></i
         ></a>
       </div>
@@ -283,6 +298,6 @@
     <script src="./nav-and-footer/nav.js"></script>
     <script src="./js-homepage/autocomplete.js"></script>
     <script src="./js-homepage/app.js"></script>
-    <script src="./js-homepage/feedback.js"></script>
+    <script src="./js-homepage/notify.js"></script>
   </body>
 </html>

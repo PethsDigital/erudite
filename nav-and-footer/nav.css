@@ -137,17 +137,21 @@ input:not([type="radio"]):focus {
 input {
   font-family: "Poppins";
 }
+nav {
+  width: 100vw;
+  background: var(--white-bg);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  padding: 9px 0;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 20;
-  background: var(--white-bg);
+  padding: 9px 0.5rem 9px 0;
+  margin: auto;
 }
 .logo {
   padding-left: 1.2rem;
@@ -293,6 +297,10 @@ footer .logo-text {
 @media (min-width: 760px) {
   .navbar .fa {
     display: none;
+  }
+  .navbar {
+    width: 95vw;
+    padding: 9px 1rem;
   }
   .nav-menu {
     position: static;

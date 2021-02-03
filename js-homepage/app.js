@@ -46,7 +46,7 @@ function selectSubjects(el, callback) {
 selects.forEach(select => selectSubjects(select, autocomplete));
 
 // dynamically load COURSE input option from the api
-fetch(`https://Erudite-api.herokuapp.com/`)
+fetch(`https://jambito-api.herokuapp.com/`)
   .then(res => res.json())
   .then(data => {
     autocomplete(course, Object.keys(data.results.results));
@@ -166,7 +166,7 @@ checkCourse.addEventListener("submit", e => {
 courseCombo.addEventListener("submit", e => {
   $("#course-combo button").textContent = "loading...";
 
-  fetchData("https://Erudite-api.herokuapp.com/")
+  fetchData("https://jambito-api.herokuapp.com/")
     .then(data => {
       //console.log(data);
       for (let key in data.results.results) {
@@ -195,7 +195,7 @@ courseCombo.addEventListener("submit", e => {
 closeBtn.forEach(btn =>
   btn.addEventListener("click", () => {
     $(".course-result-modal.modal").style.cssText = "display: none";
-    $(".feedback-modal.modal").style.cssText = "display: none";
+    // $(".feedback-modal.modal").style.cssText = "display: none";
     $(".overlay").style.display = "none";
     course.value = "";
     selects.forEach(sub => (sub.value = ""));
