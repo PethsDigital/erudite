@@ -9,6 +9,7 @@ getData("https://erudite-be.herokuapp.com/v1/topics/").then(json => {
       0 topics...
     </h1>`;
   }
+  console.log(data);
   data.reverse().forEach(el => {
     let templateTopicsCard = ` <article class="un-topic-child">
             <div class="info">
@@ -60,6 +61,7 @@ getData("https://erudite-be.herokuapp.com/v1/topics/").then(json => {
   }
 });
 
+// load input radio's for categories when creating topics
 getData("https://erudite-be.herokuapp.com/v1/forums/").then(json => {
   let categories = $(".category-wrap");
   json.forEach(el => {

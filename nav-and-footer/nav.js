@@ -116,7 +116,6 @@ function getData(url) {
   return fetch(url)
     .then(res => res.json())
     .then(json => {
-      document.body.style.pointerEvents = "all";
       $(".ball-loader").style.display = "none";
       return json.data;
     })
@@ -128,10 +127,16 @@ function getData(url) {
           or <a href="../registration/signup.html" target="_blank" rel="noopener noreferrer">Sign-up</a> to enable this action`,
           $("form.discuss-pop-up")
         );
+        setTimeout(() => {
+          window.location.replace("../registration/signup.html");
+        }, 1000);
       }
       $("main").style.display = "none";
       $(".ball-loader").style.display = "none";
       $(".oops").style.display = "flex";
       console.log(err);
+    })
+    .finally(_ => {
+      document.body.style.pointerEvents = "all";
     });
 }

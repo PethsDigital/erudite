@@ -28,7 +28,6 @@ getData(
   `https://erudite-be.herokuapp.com/v1/comments/resource/${topicId}`
 ).then(json => {
   let commentWrap = $(".comments-wrapper");
-  console.log(json);
   json.forEach(el => {
     let commentTemplate = `<article id="${el._id}" class="first-level-comment thread-wrap">
     <img src="../images/Ellipse 27 (1).png" alt="avatar" />
@@ -55,7 +54,7 @@ let isLiked = false;
 comments.addEventListener("click", e => {
   if (e.target.className.includes("like")) {
     e.target.classList.toggle("liked");
-    e.target.animate([{transform: "scale(1.2)"}, {transform: "scale(1)"}], {
+    e.target.animate([{ transform: "scale(1.2)" }, { transform: "scale(1)" }], {
       duration: 400,
     });
     if (isLiked) {

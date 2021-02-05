@@ -15,18 +15,19 @@ $("form.discuss-pop-up").addEventListener("submit", e => {
     forumId: category,
     description: description.value,
     title: title.value,
-    userId: JSON.parse(localStorage.getItem("erudite_auth")).userId,
+    userId: JSON.parse(localStorage.getItem("erudite_auth")).user.id,
   };
-  console.log(topicDetails);
+
   let requestBody = {
     method: "POST",
     headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      Authorization: `bearer ${token}`,
+      "Content-Type": "application/json",
+      "authorization": `Bearer ${token}`,
     },
     body: JSON.stringify(topicDetails),
     redirect: "follow",
   };
+  console.log(requestBody)
 
   fetch("https://erudite-be.herokuapp.com/v1/topics/create", requestBody)
     .then(res => res.json())

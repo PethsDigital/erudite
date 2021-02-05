@@ -33,7 +33,7 @@ loginForm.addEventListener("submit", e => {
       if (response.success == true) {
         let userAuth = {
           token: response.data.token,
-          userId: response.data.userId,
+          user: response.data.user,
         };
         localStorage.setItem("erudite_auth", JSON.stringify(userAuth));
         displayMsg("success", "Login successful", loginForm);
