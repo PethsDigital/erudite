@@ -34,7 +34,7 @@ function displayMsg(type, resMsg, el) {
   }
   setTimeout(() => {
     msg.style.display = "none";
-  }, 4000);
+  }, 4500);
 }
 
 Array.from($$(".pwd-wrap")).forEach(input => {
