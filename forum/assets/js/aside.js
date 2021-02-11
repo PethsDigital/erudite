@@ -9,12 +9,13 @@ getData("https://erudite-be.herokuapp.com/v1/topics/").then(json => {
       0 topics...
     </h1>`;
   }
-  console.log(data);
   data.reverse().forEach(el => {
     let templateTopicsCard = ` <article class="un-topic-child">
             <div class="info">
               <img
-                src="../images/Profile-pic.png"
+                src="${
+                  el.user.avatar ? el.user.avatar : "../images/profile-pic.png"
+                }"
                 alt="avatar"
                 class="avatar"
               />
@@ -70,6 +71,5 @@ getData("https://erudite-be.herokuapp.com/v1/forums/").then(json => {
     <label for="${el._id}">${el.name}</label>
   </div>`;
     categories.innerHTML += categoryRadio;
-    console.log(el._id, el.name);
   });
 });

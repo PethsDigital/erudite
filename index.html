@@ -12,23 +12,26 @@
       }
       @keyframes closeLoader {
         from {
-          clip-path: inset(0 0 0 0);
+          display: flex;
+          /* clip-path: inset(0 0 0 0); */
         }
         to {
-          clip-path: inset(0 0 100% 0);
+          /* clip-path: inset(0 0 100% 0); */
           display: none;
         }
       }
-      .preloader.loader h1 {
+      .preloader.loader img {
         animation: preload 0.7s ease-out forwards;
-        font-size: 3rem;
+        width: 80px;
+        height: 80px;
         transform: translateY(100px);
         opacity: 0;
       }
-      .preloader.loader p {
+      .preloader.loader h1 {
         animation: preload 0.8s 1.5s ease-out forwards;
         transform: translate(-70px);
-        font-size: 1.3rem;
+        font-size: 3rem;
+        font-weight: 500;
         opacity: 0;
       }
 
@@ -81,8 +84,14 @@
   </head>
   <body>
     <div class="preloader loader">
+      <img src="../images/logo-blue.png" alt="logo" />
       <h1>Erudite</h1>
-      <p>Your guide to academic success...</p>
+    </div>
+    <div id="loader" class="pre-loader">
+      <div class="wrap">
+        <img src="./images/logo-blue.png" alt="logo" />
+        <div class="circle"></div>
+      </div>
     </div>
     <nav>
       <div class="navbar">
@@ -261,10 +270,10 @@
     </div>
 
     <!-- css loader -->
-    <div id="loader" class="loader">
+    <!-- <div id="loader" class="loader">
       <img src="./images/loader.gif" alt="loader" class="gif" />
       <h2>Loading...</h2>
-    </div>
+    </div> -->
 
     <footer class="footer-sm">
       <div class="logo footer-link-wrap">

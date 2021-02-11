@@ -18,7 +18,7 @@ let courseCodes;
 async function fetchData(url) {
   // disable btn
   btn.forEach(btn => (btn.disabled = true));
-  $("#loader").style.cssText = "clip-path: inset(0 0 0 0);";
+  $("#loader").style.cssText = "display: flex;";
   document.body.style.pointerEvents = "none";
 
   try {
@@ -26,7 +26,7 @@ async function fetchData(url) {
     const json = await res.json();
     return json;
   } finally {
-    $("#loader").style.cssText = "clip-path: inset(0 0 100% 0);";
+    $("#loader").style.cssText = "display: none;";
     document.body.style.pointerEvents = "all";
     btn.forEach(btn => (btn.textContent = "Check"));
     btn.forEach(btn => (btn.disabled = false));
@@ -38,8 +38,13 @@ function selectSubjects(el, callback) {
   fetch("./json/subjects.json")
     .then(res => res.json())
     .then(data => {
+      Object.filter = (obj, predicate) =>
+        Object.keys(obj)
+          .filter(key => predicate(obj[key]))
+          .reduce((res, key) => ((res[key] = obj[key]), res), {});
+      let filteredData = Object.filter(data, el => el !== "Use of English");
       courseCodes = data;
-      callback(el, Object.values(data));
+      callback(el, Object.values(filteredData));
     })
     .catch(err => console.log(err));
 }
@@ -152,11 +157,6 @@ checkCourse.addEventListener("submit", e => {
       setTimeout(() => displayCourseResult(result, 400));
     })
     .catch(err => {
-      displayMsg(
-        "error",
-        "Request failed please try again later :)",
-        checkCourse
-      );
       console.log(`Error: ${err}`);
     });
   e.preventDefault();
@@ -168,9 +168,7 @@ courseCombo.addEventListener("submit", e => {
 
   fetchData("https://jambito-api.herokuapp.com/")
     .then(data => {
-      //console.log(data);
       for (let key in data.results.results) {
-        //console.log(`${key}`,course.value);
         if (`${key}` == course.value) {
           displayCourseSubject(key, data.results.results[key].subjects);
           courseDiv.innerHTML += `<h4 class="course-title">List Of Schools:</h4>`;

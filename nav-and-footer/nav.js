@@ -30,7 +30,7 @@ function displayMsg(type, resMsg, el) {
     msg.innerHTML = `&check; &nbsp; ${resMsg}`;
   } else {
     msg.innerHTML = `&#9888; &nbsp;${resMsg}`;
-    msg.style.background = "rgba(248, 20, 3, 0.658)";
+    msg.style.background = "rgb(248, 20, 3)";
   }
   setTimeout(() => {
     msg.style.display = "none";
@@ -97,26 +97,13 @@ Array.from($$(".close-msg")).forEach(btn => {
 
 // to store userVerification
 let userAuth = JSON.parse(localStorage.getItem("erudite_auth"));
-let token = userAuth.token;
-let avatars = [
-  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046507/erudite/Ellipse_68_vgi4ez.png",
-  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046507/erudite/Avatar_ng07if.png",
-  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046507/erudite/Ellipse_60_zhre1e.png",
-  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046507/erudite/Avatar_1_bu2acu.png",
-  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046507/erudite/Ellipse_59_jpwyp0.png",
-  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046507/erudite/Ellipse_69_zxhsxx.png",
-  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046506/erudite/Ellipse_66_bo7gaq.png",
-  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046506/erudite/Ellipse_63_gejtgh.png",
-  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046506/erudite/Ellipse_62_csuyyx.png",
-  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046506/erudite/Ellipse_67_r59opf.png",
-  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046506/erudite/Ellipse_64_ggrymu.png",
-  "https://res.cloudinary.com/tomiwadev/image/upload/v1612046506/erudite/Ellipse_65_gsipfj.png",
-];
+let token = JSON.parse(localStorage.getItem("erudite_auth")).token;
+
 function getData(url) {
   return fetch(url)
     .then(res => res.json())
     .then(json => {
-      $(".ball-loader").style.display = "none";
+      $(".pre-loader").style.display = "none";
       return json.data;
     })
     .catch(err => {
@@ -132,7 +119,7 @@ function getData(url) {
         }, 1000);
       }
       $("main").style.display = "none";
-      $(".ball-loader").style.display = "none";
+      $(".pre-loader").style.display = "none";
       $(".oops").style.display = "flex";
       console.log(err);
     })

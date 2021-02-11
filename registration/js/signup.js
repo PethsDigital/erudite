@@ -35,11 +35,11 @@ signupForm.addEventListener("submit", e => {
         console.log(response);
         if (response.success == true) {
           displayMsg("success", response.message, signupForm);
-          // setTimeout(() => {
-          //   window.location.replace(
-          //     "http://localhost:5501/registration/login.html"
-          //   );
-          // }, 1000);
+          setTimeout(() => {
+            window.location.replace(
+              "http://localhost:5501/registration/login.html"
+            );
+          }, 1000);
         } else {
           displayMsg("error", response.message, signupForm);
         }

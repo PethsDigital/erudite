@@ -32,7 +32,7 @@ textarea:focus {
   border: 1px solid var(--primary-color);
 }
 
-main {
+main.container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -149,7 +149,7 @@ textarea:focus + label {
   max-width: 650px;
   height: 70vh;
   min-height: 400px;
-  background: url("../images/signup-img.png") center center no-repeat;
+  background: url("../../images/signup-img.png") center center no-repeat;
   background-size: 100% 100%;
   color: white;
   margin: auto;

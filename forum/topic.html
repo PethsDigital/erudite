@@ -20,6 +20,33 @@
       href="./assets/css/mobile.css"
       media="(max-width: 790px)"
     />
+    <link
+      rel="shortcut icon"
+      href="../images/logo-blue.png"
+      type="image/x-icon"
+    />
+    <link rel="canonical" href="https://erudite.ng" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
+    />
+    <meta
+      property="og:title"
+      content="Erudite - Your guide to academic success"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://erudite.ng" />
+    <meta property="og:image" content="../images/mockup.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@eruditeng_" />
+    <meta name="twitter:creator" content="@eruditeng_" />
+    <meta name="twitter:image" content="../images/mockup.png" />
+    <meta name="twitter:title" content="Erudite" />
+    <meta
+      name="twitter:description"
+      content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
+    />
     <style>
       body {
         pointer-events: none;
@@ -27,13 +54,17 @@
     </style>
   </head>
   <body>
-    <div class="ball-loader">
-      <div class="cl"></div>
-      <div class="cl"></div>
-      <div class="cl"></div>
+    <div class="pre-loader">
+      <div class="wrap">
+        <img src="../images/logo-blue.png" alt="logo" />
+        <div class="circle"></div>
+      </div>
     </div>
     <nav class="navbar">
-      <h1 class="logo-text"><a href="../">Erudite</a></h1>
+      <a href="../" class="logo">
+        <img src="../images/logo-blue.png" alt="" class="logo-img" />
+        <p class="logo-text">Erudite</p>
+      </a>
       <i class="fa fa-bars fa-2x"></i>
       <ul class="nav-menu">
         <li class="nav-item"><a href="../">Home</a></li>
@@ -110,10 +141,9 @@
 
       <section class="main">
         <div class="main-discussion right">
-          <a href="#" class="breadcrumb-link">
-            <span class="forum-category">Forum Title</span>
-            <span class="topic">> Topic</span>
-          </a>
+          <a href="" class="forum-category breadcrumb-link">Forum Title</a>
+          <span class="breadcrumb-link">&gt; </span>
+          <a href="#" class="breadcrumb-link topic"></a>
           <br />
           <br />
           <div class="description"></div>
@@ -140,76 +170,7 @@
             <h4 id="com-num">60 comments.</h4>
             <br />
             <div class="comments-wrapper">
-              <article
-                id="template-comment"
-                class="first-level-comment thread-wrap"
-                style="display: none"
-              >
-                <img src="../images/Ellipse 27 (1).png" alt="avatar" />
-                <div class="text">
-                  <div class="info">
-                    <b class="name">James Mba</b>
-                  </div>
-                  <p class="text-msg">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Optio repudiandae dolorum dolorem est reprehenderit
-                    consectetur aperiam magnam ullam tempora hic?
-                  </p>
-                  <br />
-                  <div class="info">
-                    <button type="button" class="like">Like</button>
-                    <button type="button" class="reply">Reply</button>
-                    <p class="time-posted">3 hrs ago</p>
-                    <p class="time-posted like-count">22 Likes</p>
-                  </div>
-                  <br />
-
-                  <!-- PS: this form below is a template for javascript to hold onto it wont be displayed but cloned -->
-                  <div
-                    id="reply-comment-wrap"
-                    class="comment-box-wrap thread-wrap reply-comment-wrap"
-                  >
-                    <form class="comment-box reply-comment">
-                      <textarea
-                        required
-                        id="comment-input"
-                        placeholder="Type here to comment or reply the question"
-                      ></textarea>
-                      <div class="btn-group">
-                        <button class="btn submit-reply" type="submit">
-                          Post comment
-                        </button>
-                        <button
-                          type="reset"
-                          class="btn btn-cancel"
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                      </div>
-                    </form>
-                    <br />
-                  </div>
-                  <article class="second-level-commentm thread-wrap">
-                    <img src="../images/Ellipse 27 (1).png" alt="avatar" />
-                    <div class="text">
-                      <div class="info">
-                        <b class="name">James Mba</b>
-                      </div>
-                      <p class="text-msg">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Optio repudiandae dolorum dolorem est reprehenderit
-                        consectetur aperiam magnam ullam tempora hic?
-                      </p>
-                      <br />
-                      <div class="info">
-                        <button type="button" class="like"><i class="fa fa-heart"></i>22</button>
-                        <p class="time-posted">3 hrs ago</p>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              </article>
+              <!-- template for comments go here -->
             </div>
           </div>
         </div>
@@ -237,7 +198,6 @@
       <h1>Oops!</h1>
       <p>An error ocurred, pls try again</p>
     </div>
-
     <footer>
       <div class="footer-link-wrap">
         <div class="ft-wrap">

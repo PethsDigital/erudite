@@ -349,7 +349,11 @@ input.star-2:checked ~ label.star:before {
   transform: scaleY(1.1);
 }
 #loader {
-  clip-path: inset(0 0 100% 0);
+  z-index: 100;
+  display: none;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 
 /* Footer style in nav folder*/

@@ -1,8 +1,5 @@
 /* presets and css variables are in nav and footer css */
-:root {
-  --input-border: #e6e6e6;
-  --grey: #aaaaaa;
-}
+
 a {
   color: var(--text-color);
   transition: 0.4s;
@@ -20,21 +17,14 @@ button:focus {
 .btn-group {
   display: flex;
 }
-.btn.btn-cancel {
-  background-color: var(--input-border);
-  color: #cf0808;
-}
+
 form,
 input[type="search"] {
   flex-grow: 2;
 }
 
 /* pop-up */
-.discuss-pop-up .btns {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
+
 .category-placeholder {
   color: var(--grey);
   margin: 1rem 0;
@@ -65,8 +55,8 @@ input[type="search"] {
 .discuss-pop-up input[type="radio"]:checked {
   background: var(--primary-color);
 }
-#reply-comment-wrap {
-  display: none !important;
+.comment-box-wrap.thread-wrap.reply-comment-wrap {
+  display: none;
 }
 
 .discuss-pop-up input[type="radio"]:checked::before {
@@ -85,17 +75,7 @@ input[type="search"] {
 .discuss-pop-up label {
   cursor: pointer;
 }
-.discuss-pop-up .btns button {
-  background: none;
-  border: none;
-  font-size: 1rem;
-  padding: 0.5rem;
-  border-radius: 5px;
-}
-.discuss-pop-up .btns button:hover,
-.discuss-pop-up .btns button:focus {
-  background: var(--input-border);
-}
+
 .discuss-pop-up .form-control-group {
   width: 100%;
   margin: 1rem 0;
@@ -221,7 +201,9 @@ textarea:focus {
   font-weight: 500;
   color: var(--primary-color);
 }
-
+a.breadcrumb-link:hover {
+  text-decoration: underline;
+}
 /* thread wrap */
 .thread-wrap {
   display: flex;
