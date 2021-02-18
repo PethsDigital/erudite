@@ -25,7 +25,7 @@ function displayMsg(type, resMsg, el) {
   let msg;
   msg = document.createElement("p");
   msg.className = "msg";
-  el.appendChild(msg);
+  document.body.insertBefore(msg, document.body.firstElementChild);
   if (type === "success") {
     msg.innerHTML = `&check; &nbsp; ${resMsg}`;
   } else {
@@ -37,37 +37,22 @@ function displayMsg(type, resMsg, el) {
   }, 4500);
 }
 
-Array.from($$(".pwd-wrap")).forEach(input => {
-  input.addEventListener("click", e => {
-    if (e.target.classList.contains("fas")) {
+Array.from($$(".pwd-wrap .view-pwd")).forEach(input => {
+  input.addEventListener(
+    "click",
+    e => {
       e.target.classList.toggle("fa-eye-slash");
       e.target.classList.toggle("fa-eye");
-      console.log(e.target);
       e.target.classList.contains("fa-eye-slash")
-        ? changeInputType(
-            e.target.parentElement.parentElement.firstElementChild,
-            "text"
-          )
-        : changeInputType(
-            e.target.parentElement.parentElement.firstElementChild,
+        ? e.target.parentElement.firstElementChild.setAttribute("type", "text")
+        : e.target.parentElement.firstElementChild.setAttribute(
+            "type",
             "password"
           );
-    }
-  });
+    },
+    false
+  );
 });
-
-function changeInputType(oldObject, oType) {
-  var newObject = document.createElement("input");
-  newObject.type = oType;
-  if (oldObject.value) newObject.value = oldObject.value;
-  if (oldObject.minLength) newObject.minLength = oldObject.minLength;
-  if (oldObject.required) newObject.required = oldObject.required;
-  if (oldObject.id) newObject.id = oldObject.id;
-  if (oldObject.placeholder) newObject.placeholder = oldObject.placeholder;
-  if (oldObject.autocomplete) newObject.autocomplete = oldObject.autocomplete;
-  oldObject.parentNode.replaceChild(newObject, oldObject);
-  return newObject;
-}
 
 // for start a discussion modal
 const discussModal = $(".discuss-pop-up");
@@ -77,7 +62,7 @@ const discussMessageInput = $(".discuss-pop-up textarea");
 const firstLevelReply = $("#first-level");
 const replyBtn = Array.from($$(".reply"));
 const comments = $(".comments");
-const replyCommentWrap = $("#reply-comment-wrap");
+const replyCommentWrap = $("#reply-form-node");
 let replyClone;
 
 discussModalbtn.addEventListener("click", e => {

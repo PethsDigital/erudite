@@ -12,7 +12,7 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/forum/${urlId}`).then(
       let templateTopicsCard = `<article class="topics-card">
             <div class="wrapper">
               <img
-                src="../images/profile-pic.png"
+                src="https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
                 alt="avatar"
                 class="topic-img"
               />

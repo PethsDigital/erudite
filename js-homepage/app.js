@@ -55,6 +55,7 @@ fetch(`https://jambito-api.herokuapp.com/`)
   .then(res => res.json())
   .then(data => {
     autocomplete(course, Object.keys(data.results.results));
+    console.log(data);
   })
   .catch(err => console.log(err));
 

@@ -2,11 +2,12 @@
   flex-direction: column;
 }
 
-.main-discussion, .btn.submit-reply{
+.main-discussion,
+.btn.submit-reply {
   margin-right: 0;
 }
 
-.left{
+.left {
   margin-left: 0;
 }
 
@@ -66,6 +67,7 @@ textarea {
   height: 70px;
 }
 .stat-info {
+  font-size: 1rem;
   border-left: none;
   border-top: 1px solid var(--grey);
   padding-top: 1rem;

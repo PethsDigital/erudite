@@ -85,16 +85,17 @@ a {
 }
 
 .msg {
+  position: fixed;
   background-color: rgb(4, 182, 4);
   border-radius: 5px;
   color: white;
   margin: 0.5rem auto;
-  transform: translateX(-150vw);
+  transform: translateX(150vw);
   padding: 0.5rem 4rem 0.5rem 2rem;
   width: auto;
   display: block;
-  position: fixed;
-  bottom: 1rem;
+  top: 0.5rem;
+  right: 2rem;
   z-index: 100;
   -webkit-animation: msg 0.5s ease forwards;
   animation: msg 0.5s ease forwards;
@@ -106,6 +107,23 @@ a {
   }
 }
 
+@media (max-width: 500px) {
+  .msg {
+    position: sticky;
+    width: 95%;
+    right: 0;
+    padding: 0.5rem 1.5rem;
+    transform: translate(0);
+    clip-path: inset(0 0 100% 0);
+    -webkit-animation: sm-msg 0.5s ease forwards;
+    animation: sm-msg 0.5s ease forwards;
+  }
+  @keyframes sm-msg {
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+}
 button,
 input {
   border-radius: 6px;

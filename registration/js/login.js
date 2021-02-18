@@ -37,9 +37,7 @@ loginForm.addEventListener("submit", e => {
         };
         localStorage.setItem("erudite_auth", JSON.stringify(userAuth));
         displayMsg("success", "Login successful", loginForm);
-        // setTimeout(() => {
-        //   window.location.replace("http://localhost:5501/");
-        // }, 1000);
+        setTimeout(() => (window.location.pathname = "/"), 1000);
       } else {
         displayMsg("error", "Login Failed", loginForm);
       }

@@ -55,10 +55,9 @@ input[type="search"] {
 .discuss-pop-up input[type="radio"]:checked {
   background: var(--primary-color);
 }
-.comment-box-wrap.thread-wrap.reply-comment-wrap {
+#comment-clone {
   display: none;
 }
-
 .discuss-pop-up input[type="radio"]:checked::before {
   content: "\2713";
   display: block;

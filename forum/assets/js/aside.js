@@ -14,7 +14,9 @@ getData("https://erudite-be.herokuapp.com/v1/topics/").then(json => {
             <div class="info">
               <img
                 src="${
-                  el.user.avatar ? el.user.avatar : "../images/profile-pic.png"
+                  el.user.avatar
+                    ? el.user.avatar
+                    : "https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
                 }"
                 alt="avatar"
                 class="avatar"
