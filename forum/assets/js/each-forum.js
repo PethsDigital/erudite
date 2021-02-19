@@ -31,8 +31,6 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/forum/${urlId}`).then(
               <p class="cm-icon">${el.comments.length}</p>
               <hr />
               <p class="views"><i class="fa fa-eye"> &nbsp; </i>${el.views}</p>
-              <hr />
-              <p class="views"><i class="fa fa-heart"> &nbsp; </i>${el.likes.length}</p>
             </div>
             </article>`;
       if (json.length === 0) {

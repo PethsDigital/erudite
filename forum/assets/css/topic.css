@@ -225,8 +225,14 @@ a.breadcrumb-link:hover {
   color: var(--grey);
   font-size: 0.7rem;
 }
+.info input[type="checkbox"] {
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+}
 
-.info button i {
+.info button i,
+.info label i {
   margin: 0 !important;
   color: #7a7a7a;
 }
@@ -263,7 +269,7 @@ textarea {
   position: relative;
   padding-bottom: 1rem;
 }
-
+/* 2021-02-18T09:19:33.820Z 2021-02-18T05:00:25.773Z */
 .comments .first-level-comment::after {
   content: "";
   position: absolute;
@@ -277,22 +283,27 @@ textarea {
 .comments .first-level-comment:last-child::after {
   display: none;
 }
-.info button {
+.info button,
+.info label {
   background-color: transparent;
   color: var(--text-color);
   border: none;
+  border-radius: 5px;
 }
 
 .st-discuss,
-.info button {
+.info button,
+.info label {
   padding: 0.5rem;
   /* background-color: rgba(120, 121, 122, 0.158) !important; */
 }
 .st-discuss:hover,
-.info button:hover {
+.info button:hover,
+.info label:hover {
   background-color: var(--input-border);
 }
 .info button:focus,
+.info label:focus,
 .form-group input:focus,
 .form-group button:focus {
   box-shadow: none;
@@ -331,6 +342,7 @@ input[type="radio"] {
 
 .text {
   width: 100%;
+  padding-right: 1rem;
 }
 
 .unanswered .info *:not(img) {
@@ -349,7 +361,8 @@ input[type="radio"] {
 
 .main-discussion {
   margin-right: 50px;
-  flex-grow: 3;
+  flex-grow: 2;
+  max-width: 67%;
 }
 
 /* unawsered topics */

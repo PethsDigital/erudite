@@ -27,21 +27,26 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`).then(json => {
             </div>
           </article>`;
   parentEl.innerHTML += topicDescription;
-  console.log(json);
+  // console.log(json);
   // get comments
   $("#com-num").innerHTML = `${json.comments.length} Comments`;
 });
-
-function commentText(topicId) {
-  return getData(
-    `https://erudite-be.herokuapp.com/v1/comments/resource/${topicId}`
-  ).then(json => {
-    let commentWrap = $(".comments-wrapper");
-    console.log(json);
-    let allComments = "";
-    json.forEach(el => {
-      let commentTemplate = `<article id="${el._id}" class="first-level-comment thread-wrap">
-      <img src="../images/Ellipse 27 (1).png" alt="avatar" />
+// let likeArr = [];
+getData(
+  `https://erudite-be.herokuapp.com/v1/comments/resource/${topicId}`
+).then(json => {
+  let commentWrap = $(".comments-wrapper");
+  let allComments = "";
+  json.forEach(el => {
+    // likeArr.push([el._id, el.likes]);
+    let commentTemplate = `<article id="${
+      el._id
+    }" class="first-level-comment thread-wrap">
+      <img src="${
+        userAuth.user.avatar
+          ? userAuth.user.avatar
+          : "https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
+      }" alt="avatar" />
       <div class="text">
         <div class="info">
           <b class="name">${el.user.name}</b>
@@ -51,78 +56,117 @@ function commentText(topicId) {
         </p>
         <br />
         <div class="info">
-        <button role="checkbox" type="button" class="like"><i class="fa fa-heart"></i> <span class="count">${el.likes.length}</span> </button>
+        <input type="checkbox" onChange="likeFunc(this)" value="None" name="like-btn" id="${
+          el._id + "1"
+        }"/>
+        <label for="${el._id + "1"}" type="button" class="like ${
+      el.likes.includes(userAuth.user.id) ? "liked" : ""
+    }"><i class="fa fa-heart"></i> <span class="count"> ${
+      el.likes.length
+    }</span> </label>
           <button type="button" class="reply">Reply</button>
           <p class="time-posted">3 hrs ago</p>
         </div>
       
       </div>
       </article>`;
-      allComments += commentTemplate;
-      // getLikes(el._id);
-    });
-    commentWrap.innerHTML += allComments;
+    allComments += commentTemplate;
   });
-}
-// commentText(topicId);
-// let isLiked = false;
-// comments.addEventListener("click", e => {
-//   if (e.target.className.includes("like")) {
-//     e.target.classList.toggle("liked");
-//     e.target.animate([{transform: "scale(1.2)"}, {transform: "scale(1)"}], {
-//       duration: 400,
-//     });
-//     if (isLiked) {
-//       likes.push(userAuth.userId);
-//       e.target.querySelector(".count").innerHTML--;
-//       isLiked = false;
-//     } else {
-//       likes.pop();
-//       e.target.querySelector(".count").innerHTML++;
-//       isLiked = true;
-//     }
-//     console.log(likes, isLiked);
-//   }
-// });
-let likes;
-function getLikes(id) {
-  return fetch(`https://erudite-be.herokuapp.com/v1/comment/like/${id}/`)
+  commentWrap.innerHTML += allComments;
+});
+
+function getLikes(url, likeEl) {
+  return fetch(url)
     .then(res => res.json())
     .then(json => {
-      likes = json.length;
+      json.data.forEach(el => {
+        likeEl.innerHTML = el.likes.length;
+      });
     });
 }
 
-// Array($$(".thread-wrap")).forEach(comment => {
-//   comment.addEventListener("click", e => {
-//     if (e.target.className === "like") {
-//       console.log(comment.id);
-//       // let requestBody = {
-//       //   method: "PATCH",
-//       //   headers: {
-//       //     "Content-Type": "application/json",
-//       //     Authorization: `bearer ${token}`,
-//       //   },
-//       //   body: JSON.stringify({
-//       //     userId: JSON.parse(localStorage.getItem("erudite_auth")).user.id,
-//       //   }),
-//       //   redirect: "follow",
-//       // };
-//       // fetch(`https://erudite-be.herokuapp.com/v1/comment/like/${comment.id}/`, requestBody)
-//       // .then(res => res.json())
-//       // .then(response => {
-//       //   console.log(response);
-//       //   if (response.success == true) {
-//       //     displayMsg("success", response.message, $(".msg-wrap"));
-//       //     getLikes(comment.id)
-//       //   } else {
-//       //     displayMsg("error", response.message, $(".msg-wrap"));
-//       //   }
-//       // })
-//       // .catch(err => {
-//       //   console.log(`Error: ${err}`);
-//       //   displayMsg("error", err, $(".msg-wrap"));
-//       // })
-//     }
-//   });
-// });
+function likeFunc(e) {
+  let commentId = e.parentElement.parentElement.parentElement.id;
+  let requestBody = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `bearer ${token}`,
+    },
+    body: JSON.stringify({
+      userId: JSON.parse(localStorage.getItem("erudite_auth")).user.id,
+    }),
+    redirect: "follow",
+  };
+
+  if (e.parentElement.children[1].className.includes("liked")) {
+    likeUnlike(
+      e.parentElement.children[1],
+      `https://erudite-be.herokuapp.com/v1/comments/unlike/${commentId}/`,
+      requestBody,
+      commentId
+    );
+    getLikes(
+      `https://erudite-be.herokuapp.com/v1/comments/resource/${commentId}`,
+      e.parentElement.children[1].children[1]
+    );
+    getLikes(
+      `https://erudite-be.herokuapp.com/v1/comments/resource/${topicId}/`,
+      e.parentElement.children[1].children[1]
+    );
+    setTimeout(
+      () => e.parentElement.children[1].classList.remove("liked"),
+      1000
+    );
+  } else {
+    likeUnlike(
+      e.parentElement.children[1],
+      `https://erudite-be.herokuapp.com/v1/comments/like/${commentId}/`,
+      requestBody,
+      commentId
+    );
+    getLikes(
+      `https://erudite-be.herokuapp.com/v1/comments/resource/${commentId}`,
+      e.parentElement.children[1].children[1]
+    );
+    getLikes(
+      `https://erudite-be.herokuapp.com/v1/comments/resource/${topicId}/`,
+      e.parentElement.children[1].children[1]
+    );
+    setTimeout(() => e.parentElement.children[1].classList.add("liked"), 1000);
+  }
+}
+
+async function likeUnlike(el, url, requestBody, commentId) {
+  try {
+    const res = await fetch(url, requestBody);
+    const response = await res.json();
+    console.log(response);
+    if (response.success == true) {
+      displayMsg("success", response.message, $(".msg-wrap"));
+      // el.classList.toggle("liked");
+
+      el.animate([{transform: "scale(1.2)"}, {transform: "scale(1)"}], {
+        duration: 400,
+      });
+    } else {
+      displayMsg("error", response.message, $(".msg-wrap"));
+    }
+  } catch (err) {
+    console.log(`Error: ${err}`);
+    displayMsg("error", err, $(".msg-wrap"));
+  }
+}
+
+if (token) {
+  fetch(`https://erudite-be.herokuapp.com/v1/topics/addview/${topicId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `bearer ${token}`,
+    },
+    redirect: "follow",
+  })
+    .then(res => res.json())
+    .then(json => console.log(json));
+}

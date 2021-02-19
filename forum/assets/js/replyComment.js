@@ -53,8 +53,14 @@ function replyText(el, commentTemplate) {
     `https://erudite-be.herokuapp.com/v1/comments/resource/${el.id}`
   ).then(res => {
     res.forEach(data => {
-      let replyTexts = `<article id="${data._id}" class="second-level-comment thread-wrap">
-         <img src="../images/Ellipse 27 (1).png" alt="avatar" />
+      let replyTexts = `<article id="${
+        data._id
+      }" class="second-level-comment thread-wrap">
+         <img src="${
+           userAuth.user.avatar
+             ? userAuth.user.avatar
+             : "https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
+         }" alt="avatar" />
          <div class="text">
            <div class="info">
              <b class="name">${data.user.name}</b>
@@ -64,7 +70,9 @@ function replyText(el, commentTemplate) {
            </p>
            <br />
            <div class="info">
-           <button role="checkbox" type="button" class="like"><i class="fa fa-heart"></i> <span class="count">${data.likes.length}</span> </button>
+           <button role="checkbox" type="button" class="like"><i class="fa fa-heart"></i> <span class="count"> ${
+             data.likes.length
+           } Likes</span> </button>
            </div>
          </article>`;
       commentTemplate.innerHTML += replyTexts;
@@ -73,12 +81,21 @@ function replyText(el, commentTemplate) {
 }
 
 // a functional template to display comment based on level (first or second)
-function replyCommentEvent(el, level, parent) {
-  replyVal = `<article class="${level}-level-comment thread-wrap"><img src="../images/Ellipse 27 (1).png" alt="avatar" /><div class="text"><div class="info"><b class="name">${
+function replyCommentEvent(el, level, parent, id) {
+  replyVal = `<article id="${id}" class="${level}-level-comment thread-wrap"><img src="${
+    userAuth.user.avatar
+      ? userAuth.user.avatar
+      : "https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
+  }" alt="avatar" /><div class="text"><div class="info"><b class="name">${
     userAuth.user.name
   }</b></div><p class="text-msg">${
     el.firstElementChild?.value || el.firstElementChild.value
-  }</p><br /><div class="info"><button role="checkbox" type="button" class="like"><i class="fa fa-heart"></i>0</button>${
+  }</p><br /><div class="info"><input type="checkbox" onChange="likeFunc(this)" value="None" name="like-btn" id="${
+    id + "1"
+  }"/>
+        <label for="${
+          id + "1"
+        }" type="button" class="like"><i class="fa fa-heart"></i> <span class="count">0</span> </label>${
     level === "first"
       ? '<button type="button" onClick="" class="reply">Reply</button>'
       : ""
@@ -164,10 +181,10 @@ function replyApi(url, requestBody, el, level, parent) {
     .then(response => {
       console.log(response);
       if (response.success == true) {
-        displayMsg("success", response.message, $(".msg-wrap"));
-        replyCommentEvent(el, level, parent);
+        displayMsg("success", response.data.message, $(".msg-wrap"));
+        replyCommentEvent(el, level, parent, response.data.id);
       } else {
-        displayMsg("error", response.message, $(".msg-wrap"));
+        displayMsg("error", response.data.message, $(".msg-wrap"));
       }
     })
     .catch(err => {
