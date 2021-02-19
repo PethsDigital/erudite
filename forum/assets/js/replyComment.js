@@ -99,7 +99,7 @@ function replyCommentEvent(el, level, parent, id) {
     level === "first"
       ? '<button type="button" onClick="" class="reply">Reply</button>'
       : ""
-  }<p class="time-posted">3 hrs ago</p></div></div></article>
+  }<p class="time-posted">0 min ago</p></div></div></article>
            </div>`;
 
   // empty or close comment box depending on level

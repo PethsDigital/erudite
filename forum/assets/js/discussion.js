@@ -19,7 +19,7 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`).then(json => {
             <div class="text">
               <div class="info">
                 <b class="name">${json.user.name}</b>
-                <p class="time-posted">3 hours ago</p>
+                <p class="time-posted">${displayTime(json.createdAt)} ago</p>
               </div>
               <p class="text-msg">
                ${json.description}
@@ -27,18 +27,41 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`).then(json => {
             </div>
           </article>`;
   parentEl.innerHTML += topicDescription;
-  // console.log(json);
   // get comments
   $("#com-num").innerHTML = `${json.comments.length} Comments`;
 });
-// let likeArr = [];
+
+function getTime(createdAt) {
+  let d = Math.abs(new Date() - new Date(createdAt)) / 1000; // delta
+  let r = {}; // result
+  let s = {
+    day: 86400, // feel free to add your own row
+    hr: 3600,
+    min: 60,
+  };
+
+  Object.keys(s).forEach(function (key) {
+    r[key] = Math.floor(d / s[key]);
+    d -= r[key] * s[key];
+  });
+  return r;
+}
+
+function displayTime(createdAt) {
+  let time = "";
+  let result = getTime(createdAt);
+  let day = result.day < 1 ? "" : result.day + " day(s)";
+  let hr = result.hr < 1 ? "" : result.hr + " hr";
+  let min = result.min + " min";
+  return (time = result.day > 0 ? `${day}` : `${day} ${hr} ${min}`);
+}
+
 getData(
   `https://erudite-be.herokuapp.com/v1/comments/resource/${topicId}`
 ).then(json => {
   let commentWrap = $(".comments-wrapper");
   let allComments = "";
   json.forEach(el => {
-    // likeArr.push([el._id, el.likes]);
     let commentTemplate = `<article id="${
       el._id
     }" class="first-level-comment thread-wrap">
@@ -65,7 +88,7 @@ getData(
       el.likes.length
     }</span> </label>
           <button type="button" class="reply">Reply</button>
-          <p class="time-posted">3 hrs ago</p>
+          <p class="time-posted">${displayTime(el.createdAt)} ago</p>
         </div>
       
       </div>
@@ -106,14 +129,7 @@ function likeFunc(e) {
       requestBody,
       commentId
     );
-    getLikes(
-      `https://erudite-be.herokuapp.com/v1/comments/resource/${commentId}`,
-      e.parentElement.children[1].children[1]
-    );
-    getLikes(
-      `https://erudite-be.herokuapp.com/v1/comments/resource/${topicId}/`,
-      e.parentElement.children[1].children[1]
-    );
+
     setTimeout(
       () => e.parentElement.children[1].classList.remove("liked"),
       1000
@@ -125,14 +141,7 @@ function likeFunc(e) {
       requestBody,
       commentId
     );
-    getLikes(
-      `https://erudite-be.herokuapp.com/v1/comments/resource/${commentId}`,
-      e.parentElement.children[1].children[1]
-    );
-    getLikes(
-      `https://erudite-be.herokuapp.com/v1/comments/resource/${topicId}/`,
-      e.parentElement.children[1].children[1]
-    );
+
     setTimeout(() => e.parentElement.children[1].classList.add("liked"), 1000);
   }
 }
@@ -143,14 +152,12 @@ async function likeUnlike(el, url, requestBody, commentId) {
     const response = await res.json();
     console.log(response);
     if (response.success == true) {
-      displayMsg("success", response.message, $(".msg-wrap"));
-      // el.classList.toggle("liked");
-
+      el.children[1].innerHTML = response.data.likes.length;
       el.animate([{transform: "scale(1.2)"}, {transform: "scale(1)"}], {
         duration: 400,
       });
     } else {
-      displayMsg("error", response.message, $(".msg-wrap"));
+      displayMsg("error", response.data.message, $(".msg-wrap"));
     }
   } catch (err) {
     console.log(`Error: ${err}`);
@@ -168,5 +175,5 @@ if (token) {
     redirect: "follow",
   })
     .then(res => res.json())
-    .then(json => console.log(json));
+    .then(json => json);
 }
