@@ -48,12 +48,11 @@ function getTime(createdAt) {
 }
 
 function displayTime(createdAt) {
-  let time = "";
   let result = getTime(createdAt);
   let day = result.day < 1 ? "" : result.day + " day(s)";
   let hr = result.hr < 1 ? "" : result.hr + " hr";
   let min = result.min + " min";
-  return (time = result.day > 0 ? `${day}` : `${day} ${hr} ${min}`);
+  return result.day > 0 ? `${day}` : `${day} ${hr} ${min}`;
 }
 
 getData(
@@ -62,11 +61,12 @@ getData(
   let commentWrap = $(".comments-wrapper");
   let allComments = "";
   json.forEach(el => {
+    console.log(userAuth.user.avatar);
     let commentTemplate = `<article id="${
       el._id
     }" class="first-level-comment thread-wrap">
       <img src="${
-        userAuth.user.avatar
+        token && userAuth.user.avatar
           ? userAuth.user.avatar
           : "https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
       }" alt="avatar" />
