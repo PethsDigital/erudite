@@ -1,6 +1,16 @@
 $("form.discuss-pop-up").addEventListener("submit", e => {
   e.preventDefault();
-
+  if (!userAuth) {
+    displayMsg(
+      "error",
+      `pls Login to enable this action`,
+      $("form.discuss-pop-up")
+    );
+    setTimeout(
+      () => (window.location.pathname = "/registration/login.html"),
+      3000
+    );
+  }
   const submit = $("#post-msg");
   submit.textContent = "loading...";
   submit.disabled = true;
@@ -22,12 +32,12 @@ $("form.discuss-pop-up").addEventListener("submit", e => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "authorization": `Bearer ${token}`,
+      authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(topicDetails),
     redirect: "follow",
   };
-  console.log(requestBody)
+  console.log(requestBody);
 
   fetch("https://erudite-be.herokuapp.com/v1/topics/create", requestBody)
     .then(res => res.json())

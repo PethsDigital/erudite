@@ -110,7 +110,17 @@ function replyCommentEvent(el, level, parent, id) {
 const firstLevelComment = $(".comments-wrapper");
 $("#first-level").addEventListener("submit", e => {
   e.preventDefault();
-
+  if (!userAuth) {
+    displayMsg(
+      "error",
+      `pls Login to enable this action`,
+      $("form.discuss-pop-up")
+    );
+    setTimeout(
+      () => (window.location.pathname = "/registration/login.html"),
+      3000
+    );
+  }
   const comment = $("#first-level #comment-input");
   let url = `https://erudite-be.herokuapp.com/v1/comments/add/topic/${topicId}`;
   let topicDetails = {

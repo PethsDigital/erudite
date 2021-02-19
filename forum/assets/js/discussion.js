@@ -28,6 +28,10 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`).then(json => {
           </article>`;
   parentEl.innerHTML += topicDescription;
   // get comments
+  $("#first-level-cm img").src =
+    userAuth && userAuth.user.avatar != ""
+      ? userAuth.user.avatar
+      : "https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png";
   $("#com-num").innerHTML = `${json.comments.length} Comments`;
 });
 
@@ -61,13 +65,12 @@ getData(
   let commentWrap = $(".comments-wrapper");
   let allComments = "";
   json.forEach(el => {
-    console.log(userAuth.user.avatar);
     let commentTemplate = `<article id="${
       el._id
     }" class="first-level-comment thread-wrap">
       <img src="${
-        token && userAuth.user.avatar
-          ? userAuth.user.avatar
+        el.user.avatar != ""
+          ? el.user.avatar
           : "https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
       }" alt="avatar" />
       <div class="text">
@@ -83,7 +86,7 @@ getData(
           el._id + "1"
         }"/>
         <label for="${el._id + "1"}" type="button" class="like ${
-      el.likes.includes(userAuth.user.id) ? "liked" : ""
+      userAuth && el.likes.includes(userAuth.user.id) ? "liked" : ""
     }"><i class="fa fa-heart"></i> <span class="count"> ${
       el.likes.length
     }</span> </label>
@@ -98,17 +101,18 @@ getData(
   commentWrap.innerHTML += allComments;
 });
 
-function getLikes(url, likeEl) {
-  return fetch(url)
-    .then(res => res.json())
-    .then(json => {
-      json.data.forEach(el => {
-        likeEl.innerHTML = el.likes.length;
-      });
-    });
-}
-
 function likeFunc(e) {
+  if (!userAuth) {
+    displayMsg(
+      "error",
+      `pls Login to enable this action`,
+      $("form.discuss-pop-up")
+    );
+    setTimeout(
+      () => (window.location.pathname = "/registration/login.html"),
+      3000
+    );
+  }
   let commentId = e.parentElement.parentElement.parentElement.id;
   let requestBody = {
     method: "PATCH",
@@ -126,8 +130,7 @@ function likeFunc(e) {
     likeUnlike(
       e.parentElement.children[1],
       `https://erudite-be.herokuapp.com/v1/comments/unlike/${commentId}/`,
-      requestBody,
-      commentId
+      requestBody
     );
 
     setTimeout(
@@ -138,15 +141,14 @@ function likeFunc(e) {
     likeUnlike(
       e.parentElement.children[1],
       `https://erudite-be.herokuapp.com/v1/comments/like/${commentId}/`,
-      requestBody,
-      commentId
+      requestBody
     );
 
     setTimeout(() => e.parentElement.children[1].classList.add("liked"), 1000);
   }
 }
 
-async function likeUnlike(el, url, requestBody, commentId) {
+async function likeUnlike(el, url, requestBody) {
   try {
     const res = await fetch(url, requestBody);
     const response = await res.json();
