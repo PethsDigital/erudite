@@ -40,7 +40,7 @@ loginForm.addEventListener("submit", e => {
         setTimeout(
           () =>
             (window.location.pathname = window.location.pathname.replace(
-              "registration/login.html",
+              "/registration/login.html",
               "/"
             )),
           1000
