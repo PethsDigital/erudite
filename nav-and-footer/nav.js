@@ -54,6 +54,30 @@ Array.from($$(".pwd-wrap .view-pwd")).forEach(input => {
   );
 });
 
+function getTime(createdAt) {
+  let d = Math.abs(new Date() - new Date(createdAt)) / 1000; // delta
+  let r = {}; // result
+  let s = {
+    day: 86400,
+    hr: 3600,
+    min: 60,
+  };
+
+  Object.keys(s).forEach(function (key) {
+    r[key] = Math.floor(d / s[key]);
+    d -= r[key] * s[key];
+  });
+  return r;
+}
+
+function displayTime(createdAt) {
+  let result = getTime(createdAt);
+  let day = result.day < 1 ? "" : result.day + " day(s)";
+  let hr = result.hr < 1 ? "" : result.hr + " hr";
+  let min = result.min + " min";
+  return result.day > 0 ? `${day}` : `${day} ${hr} ${min}`;
+}
+
 // for start a discussion modal
 const discussModal = $(".discuss-pop-up");
 const discussModalbtn = $(".st-discuss");

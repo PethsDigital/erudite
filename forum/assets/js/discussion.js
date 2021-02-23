@@ -35,30 +35,7 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`).then(json => {
   $("#com-num").innerHTML = `${json.comments.length} Comments`;
 });
 
-function getTime(createdAt) {
-  let d = Math.abs(new Date() - new Date(createdAt)) / 1000; // delta
-  let r = {}; // result
-  let s = {
-    day: 86400, // feel free to add your own row
-    hr: 3600,
-    min: 60,
-  };
-
-  Object.keys(s).forEach(function (key) {
-    r[key] = Math.floor(d / s[key]);
-    d -= r[key] * s[key];
-  });
-  return r;
-}
-
-function displayTime(createdAt) {
-  let result = getTime(createdAt);
-  let day = result.day < 1 ? "" : result.day + " day(s)";
-  let hr = result.hr < 1 ? "" : result.hr + " hr";
-  let min = result.min + " min";
-  return result.day > 0 ? `${day}` : `${day} ${hr} ${min}`;
-}
-
+// display first level comments on load
 getData(
   `https://erudite-be.herokuapp.com/v1/comments/resource/${topicId}`
 ).then(json => {
@@ -101,6 +78,7 @@ getData(
   commentWrap.innerHTML += allComments;
 });
 
+// like and unlike
 function likeFunc(e) {
   if (!userAuth) {
     displayMsg(
@@ -167,6 +145,7 @@ async function likeUnlike(el, url, requestBody) {
   }
 }
 
+// views api
 if (token) {
   fetch(`https://erudite-be.herokuapp.com/v1/topics/addview/${topicId}`, {
     method: "PATCH",

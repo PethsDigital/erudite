@@ -70,9 +70,15 @@ function replyText(el, commentTemplate) {
            </p>
            <br />
            <div class="info">
-           <button role="checkbox" type="button" class="like"><i class="fa fa-heart"></i> <span class="count"> ${
-             data.likes.length
-           } Likes</span> </button>
+           <input type="checkbox" onChange="likeFunc(this)" value="None" name="like-btn" id="${
+             data._id + "1"
+           }"/>
+          <label for="${data._id + "1"}" type="button" class="like ${
+        userAuth && data.likes.includes(userAuth.user.id) ? "liked" : ""
+      }"><i class="fa fa-heart"></i> <span class="count"> ${
+        data.likes.length
+      }</span> </label>
+      <p class="time-posted">${displayTime(data.createdAt)} ago</p>
            </div>
          </article>`;
       commentTemplate.innerHTML += replyTexts;

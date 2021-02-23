@@ -54,8 +54,9 @@ selects.forEach(select => selectSubjects(select, autocomplete));
 fetch(`https://jambito-api.herokuapp.com/`)
   .then(res => res.json())
   .then(data => {
-    autocomplete(course, Object.keys(data.results.results));
+    jsonData = data;
     console.log(data);
+    autocomplete(course, Object.keys(data.results));
   })
   .catch(err => console.log(err));
 
@@ -165,29 +166,22 @@ checkCourse.addEventListener("submit", e => {
 
 // function for courses subject combo (form2)
 courseCombo.addEventListener("submit", e => {
-  $("#course-combo button").textContent = "loading...";
-
-  fetchData("https://jambito-api.herokuapp.com/")
-    .then(data => {
-      for (let key in data.results.results) {
-        if (`${key}` == course.value) {
-          displayCourseSubject(key, data.results.results[key].subjects);
-          courseDiv.innerHTML += `<h4 class="course-title">List Of Schools:</h4>`;
-          data.results.results[key].schools.forEach(sch => {
-            courseDiv.innerHTML += `<span>${sch}</span> &nbsp;&nbsp;`;
-          });
-        }
-      }
-    })
-    .catch(err => {
-      displayMsg(
-        "error",
-        "Request failed please try again later :)",
-        courseCombo
-      );
-      console.log(`Error: ${err}`);
-    });
   e.preventDefault();
+  console.log(jsonData);
+  if (jsonData.results.hasOwnProperty(course.value)) {
+    for (let key in jsonData.results) {
+      if (`${key}` == course.value) {
+        displayCourseSubject(key, jsonData.results[key].subjects);
+        courseDiv.innerHTML += `<h4 class="course-title">List Of Schools:</h4>`;
+        jsonData.results[key].schools.forEach(sch => {
+          courseDiv.innerHTML += `<span>${sch}</span>, &nbsp;&nbsp;`;
+        });
+      }
+    }
+  } else if (!jsonData.results.hasOwnProperty(course.value)) {
+    console.log(course.value);
+    displayMsg("error", "Course Not Found...", courseCombo);
+  }
 });
 
 // close modals function
