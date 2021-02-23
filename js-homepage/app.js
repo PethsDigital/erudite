@@ -167,7 +167,6 @@ checkCourse.addEventListener("submit", e => {
 // function for courses subject combo (form2)
 courseCombo.addEventListener("submit", e => {
   e.preventDefault();
-  console.log(jsonData);
   if (jsonData.results.hasOwnProperty(course.value)) {
     for (let key in jsonData.results) {
       if (`${key}` == course.value) {
@@ -179,7 +178,6 @@ courseCombo.addEventListener("submit", e => {
       }
     }
   } else if (!jsonData.results.hasOwnProperty(course.value)) {
-    console.log(course.value);
     displayMsg("error", "Course Not Found...", courseCombo);
   }
 });
