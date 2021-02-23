@@ -112,7 +112,11 @@ function replyCommentEvent(el, level, parent, id) {
   level === "first" ? (el.firstElementChild.value = "") : "";
   parent.innerHTML += replyVal;
 }
-
+let arr = window.location.pathname.replace(
+  "forum/topic.html",
+  "registration/login.html"
+);
+console.log(arr, "hii");
 const firstLevelComment = $(".comments-wrapper");
 $("#first-level").addEventListener("submit", e => {
   e.preventDefault();
@@ -123,10 +127,15 @@ $("#first-level").addEventListener("submit", e => {
       $("form.discuss-pop-up")
     );
     setTimeout(
-      () => (window.location.pathname = "/registration/login.html"),
-      3000
+      () =>
+        (window.location.pathname = window.location.pathname.replace(
+          "forum/topic.html",
+          "registration/login.html"
+        )),
+      1000
     );
   }
+
   const comment = $("#first-level #comment-input");
   let url = `https://erudite-be.herokuapp.com/v1/comments/add/topic/${topicId}`;
   let topicDetails = {
@@ -156,8 +165,12 @@ comments.addEventListener("submit", e => {
       $("form.discuss-pop-up")
     );
     setTimeout(
-      () => (window.location.pathname = "/registration/login.html"),
-      3000
+      () =>
+        (window.location.pathname = window.location.pathname.replace(
+          "forum/topic.html",
+          "registration/login.html"
+        )),
+      1000
     );
   }
   if (userAuth && e.target.className === "comment-box reply-comment") {

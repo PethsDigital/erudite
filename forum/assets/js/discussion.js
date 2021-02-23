@@ -87,8 +87,12 @@ function likeFunc(e) {
       $("form.discuss-pop-up")
     );
     setTimeout(
-      () => (window.location.pathname = "/registration/login.html"),
-      3000
+      () =>
+        (window.location.pathname = window.location.pathname.replace(
+          "forum/topic.html",
+          "registration/login.html"
+        )),
+      1000
     );
   }
   let commentId = e.parentElement.parentElement.parentElement.id;

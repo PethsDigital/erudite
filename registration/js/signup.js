@@ -36,7 +36,11 @@ signupForm.addEventListener("submit", e => {
         if (response.success == true) {
           displayMsg("success", response.message, signupForm);
           setTimeout(
-            () => (window.location.pathname = "/registration/login.html"),
+            () =>
+              (window.location.pathname = window.location.pathname.replace(
+                "registration/signup.html",
+                "registration/login.html"
+              )),
             1000
           );
         } else {

@@ -116,17 +116,6 @@ function getData(url) {
       return json.data;
     })
     .catch(err => {
-      if (!token) {
-        displayMsg(
-          "error",
-          `pls <a href="../registration/login.html" target="_blank" rel="noopener noreferrer">Login</a>
-          or <a href="../registration/signup.html" target="_blank" rel="noopener noreferrer">Sign-up</a> to enable this action`,
-          $("form.discuss-pop-up")
-        );
-        setTimeout(() => {
-          window.location.replace("../registration/signup.html");
-        }, 1000);
-      }
       $("main").style.display = "none";
       $(".pre-loader").style.display = "none";
       $(".oops").style.display = "flex";
