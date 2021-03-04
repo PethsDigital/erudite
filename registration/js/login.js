@@ -37,14 +37,14 @@ loginForm.addEventListener("submit", e => {
         };
         localStorage.setItem("erudite_auth", JSON.stringify(userAuth));
         displayMsg("success", "Login successful", loginForm);
-        // setTimeout(
-        //   () =>
-        //     (window.location.pathname = window.location.pathname.replace(
-        //       "/registration/login.html",
-        //       "/"
-        //     )),
-        //   1000
-        // );
+        setTimeout(
+          () =>
+            (window.location.pathname = window.location.pathname.replace(
+              "/registration/login.html",
+              "/registration/profile.html"
+            )),
+          1000
+        );
       } else {
         displayMsg("error", "Login Failed", loginForm);
       }
