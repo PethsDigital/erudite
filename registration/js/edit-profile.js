@@ -1,9 +1,15 @@
 let avatarVal;
+
 getData(`https://erudite-be.herokuapp.com/v1/users/${userAuth.user.id}`).then(
   user => {
     // $("#username").value = user.username;
     $(".edit-user.user-details img").src = user.avatar;
     avatarVal = user.avatar;
+    $$(".avatar").forEach(el => {
+      if (el.firstElementChild.src == avatarVal) {
+        el.classList.add("current");
+      }
+    });
   }
 );
 $(".edit-user img").src = avatarVal;
