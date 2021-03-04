@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erudite | Page Not Found</title>
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:700,900"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        background-color: #fafafa;
+        max-width: 100vw;
+      }
+
+      #notfound {
+        overflow-x: hidden;
+        width: auto;
+        min-height: 100vh;
+        /* padding: 2rem; */
+      }
+
+      #notfound .notfound {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        max-width: 910px;
+        width: 90vw;
+        margin: auto;
+        line-height: 1;
+        text-align: center;
+      }
+
+      .notfound h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 220px;
+        font-weight: 900;
+        margin: 0px;
+        padding-bottom: 0;
+        color: #aaaaaa;
+        text-transform: uppercase;
+        letter-spacing: 10px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        word-wrap: none;
+      }
+      h1 img {
+        width: 150px;
+        height: 100%;
+        margin: 0 1rem;
+      }
+
+      .notfound h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.4;
+        text-transform: uppercase;
+        color: #aaaaaa;
+        margin-top: 20px;
+        margin-bottom: 15px;
+      }
+
+      .notfound .home-btn {
+        font-family: "Montserrat", sans-serif;
+        display: inline-block;
+        font-weight: 700;
+        text-decoration: none;
+        background-color: transparent;
+        border: 2px solid transparent;
+        text-transform: uppercase;
+        padding: 10px 2rem;
+        font-size: 18px;
+        border-radius: 40px;
+        margin: 7px;
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+      }
+
+      .notfound .home-btn {
+        color: #fff;
+        background: #3d90ef;
+      }
+
+      .notfound-social {
+        margin-top: 25px;
+      }
+
+      .notfound-social > a {
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        width: 40px;
+        font-size: 2rem;
+        color: #3d90ef;
+        margin: 0px 6px;
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+      }
+      .notfound-social > a:hover {
+        color: #222;
+        background-color: #cecece;
+        border-radius: 50%;
+      }
+
+      @media only screen and (max-width: 767px) {
+        .notfound h1 {
+          font-size: 182px;
+        }
+        h1 img {
+          width: 100px;
+          margin: 0 0.5rem;
+        }
+      }
+
+      @media only screen and (max-width: 480px) {
+        .notfound h1 {
+          font-size: 100px;
+        }
+        .notfound h2 {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="notfound">
+      <div class="notfound">
+        <h1>
+          <span>4</span><img src="./images/logo-ash.svg" alt="logo" /><span
+            >4</span
+          >
+        </h1>
+        <h2>we are sorry, but the page you requested was not found</h2>
+        <a href="/" class="home-btn">Go Home</a>
+        <div class="notfound-social">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+          <a href="#"><i class="fab fa-google-plus"></i></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

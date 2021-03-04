@@ -61,3 +61,9 @@ loginForm.addEventListener("submit", e => {
 });
 
 // get token with let userAuth = JSON.parse(localStorage.getItem("erudite_auth"));
+
+$("#google-auth").addEventListener("click", e =>
+  fetch(`https://erudite-be.herokuapp.com/v1/users/google/`).then(res =>
+    res.json()
+  )
+);

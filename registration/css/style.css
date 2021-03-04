@@ -216,3 +216,23 @@ textarea:focus + label {
     top: 50%;
   }
 }
+.signup-wrap .btn {
+  width: 100%;
+}
+.btn-google {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: "Poppins";
+  border-color: var(--text-color);
+}
+.btn-google:hover {
+  background-color: transparent;
+}
+.btn-google img {
+  width: 20px;
+  height: 20px;
+}
