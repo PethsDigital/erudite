@@ -173,7 +173,7 @@ courseCombo.addEventListener("submit", e => {
         displayCourseSubject(key, jsonData.results[key].subjects);
         courseDiv.innerHTML += `<h4 class="course-title">List Of Schools:</h4>`;
         jsonData.results[key].schools.forEach(sch => {
-          courseDiv.innerHTML += `<span>${sch}</span>, &nbsp;&nbsp;`;
+          courseDiv.innerHTML += `<span>${sch}</span>&nbsp; | &nbsp;`;
         });
       }
     }
