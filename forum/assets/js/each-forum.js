@@ -20,15 +20,14 @@ let urlId = window.location.href.split("?").pop().split("=")[1];
         <p>Click on "Start-discussion" to create a new topic for discussion</p>
   </div>`);
       } else {
-        return response.map(el => el.userId);
+        return fetchUsersData(response.map(el => el.userId));
       }
     })
-    .then(arr => {
+    .then(result => {
       let parentEl = $(".topics-wrap");
-      return fetchUsersData(arr).then(result => {
-        result.forEach((user, i) => {
-          if (user.success) {
-            let templateTopicsCard = `<article class="topics-card">
+      result.forEach((user, i) => {
+        if (user.success) {
+          let templateTopicsCard = `<article class="topics-card">
                   <div class="wrapper">
                     <img
                       src="${user.data.avatar}"
@@ -52,9 +51,8 @@ let urlId = window.location.href.split("?").pop().split("=")[1];
                     <p class="views"><i class="fa fa-eye"> &nbsp; </i>${response[i].views}</p>
                   </div>
                   </article>`;
-            parentEl.innerHTML += templateTopicsCard;
-          }
-        });
+          parentEl.innerHTML += templateTopicsCard;
+        }
       });
     });
 })();

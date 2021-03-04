@@ -105,40 +105,22 @@ Array.from($$(".close-msg")).forEach(btn => {
   });
 });
 
-// to store userVerification
-let userAuth = JSON.parse(localStorage.getItem("erudite_auth"));
-let token = JSON.parse(localStorage.getItem("erudite_auth")).token;
 function getData(url) {
   return new Promise((resolve, reject) => {
     fetch(url)
       .then(res => res.json())
       .then(json => {
-        $(".pre-loader").style.display = "none";
         return resolve(json.data);
       })
       .catch(err => {
         $("main").style.display = "none";
-        $(".pre-loader").style.display = "none";
         $(".oops").style.display = "flex";
+        $(".pre-loader").style.display = "none";
+
         console.log(err.message);
-      })
-      .finally(_ => {
-        document.body.style.pointerEvents = "all";
       });
   });
 }
-
-// fetch users data from array of users id
-function fetchUsersData(arr) {
-  const promises = arr.map(el =>
-    fetch(`https://erudite-be.herokuapp.com/v1/users/${el}`).then(res =>
-      res.json()
-    )
-  );
-
-  return Promise.all(promises);
-}
-
 // search topics and display results
 if ($("#search-title")) {
   $("#search-title").addEventListener("submit", e => {
@@ -216,7 +198,7 @@ if ($("#search-title")) {
                         </p>
                         &nbsp; &nbsp; &nbsp;
                         <p class="stat"><i class="fa fa-eye"> &nbsp; </i>${
-                          responseData[i].views.length
+                          responseData[i].views
                         }</p>
                       </div>
                     </div>
@@ -227,4 +209,27 @@ if ($("#search-title")) {
         });
       });
   });
+}
+
+// to store userVerification
+let userAuth = JSON.parse(localStorage.getItem("erudite_auth"));
+let token = userAuth
+  ? JSON.parse(localStorage.getItem("erudite_auth")).token
+  : "";
+
+// fetch users data from array of users id
+function fetchUsersData(userArr) {
+  const promises = userArr.map((el, i) => {
+    return fetch(`https://erudite-be.herokuapp.com/v1/users/${el}`)
+      .then(res => res.json())
+      .then(json => {
+        if (i >= userArr.length - 1) {
+          document.body.style.pointerEvents = "all";
+          $(".pre-loader").style.display = "none";
+        }
+        return json;
+      });
+  });
+
+  return Promise.all(promises);
 }

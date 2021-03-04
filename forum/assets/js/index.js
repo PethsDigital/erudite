@@ -102,37 +102,37 @@ getData("https://erudite-be.herokuapp.com/v1/forums/").then(json => {
       } else {
         data.reverse();
         topics = data;
-        return data.map(el => el.userId);
+        return fetchUsersData(data.map(el => el.userId));
       }
     })
-    .then(arr => {
-      return fetchUsersData(arr).then(result => {
+    .then(result => {
+      if (result) {
         result.forEach((user, i) => {
           if (user.success) {
             let templateTopicsCard = ` <article class="un-topic-child">
-                    <div class="info">
-                      <img
-                        src="${user.data.avatar}"
-                        alt="avatar"
-                        class="avatar"
-                      />
-                      <b class="name">${user.data.name}</b>
-                    </div>
-                    <a href="./topic.html?id=${topics[i]._id}">
-                     ${topics[i].description}</a
-                    >
-                    <p class="stat">
-                      <img
-                        src="../images/msg-sq.svg"
-                        alt="forum avatar"
-                        class="comment-icon"
-                      />
-                      &nbsp; ${topics[i].comments.length} comments
-                    </p>
-                  </article>`;
+                        <div class="info">
+                          <img
+                            src="${user.data.avatar}"
+                            alt="avatar"
+                            class="avatar"
+                          />
+                          <b class="name">${user.data.name}</b>
+                        </div>
+                        <a href="./topic.html?id=${topics[i]._id}">
+                         ${topics[i].description}</a
+                        >
+                        <p class="stat">
+                          <img
+                            src="../images/msg-sq.svg"
+                            alt="forum avatar"
+                            class="comment-icon"
+                          />
+                          &nbsp; ${topics[i].comments.length} comments
+                        </p>
+                      </article>`;
             parentEl.innerHTML += templateTopicsCard;
           }
         });
-      });
+      }
     });
 })();

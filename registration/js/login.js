@@ -62,8 +62,10 @@ loginForm.addEventListener("submit", e => {
 
 // get token with let userAuth = JSON.parse(localStorage.getItem("erudite_auth"));
 
-$("#google-auth").addEventListener("click", e =>
-  fetch(`https://erudite-be.herokuapp.com/v1/users/google/`).then(res =>
-    res.json()
-  )
-);
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log("Name: " + profile.getName());
+  console.log("Image URL: " + profile.getImageUrl());
+  console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
+}

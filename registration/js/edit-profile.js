@@ -10,6 +10,8 @@ getData(`https://erudite-be.herokuapp.com/v1/users/${userAuth.user.id}`).then(
         el.classList.add("current");
       }
     });
+    document.body.style.pointerEvents = "all";
+    $(".pre-loader").style.display = "none";
   }
 );
 $(".edit-user img").src = avatarVal;

@@ -18,9 +18,9 @@ body {
   overflow-x: hidden;
   font-weight: 400;
 }
-/* a {
-  text-decoration: none;
-} */
+a {
+  color: var(--primary-color);
+}
 
 input,
 textarea {
@@ -75,7 +75,7 @@ section.signup-wrap {
   width: 100%;
 }
 
-input,
+input:not(input[type="checkbox"]),
 select,
 textarea {
   width: 100%;
@@ -85,7 +85,17 @@ textarea {
   padding: 0.5rem;
   background-color: transparent;
 }
-
+.form-check {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 1rem 0;
+}
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 1rem;
+}
 .pwd-wrap {
   position: relative;
   height: auto;
@@ -109,7 +119,7 @@ textarea {
   box-shadow: none;
 }
 
-label {
+label:not(#TnC) {
   font-size: 0.95rem;
   font-weight: 500;
   transition: 0.4s;
@@ -131,8 +141,8 @@ textarea:focus::placeholder {
   display: none !important;
 }
 
-input:focus + label,
-.pwd-wrap input:active ~ label,
+input:not(input[type="checkbox"]):focus + label,
+.pwd-wrap input:not(input[type="checkbox"]):active ~ label,
 textarea:focus + label {
   color: var(--primary-color);
   transform: scaleY(1);
@@ -220,14 +230,22 @@ textarea:focus + label {
   width: 100%;
 }
 .btn-google {
+  padding: 0;
+}
+
+.abcRioButtonLightBlue {
+  background-color: transparent !important;
   color: var(--text-color);
-  display: flex;
-  align-items: center;
+  width: 100% !important;
+  height: 45px !important;
+  box-shadow: none !important;
+  border-radius: 5px !important;
+  border: 1px solid var(--text-color);
+}
+.abcRioButtonContentWrapper {
+  display: flex !important;
   justify-content: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  font-family: "Poppins";
-  border-color: var(--text-color);
+  align-items: center;
 }
 .btn-google:hover {
   background-color: transparent;

@@ -26,19 +26,12 @@ window.onload = function (el) {
       $(".text h2").innerHTML = user.name;
       $(".text p").innerHTML = `@${user.username}`;
       $(".left img").src = user.avatar;
+      document.body.style.pointerEvents = "all";
+      $(".pre-loader").style.display = "none";
     }
   );
 };
-// userAuth = {
-//   token: userAuth.token,
-//   user: {
-//     avatar: user.avatar,
-//     email: user.email,
-//     id: user._id,
-//     name: user.name,
-//     username: user.username,
-//   },
-// };
+
 $(".topics").innerHTML = `<div class="pre-loader">
 <div class="wrap">
   <img
