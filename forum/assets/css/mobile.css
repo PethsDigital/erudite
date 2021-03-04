@@ -44,7 +44,6 @@ textarea {
 }
 .topic-child,
 .un-topic-child {
-  border-bottom: 1px solid var(--input-border);
   margin-bottom: 0.8rem;
 }
 

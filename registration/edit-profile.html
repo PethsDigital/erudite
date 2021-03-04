@@ -85,7 +85,6 @@
         <button class="close-modal" type="reset" style="color: red">
           Close
         </button>
-        <button type="submit" id="post-msg" style="color: #3d90ef">Post</button>
       </div>
       <div class="all-avatars">
         <div class="avatar current">
@@ -169,23 +168,26 @@
       </div>
     </div>
     <main>
-      <div class="user-details edit-user">
-        <img
-          src="https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
-          alt="user proifle"
-        />
-        <button type="button" class="btn">Change Avatar</button>
-      </div>
-      <form class="signup-form">
-        <div class="form-group">
+      <a class="btn-back" href="./profile.html"><span>&lt;</span>&nbsp;Back</a>
+      <br />
+      <br />
+      <form id="edit-profile" class="signup-form">
+        <div class="user-details edit-user">
+          <img
+            src="https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
+            alt="user proifle"
+          />
+          <button type="button" class="btn">Change Avatar</button>
+        </div>
+        <!-- <div class="form-group">
           <input type="text" id="name" required placeholder="Full Name" />
           <label for="name">Full Name</label>
-        </div>
+        </div> -->
         <div class="form-group">
-          <input type="text" id="username" required placeholder="Username" />
+          <input type="text" id="username" placeholder="Username" />
           <label for="name">Username</label>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <input
             type="email"
             id="email"
@@ -194,9 +196,9 @@
             placeholder="Email"
           />
           <label for="email">Email</label>
-        </div>
+        </div> -->
 
-        <button type="submit" class="btn">Edit Profile</button>
+        <button type="submit" id="edit-btn" class="btn">Edit Profile</button>
       </form>
     </main>
     <footer class="footer-sm">
@@ -223,6 +225,7 @@
         ></a>
       </div>
     </footer>
+
     <script src="../nav-and-footer/nav.js"></script>
     <script src="./js/edit-profile.js"></script>
   </body>

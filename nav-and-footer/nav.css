@@ -38,6 +38,13 @@ body {
   align-items: center;
   background-color: white;
 }
+.topics .pre-loader,
+.main-discussion .pre-loader {
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  background-color: transparent;
+}
 @keyframes closeLoader {
   from {
     clip-path: inset(0 0 0 0);
@@ -423,7 +430,6 @@ textarea {
 
 /* 404 page error message */
 .oops {
-  /* height: 60vh; */
   min-height: 80vh;
   display: none;
   align-items: center;
@@ -434,6 +440,13 @@ textarea {
   width: 95%;
   font-family: "Nunito";
 }
+.topics .oops,
+.main-discussion .oops {
+  display: flex;
+  min-height: auto;
+  margin: 2rem auto;
+  font-size: 15px;
+}
 .oops p {
   margin-top: 1rem;
   font-size: 1.2rem;
@@ -441,6 +454,9 @@ textarea {
   text-align: center;
 }
 .heart {
+  color: var(--text-color) !important;
   font-size: 6rem;
+  width: 120px;
+  height: 120px;
   animation: heartbeat 0.6s infinite;
 }

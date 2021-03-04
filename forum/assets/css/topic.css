@@ -221,7 +221,7 @@ a.breadcrumb-link:hover {
   align-items: center;
   margin-bottom: 0.3rem;
 }
-.info .time-posted {
+.time-posted {
   color: var(--grey);
   font-size: 0.7rem;
 }
@@ -329,6 +329,13 @@ textarea {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-bottom: 0.5rem;
+}
+.topics .topic-child,
+.un-topic-child {
+  border-bottom: 1px solid var(--input-border);
+  margin: 0.5rem 0;
+  justify-content: space-between;
 }
 
 .stat {
@@ -377,7 +384,52 @@ input[type="radio"] {
 .unanswered .info {
   font-size: 0.7rem;
 }
-
+.search-results .wrapper {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.search-results {
+  padding: 1rem !important;
+}
+.search-results .wrapper img {
+  width: 50px;
+  height: 50px;
+  margin: 0 1rem 0 0;
+}
+.search-results .author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.search-results .forum-name {
+  background: var(--bg-color);
+  border-radius: 20px;
+  color: white;
+  padding: 0.4rem 1rem;
+}
+.search-results .bottom {
+  width: 100%;
+}
+.search-results .bottom,
+.search-results .stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search-results .stats,
+.search-results .stat {
+  justify-content: space-evenly;
+  font-size: 0.9rem;
+}
+.stat i {
+  font-size: 1.2rem;
+}
+.search-results .stat img {
+  width: 1rem;
+  border-radius: 0;
+  height: 1rem;
+  margin: 0 0.5rem 0 1rem;
+}
 .un-topic-child {
   margin: 0.9rem 0;
 }
@@ -389,7 +441,7 @@ input[type="radio"] {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   z-index: 10;
-  color: var(--text-color);
+  color: #878787;
 }
 
 .stat img {

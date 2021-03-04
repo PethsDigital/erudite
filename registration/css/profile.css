@@ -5,6 +5,21 @@ main {
   color: var(--text-color);
   min-height: 90vh;
 }
+a {
+  color: var(--primary-color);
+}
+main .btn-back {
+  color: var(--primary-color);
+  background: none;
+  padding: 0;
+  font-size: 1.2rem;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+main .btn-back span {
+  font-size: 2rem;
+}
 .user-details {
   display: flex;
   justify-content: space-between;
@@ -117,6 +132,11 @@ main {
 .topics,
 .user-comments {
   animation: fade 01s ease both;
+  position: relative;
+}
+.description {
+  color: #878787;
+  margin-top: 0.3rem;
 }
 .user-comments {
   display: none;
@@ -132,13 +152,19 @@ main {
 .comment-itself {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
   margin-top: 1rem;
 }
-.comment-itself img {
+.comment img {
   width: 60px;
   height: 60px;
   margin-right: 1rem;
+}
+.comment {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .all-avatars {

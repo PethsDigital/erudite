@@ -49,49 +49,55 @@ let replyVal;
 
 function replyText(el, commentTemplate) {
   executed = true;
-  getData(
-    `https://erudite-be.herokuapp.com/v1/comments/resource/${el.id}`
-  ).then(res => {
-    res.forEach(data => {
-      let replyTexts = `<article id="${
-        data._id
-      }" class="second-level-comment thread-wrap">
-         <img src="${
-           userAuth.user.avatar
-             ? userAuth.user.avatar
-             : "https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
-         }" alt="avatar" />
-         <div class="text">
-           <div class="info">
-             <b class="name">${data.user.name}</b>
-           </div>
-           <p class="text-msg">
-            ${data.comment}
-           </p>
-           <br />
-           <div class="info">
-           <input type="checkbox" onChange="likeFunc(this)" value="None" name="like-btn" id="${
-             data._id + "1"
-           }"/>
-          <label for="${data._id + "1"}" type="button" class="like ${
-        userAuth && data.likes.includes(userAuth.user.id) ? "liked" : ""
-      }"><i class="fa fa-heart"></i> <span class="count"> ${
-        data.likes.length
-      }</span> </label>
-      <p class="time-posted">${displayTime(data.createdAt)} ago</p>
-           </div>
-         </article>`;
-      commentTemplate.innerHTML += replyTexts;
+  let response;
+
+  getData(`https://erudite-be.herokuapp.com/v1/comments/resource/${el.id}`)
+    .then(res => {
+      console.log(res);
+      response = res;
+      return res.map(el => el.userId);
+    })
+    .then(arr => {
+      return fetchUsersData(arr).then(result => {
+        result.forEach((user, i) => {
+          if (user.success) {
+            let replyTexts = `<article id="${
+              response[i]._id
+            }" class="second-level-comment thread-wrap">
+            <img src="${user.data.avatar}" alt="avatar" />
+            <div class="text">
+              <div class="info">
+                <b class="name">${user.data.username}</b>
+              </div>
+              <p class="text-msg">
+                ${response[i].comment}
+              </p>
+              <br />
+              <div class="info">
+              <input type="checkbox" onChange="likeFunc(this)" value="None" name="like-btn" id="${
+                response[i]._id + "1"
+              }"/>
+              <label for="${response[i]._id + "1"}" type="button" class="like ${
+              userAuth && response[i].likes.includes(userAuth.user.id)
+                ? "liked"
+                : ""
+            }"><i class="fa fa-heart"></i> <span class="count"> ${
+              response[i].likes.length
+            }</span> </label>
+          <p class="time-posted">${displayTime(response[i].createdAt)} ago</p>
+              </div>
+            </article>`;
+            commentTemplate.innerHTML += replyTexts;
+          }
+        });
+      });
     });
-  });
 }
 
 // a functional template to display comment based on level (first or second)
 function replyCommentEvent(el, level, parent, id) {
   replyVal = `<article id="${id}" class="${level}-level-comment thread-wrap"><img src="${
     userAuth.user.avatar
-      ? userAuth.user.avatar
-      : "https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
   }" alt="avatar" /><div class="text"><div class="info"><b class="name">${
     userAuth.user.name
   }</b></div><p class="text-msg">${
@@ -112,11 +118,7 @@ function replyCommentEvent(el, level, parent, id) {
   level === "first" ? (el.firstElementChild.value = "") : "";
   parent.innerHTML += replyVal;
 }
-let arr = window.location.pathname.replace(
-  "forum/topic.html",
-  "registration/login.html"
-);
-console.log(arr, "hii");
+
 const firstLevelComment = $(".comments-wrapper");
 $("#first-level").addEventListener("submit", e => {
   e.preventDefault();
