@@ -1,4 +1,11 @@
-let avatarVal = userAuth.user.avatar;
+let avatarVal;
+getData(`https://erudite-be.herokuapp.com/v1/users/${userAuth.user.id}`).then(
+  user => {
+    // $("#username").value = user.username;
+    $(".edit-user.user-details img").src = user.avatar;
+    avatarVal = user.avatar;
+  }
+);
 $(".edit-user img").src = avatarVal;
 $(".edit-user .btn").addEventListener("click", e => {
   $(".modal").style.display = "block";

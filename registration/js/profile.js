@@ -29,7 +29,16 @@ window.onload = function (el) {
     }
   );
 };
-
+// userAuth = {
+//   token: userAuth.token,
+//   user: {
+//     avatar: user.avatar,
+//     email: user.email,
+//     id: user._id,
+//     name: user.name,
+//     username: user.username,
+//   },
+// };
 $(".topics").innerHTML = `<div class="pre-loader">
 <div class="wrap">
   <img
