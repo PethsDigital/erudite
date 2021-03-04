@@ -107,9 +107,9 @@ main .btn-back span {
 
 @media (max-width: 550px) {
   .user-details:not(.user-details.edit-user) {
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 0rem;
   }
@@ -124,7 +124,7 @@ main .btn-back span {
   }
   .user-details .btn-bdr {
     margin: 2rem 0;
-    width: 100%;
+    width: 100% !important;
   }
   .links button {
     font-size: 0.9rem;

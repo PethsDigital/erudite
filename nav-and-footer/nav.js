@@ -210,7 +210,6 @@ if ($("#search-title")) {
       });
   });
 }
-
 // to store userVerification
 let userAuth = JSON.parse(localStorage.getItem("erudite_auth"));
 let token = userAuth
