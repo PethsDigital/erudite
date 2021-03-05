@@ -106,7 +106,7 @@ main .btn-back span {
 }
 
 @media (max-width: 550px) {
-  .user-details:not(.user-details.edit-user) {
+  .user-details {
     flex-direction: column !important;
     flex-wrap: wrap !important;
     justify-content: space-between;

@@ -75,7 +75,7 @@ section.signup-wrap {
   width: 100%;
 }
 
-input:not(input[type="checkbox"]),
+input,
 select,
 textarea {
   width: 100%;
@@ -115,6 +115,9 @@ input[type="checkbox"] {
   background-color: transparent;
   border-radius: 0 8px 8px 0;
 }
+#TnC {
+  color: var(--text-color);
+}
 .view-pwd:focus {
   box-shadow: none;
 }
@@ -141,8 +144,8 @@ textarea:focus::placeholder {
   display: none !important;
 }
 
-input:not(input[type="checkbox"]):focus + label,
-.pwd-wrap input:not(input[type="checkbox"]):active ~ label,
+input:focus + label,
+.pwd-wrap input:active ~ label,
 textarea:focus + label {
   color: var(--primary-color);
   transform: scaleY(1);
@@ -247,10 +250,6 @@ textarea:focus + label {
   justify-content: center;
   align-items: center;
 }
-.btn-google:hover {
-  background-color: transparent;
-}
-.btn-google img {
-  width: 20px;
-  height: 20px;
+#forgetpwd {
+  text-align: center;
 }
