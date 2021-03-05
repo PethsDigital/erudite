@@ -107,15 +107,17 @@ main .btn-back span {
 
 @media (max-width: 550px) {
   .user-details {
-    flex-direction: column !important;
-    flex-wrap: wrap !important;
-    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     align-items: flex-start;
     margin-bottom: 0rem;
   }
 
   .user-details.edit-user {
     margin-bottom: 1rem;
+    flex-direction: row;
+    align-items: center;
   }
 
   .user-details img {
