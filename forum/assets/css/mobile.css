@@ -37,7 +37,6 @@ textarea {
 }
 .left {
   margin-left: 0;
-  justify-content: flex-end;
 }
 
 .popular .topic-child {

@@ -369,14 +369,14 @@ input[type="radio"] {
 .left .profile .drop-down {
   position: absolute;
   top: 110%;
-  right: 0;
+  left: 0;
   width: max-content;
   min-width: 200px;
   padding: 0.3rem;
   background: white;
   word-wrap: none;
   transform: scale(0);
-  transform-origin: top right;
+  transform-origin: top left;
   border-radius: 8px;
   box-shadow: 4px 4px 0 var(--text-color);
   transition: transform 0.2s;
@@ -399,9 +399,7 @@ input[type="radio"] {
 .drop-down-show {
   transform: scale(1) !important;
 }
-.left .profile:hover .drop-down {
-  transform: scale(1);
-}
+
 .left .profile,
 .btn.submit-reply,
 .text .info *,

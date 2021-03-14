@@ -420,13 +420,12 @@ textarea {
   display: none;
   max-height: 90vh;
   color: var(--text-color);
-  transform: translate(-50%, -30%);
-  opacity: 0;
+  transform: translate(-50%, -40%);
   animation: modal 0.3s ease forwards;
 }
 @keyframes modal {
+
   to {
-    opacity: 1;
     transform: translate(-50%, -50%);
   }
 }
