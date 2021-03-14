@@ -10,10 +10,6 @@
   margin-right: 0;
 }
 
-.left {
-  margin-left: 0;
-}
-
 .btn-group {
   display: flex;
   flex-direction: column;
@@ -39,6 +35,11 @@ textarea {
   width: 100%;
   justify-content: flex-start;
 }
+.left {
+  margin-left: 0;
+  justify-content: flex-end;
+}
+
 .popular .topic-child {
   justify-content: space-between;
 }

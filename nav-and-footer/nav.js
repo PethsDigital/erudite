@@ -215,6 +215,29 @@ let token = userAuth
   ? JSON.parse(localStorage.getItem("erudite_auth")).token
   : "";
 
+if ($("#sign-out")) {
+  if (userAuth) {
+    $(".left .profile img").addEventListener("click", e =>
+      $(".left .drop-down").classList.toggle("drop-down-show")
+    );
+    $(".left .profile img").src = userAuth.user.avatar;
+  } else {
+    $(".left .profile").style.display = "none";
+  }
+  $("#sign-out").addEventListener("click", e => {
+    localStorage.clear();
+    userAuth = "";
+    displayMsg("success", "Logout successful");
+    setTimeout(
+      () =>
+        (window.location.pathname = window.location.pathname.replace(
+          "/forum/",
+          "/"
+        )),
+      1000
+    );
+  });
+}
 // fetch users data from array of users id
 function fetchUsersData(userArr) {
   const promises = userArr.map((el, i) => {

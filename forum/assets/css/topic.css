@@ -170,6 +170,12 @@ main {
   height: 25px;
   width: 25px;
 }
+.left .profile-pic {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
 .left button {
   background-color: transparent;
   color: black;
@@ -359,11 +365,49 @@ input[type="radio"] {
 .left {
   margin: 20px;
 }
+
+.left .profile .drop-down {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: max-content;
+  min-width: 200px;
+  padding: 0.3rem;
+  background: white;
+  word-wrap: none;
+  transform: scale(0);
+  transform-origin: top right;
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 var(--text-color);
+  transition: transform 0.2s;
+}
+.profile .drop-down .list {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+}
+.list:hover {
+  background: var(--input-border);
+}
+.profile .drop-down button.list {
+  margin-top: 0.5rem;
+  text-align: left;
+  border-top: 1px solid var(--input-border);
+}
+.drop-down-show {
+  transform: scale(1) !important;
+}
+.left .profile:hover .drop-down {
+  transform: scale(1);
+}
 .left .profile,
 .btn.submit-reply,
 .text .info *,
 .thread-wrap img {
   margin-right: 17px;
+  position: relative;
 }
 
 .main-discussion {
