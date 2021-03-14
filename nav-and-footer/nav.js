@@ -155,11 +155,10 @@ if ($("#search-title")) {
       })
       .then(arr => {
         return fetchUsersData(arr).then(result => {
-          console.log(result, responseData);
           $("#search-title input").value = "";
           $(
             ".main-discussion.right"
-          ).innerHTML = `<h1 style="text-align: center; color: var(--primary-color); font-weight: 500;">Search Results For "${inputVal}"</h1>`;
+          ).innerHTML = `<h1 style="text-align: center; color: var(--primary-color); font-weight: 500;">Search Results For "${inputVal}"  (${result.length} results)</h1>`;
           result.forEach((user, i) => {
             if (user.success) {
               $(

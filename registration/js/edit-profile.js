@@ -1,25 +1,32 @@
 let avatarVal;
-
-getData(`https://erudite-be.herokuapp.com/v1/users/${userAuth.user.id}`).then(
-  user => {
-    // $("#username").value = user.username;
-    $(".edit-user.user-details img").src = user.avatar;
-    avatarVal = user.avatar;
-    $$(".avatar").forEach(el => {
-      if (el.firstElementChild.src == avatarVal) {
-        el.classList.add("current");
-      }
+window.onload = function () {
+  if (userAuth) {
+    getData(
+      `https://erudite-be.herokuapp.com/v1/users/${userAuth.user.id}`
+    ).then(user => {
+      // $("#username").value = user.username;
+      $(".edit-user.user-details img").src = user.avatar;
+      avatarVal = user.avatar;
+      $$(".avatar").forEach(el => {
+        if (el.firstElementChild.src == avatarVal) {
+          el.classList.add("current");
+        }
+      });
+      document.body.style.pointerEvents = "all";
+      $(".pre-loader").style.display = "none";
     });
-    document.body.style.pointerEvents = "all";
-    $(".pre-loader").style.display = "none";
+    $(".edit-user img").src = avatarVal;
+    $(".edit-user .btn").addEventListener("click", e => {
+      $(".modal").style.display = "block";
+      $(".overlay").style.display = "block";
+    });
+  } else {
+    window.location.pathname = window.location.pathname.replace(
+      "/registration/edit-profile.html",
+      "/registration/login.html"
+    );
   }
-);
-$(".edit-user img").src = avatarVal;
-$(".edit-user .btn").addEventListener("click", e => {
-  $(".modal").style.display = "block";
-  $(".overlay").style.display = "block";
-});
-
+};
 $$(".avatar").forEach(el => {
   el.addEventListener("click", e => {
     $$(".avatar").forEach(el => el.classList.remove("current"));
