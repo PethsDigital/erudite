@@ -141,6 +141,12 @@ main .btn-back span {
 .description {
   color: #878787;
   margin-top: 0.3rem;
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  z-index: 10;
 }
 .user-comments {
   display: none;
