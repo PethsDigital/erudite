@@ -139,8 +139,9 @@ input {
 .btn {
   background: var(--primary-color);
   color: white;
-  padding: 0.55rem 2rem;
+  padding: 0 3rem;
   border-radius: 6px;
+  height: 43px;
   text-decoration: none;
   margin: 1rem auto;
   transition: 0.5s;
@@ -419,12 +420,14 @@ textarea {
   display: none;
   max-height: 90vh;
   color: var(--text-color);
-  transform: translate(-50%, -50%) scale(0);
-  animation: modal 0.5s ease forwards;
+  transform: translate(-50%, -30%);
+  opacity: 0;
+  animation: modal 0.3s ease forwards;
 }
 @keyframes modal {
   to {
-    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    transform: translate(-50%, -50%);
   }
 }
 

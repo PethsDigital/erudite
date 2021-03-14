@@ -55,7 +55,7 @@ getData("https://erudite-be.herokuapp.com/v1/topics/").then(json => {
   let data = json.filter(el => el.views >= 50);
   data.forEach(el => {
     let templateTopicsCard = `<article class="topic-child">
-      <a href="#"> ${el.title}</a>
+      <a href="./topic.html?id=${el._id}"> ${el.title}</a>
       <p class="stat">
         <img
           src="../images/msg-sq.svg"

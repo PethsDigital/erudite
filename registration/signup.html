@@ -99,7 +99,7 @@
       <li class="nav-item"><a href="../forum/">Forums</a></li>
     </ul>
 
-    <main class="container">
+    <main class="container align-top">
       <section class="signup-wrap">
         <div class="signup-text">
           <h3>Join the community!</h3>
@@ -180,17 +180,23 @@
             </div>
             <label for="confirmpwd">Confirm Password</label>
           </div>
+
           <button type="submit" class="btn">Sign up</button>
           <!-- <br /> -->
           <p style="text-align: center">-Or Signup With-</p>
-          <br />
+          <!-- <br />
           <div
             data-onsuccess="onSignIn"
             type="button"
             id="google-auth"
             class="g-signin2"
-          ></div>
-          <br />
+          ></div> -->
+          <a
+            href="https://erudite-be.herokuapp.com/v1/users/google/"
+            class="btn btn-tp google-sign-in"
+            ><img src="../images/google.svg" alt="google sign in" /> &nbsp;
+            Google</a
+          >
           <div class="form-check">
             <input type="checkbox" name="t&c" id="t&c" />
             <label id="TnC" for="t&c"
