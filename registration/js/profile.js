@@ -21,33 +21,18 @@ const topicBtn = $("#topic-btn span");
 //   }
 // });
 window.onload = function (el) {
-  getData(`https://erudite-be.herokuapp.com/v1/users/${userAuth.user.id}`).then(
-    user => {
+  if (userAuth) {
+    getData(
+      `https://erudite-be.herokuapp.com/v1/users/${userAuth.user.id}`
+    ).then(user => {
       $(".text h2").innerHTML = user.name;
       $(".text p").innerHTML = `@${user.username}`;
       $(".left img").src = user.avatar;
       document.body.style.pointerEvents = "all";
       $(".pre-loader").style.display = "none";
-    }
-  );
-};
-
-$(".topics").innerHTML = `<div class="pre-loader">
-<div class="wrap">
-  <img
-    src="https://res.cloudinary.com/tomiwadev/image/upload/v1613560587/erudite/logo-blue_zro7g4.png"
-    alt="logo"
-  />
-  <div class="circle"></div>
-</div>
-</div>`;
-window.onload = function (e) {
-  if (userAuth) {
-    fetch(
-      `https://erudite-be.herokuapp.com/v1/topics/user/${
-        JSON.parse(localStorage.getItem("erudite_auth")).user.id
-      }`
-    )
+    });
+    let url = JSON.parse(localStorage.getItem("erudite_auth")).user.id;
+    fetch(`https://erudite-be.herokuapp.com/v1/topics/user/${url}`)
       .then(res => res.json())
       .then(json => {
         $(".topics").innerHTML = "";
@@ -111,39 +96,12 @@ window.onload = function (e) {
   }
 };
 
-// fetch(
-//   `https://erudite-be.herokuapp.com/v1/comments/user/${
-//     JSON.parse(localStorage.getItem("erudite_auth")).user.id
-//   }`
-// )
-//   .then(res => res.json())
-//   .then(json => {
-//     console.log(json);
-//     // json.data.forEach(el => {
-//     //   $(
-//     //     ".user-comments"
-//     //   ).innerHTML += ` <a href="../forum/topic.html?id=${el._id}" class="topic">
-//     //   <h2 class="title">${el.title}</h2>
-//     //   <p class="description">
-//     //     ${el.description}
-//     //   </p>
-//     //   <div class="reactions">
-//     //     <span>
-//     //       <img src="../images/msg-sq.svg" alt="comment icon" />&nbsp; ${el.comments.length}
-//     //     </span>
-//     //     <span><i class="fa fa-eye"></i>&nbsp; ${el.views}</span>
-//     //   </div>
-//     //   </div>
-//     //   <div class="comment-itself left">
-//     //     <img
-//     //       src="https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
-//     //       alt=""
-//     //     />
-//     //     <p>
-//     //       Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-//     //       tempore incidunt quam, animi aut nulla eos.
-//     //     </p>
-//     //   </div>
-//     // </a>`;
-//     // });
-//   });
+// $(".topics").innerHTML = `<div class="pre-loader">
+// <div class="wrap">
+//   <img
+//     src="https://res.cloudinary.com/tomiwadev/image/upload/v1613560587/erudite/logo-blue_zro7g4.png"
+//     alt="logo"
+//   />
+//   <div class="circle"></div>
+// </div>
+// </div>`;

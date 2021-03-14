@@ -31,7 +31,7 @@ loginForm.addEventListener("submit", e => {
     .then(response => {
       console.log(response);
       if (response.success == true) {
-        let userAuth = {
+        userAuth = {
           token: response.data.token,
           user: response.data.user,
         };
