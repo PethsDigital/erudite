@@ -42,15 +42,7 @@
       name="twitter:description"
       content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
     />
-    <meta
-      name="google-signin-client_id"
-      content="796227367570-kvm8hngianom6h8v38pdknsucmu2jh23.apps.googleusercontent.com"
-    />
-    <meta name="google-signin-fetch_basic_profile" content="false" />
-    <meta
-      name="google-signin-scope"
-      content="https://www.googleapis.com/auth/user.gender.read https://www.googleapis.com/auth/user.phonenumbers.read https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
-    />
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -144,33 +136,6 @@
           <p class="bottom-text" id="forgetpwd">
             <a href="./forgetpassword.html"> Forgot Password?</a>
           </p>
-          <p style="text-align: center">-or login with-</p>
-          <!-- <br /> -->
-          <!-- <div
-            data-onsuccess="onSignIn"
-            type="button"
-            id="google-auth"
-            class="g-signin2"
-          ></div> -->
-          <!-- <button
-            id="out"
-            type="button"
-            style="
-              color: var(--primary-color);
-              background-color: transparent !important;
-              border-color: var(--input-border);
-            "
-            onclick="signout()"
-            class="btn btn-tp"
-          >
-            Sign Out
-          </button> -->
-          <a
-            href="https://erudite-be.herokuapp.com/v1/users/google/"
-            class="btn btn-tp google-sign-in"
-            ><img src="../images/google.svg" alt="google sign in" /> &nbsp;
-            Google</a
-          >
 
           <p class="bottom-text">
             You don't have an account?
@@ -189,6 +154,5 @@
 
     <script src="../nav-and-footer/nav.js"></script>
     <script src="./js/login.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
   </body>
 </html>

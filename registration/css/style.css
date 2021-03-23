@@ -162,8 +162,6 @@ textarea:focus + label {
   color: var(--primary-color);
 }
 #forgetpwd {
-  display: flex;
-  justify-content: flex-end;
   margin-bottom: 0.5rem;
 }
 .img-wrap {

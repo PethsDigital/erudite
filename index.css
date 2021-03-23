@@ -80,6 +80,9 @@ header,
   padding: 1rem;
   height: auto;
 }
+header {
+  padding: 1rem 1rem 0 1rem;
+}
 .header-text,
 .header-img,
 .text {
@@ -236,7 +239,7 @@ label.star {
 
   border-radius: 15px 0 15px 15px;
   flex-wrap: wrap;
-  padding: 4rem 1.5rem;
+  padding: 2rem 1.5rem;
 }
 .notify-text {
   width: 100%;
@@ -373,6 +376,9 @@ input.star-2:checked ~ label.star:before {
 @media (min-width: 760px) {
   .heading {
     font-size: 1.6rem;
+  }
+  #notify {
+    padding: 4rem 1.5rem;
   }
   .notify-email,
   .notify-text {

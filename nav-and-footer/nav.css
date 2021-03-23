@@ -421,10 +421,9 @@ textarea {
   max-height: 90vh;
   color: var(--text-color);
   transform: translate(-50%, -40%);
-  animation: modal 0.3s ease forwards;
+  animation: modal 0.3s ease-out forwards;
 }
 @keyframes modal {
-
   to {
     transform: translate(-50%, -50%);
   }

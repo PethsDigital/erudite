@@ -301,7 +301,9 @@ textarea {
 .info button,
 .info label {
   padding: 0.5rem;
-  /* background-color: rgba(120, 121, 122, 0.158) !important; */
+}
+.st-discuss {
+  background-color: rgba(120, 121, 122, 0.158) !important;
 }
 .st-discuss:hover,
 .info button:hover,
@@ -370,6 +372,7 @@ input[type="radio"] {
   position: absolute;
   top: 110%;
   left: 0;
+  z-index: 10;
   width: max-content;
   min-width: 200px;
   padding: 0.3rem;
@@ -379,6 +382,7 @@ input[type="radio"] {
   transform-origin: top left;
   border-radius: 8px;
   box-shadow: 4px 4px 0 var(--text-color);
+  /* box-shadow: 0 0 0 4px var(--text-color); */
   transition: transform 0.2s;
 }
 .profile .drop-down .list {
