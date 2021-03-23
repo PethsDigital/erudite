@@ -116,7 +116,7 @@ function getData(url) {
         $("main").style.display = "none";
         $(".oops").style.display = "flex";
         $(".pre-loader").style.display = "none";
-
+        document.body.style.pointerEvents = "all";
         console.log(err.message);
       });
   });
