@@ -98,14 +98,10 @@ function displayCourseSubject(key, sub) {
   sub.compulsory.forEach(code => {
     courseDiv.innerHTML += `<p class="course-child">${code} (Compulsory)</p>`;
   });
-  if (sub.length > 0) {
-    for (key in sub.optional) {
-      sub.optional[key].forEach(code => {
-        courseDiv.innerHTML += `<p class="course-child">${code} (Optional)</p>`;
-      });
-    }
-  } else {
-    courseDiv.innerHTML += `<p style="text-align: center;">0 results found</p>`;
+  for (key in sub.optional) {
+    sub.optional[key].forEach(code => {
+      courseDiv.innerHTML += `<p class="course-child">${code} (Optional)</p>`;
+    });
   }
 }
 
