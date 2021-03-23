@@ -296,7 +296,14 @@ textarea {
   border: none;
   border-radius: 5px;
 }
-
+.left #signup {
+  padding: 0.45rem 1rem !important;
+  margin: 0 1rem;
+  display: none;
+  height: auto;
+  margin-left: 0;
+  font-size: 0.85rem;
+}
 .st-discuss,
 .info button,
 .info label {

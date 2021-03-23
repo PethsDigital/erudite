@@ -217,12 +217,14 @@ let token = userAuth
 
 if ($("#sign-out")) {
   if (userAuth) {
+    $(".left #signup").style.display = "none";
     $(".left .profile img").addEventListener("click", e =>
       $(".left .drop-down").classList.toggle("drop-down-show")
     );
     $(".left .profile img").src = userAuth.user.avatar;
   } else {
     $(".left .profile").style.display = "none";
+    $(".left #signup").style.display = "block";
   }
   $("#sign-out").addEventListener("click", e => {
     localStorage.clear();
