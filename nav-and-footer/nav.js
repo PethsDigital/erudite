@@ -3,7 +3,7 @@ const $ = el => document.querySelector(el);
 const $$ = el => document.querySelectorAll(el);
 
 let navbar = $(".nav2");
-let navLink = $$(".nav2 a");
+let navLink = $$(".nav2 a, .nav2 i");
 let openToggle = $(".fa.fa-bars");
 
 openToggle.addEventListener(
