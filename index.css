@@ -156,10 +156,12 @@ section p {
   margin: 0.6rem 0;
 }
 section p {
-  /* color: var(--primary-color); */
+  color: var(--grey);
   font-size: 0.9rem;
 }
-
+#notify p {
+  color: var(--text-color);
+}
 #sub1 {
   border-bottom: 3px solid var(--primary-color);
   color: #222;
