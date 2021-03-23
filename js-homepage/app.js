@@ -66,8 +66,12 @@ function displayCourseResult(sub) {
   $(".course-result-modal.modal").style.cssText = "display: block;";
   $(".overlay").style.display = "block";
   $(".course-result-modal.modal h2").textContent = "Courses You Can Study";
-  for (let el of sub) {
-    courseDiv.innerHTML += `<h4 class="course-child">${el}</h4>`;
+  if (sub.length > 0) {
+    for (let el of sub) {
+      courseDiv.innerHTML += `<p class="course-child">${el}</p>`;
+    }
+  } else {
+    courseDiv.innerHTML += `<p style="text-align: center;">0 results found</p>`;
   }
   /* for (let key in sub) {
         courseDiv.innerHTML += `<h4 class="course-title">${key}</h4>`;
@@ -94,11 +98,14 @@ function displayCourseSubject(key, sub) {
   sub.compulsory.forEach(code => {
     courseDiv.innerHTML += `<p class="course-child">${code} (Compulsory)</p>`;
   });
-
-  for (key in sub.optional) {
-    sub.optional[key].forEach(code => {
-      courseDiv.innerHTML += `<p class="course-child">${code} (Optional)</p>`;
-    });
+  if (sub.length > 0) {
+    for (key in sub.optional) {
+      sub.optional[key].forEach(code => {
+        courseDiv.innerHTML += `<p class="course-child">${code} (Optional)</p>`;
+      });
+    }
+  } else {
+    courseDiv.innerHTML += `<p style="text-align: center;">0 results found</p>`;
   }
 }
 
