@@ -232,9 +232,16 @@ nav {
   color: var(--primary-color);
 }
 .navbar i {
+  padding-right: 1rem;
   color: var(--primary-color);
   cursor: pointer;
-  padding-right: 1rem;
+}
+.iconify {
+  color: var(--primary-color);
+  cursor: pointer;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-right: 1rem;
 }
 .nav-menu {
   display: none;
@@ -275,14 +282,13 @@ nav {
   -webkit-clip-path: circle(0% at 100% 1rem);
   clip-path: circle(0% at 100% 1rem);
 }
-.nav2 i {
+.nav2 .iconify {
   position: absolute;
   top: 1rem;
   z-index: 120;
   right: 1rem;
-  font-size: 1.5rem;
   color: white;
-  cursor: pointer;
+  margin-right: 0.5rem;
 }
 .nav2 a {
   display: block;
@@ -337,7 +343,7 @@ footer .logo-text {
 }
 
 @media (min-width: 790px) {
-  .navbar .fa {
+  .navbar .iconify {
     display: none;
   }
   .navbar {

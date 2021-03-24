@@ -3,8 +3,8 @@ const $ = el => document.querySelector(el);
 const $$ = el => document.querySelectorAll(el);
 
 let navbar = $(".nav2");
-let navLink = $$(".nav2 a, .nav2 i");
-let openToggle = $(".fa.fa-bars");
+let navLink = $$(".nav2 a, .nav2 .close");
+let openToggle = $(".bar");
 
 openToggle.addEventListener(
   "click",
@@ -241,7 +241,9 @@ function fetchUsersData(userArr) {
       .then(json => {
         if (i >= userArr.length - 1) {
           document.body.style.pointerEvents = "all";
-          $(".pre-loader").style.display = "none";
+          if ($(".pre-loader")) {
+            $(".pre-loader").style.display = "none";
+          }
         }
         return json;
       });

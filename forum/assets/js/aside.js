@@ -77,11 +77,14 @@ getData("https://erudite-be.herokuapp.com/v1/topics/").then(json => {
 // load input radio's for categories when creating topics
 getData("https://erudite-be.herokuapp.com/v1/forums/").then(json => {
   let categories = $(".category-wrap");
+  let category_drp_down = $("#drop-down-select");
   json.forEach(el => {
+    let list = `<a class="list" href="./forum-topics.html?id=${el._id}">${el.name}</a>`;
     let categoryRadio = ` <div class="form-control-group">
     <input required value="${el._id}" type="radio" name="category" id="${el._id}" />
     <label for="${el._id}">${el.name}</label>
   </div>`;
+    category_drp_down.innerHTML += list;
     categories.innerHTML += categoryRadio;
   });
 });

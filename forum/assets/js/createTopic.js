@@ -1,3 +1,7 @@
+$(".tag").addEventListener("click", e => {
+  $(".wrap .drop-down").classList.toggle("show-cat-drp-dw");
+  e.target.firstElementChild.classList.toggle("rotate-drp-icon");
+});
 $("form.discuss-pop-up").addEventListener("submit", e => {
   e.preventDefault();
   if (!userAuth) {

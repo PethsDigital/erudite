@@ -1,7 +1,9 @@
 // get fetch request (function getData) declaration and short cut selectors function $ aand $$ are in ./nav-and-footer/nav.js
 
 // template function to get topics depending on route
-$(".title-n-nav .tag").innerHTML = `Erudite Forum`;
+$(
+  ".title-n-nav .tag"
+).innerHTML = `Erudite Forum &nbsp; <i class="fas fa-chevron-down"></i>`;
 (function () {
   let allTopics;
   let topicsWrap = $(".topics-wrap");
@@ -29,7 +31,7 @@ $(".title-n-nav .tag").innerHTML = `Erudite Forum`;
       return fetchUsersData(arr).then(result => {
         result.forEach((user, i) => {
           if (user.success) {
-            let templateTopicsCard = `<article class="topics-card">
+            let templateTopicsCard = `<a href="./topic.html?id=${allTopics[i]._id}" class="topics-card">
                   <div class="wrapper">
                     <img
                       src="${user.data.avatar}"
@@ -38,13 +40,11 @@ $(".title-n-nav .tag").innerHTML = `Erudite Forum`;
                     />
                     <div class="text">
                       <h2 class="tp-title">
-                        <a href="./topic.html?id=${allTopics[i]._id}">
                           ${allTopics[i].title}
-                        </a>
                       </h2>
-                      <a href="./topic.html?id=${allTopics[i]._id}" class="question">
+                      <p class="question">
                        ${allTopics[i].description}
-                      </a>
+                      </p>
                     </div>
                   </div>
                   <div class="stat-info">
@@ -52,7 +52,7 @@ $(".title-n-nav .tag").innerHTML = `Erudite Forum`;
                     <hr />
                     <p class="views"><i class="fa fa-eye"> &nbsp; </i>${allTopics[i].views}</p>
                   </div>
-                  </article>`;
+                  </a>`;
             topicsWrap.innerHTML += templateTopicsCard;
           }
         });
@@ -73,15 +73,18 @@ $(".title-n-nav .tag").innerHTML = `Erudite Forum`;
 getData("https://erudite-be.herokuapp.com/v1/forums/").then(json => {
   let parentEl = $("#categories");
   let categories = $(".category-wrap");
+  let category_drp_down = $("#drop-down-select");
   json.forEach(el => {
     let templateTopicsCard = `<a href="./forum-topics.html?id=${el._id}" class="ct-topic-child">
       ${el.name}
       <div class="num">${el.topics.length}</div>
     </a>`;
+    let list = `<a class="list" href="./forum-topics.html?id=${el._id}">${el.name}</a>`;
     let categoryRadio = ` <div class="form-control-group">
     <input required value="${el._id}" type="radio" name="category" id="${el._id}" />
     <label for="${el._id}">${el.name}</label>
   </div>`;
+    category_drp_down.innerHTML += list;
     categories.innerHTML += categoryRadio;
     parentEl.innerHTML += templateTopicsCard;
   });

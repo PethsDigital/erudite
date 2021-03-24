@@ -375,7 +375,7 @@ input[type="radio"] {
   margin: 20px;
 }
 
-.left .profile .drop-down {
+.drop-down {
   position: absolute;
   top: 110%;
   left: 0;
@@ -388,21 +388,37 @@ input[type="radio"] {
   transform: scale(0);
   transform-origin: top left;
   border-radius: 8px;
-  box-shadow: 4px 4px 0 var(--text-color);
+  box-shadow: 0px 20px 70px 0px #e0e0e0;
   /* box-shadow: 0 0 0 4px var(--text-color); */
   transition: transform 0.2s;
 }
-.profile .drop-down .list {
+.drop-down .list {
   padding: 0.5rem 0.8rem;
   font-size: 0.9rem;
   width: 100%;
   display: block;
   border-radius: 5px;
 }
+.wrap .drop-down {
+  transform: scaleY(0) scaleX(1);
+  transform-origin: top;
+  top: 100%;
+  border-radius: 0 0 8px 8px;
+  width: 100%;
+  max-height: 50vh;
+  overflow-y: auto;
+  min-width: none !important;
+}
+.rotate-drp-icon {
+  transform: rotate(180deg);
+}
+.show-cat-drp-dw {
+  transform: scaleY(1) scaleX(1) !important;
+}
 .list:hover {
   background: var(--input-border);
 }
-.profile .drop-down button.list {
+.drop-down button.list {
   margin-top: 0.5rem;
   text-align: left;
   border-top: 1px solid var(--input-border);
@@ -509,14 +525,21 @@ input[type="radio"] {
 /* forums page style */
 .wrap {
   width: 100%;
+  position: relative;
 }
 .tag {
   background: var(--primary-color);
   color: white;
   padding: 0.7rem 0.7rem 0.4rem 0.7rem;
-  display: inline;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: left;
+  cursor: pointer;
   font-weight: 400;
+}
+.tag i {
+  transition: 0.3s;
 }
 .hr {
   padding: 1.3px;

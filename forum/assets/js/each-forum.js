@@ -6,7 +6,9 @@ let urlId = window.location.href.split("?").pop().split("=")[1];
   let response;
   getData(`https://erudite-be.herokuapp.com/v1/topics/forum/${urlId}`)
     .then(json => {
-      $(".title-n-nav .tag").innerHTML = `${json.forum} Forum`;
+      $(
+        ".title-n-nav .tag"
+      ).innerHTML = `${json.forum} Forumn &nbsp; <i class="fas fa-chevron-down"></i>`;
       let res = json.topics.reverse();
       response = res;
       if (json.length <= 0) {
@@ -27,7 +29,7 @@ let urlId = window.location.href.split("?").pop().split("=")[1];
       let parentEl = $(".topics-wrap");
       result.forEach((user, i) => {
         if (user.success) {
-          let templateTopicsCard = `<article class="topics-card">
+          let templateTopicsCard = `<a href="./topic.html?id=${response[i]._id}" class="topics-card">
                   <div class="wrapper">
                     <img
                       src="${user.data.avatar}"
@@ -36,13 +38,13 @@ let urlId = window.location.href.split("?").pop().split("=")[1];
                     />
                     <div class="text">
                       <h2 class="tp-title">
-                        <a href="./topic.html?id=${response[i]._id}">
+                        <p>
                           ${response[i].title}
-                        </a>
+                        </p>
                       </h2>
-                      <a href="./topic.html?id=${response[i]._id}" class="question">
+                      <p class="question">
                        ${response[i].description}
-                      </a>
+                      </p>
                     </div>
                   </div>
                   <div class="stat-info">
@@ -50,7 +52,7 @@ let urlId = window.location.href.split("?").pop().split("=")[1];
                     <hr />
                     <p class="views"><i class="fa fa-eye"> &nbsp; </i>${response[i].views}</p>
                   </div>
-                  </article>`;
+                  </a>`;
           parentEl.innerHTML += templateTopicsCard;
         }
       });

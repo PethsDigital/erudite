@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../nav-and-footer/nav.css" />
     <link
       rel="stylesheet"
-      href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -47,6 +47,7 @@
       name="twitter:description"
       content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
     />
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -86,7 +87,11 @@
         />
         <p class="logo-text">Erudite</p>
       </a>
-      <i class="fa fa-bars fa-2x"></i>
+      <span
+        class="iconify bar"
+        data-icon="radix-icons:hamburger-menu"
+        data-inline="false"
+      ></span>
       <ul class="nav-menu">
         <li class="nav-item"><a href="../">Home</a></li>
         <li class="nav-item"><a href="../about/">About Us</a></li>
@@ -100,7 +105,11 @@
       </ul>
     </nav>
     <ul class="nav2">
-      <i class="fa fa-times"></i>
+      <span
+        class="iconify close"
+        data-icon="clarity:times-line"
+        data-inline="false"
+      ></span>
       <li class="nav-item"><a href="../">Home</a></li>
       <li class="nav-item"><a href="../about/">About Us</a></li>
       <li class="nav-item">
@@ -177,8 +186,11 @@
               <h1 class="tag">UTME FORUM</h1>
             </div>
             <hr class="hr" />
-            <div class="topics-wrap"></div>
+            <div id="drop-down-select" class="drop-down">
+              <a href="./index.html" class="list">Erudite Forum</a>
+            </div>
           </div>
+          <div class="topics-wrap"></div>
         </div>
         <aside class="aside">
           <div class="popular topics">
