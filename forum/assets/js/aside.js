@@ -84,7 +84,9 @@ getData("https://erudite-be.herokuapp.com/v1/forums/").then(json => {
     <input required value="${el._id}" type="radio" name="category" id="${el._id}" />
     <label for="${el._id}">${el.name}</label>
   </div>`;
-    category_drp_down.innerHTML += list;
+    if (category_drp_down) {
+      category_drp_down.innerHTML += list;
+    }
     categories.innerHTML += categoryRadio;
   });
 });

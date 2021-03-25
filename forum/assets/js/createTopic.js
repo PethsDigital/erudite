@@ -1,7 +1,12 @@
-$(".tag").addEventListener("click", e => {
-  $(".wrap .drop-down").classList.toggle("show-cat-drp-dw");
-  e.target.firstElementChild.classList.toggle("rotate-drp-icon");
-});
+// show and hide forum drop down links
+if ($(".tag")) {
+  $(".tag").addEventListener("click", e => {
+    $(".wrap .drop-down").classList.toggle("show-cat-drp-dw");
+    e.target.firstElementChild.classList.toggle("rotate-drp-icon");
+  });
+}
+
+// create topic
 $("form.discuss-pop-up").addEventListener("submit", e => {
   e.preventDefault();
   if (!userAuth) {
