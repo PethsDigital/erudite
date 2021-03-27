@@ -334,6 +334,7 @@ textarea {
 }
 .topic-child a {
   margin: 0.4rem 0.3rem 0.4rem 0;
+  flex-grow: 2;
 }
 .aside .topics h3 {
   color: var(--primary-color);
