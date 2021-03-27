@@ -79,7 +79,7 @@ getData("https://erudite-be.herokuapp.com/v1/forums/").then(json => {
       ${el.name}
       <div class="num">${el.topics.length}</div>
     </a>`;
-    let list = `<a class="list" href="./forum-topics.html?id=${el._id}">${el.name}</a>`;
+    let list = `<a class="list" href="./forum-topics.html?id=${el._id}">${el.name} Forum</a>`;
     let categoryRadio = ` <div class="form-control-group">
     <input required value="${el._id}" type="radio" name="category" id="${el._id}" />
     <label for="${el._id}">${el.name}</label>

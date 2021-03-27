@@ -544,7 +544,6 @@ input[type="radio"] {
 .hr {
   padding: 1.3px;
   background: var(--primary-color);
-  margin-top: 4px;
   width: 100%;
   margin-bottom: 1rem;
 }

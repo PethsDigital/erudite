@@ -413,8 +413,8 @@ input.star-2:checked ~ label.star:before {
     /* margin: 0.7rem 0 !important; */
     align-self: flex-start;
   }
-  section:not(#notify) h2,
-  section:not(#notify) p {
+  section:not(#notify) > h2,
+  section:not(#notify) > p {
     text-align: center;
   }
   /* modal */

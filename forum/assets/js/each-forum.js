@@ -8,7 +8,7 @@ let urlId = window.location.href.split("?").pop().split("=")[1];
     .then(json => {
       $(
         ".title-n-nav .tag"
-      ).innerHTML = `${json.forum} Forumn &nbsp; <i class="fas fa-chevron-down"></i>`;
+      ).innerHTML = `${json.forum} Forum &nbsp; <i class="fas fa-chevron-down"></i>`;
       let res = json.topics.reverse();
       response = res;
       if (json.length <= 0) {
