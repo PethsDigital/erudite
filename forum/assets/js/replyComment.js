@@ -220,7 +220,11 @@ function replyApi(url, requestBody, el, level, parent) {
     })
     .catch(err => {
       console.log(`Error: ${err}`);
-      displayMsg("error", err, $(".msg-wrap"));
+      displayMsg(
+        "error",
+        "Something went wrong, pls try again",
+        $(".msg-wrap")
+      );
     })
     .finally(_ => {
       Array.from($$("form")).forEach(form => form.reset());

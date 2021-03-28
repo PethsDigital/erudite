@@ -76,7 +76,7 @@ $("form.discuss-pop-up").addEventListener("submit", e => {
     })
     .finally(_ => {
       $("form.discuss-pop-up").reset();
-      submit.textContent = "Submit";
+      submit.textContent = "Post";
       submit.disabled = false;
     });
 });

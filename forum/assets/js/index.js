@@ -94,10 +94,10 @@ getData("https://erudite-be.herokuapp.com/v1/forums/").then(json => {
   let topics;
 
   let parentEl = $("#active");
-  // template for unanswered topics
+  // template for active topics
   getData("https://erudite-be.herokuapp.com/v1/topics/")
     .then(json => {
-      let data = json.filter(el => el.comments.length >= 40);
+      let data = json.filter(el => el.comments.length >= 15);
       if (data.length == 0) {
         parentEl.innerHTML += `<h1 class="un-text"  style="color: #222; text-align: center; margin: 2rem auto;">
         0 topics...
