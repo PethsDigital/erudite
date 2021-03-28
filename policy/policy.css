@@ -12,10 +12,21 @@ ol {
 .heading {
   font-weight: 600;
   color: var(--grey);
+  text-align: left;
+}
+.privacy-links {
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  white-space: nowrap;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  padding-right: 1rem;
 }
 .privacy-links a {
   padding: 0.5rem;
-  border-radius: 4px;
+  border-radius: 4px !important;
 }
 .privacy-links a.active {
   color: white;
@@ -35,6 +46,7 @@ ol {
 }
 .first {
   margin-bottom: 30px;
+  font-size: 1.1rem;
 }
 a {
   color: var(--primary-color);
@@ -59,6 +71,9 @@ p.third {
 @media (max-width: 500px) {
   main {
     width: 90%;
+  }
+  .privacy-links a {
+    font-size: 0.9rem;
   }
   .texts p,
   ol li {

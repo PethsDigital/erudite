@@ -382,7 +382,7 @@ input[type="radio"] {
   left: 0;
   z-index: 10;
   width: max-content;
-  min-width: 200px;
+  min-width: 230px;
   padding: 0.3rem;
   background: white;
   word-wrap: none;
