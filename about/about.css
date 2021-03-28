@@ -17,12 +17,14 @@ main {
   margin: auto;
   text-align: center;
   padding: 1rem 0rem;
+  text-align: justify;
   position: relative;
 }
 main h1 {
-  font-weight: 500;
-  font-size: 1.7rem;
   margin: 1.5rem auto;
+  font-weight: 600;
+  text-align: center;
+  color: var(--grey);
 }
 .about-img {
   width: 80%;
