@@ -69,13 +69,33 @@ function getTime(createdAt) {
   });
   return r;
 }
-
+const months = [
+  "Jan",
+  "Feb",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 function displayTime(createdAt) {
   let result = getTime(createdAt);
+  let date = new Date(createdAt);
+  let localDate = `${
+    months[date.getMonth()]
+  } ${date.getDate()} ${date.getFullYear()}`;
   let day = result.day < 1 ? "" : result.day + " day(s)";
   let hr = result.hr < 1 ? "" : result.hr + " hr";
   let min = result.min + " min";
-  return result.day > 0 ? `${day}` : `${day} ${hr} ${min}`;
+  if (result.day > 0 && result.day < 6) return `${day} ago`;
+  else if (result.day > 6) return localDate;
+  else return `${day} ${hr} ${min} ago`;
+  // return result.day > 0 ? `${day}` : ;
 }
 
 // for start a discussion modal
@@ -158,7 +178,11 @@ if ($("#search-title")) {
           $("#search-title input").value = "";
           $(
             ".main-discussion.right"
-          ).innerHTML = `<h1 style="text-align: center; color: var(--primary-color); font-weight: 500;">Search Results For "${inputVal}"  (${result.length} results)</h1>`;
+          ).innerHTML = `<h1 style="text-align: center; color: var(--primary-color); font-weight: 500;">Search Results For "${inputVal}"  (${
+            result.length > 1
+              ? result.length + " results"
+              : result.length + " result"
+          })</h1>`;
           result.forEach((user, i) => {
             if (user.success) {
               $(
@@ -173,7 +197,7 @@ if ($("#search-title")) {
                       &nbsp; &nbsp;
                       <p class="time-posted">${displayTime(
                         responseData[i].createdAt
-                      )} Ago</p>
+                      )}</p>
                     </div>
                     <div class="text">
                       <h2 class="tp-title">
@@ -230,7 +254,7 @@ if ($("#sign-out")) {
     localStorage.clear();
     userAuth = "";
     displayMsg("success", "Logout successful");
-    setTimeout(() => (window.location.pathname = "/"), 1000);
+    setTimeout(() => window.location.reload(), 1000);
   });
 }
 // fetch users data from array of users id

@@ -146,6 +146,7 @@
         <textarea
           placeholder="write message here"
           id="discussion-input-txt"
+          required
         ></textarea>
       </div>
     </form>
@@ -153,12 +154,14 @@
     <main>
       <section class="top-search">
         <form class="form-group" id="search-title">
-          <input type="search" placeholder="Search for a topic" />
-          <button type="submit"><i class="fa fa-search"></i></button>
+          <input type="search" placeholder="Search for a topic" required />
+          <button aria-label="Search Topic" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
         </form>
         <div class="left">
           <a href="../registration/login.html" id="signup" class="btn"
-            >Sign Up</a
+            >Sign In</a
           >
           <div class="profile">
             <img
@@ -174,7 +177,14 @@
               >
               <a class="list" href="../policy/policy.html">Privacy</a>
 
-              <button id="sign-out" class="list" type="button">Sign Out</button>
+              <button
+                id="sign-out"
+                aria-label="Sign Out"
+                class="list"
+                type="button"
+              >
+                Sign Out
+              </button>
             </div>
           </div>
           <button class="st-discuss">
@@ -280,13 +290,22 @@
       </div>
       <div class="follow">
         <h4>Follow Us</h4>
-        <a href="https://instagram.com/eruditeng__" class="footer-link"
+        <a
+          title="Instagram"
+          href="https://instagram.com/eruditeng__"
+          class="footer-link"
           ><i class="fab fa-instagram" aria-hidden="true"></i
         ></a>
-        <a href="https://twitter.com/eruditeng__" class="footer-link"
+        <a
+          title="Twitter"
+          href="https://twitter.com/eruditeng__"
+          class="footer-link"
           ><i class="fab fa-twitter" aria-hidden="true"></i
         ></a>
-        <a href="https://facebook.com/eruditeng" class="footer-link"
+        <a
+          title="Facebook"
+          href="https://facebook.com/eruditeng"
+          class="footer-link"
           ><i class="fab fa-facebook" aria-hidden="true"></i
         ></a>
       </div>

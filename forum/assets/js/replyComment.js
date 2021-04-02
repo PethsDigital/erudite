@@ -84,7 +84,7 @@ function replyText(el, commentTemplate) {
             }"><i class="fa fa-heart"></i> <span class="count"> ${
               response[i].likes.length
             }</span> </label>
-          <p class="time-posted">${displayTime(response[i].createdAt)} ago</p>
+          <p class="time-posted">${displayTime(response[i].createdAt)}</p>
               </div>
             </article>`;
             commentTemplate.innerHTML += replyTexts;

@@ -22,9 +22,7 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
             <div class="text">
               <div class="info">
                 <b class="name">${user.username}</b>
-                <p class="time-posted">${displayTime(
-                  response.createdAt
-                )} ago</p>
+                <p class="time-posted">${displayTime(response.createdAt)}</p>
               </div>
               <p class="text-msg">
                ${response.description}
@@ -81,9 +79,7 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
               response[i].likes.length
             }</span> </label>
                 <button type="button" class="reply">Reply</button>
-                <p class="time-posted">${displayTime(
-                  response[i].createdAt
-                )} ago</p>
+                <p class="time-posted">${displayTime(response[i].createdAt)}</p>
               </div>
             
             </div>
