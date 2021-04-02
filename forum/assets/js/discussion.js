@@ -46,12 +46,10 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
   getData(`https://erudite-be.herokuapp.com/v1/comments/resource/${topicId}`)
     .then(json => {
       response = json;
-      console.log(json);
       return json.map(el => el.userId);
     })
     .then(arr => {
       let commentWrap = $(".comments-wrapper");
-      let allComments = "";
       return fetchUsersData(arr).then(result => {
         result.forEach((user, i) => {
           if (user.success) {
@@ -84,8 +82,7 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
             
             </div>
             </article>`;
-            allComments += commentTemplate;
-            commentWrap.innerHTML += allComments;
+            commentWrap.innerHTML += commentTemplate;
           }
         });
       });
