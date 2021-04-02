@@ -330,6 +330,15 @@ footer .logo-text {
 .follow {
   display: inline-block;
 }
+.footer-sm .footer-link-wrap {
+  justify-content: center;
+}
+.footer-sm .follow {
+  margin: 0.5rem auto;
+  width: 47%;
+  display: flex;
+  justify-content: center;
+}
 .footer-link {
   color: white;
   margin: 0.6rem 0;
@@ -339,7 +348,10 @@ footer .logo-text {
   font-size: 1.5rem;
   margin-right: 0.6rem;
 }
-
+.footer-sm .footer-link-wrap,
+.footer-sm .follow {
+  width: 100%;
+}
 @media (min-width: 790px) {
   .navbar .iconify {
     display: none;
@@ -392,6 +404,10 @@ footer .logo-text {
   }
   .ft-wrap {
     margin: 1rem auto;
+  }
+  .footer-sm .footer-link-wrap,
+  .footer-sm .follow {
+    width: 30%;
   }
 }
 
