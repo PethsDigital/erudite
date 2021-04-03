@@ -35,7 +35,11 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
       userAuth && userAuth.user.avatar != ""
         ? userAuth.user.avatar
         : "https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png";
-    $("#com-num").innerHTML = `${response.comments.length} Comments`;
+    $("#com-num").innerHTML = `${
+      response.comments.length > 1
+        ? response.comments.length + " Comments"
+        : response.comments.length + " Comment"
+    } `;
   });
 
 //

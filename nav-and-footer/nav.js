@@ -89,13 +89,17 @@ function displayTime(createdAt) {
   let localDate = `${
     months[date.getMonth()]
   } ${date.getDate()} ${date.getFullYear()}`;
-  let day = result.day < 1 ? "" : result.day + " day(s)";
+  let day =
+    result.day < 1
+      ? ""
+      : result.day === 1
+      ? result.day + " day"
+      : result.day + " days";
   let hr = result.hr < 1 ? "" : result.hr + " hr";
   let min = result.min + " min";
-  if (result.day > 0 && result.day < 6) return `${day} ago`;
+  if (result.day > 0 && result.day <= 6) return `${day} ago`;
   else if (result.day > 6) return localDate;
   else return `${day} ${hr} ${min} ago`;
-  // return result.day > 0 ? `${day}` : ;
 }
 
 // for start a discussion modal

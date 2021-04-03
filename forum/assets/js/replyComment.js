@@ -99,7 +99,7 @@ function replyCommentEvent(el, level, parent, id) {
   replyVal = `<article id="${id}" class="${level}-level-comment thread-wrap"><img src="${
     userAuth.user.avatar
   }" alt="avatar" /><div class="text"><div class="info"><b class="name">${
-    userAuth.user.name
+    userAuth.user.username
   }</b></div><p class="text-msg">${
     el.firstElementChild?.value || el.firstElementChild.value
   }</p><br /><div class="info"><input type="checkbox" onChange="likeFunc(this)" value="None" name="like-btn" id="${

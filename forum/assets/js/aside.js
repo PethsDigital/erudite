@@ -28,7 +28,7 @@
                         alt="avatar"
                         class="avatar"
                       />
-                      <b class="name">${user.data.name}</b>
+                      <b class="name">${user.data.username}</b>
                     </div>
                     <a href="./topic.html?id=${topics[i]._id}">
                      ${topics[i].description}</a
