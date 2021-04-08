@@ -6,7 +6,13 @@ const signupForm = $(".signup-form ");
 signupForm.addEventListener("submit", e => {
   e.preventDefault();
 
-  if ($("#pwd").value === $("#confirmpwd").value) {
+  if (!$("#email").value.includes(".")) {
+    displayMsg("error", "invalid email", signupForm);
+  } else if ($("#phone-num").value.length < 11) {
+    displayMsg("error", "Incorrect phone number", signupForm);
+  } else if ($("#gender").value == "null") {
+    displayMsg("error", "choose a correct gender", signupForm);
+  } else if ($("#pwd").value === $("#confirmpwd").value) {
     const loginBtn = $(".signup-form .btn");
     loginBtn.textContent = "loading...";
     loginBtn.disabled = true;
