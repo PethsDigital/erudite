@@ -32,7 +32,6 @@ comments.addEventListener("click", e => {
           <br />`;
       textDiv.insertAdjacentElement("afterend", replyForm);
       replyFormPresent = false;
-      console.log($(`[id="${parent.id}"] .loader`));
     }
     if (!parent.className.includes("executed")) {
       replyText(parent, parent.children[1]);
@@ -55,7 +54,9 @@ function replyText(el, commentTemplate) {
     .then(res => {
       console.log(res);
       response = res;
-      $(`[id="${parent.id}"] .loader`).style.display = "flex";
+      if (res.length > 0) {
+        $(`[id="${parent.id}"] .loader`).style.display = "flex";
+      }
       return res.map(el => el.userId);
     })
     .then(arr => {
