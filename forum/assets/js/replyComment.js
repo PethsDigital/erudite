@@ -1,5 +1,4 @@
 // get fetch request (function getData) declaration and short cut selectors function $ aand $$ are in ./nav-and-footer/nav.js
-let executed;
 let parent;
 let replyFormPresent = true;
 // open reply box to comments (one-level-deep)
@@ -33,9 +32,9 @@ comments.addEventListener("click", e => {
           <br />`;
       textDiv.insertAdjacentElement("afterend", replyForm);
       replyFormPresent = false;
+      console.log($(`[id="${parent.id}"] .loader`));
     }
-    if (!executed) {
-      $(".first-level-comment .loader").style.display = "flex";
+    if (!parent.className.includes("executed")) {
       replyText(parent, parent.children[1]);
     }
   } else if (e.target.className === "btn btn-cancel") {
@@ -49,13 +48,14 @@ comments.addEventListener("click", e => {
 let replyVal;
 
 function replyText(el, commentTemplate) {
-  executed = true;
   let response;
+  parent.classList.add("executed");
 
   getData(`https://erudite-be.herokuapp.com/v1/comments/resource/${el.id}`)
     .then(res => {
       console.log(res);
       response = res;
+      $(`[id="${parent.id}"] .loader`).style.display = "flex";
       return res.map(el => el.userId);
     })
     .then(arr => {
@@ -90,12 +90,11 @@ function replyText(el, commentTemplate) {
             </article>`;
             commentTemplate.innerHTML += replyTexts;
           }
-          $(".first-level-comment .loader").style.display = "none";
+          $(`[id="${parent.id}"] .loader`).style.display = "none";
         });
       });
     });
 }
-
 // a functional template to display comment based on level (first or second)
 function replyCommentEvent(el, level, parent, id) {
   replyVal = `<article id="${id}" class="${level}-level-comment thread-wrap"><img src="${
