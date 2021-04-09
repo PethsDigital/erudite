@@ -35,6 +35,7 @@ comments.addEventListener("click", e => {
       replyFormPresent = false;
     }
     if (!executed) {
+      $(".first-level-comment .loader").style.display = "flex";
       replyText(parent, parent.children[1]);
     }
   } else if (e.target.className === "btn btn-cancel") {
@@ -89,6 +90,7 @@ function replyText(el, commentTemplate) {
             </article>`;
             commentTemplate.innerHTML += replyTexts;
           }
+          $(".first-level-comment .loader").style.display = "none";
         });
       });
     });

@@ -97,8 +97,10 @@ getData("https://erudite-be.herokuapp.com/v1/forums/").then(json => {
   // template for active topics
   getData("https://erudite-be.herokuapp.com/v1/topics/")
     .then(json => {
+      $(".unanswered .loader").style.display = "flex";
       let data = json.filter(el => el.comments.length >= 15);
       if (data.length == 0) {
+        $(".unanswered .loader").style.display = "none";
         parentEl.innerHTML += `<h1 class="un-text"  style="color: #222; text-align: center; margin: 2rem auto;">
         0 topics...
         </h1>`;
@@ -134,6 +136,7 @@ getData("https://erudite-be.herokuapp.com/v1/forums/").then(json => {
                         </p>
                       </article>`;
             parentEl.innerHTML += templateTopicsCard;
+            $(".unanswered .loader").style.display = "none";
           }
         });
       }

@@ -4,7 +4,7 @@ window.onload = function () {
     getData(
       `https://erudite-be.herokuapp.com/v1/users/${userAuth.user.id}`
     ).then(user => {
-      // $("#username").value = user.username;
+      $("#username").placeholder = user.username;
       $(".edit-user.user-details img").src = user.avatar;
       avatarVal = user.avatar;
       $$(".avatar").forEach(el => {
@@ -78,6 +78,7 @@ $("#edit-profile").addEventListener("submit", e => {
         userAuth = JSON.parse(localStorage.getItem("erudite_auth"));
         displayMsg("success", "Profile Edited");
         editBtn.innerHtml = `Profile saved`;
+        setTimeout(() => window.location.reload(), 1500);
       } else {
         displayMsg("error", response.message);
       }

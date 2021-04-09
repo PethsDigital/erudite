@@ -50,6 +50,7 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
   getData(`https://erudite-be.herokuapp.com/v1/comments/resource/${topicId}`)
     .then(json => {
       response = json;
+      console.log(json);
       return json.map(el => el.userId);
     })
     .then(arr => {
@@ -80,10 +81,14 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
             }"><i class="fa fa-heart"></i> <span class="count"> ${
               response[i].likes.length
             }</span> </label>
-                <button type="button" class="reply">Reply</button>
-                <p class="time-posted">${displayTime(response[i].createdAt)}</p>
+                <button type="button" class="reply"><span class="stat"><i class="fas fa-comment-alt"></i>
+                &nbsp;&nbsp; <p>${response[i].replies.length}</p> </button>
+                 <p class="time-posted">${displayTime(
+                   response[i].createdAt
+                 )}</p></span>
               </div>
-            
+            <br>
+            <div class="loader"><span class="circle"></span></div>
             </div>
             </article>`;
             commentWrap.innerHTML += commentTemplate;

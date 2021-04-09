@@ -6,6 +6,7 @@
   // template for unanswered topics
   getData("https://erudite-be.herokuapp.com/v1/topics/")
     .then(json => {
+      $(".unanswered .loader").style.display = "flex";
       let data = json.filter(el => el.comments.length == 0);
       if (data.length == 0) {
         parentEl.innerHTML += `<h1 class="un-text"  style="color: #222; text-align: center; margin: 2rem auto;">
@@ -19,29 +20,30 @@
     })
     .then(arr => {
       return fetchUsersData(arr).then(result => {
+        $(".unanswered .loader").style.display = "none";
         result.forEach((user, i) => {
           if (user.success) {
             let templateTopicsCard = ` <article class="un-topic-child">
                     <div class="info">
-                      <img
-                        src="${user.data.avatar}"
+                    <img
+                    src="${user.data.avatar}"
                         alt="avatar"
                         class="avatar"
                       />
                       <b class="name">${user.data.username}</b>
                     </div>
                     <a href="./topic.html?id=${topics[i]._id}">
-                     ${topics[i].description}</a
+                    ${topics[i].description}</a
                     >
                     <p class="stat">
                       <img
-                        src="../images/msg-sq.svg"
+                      src="../images/msg-sq.svg"
                         alt="forum avatar"
                         class="comment-icon"
-                      />
+                        />
                       &nbsp; ${topics[i].comments.length} comments
                     </p>
-                  </article>`;
+                    </article>`;
             parentEl.innerHTML += templateTopicsCard;
           }
         });
