@@ -26,6 +26,7 @@ form.addEventListener("submit", e => {
     .then(data => {
       if (data.success) {
         $("form .btn").value = data.message;
+        localStorage.removeItem("otp");
         window.location.href = "login.html";
         displayMsg("success", data.message);
       } else {
