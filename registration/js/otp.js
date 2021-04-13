@@ -5,7 +5,7 @@ form.addEventListener("submit", e => {
   $("form .btn").value = "Loading...";
 
   const raw = {
-    email: form.email.value,
+    email: JSON.parse(localStorage.getItem("otp")).email,
     otp: parseInt(form.otp.value),
   };
   var requestOptions = {
@@ -20,9 +20,9 @@ form.addEventListener("submit", e => {
   fetch("https://erudite-be.herokuapp.com/v1/users/confirmOtp/", requestOptions)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
       if (data.success) {
         $("form .btn").value = data.message;
+        localStorage.setItem("otp", JSON.stringify(raw));
         window.location.href = "setpassword.html";
         displayMsg("success", data.message);
       } else {

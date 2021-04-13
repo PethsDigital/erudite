@@ -5,11 +5,10 @@ form.addEventListener("submit", e => {
   $("form .btn").value = "Loading...";
 
   const raw = {
-    email: form.email.value,
-    otp: parseInt(form.otp.value),
+    email: JSON.parse(localStorage.getItem("otp")).email,
+    otp: parseInt(JSON.parse(localStorage.getItem("otp")).otp),
     password: form.password.value,
   };
-  console.log(raw);
   var requestOptions = {
     method: "PATCH",
     body: JSON.stringify(raw),
@@ -25,7 +24,6 @@ form.addEventListener("submit", e => {
   )
     .then(response => response.json())
     .then(data => {
-      console.log(data);
       if (data.success) {
         $("form .btn").value = data.message;
         window.location.href = "login.html";

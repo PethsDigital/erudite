@@ -18,9 +18,9 @@ form.addEventListener("submit", e => {
   fetch("https://erudite-be.herokuapp.com/v1/users/sendOtp/", requestOptions)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
       if (data.success) {
         $("form .btn").value = data.message;
+        localStorage.setItem("otp", JSON.stringify(raw));
         window.location.href = "otp.html";
         displayMsg("success", data.message);
       } else {
