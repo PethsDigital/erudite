@@ -1,0 +1,190 @@
+div.grid.expand2 div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #bdbdbd;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+@media (min-width: 1200px) {
+  section.menu div.dashicon {
+    margin-left: 4%;
+  }
+
+  section.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 135px);
+    margin-bottom: 32px;
+    margin-top: 133px;
+  }
+
+  div.grid {
+    border-radius: 15px;
+    background: #ffffff 99%;
+    padding: 0.5rem 1rem;
+  }
+
+  div.expand {
+    grid-row: 1 / span 2;
+    grid-column: 1 / span 2;
+    margin-right: 24px;
+  }
+
+  div.expand2 {
+    grid-row: 1 / span 2;
+    grid-column: 5 / span 2;
+    margin-left: 24px;
+    font-size: 15px;
+    overflow-y: auto;
+  }
+
+  div.expand h1 {
+    color: #3d90ef;
+    margin-bottom: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  div.expand2 h1 {
+    color: #3d90ef;
+    padding-bottom: 10px;
+  }
+
+  div.expand p {
+    margin-top: 0px;
+  }
+
+  div.item {
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+
+  div.item > p {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  div.grid p.green {
+    color: #62c97b;
+  }
+  div.grid p.red {
+    color: #ef5261;
+  }
+  div.grid p.yellow {
+    color: #f6c863;
+  }
+  div.grid p.blue {
+    color: #3d90ef;
+  }
+  div.grid p.green,
+  div.grid p.yellow,
+  div.grid p.blue,
+  div.grid p.red {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  section.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  section.grid div.grid {
+    background-color: #ffffff;
+    margin: 12px 8px 14px 8px;
+    border-radius: 15px;
+    padding-left: 16px;
+    padding-top: 19px;
+  }
+  section.grid div.expand2,
+  section.grid div.expand {
+    flex-basis: 100%;
+    padding: 2rem 1rem;
+  }
+  section.grid div.expand {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  img.rafiki {
+    height: 90%;
+    width: 30%;
+  }
+  .grid.expand div {
+    width: 48%;
+  }
+  .grid h1 {
+    color: #3d90ef;
+    font-size: 1.6rem;
+  }
+  .grid p {
+    font-size: 1rem;
+  }
+  section.grid div.item {
+    flex-basis: 150px;
+    flex-grow: 1;
+  }
+
+  div.grid p.green,
+  div.grid p.yellow,
+  div.grid p.blue,
+  div.grid p.red {
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 75px;
+    margin-top: 0px;
+  }
+  div.grid p.green {
+    color: #62c97b;
+  }
+
+  div.grid p.yellow {
+    color: #f6c863;
+  }
+
+  div.grid p.red {
+    color: #ef5261;
+  }
+
+  div.grid p.blue {
+    color: #3d90ef;
+  }
+
+  section.grid div p {
+    font-size: 12px;
+    color: var(--primary-color);
+    font-weight: 400;
+    line-height: 18px;
+  }
+}
+@media (max-width: 760px) {
+  section.grid div.expand {
+    height: 155px;
+  }
+  .grid.expand div h1 {
+    font-size: 1.1rem;
+  }
+  img.rafiki {
+    aspect-ratio: 2/1;
+    width: 160px;
+    max-width: 45%;
+    height: 120px;
+    max-height: 90%;
+    margin-right: 24px;
+    margin: 0;
+  }
+}
+@media (max-width: 380px) {
+  .grid.expand div h1 {
+    font-size: 0.9rem;
+  }
+}

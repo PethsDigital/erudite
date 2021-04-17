@@ -1,0 +1,47 @@
+.consult .thead {
+  border-top: 1px solid var(--input-border);
+  font-weight: 400;
+  color: var(--grey);
+  padding: 0.3rem 0 !important;
+}
+.consult {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.consult .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: none;
+  margin: 0.5rem 0;
+  border-bottom: 1px solid var(--input-border);
+  padding-bottom: 1rem;
+}
+.consult h1 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.consult p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+.consult .break-td {
+  width: 70%;
+}
+
+.status-mb {
+  display: none;
+}
+@media (max-width: 1100px) {
+  .status-dk,
+  .consult .thead {
+    display: none;
+  }
+  .consult .break-td {
+    width: 100%;
+  }
+  .status-mb {
+    display: block;
+  }
+}
