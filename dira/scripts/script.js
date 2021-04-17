@@ -60,7 +60,12 @@ let token = userAuth
 window.addEventListener("load", async e => {
   if (userAuth === null) {
     window.location.href = "https://erudite.ng/registration/login.html";
-  } else if (!userAuth.user.is_admin) {
+  } else if (
+    userAuth.user.is_admin === false ||
+    userAuth.user.is_admin === null ||
+    userAuth.user.is_admin === undefined
+  ) {
+    console.log(userAuth.user.is_admin);
     window.location.href = "https://erudite.ng/registration/login.html";
   } else if (userAuth.user.is_admin) {
     // logout
