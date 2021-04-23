@@ -71,12 +71,14 @@ const filterClosed = () => {
 };
 
 // load all topics on load
-getData("https://erudite-be.herokuapp.com/v1/topics/").then(data => {
-  $("#forum-topics tbody").innerHTML = "";
-  forumData = data;
-  console.log(data);
-  data.reverse().forEach((el, i) => loadTemplateStr(el, i));
-});
+getData("https://erudite-be.herokuapp.com/v1/topics/")
+  .then(data => {
+    $("#forum-topics tbody").innerHTML = "";
+    forumData = data;
+    console.log(data);
+    data.reverse().forEach((el, i) => loadTemplateStr(el, i));
+  })
+  .finally(el => ($(".pre-loader").style.display = "none"));
 
 // load forum topics on change of selector
 $(".select-cat").addEventListener("change", e => {

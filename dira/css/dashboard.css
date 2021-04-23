@@ -4,8 +4,14 @@ div.grid.expand2 div {
   border-bottom: 1px solid #bdbdbd;
   margin-bottom: 5px;
   padding-bottom: 5px;
+  font-size: 14px;
 }
-
+div.grid.expand2 div p.topic {
+  width: 70%;
+}
+div.grid.expand2 div p {
+  width: 27%;
+}
 @media (min-width: 1200px) {
   section.menu div.dashicon {
     margin-left: 4%;

@@ -1,5 +1,4 @@
 getData("https://erudite-be.herokuapp.com/v1/forums/").then(data => {
-  $(".pre-loader").style.display = "none";
   $(".totForum").innerHTML = data.length;
   data.forEach((el, i) => {
     if ($(".grid.expand2")) {

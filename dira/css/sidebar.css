@@ -211,8 +211,8 @@ img.gradcap {
   top: 100%;
   right: 5%;
   z-index: 10;
-  width: 140%;
-  min-width: 100%;
+  min-width: 130px;
+  width: max-content;
   padding: 0 0.3rem;
   background: white;
   transform: scale(0);
@@ -227,10 +227,7 @@ img.gradcap {
   width: max-content;
   min-width: 200px;
 }
-#forumList .drop-down {
-  min-width: 130px;
-  width: max-content;
-}
+
 .profile .drop-down .list {
   text-align: left !important;
 }

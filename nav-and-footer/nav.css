@@ -135,6 +135,9 @@ button,
 input {
   border-radius: 6px;
 }
+button:disabled {
+  cursor: not-allowed;
+}
 /* btn styling */
 .btn {
   background: var(--primary-color);
@@ -157,7 +160,6 @@ input {
 }
 .btn:disabled {
   background-color: #96b7db;
-  cursor: wait;
 }
 .btn.btn-cancel {
   background-color: var(--input-border);

@@ -93,12 +93,12 @@ window.addEventListener("load", async e => {
         if (totalUser) {
           totalUser.innerHTML = result.data.length;
         }
-        // console.log(allUsers);
+
         // load users data on users page
         if ($("#users-table tbody")) {
-          allUsers.forEach(el => {
+          allUsers.forEach((el, i) => {
             $("#users-table tbody").innerHTML += `<tr class="row">
-            <td><input type="checkbox" /></td>
+            <td>${i + 1}</td>
             <td>@${el.username}</td>
             <td><a href="mailto:${el.email}">${el.email}</a></td>
             <td>${el.topics.length}</td>

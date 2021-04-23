@@ -305,13 +305,33 @@
       <section class="table">
         <div class="text-wrap">
           <p>All Users</p>
-          <img src="../assets/ban.png" />
+          <div class="info-wrap">
+            <span>
+              <svg height="10px" width="10px">
+                <circle class="status red" cx="5" cy="5" r="5" fill="inherit" />
+              </svg>
+              &nbsp; Banned
+            </span>
+            &nbsp; &nbsp;
+            <span>
+              <svg height="10px" width="10px">
+                <circle
+                  class="status green"
+                  cx="5"
+                  cy="5"
+                  r="5"
+                  fill="inherit"
+                />
+              </svg>
+              &nbsp; Active
+            </span>
+          </div>
         </div>
         <div class="table-wrap">
           <table id="users-table">
             <thead>
               <tr class="row">
-                <th></th>
+                <th>S/N</th>
                 <th>Username</th>
                 <th>Email</th>
                 <th>No. of Topics</th>
