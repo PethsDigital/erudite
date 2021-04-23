@@ -135,10 +135,7 @@ tr td:first-child {
 tr td:last-child {
   border-radius: 0 10px 10px 0;
 }
-/* .consult tr td:last-child,
-.consult tr th:last-child {
-  padding-left: 2rem;
-} */
+
 table .row {
   width: 100%;
   background-color: #ffffff;
@@ -171,7 +168,9 @@ table .row {
 }
 .info > div {
   width: max-content;
+  justify-content: flex-start;
   border: none;
+  font-size: 14px;
 }
 .info svg,
 .info p {
