@@ -57,6 +57,8 @@ let token = userAuth
   ? JSON.parse(localStorage.getItem("erudite_auth")).token
   : "";
 window.addEventListener("load", async e => {
+  if (!userAuth)
+    window.location.href = "https://erudite.ng/registration/login.html";
   if (userAuth.user.is_admin) {
     // logout
     $("#sign-out").addEventListener("click", e => {
