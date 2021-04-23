@@ -3,7 +3,7 @@
 // template function to get topics depending on route
 let topicId = window.location.href.split("?").pop().split("=")[1];
 
-let response;
+let response1;
 getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
   .then(json => {
     console.log(json);
@@ -24,7 +24,7 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
         "href",
         `./forum-topics.html?id=${json.forumId}`
       );
-      response = json;
+      response1 = json;
       return getData(
         `https://erudite-be.herokuapp.com/v1/users/${json.userId}`
       );
@@ -35,25 +35,31 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
     let topicDescription = `<article class="main-question thread-wrap">
             <img src="${user.avatar}" alt="avatar" />
             <div class="text">
-              <div class="info">
+              <div class="info user">
+                <div class="left-wrap">
                 <b class="name">${user.username}</b>
-                <p class="time-posted">${displayTime(response.createdAt)}</p>
+                <p class="time-posted">${displayTime(
+                  response1.createdAt
+                )}</p></div>
+                <button class="flag btn"><i class="fa fa-flag" aria-hidden="true"></i> Flag</button>
               </div>
               <p class="text-msg">
-               ${response.description}
+               ${response1.description}
               </p>
             </div>
           </article>`;
     parentEl.innerHTML += topicDescription;
     // comments box
-    $("#first-level-cm img").src =
-      userAuth && userAuth.user.avatar != ""
-        ? userAuth.user.avatar
-        : "https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png";
+    if ($("#first-level-cm img")) {
+      $("#first-level-cm img").src =
+        userAuth && userAuth.user.avatar != ""
+          ? userAuth.user.avatar
+          : "https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png";
+    }
     $("#com-num").innerHTML = `${
-      response.comments.length > 1
-        ? response.comments.length + " Comments"
-        : response.comments.length + " Comment"
+      response1.comments.length > 1
+        ? response1.comments.length + " Comments"
+        : response1.comments.length + " Comment"
     } `;
   });
 
@@ -107,6 +113,17 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
             </div>
             </article>`;
             commentWrap.innerHTML += commentTemplate;
+          }
+          if (response1.isClosed) {
+            $("#first-level-cm").innerHTML = `<div class="closed-topic">
+            This topic has been closed with comments deactivated till further
+            notice.
+            <a href="../policy/terms.html"
+              >Read our terms and conditions for more info</a
+            >`;
+            $$(".main button, .main textarea, .main input").forEach(
+              el => (el.disabled = true)
+            );
           }
         });
       });
@@ -197,3 +214,34 @@ if (token) {
     .then(res => res.json())
     .then(json => json);
 }
+
+// flag topic
+$(".main").addEventListener("click", e => {
+  if (e.target.className.includes("flag")) {
+    var requestOptions = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+      redirect: "follow",
+    };
+    fetch(
+      `https://erudite-be.herokuapp.com/v1/topics/flag/${topicId}`,
+      requestOptions
+    )
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          displayMsg("success", data.message);
+          // setTimeout(() => location.reload(), 1500);
+        } else {
+          displayMsg("error", data.message);
+        }
+      })
+      .catch(error => {
+        displayMsg("error", "Action failed, pls try again");
+        console.log(error);
+      });
+  }
+});

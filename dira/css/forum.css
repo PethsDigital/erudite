@@ -91,14 +91,19 @@
 
 .table-wrap {
   overflow-x: auto;
-  padding-bottom: 7.5rem;
+  padding-top: 7.5rem;
+  margin-top: 1rem;
+  transform: rotateX(180deg);
+  white-space: nowrap;
 }
 
+.table-wrap table {
+  transform: rotateX(180deg);
+}
 table {
   min-width: 800px;
-  overflow-x: auto;
+  /* overflow-x: auto; */
   width: 100%;
-  /* white-space: nowrap; */
   border-collapse: separate;
   border-spacing: 0 1rem;
   font-size: 15px;
@@ -112,7 +117,10 @@ thead tr th {
   font-weight: 400;
   color: var(--grey);
 }
-
+td,
+th {
+  padding: 0 1rem;
+}
 th {
   text-align: left;
 }
@@ -121,15 +129,14 @@ th {
 } */
 tr td:first-child {
   border-radius: 10px 0 0 10px;
-  padding-left: 0.6rem;
 }
 tr td:last-child {
   border-radius: 0 10px 10px 0;
 }
-.consult tr td:last-child,
+/* .consult tr td:last-child,
 .consult tr th:last-child {
   padding-left: 2rem;
-}
+} */
 table .row {
   width: 100%;
   background-color: #ffffff;
@@ -140,6 +147,7 @@ table .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 .text-wrap p {
   font-size: 24px;
@@ -147,11 +155,3 @@ table .row {
   line-height: 36px;
   color: #3d90ef;
 }
-/* 
-  .table p {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 36px;
-    color: #3d90ef;
-    display: inline-block;
-  } */

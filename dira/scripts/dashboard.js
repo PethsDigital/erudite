@@ -11,7 +11,7 @@ getData("https://erudite-be.herokuapp.com/v1/forums/").then(data => {
     if ($(".select-cat")) {
       $(
         ".select-cat"
-      ).innerHTML += `<option value="${el._id}">${el.name}</option>`;
+      ).innerHTML += `<option value="${el.name}">${el.name}</option>`;
     }
   });
 
@@ -22,3 +22,8 @@ getData("https://erudite-be.herokuapp.com/v1/forums/").then(data => {
   $(".totTopic").innerHTML = topicLength;
   console.log(data, topics);
 });
+
+getData("https://erudite-be.herokuapp.com/v1/topics/").then(
+  data =>
+    ($(".awaitMod").innerHTML = data.filter(el => el.isFlagged === true).length)
+);

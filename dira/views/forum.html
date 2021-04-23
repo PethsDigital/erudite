@@ -281,7 +281,7 @@
           <h2 class="green totTopic">100</h2>
         </div>
         <div class="red">
-          <p>Awaiting Moderation</p>
+          <p>Flagged Topics</p>
           <h2 class="red awaitMod">30</h2>
         </div>
 
@@ -300,16 +300,20 @@
         <div class="text-wrap">
           <p id="forumName">Erudite Forum</p>
           <select class="select-cat">
-            <option value="">Erudite Forum</option>
+            <option value="">Filter</option>
+            <option value="flagged">Flagged</option>
+            <option value="closed">Closed</option>
           </select>
         </div>
         <div class="table-wrap">
           <table>
             <thead>
               <tr class="row">
-                <th></th>
+                <th>S/N</th>
                 <th>Topics</th>
                 <th>No. of comments</th>
+                <th>Flagged</th>
+                <th>Closed</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -334,9 +338,7 @@
       <p>Admin</p>
       <h2>Admin Panel</h2>
 
-      <button class="btn create-category-btn">
-        <a>Create a new category</a>
-      </button>
+      <button class="btn create-category-btn">Create a new category</button>
     </section>
 
     <script src="../scripts/script.js"></script>

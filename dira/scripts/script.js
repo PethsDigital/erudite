@@ -3,7 +3,6 @@ const $ = el => document.querySelector(el);
 const $$ = el => document.querySelectorAll(el);
 function catchErr(err) {
   $(".pre-loader").style.display = "none";
-
   $("main").innerHTML = `
   <div class="oops">
     <svg
@@ -75,10 +74,10 @@ window.addEventListener("load", async e => {
     let date = document.querySelector(".date");
     let currDate = new Date().toDateString();
     date.innerHTML = currDate;
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", `Bearer ${token}`);
 
     // All Users
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
     let userRequest = {
       method: "GET",
       headers: myHeaders,
@@ -94,7 +93,7 @@ window.addEventListener("load", async e => {
         if (totalUser) {
           totalUser.innerHTML = result.data.length;
         }
-
+        // console.log(allUsers);
         // load users data on users page
         if ($("#users-table tbody")) {
           allUsers.forEach(el => {
@@ -105,15 +104,21 @@ window.addEventListener("load", async e => {
             <td>${el.topics.length}</td>
             <td>
               <svg height="10px" width="10px">
-                <circle id="greencircle" cx="5" cy="5" r="5" fill="green" />
+                <circle class="status ${
+                  el.bannedUntil ? "red" : "green"
+                }" cx="5" cy="5" r="5" fill="inherit" />
               </svg>
             </td>
             <td class="act-btn">
               <button type="button" class="btn">User Action</button>
               <div class="drop-down">
                 
-                <button type="button" class="list">Ban</button>
-                <button type="button" class="list">Unban</button>
+                <button type="button" ${
+                  el.bannedUntil ? "disabled" : ""
+                } value=${el._id} class="list banBtn">Ban</button>
+                <button type="button" ${
+                  el.bannedUntil ? "" : "disabled"
+                } value=${el._id} class="list unban">Unban</button>
               </div>
             </td>
           </tr>`;
@@ -122,6 +127,7 @@ window.addEventListener("load", async e => {
       })
       .catch(error => catchErr(error));
 
+    // load admin data
     $("img.user").src = userAuth.user.avatar;
     $(".profile-pic").src = userAuth.user.avatar;
     $(".userId2").innerHTML = userAuth.user.name;
@@ -129,6 +135,7 @@ window.addEventListener("load", async e => {
       $(".userId").innerHTML = userAuth.user.name;
     }
 
+    // create new category
     $("#create-category").addEventListener("submit", e => {
       e.preventDefault();
       const submit = $("#post-msg");

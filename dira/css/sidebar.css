@@ -50,7 +50,7 @@ section.user {
   position: sticky;
   right: 0px;
   top: 0px;
-  width: 17%;
+  min-width: 15vw;
   background: #ffffff;
   height: 100vh;
   padding: 2rem 1rem;
@@ -141,7 +141,7 @@ img.gradcap {
 }
 
 .inner {
-  width: 73%;
+  width: 69%;
   flex-grow: 2;
   padding: 2rem;
 }

@@ -220,12 +220,30 @@ a.breadcrumb-link:hover {
   height: 40px;
 }
 
+.closed-topic {
+  color: #f81515;
+  background-color: rgba(241, 153, 153, 0.705);
+  border: 1px solid #f81515;
+  border-radius: 5px;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin: 1.5rem;
+  font-size: 13px;
+}
+.closed-topic a {
+  color: #f81515;
+  font-weight: bold;
+  text-decoration: underline;
+}
 /* main-question */
 .info {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+.user.info {
+  justify-content: space-between;
 }
 .time-posted {
   color: var(--grey);
@@ -248,7 +266,29 @@ a.breadcrumb-link:hover {
 .info .liked i {
   color: var(--primary-color);
 }
-
+.info .left-wrap {
+  display: flex;
+  justify-content: flex-start;
+  width: max-content;
+}
+.flag.btn {
+  color: red;
+  background-color: transparent;
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  margin: 0 !important;
+  font-size: 13px;
+  padding: 0.2rem 0.5rem;
+  height: max-content;
+}
+.flag.btn:hover {
+  background-color: transparent;
+}
+.info i.fa-flag {
+  color: red;
+  margin: 0 0.5rem !important;
+}
 /* comment box */
 .comment-box-wrap .btn {
   margin: 1rem 0;
@@ -403,6 +443,17 @@ input[type="radio"] {
   pointer-events: none;
   margin: 0 !important;
   padding: 0;
+}
+.reply:disabled,
+.reply:disabled i,
+input[type="checkbox"]:disabled ~ label,
+input[type="checkbox"]:disabled ~ label i {
+  color: var(--input-border);
+  cursor: not-allowed;
+}
+.reply:disabled:hover,
+input[type="checkbox"]:disabled ~ label:hover {
+  background-color: transparent;
 }
 .reply .fas {
   font-size: 0.8rem;

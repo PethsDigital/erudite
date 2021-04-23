@@ -217,7 +217,7 @@ function replyApi(url, requestBody, el, level, parent) {
         displayMsg("success", response.data.message, $(".msg-wrap"));
         replyCommentEvent(el, level, parent, response.data.id);
       } else {
-        displayMsg("error", response.data.message, $(".msg-wrap"));
+        displayMsg("error", response.message, $(".msg-wrap"));
       }
     })
     .catch(err => {
