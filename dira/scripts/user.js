@@ -1,5 +1,15 @@
 let banForm = $("#banForm");
 let banUserId;
+
+// set date picker value and min-value
+let bannedUntil = $("#bannedUntil");
+let now = new Date();
+let day = ("0" + now.getDate()).slice(-2);
+let month = ("0" + (now.getMonth() + 1)).slice(-2);
+let today = now.getFullYear() + "-" + month + "-" + day;
+bannedUntil.value = today;
+bannedUntil.min = today;
+
 $("#users-table").addEventListener("click", e => {
   if (e.target.className.includes("banBtn")) {
     $(".overlay").style.display = "block";
