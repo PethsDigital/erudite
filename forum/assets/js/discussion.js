@@ -6,7 +6,6 @@ let topicId = window.location.href.split("?").pop().split("=")[1];
 let response1;
 getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
   .then(json => {
-    console.log(json);
     if (!json) {
       $(".main-discussion.right").innerHTML = `<div class="oops">
     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" class="heart"
@@ -26,7 +25,9 @@ getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
       );
       response1 = json;
       return getData(
-        `https://erudite-be.herokuapp.com/v1/users/${json.userId}`
+        `https://erudite-be.herokuapp.com/v1/users/${
+          json.userId ? json.userId : json.user
+        }`
       );
     }
   })
