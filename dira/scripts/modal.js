@@ -34,8 +34,8 @@ function navFunc(type, val) {
   overlay.style.display = type;
 }
 
-if ($("tbody")) {
-  $("tbody").addEventListener("click", e => {
+if ($(".inner")) {
+  $(".inner").addEventListener("click", e => {
     if (e.target.className.includes("btn")) {
       e.target.parentElement
         .querySelector(".drop-down")
@@ -43,6 +43,7 @@ if ($("tbody")) {
     }
   });
 }
+
 $$(".profile").forEach(el =>
   el.addEventListener("click", e => {
     if (e.target.className.includes("profile-pic")) {

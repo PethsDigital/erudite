@@ -201,7 +201,8 @@ img.gradcap {
 .act-btn .btn {
   font-size: 13px;
   padding: 0.4rem;
-  margin: 0 auto;
+  margin: 0;
+  margin-left: auto;
   height: auto;
 }
 
@@ -225,6 +226,10 @@ img.gradcap {
   top: 120%;
   width: max-content;
   min-width: 200px;
+}
+#forumList .drop-down {
+  min-width: 130px;
+  width: max-content;
 }
 .profile .drop-down .list {
   text-align: left !important;

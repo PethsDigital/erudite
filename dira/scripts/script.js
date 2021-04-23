@@ -173,7 +173,7 @@ window.addEventListener("load", async e => {
         })
         .finally(_ => {
           $("#create-category").reset();
-          submit.textContent = "Post";
+          submit.textContent = "Create";
           submit.disabled = false;
         });
     });

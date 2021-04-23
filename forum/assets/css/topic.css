@@ -227,7 +227,7 @@ a.breadcrumb-link:hover {
   border-radius: 5px;
   width: 100%;
   padding: 0.5rem 1rem;
-  margin: 1.5rem;
+  margin: 1.5rem 0;
   font-size: 13px;
 }
 .closed-topic a {

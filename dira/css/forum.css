@@ -96,7 +96,9 @@
   transform: rotateX(180deg);
   white-space: nowrap;
 }
-
+#forumList {
+  padding-top: 4rem;
+}
 .table-wrap table {
   transform: rotateX(180deg);
 }
@@ -124,9 +126,9 @@ th {
 th {
   text-align: left;
 }
-/* th:last-child {
-  text-align: center;
-} */
+th:last-child {
+  text-align: right;
+}
 tr td:first-child {
   border-radius: 10px 0 0 10px;
 }
@@ -154,4 +156,29 @@ table .row {
   font-weight: 500;
   line-height: 36px;
   color: #3d90ef;
+}
+
+.info,
+.info > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0.5rem 0;
+  border-top: 1px solid var(--input-border);
+  border-bottom: 1px solid var(--input-border);
+}
+.info > div {
+  width: max-content;
+  border: none;
+}
+.info svg,
+.info p {
+  margin: 0 0.5rem;
+}
+.info h3 {
+  color: var(--primary-color);
+  font-weight: 400;
+  font-size: 1rem;
 }
