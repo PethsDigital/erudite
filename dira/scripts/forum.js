@@ -1,7 +1,7 @@
 const loadTemplateStr = (el, i) => {
   $("#forum-topics tbody").innerHTML += `<tr class="row">
             <td>${i + 1}</td>
-            <td><a href="https://erudite.ng/forum/topic.html?id=${
+            <td><a href="../../forum/topic.html?id=${
               el._id
             }" target="_blank" rel="noopener noreferrer">${el.title}</a></td>
             <td>${el.comments.length}</td>

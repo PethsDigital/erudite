@@ -10,7 +10,7 @@ getData("https://erudite-be.herokuapp.com/v1/forums/").then(data => {
     if ($("#forumList")) {
       $("#forumList tbody").innerHTML += `<tr class="row">
       <td>${i + 1}</td>
-      <td><a href="https://erudite.ng/forum/forum-topics.html?id=${
+      <td><a href="../../forum/forum-topics.html?id=${
         el._id
       }" target="_blank" rel="noopener noreferrer">${el.name}</a></td>
       <td>${el.topics.length}</td>
