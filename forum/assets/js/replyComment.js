@@ -1,194 +1,85 @@
 // get fetch request (function getData) declaration and short cut selectors function $ aand $$ are in ./nav-and-footer/nav.js
-let parent;
-let replyFormPresent = true;
+
 // open reply box to comments (one-level-deep)
+let parent;
 comments.addEventListener("click", e => {
-  if (e.target.className == "reply") {
-    parent = e.target.parentElement.parentElement.parentElement;
-    if (replyFormPresent) {
-      let textDiv = e.target.parentElement;
-      let replyForm = document.createElement("div");
-      replyForm.className = "comment-box-wrap thread-wrap reply-comment-wrap";
-      replyForm.innerHTML = `<form class="comment-box reply-comment">
-      <textarea
-      required
-      class="sc-comment-input"
-      
-      placeholder="Type here to comment or reply the question"
-      ></textarea>
-      <div class="btn-group">
-        <button class="btn submit-reply" type="submit">
-        Post comment
-        </button>
-        <button
-          type="reset"
-          class="btn btn-cancel"
-          type="button"
-          >
-          Cancel
-          </button>
-          </div>
-          </form>
-          <br />`;
-      textDiv.insertAdjacentElement("afterend", replyForm);
-      replyFormPresent = false;
-    }
-    if (!parent.className.includes("executed")) {
-      replyText(parent, parent.children[1]);
-    }
+  if (e.target.className === "reply") {
+    parent = e.target.parentElement;
+    replyClone = replyCommentWrap.cloneNode(true);
+    replyClone.id = "";
+    parent.insertAdjacentElement("afterend", replyClone);
+
+    // invoke event for second level comment
   } else if (e.target.className === "btn btn-cancel") {
     // close comment form
-    e.target.parentElement.parentElement.parentElement.parentElement.removeChild(
-      e.target.parentElement.parentElement.parentElement
-    );
-    replyFormPresent = true;
+    e.target.parentElement.parentElement.parentElement.style.display = "none";
   }
 });
 let replyVal;
 
-function replyText(el, commentTemplate) {
-  let response;
-  parent.classList.add("executed");
-
-  getData(`https://erudite-be.herokuapp.com/v1/comments/resource/${el.id}`)
-    .then(res => {
-      console.log(res);
-      response = res;
-      if (res.length > 0) {
-        $(`[id="${parent.id}"] .loader`).style.display = "flex";
-      }
-      return res.map(el => el.userId);
-    })
-    .then(arr => {
-      return fetchUsersData(arr).then(result => {
-        result.forEach((user, i) => {
-          if (user.success) {
-            let replyTexts = `<article id="${
-              response[i]._id
-            }" class="second-level-comment thread-wrap">
-            <img src="${user.data.avatar}" alt="avatar" />
-            <div class="text">
-              <div class="info">
-                <b class="name">${user.data.username}</b>
-              </div>
-              <p class="text-msg">
-                ${response[i].comment}
-              </p>
-              <br />
-              <div class="info">
-              <input type="checkbox" onChange="likeFunc(this)" value="None" name="like-btn" id="${
-                response[i]._id + "1"
-              }"/>
-              <label for="${response[i]._id + "1"}" type="button" class="like ${
-              userAuth && response[i].likes.includes(userAuth.user.id)
-                ? "liked"
-                : ""
-            }"><i class="fa fa-heart"></i> <span class="count"> ${
-              response[i].likes.length
-            }</span> </label>
-          <p class="time-posted">${displayTime(response[i].createdAt)}</p>
-              </div>
-            </article>`;
-            commentTemplate.innerHTML += replyTexts;
-          }
-          $(`[id="${parent.id}"] .loader`).style.display = "none";
-        });
-      });
-    });
-}
 // a functional template to display comment based on level (first or second)
-function replyCommentEvent(el, level, parent, id) {
-  replyVal = `<article id="${id}" class="${level}-level-comment thread-wrap"><img src="${
-    userAuth.user.avatar
-  }" alt="avatar" /><div class="text"><div class="info"><b class="name">${
-    userAuth.user.username
-  }</b></div><p class="text-msg">${
-    el.firstElementChild?.value || el.firstElementChild.value
-  }</p><br /><div class="info"><input type="checkbox" onChange="likeFunc(this)" value="None" name="like-btn" id="${
-    id + "1"
-  }"/>
-        <label for="${
-          id + "1"
-        }" type="button" class="like"><i class="fa fa-heart"></i> <span class="count">0</span> </label>${
+function replyCommentEvent(el, level, parent) {
+  replyVal = `<article class="${level}-level-comment thread-wrap"><img src="../images/Ellipse 27 (1).png" alt="avatar" /><div class="text"><div class="info"><b class="name">James Mba</b></div><p class="text-msg">${
+    el.firstElementChild.firstElementChild?.value || el.firstElementChild.value
+  }</p><br /><div class="info"><button role="checkbox" type="button" class="like"><i class="fa fa-heart"></i>0</button>${
     level === "first"
-      ? '<button type="button" onClick="" class="reply">Reply</button>'
+      ? '<button type="button" class="reply">Reply</button>'
       : ""
-  }<p class="time-posted">0 min ago</p></div></div></article>
+  }<p class="time-posted">3 hrs ago</p></div></div></article>
            </div>`;
 
   // empty or close comment box depending on level
-  level === "first" ? (el.firstElementChild.value = "") : "";
+  level === "first"
+    ? (el.firstElementChild.value = "")
+    : (el.parentElement.parentElement.style.display = "none");
+  // parent.insertAdjacentHTML("afterend", replyVal);
   parent.innerHTML += replyVal;
 }
 
 const firstLevelComment = $(".comments-wrapper");
 $("#first-level").addEventListener("submit", e => {
   e.preventDefault();
-  if (!userAuth) {
-    displayMsg(
-      "error",
-      `pls Login to enable this action`,
-      $("form.discuss-pop-up")
-    );
-    setTimeout(
-      () =>
-        (window.location.pathname = window.location.pathname.replace(
-          "forum/topic.html",
-          "registration/login.html"
-        )),
-      1000
-    );
-  }
 
   const comment = $("#first-level #comment-input");
   let url = `https://erudite-be.herokuapp.com/v1/comments/add/topic/${topicId}`;
   let topicDetails = {
     comment: comment.value,
-    userId: JSON.parse(localStorage.getItem("erudite_auth")).user.id,
+    userId: JSON.parse(localStorage.getItem("erudite_auth")).userId,
   };
+
   let requestBody = {
     method: "PUT",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json; charset=utf-8",
       Authorization: `bearer ${token}`,
     },
     body: JSON.stringify(topicDetails),
     redirect: "follow",
   };
-  // activate reply event for general (first-level) comments
+  // activate reply event for geneeral (first-level) comments
   replyApi(url, requestBody, firstLevelReply, "first", firstLevelComment);
+  // console.log();
+  // replyCommentEvent(firstLevelReply, "first", firstLevelComment);
 });
 
-let reply;
 comments.addEventListener("submit", e => {
   e.preventDefault();
-  if (!userAuth) {
-    displayMsg(
-      "error",
-      `pls Login to enable this action`,
-      $("form.discuss-pop-up")
+  if (e.target.className === "comment-box reply-comment") {
+    const reply = $("#comment-input");
+    console.log(
+      e.target.parentElement.parentElement.parentElement.id,
+      e.target.parentElement.parentElement.parentElement
     );
-    setTimeout(
-      () =>
-        (window.location.pathname = window.location.pathname.replace(
-          "forum/topic.html",
-          "registration/login.html"
-        )),
-      1000
-    );
-  }
-  if (userAuth && e.target.className === "comment-box reply-comment") {
-    reply = e.target.querySelector(".sc-comment-input");
     let url = `https://erudite-be.herokuapp.com/v1/comments/reply/${e.target.parentElement.parentElement.parentElement.id}`;
-
     let topicDetails = {
       reply: reply.value,
-      userId: JSON.parse(localStorage.getItem("erudite_auth")).user.id,
+      userId: JSON.parse(localStorage.getItem("erudite_auth")).userId,
     };
+
     let requestBody = {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json; charset=utf-8",
         Authorization: `bearer ${token}`,
       },
       body: JSON.stringify(topicDetails),
@@ -199,9 +90,9 @@ comments.addEventListener("submit", e => {
     replyApi(
       url,
       requestBody,
-      e.target,
+      replyClone.firstElementChild,
       "second",
-      e.target.parentElement.parentElement
+      replyClone
     );
   }
 });
@@ -214,27 +105,29 @@ function replyApi(url, requestBody, el, level, parent) {
     .then(response => {
       console.log(response);
       if (response.success == true) {
-        displayMsg("success", response.data.message, $(".msg-wrap"));
-        replyCommentEvent(el, level, parent, response.data.id);
+        displayMsg("success", response.message, $(".msg-wrap"));
+        replyCommentEvent(el, level, parent);
+        console.log(el, parent, level);
       } else {
         displayMsg("error", response.message, $(".msg-wrap"));
       }
     })
     .catch(err => {
+      if (!token) {
+        displayMsg(
+          "error",
+          `pls <a href="../registration/login.html" target="_blank" rel="noopener noreferrer">Login</a>
+          or <a href="../registration/signup.html" target="_blank" rel="noopener noreferrer">Sign-up</a> to enable this action`,
+          $("form.discuss-pop-up")
+        );
+      }
       console.log(`Error: ${err}`);
-      displayMsg(
-        "error",
-        "Something went wrong, pls try again",
-        $(".msg-wrap")
-      );
+      displayMsg("error", err, $(".msg-wrap"));
     })
     .finally(_ => {
       Array.from($$("form")).forEach(form => form.reset());
-      Array.from(
-        $$(".comment-box.reply-comment .submit-reply, #first-level .reply")
-      ).forEach(el => {
-        el.disabled = false;
-        el.textContent = "Post Comment";
-      });
+      el.querySelector("button[type='submit']").textContent = "Post Comment";
+      el.querySelector("button[type='submit']").disabled = false;
+      console.log(el.querySelector("button[type='submit']"));
     });
 }

@@ -18,9 +18,9 @@ body {
   overflow-x: hidden;
   font-weight: 400;
 }
-a {
-  color: var(--primary-color);
-}
+/* a {
+  text-decoration: none;
+} */
 
 input,
 textarea {
@@ -31,7 +31,8 @@ textarea:focus {
   outline: none;
   border: 1px solid var(--primary-color);
 }
-main.container {
+
+main {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -39,9 +40,6 @@ main.container {
   overflow-x: hidden;
   flex-wrap: wrap;
   height: calc(100vh - 70px);
-}
-main.align-top {
-  align-items: stretch;
 }
 section.signup-wrap {
   display: flex;
@@ -53,12 +51,12 @@ section.signup-wrap {
   order: 2;
 }
 .signup-text h3 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 .signup-text p {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   color: var(--primary-color);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .form-group {
   position: relative;
@@ -87,17 +85,7 @@ textarea {
   padding: 0.5rem;
   background-color: transparent;
 }
-.form-check {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 1rem 0;
-}
-input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  margin-right: 1rem;
-}
+
 .pwd-wrap {
   position: relative;
   height: auto;
@@ -109,17 +97,13 @@ input[type="checkbox"] {
   top: 50%;
   transform: translateY(-50%);
   height: 45px;
-  padding: 0.75rem 0.6rem;
-  font-size: 1.2rem;
+  padding: 0.6rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  color: var(--grey);
   cursor: pointer;
-  border-left: 1px solid var(--grey);
+  border: none;
   background-color: transparent;
   border-radius: 0 8px 8px 0;
-}
-#TnC {
-  color: var(--text-color);
 }
 .view-pwd:focus {
   box-shadow: none;
@@ -132,9 +116,6 @@ label {
   transform: scaleY(0);
   transform-origin: bottom;
   position: relative;
-}
-#TnC {
-  transform: scale(1);
 }
 input::placeholder,
 textarea::placeholder {
@@ -162,18 +143,16 @@ textarea:focus + label {
 .bottom-text a {
   color: var(--primary-color);
 }
-#forgetpwd {
-  margin-bottom: 0.5rem;
-}
+
 .img-wrap {
   width: 90%;
   max-width: 650px;
   height: 70vh;
   min-height: 400px;
-  background: url("../../images/signup-img.png") center center no-repeat;
+  background: url("../images/signup-img.png") center center no-repeat;
   background-size: 100% 100%;
   color: white;
-  /* margin: auto; */
+  margin: auto;
   text-align: center;
   order: 1;
   border-radius: 10px;
@@ -221,10 +200,8 @@ textarea:focus + label {
   .img-wrap {
     order: 2;
     z-index: 0;
-    height: calc(100vh - 72px);
-    position: sticky;
-    top: 0;
-    min-height: 400px;
+    height: 100vh;
+    min-height: 600px;
   }
   section.signup-wrap {
     order: 1;
@@ -238,37 +215,4 @@ textarea:focus + label {
     height: 35%;
     top: 50%;
   }
-}
-.signup-wrap .btn {
-  width: 100%;
-}
-.google-sign-in {
-  color: var(--text-color);
-  font-weight: 500;
-  background-color: transparent !important;
-  border-color: var(--input-border);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.google-sign-in img {
-  transform: scale(0.8);
-}
-
-.abcRioButtonLightBlue {
-  background-color: transparent !important;
-  color: var(--text-color);
-  width: 100% !important;
-  height: 45px !important;
-  box-shadow: none !important;
-  border-radius: 5px !important;
-  border: 1px solid var(--text-color);
-}
-.abcRioButtonContentWrapper {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-}
-#forgetpwd {
-  text-align: center;
 }
