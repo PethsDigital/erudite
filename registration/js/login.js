@@ -31,22 +31,17 @@ loginForm.addEventListener("submit", e => {
     .then(response => {
       console.log(response);
       if (response.success == true) {
-        userAuth = {
+        let userAuth = {
           token: response.data.token,
-          user: response.data.user,
+          userId: response.data.userId,
         };
         localStorage.setItem("erudite_auth", JSON.stringify(userAuth));
         displayMsg("success", "Login successful", loginForm);
-        setTimeout(
-          () =>
-            (window.location.pathname = window.location.pathname.replace(
-              "/registration/login.html",
-              "/registration/profile.html"
-            )),
-          1000
-        );
+        // setTimeout(() => {
+        //   window.location.replace("http://localhost:5501/");
+        // }, 1000);
       } else {
-        displayMsg("error", response.message, loginForm);
+        displayMsg("error", "Login Failed", loginForm);
       }
     })
     .catch(err => {
