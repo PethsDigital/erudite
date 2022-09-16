@@ -2,247 +2,71 @@
 
 // template function to get topics depending on route
 let topicId = window.location.href.split("?").pop().split("=")[1];
-
-let response1;
-getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`)
-  .then(json => {
-    if (!json) {
-      $(".main-discussion.right").innerHTML = `<div class="oops">
-    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" class="heart"
-    width="100"
-    height="100" viewBox="0 0 32 32"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M23.5,27.5H6.5l-1-15.19a.76.76,0,0,1,.77-.81H10a1.11,1.11,0,0,1,.89.44l1.22,1.56H23.5v2"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M26.3,20.7l.84-3.2H9.25L6.5,27.5H23.41a1.42,1.42,0,0,0,1.37-1.06l.76-2.88"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M16.5,24.5h0a1.42,1.42,0,0,1,2,0h0"/><line x1="13.5" x2="14.5" y1="21.5" y2="21.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><line x1="20.5" x2="21.5" y1="21.5" y2="21.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M20.62,3.61C18.25,4,16.5,5.37,16.5,7a2.57,2.57,0,0,0,.7,1.7l-.7,2.8,2.86-1.43A8.12,8.12,0,0,0,22,10.5c3,0,5.5-1.57,5.5-3.5,0-1.6-1.69-2.95-4-3.37"/><line x1="21.25" x2="22.75" y1="6.25" y2="7.75" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><line x1="22.75" x2="21.25" y1="6.25" y2="7.75" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <br />
-    <h1>Oops!</h1>
-    <p>Topic not found</p>
-    <p>Click on "Start-discussion" to create a new topic for discussion</p>
-    </div>`;
-    } else {
-      $(".breadcrumb-link.topic").innerHTML += json.title;
-      $(".breadcrumb-link.forum-category").innerHTML = json.forumName;
-      $(".breadcrumb-link.forum-category").setAttribute(
-        "href",
-        `./forum-topics.html?id=${json.forumId}`
-      );
-      response1 = json;
-      return getData(
-        `https://erudite-be.herokuapp.com/v1/users/${
-          json.userId ? json.userId : json.user
-        }`
-      );
-    }
-  })
-  .then(user => {
-    let parentEl = $(".description");
-    let topicDescription = `<article class="main-question thread-wrap">
-            <img src="${user.avatar}" alt="avatar" />
+let likes;
+getData(`https://erudite-be.herokuapp.com/v1/topics/${topicId}`).then(json => {
+  let parentEl = $(".description");
+  likes = json.likes;
+  let topicDescription = `<article class="main-question thread-wrap">
+            <img src="../images/Ellipse 27 (1).png" alt="avatar" />
             <div class="text">
-              <div class="info user">
-                <div class="left-wrap">
-                <b class="name">${user.username}</b>
-                <p class="time-posted">${displayTime(
-                  response1.createdAt
-                )}</p></div>
-                <button class="flag btn"><i class="fa fa-flag" aria-hidden="true"></i> Flag</button>
+              <div class="info">
+                <b class="name">${json.name}</b>
+                <p class="time-posted">3 hours ago</p>
               </div>
               <p class="text-msg">
-               ${response1.description}
+               ${json.description}
               </p>
             </div>
           </article>`;
-    parentEl.innerHTML += topicDescription;
-    // comments box
-    if ($("#first-level-cm img")) {
-      $("#first-level-cm img").src =
-        userAuth && userAuth.user.avatar != ""
-          ? userAuth.user.avatar
-          : "https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png";
-    }
-    $("#com-num").innerHTML = `${
-      response1.comments.length > 1
-        ? response1.comments.length + " Comments"
-        : response1.comments.length + " Comment"
-    } `;
+  parentEl.innerHTML += topicDescription;
+
+  // get comments
+  $("#com-num").innerHTML = `${json.comments.length} Comments`;
+});
+
+getData(
+  `https://erudite-be.herokuapp.com/v1/comments/resource/${topicId}`
+).then(json => {
+  let commentWrap = $(".comments-wrapper");
+  console.log(json);
+  json.forEach(el => {
+    let commentTemplate = `<article id="${el._id}" class="first-level-comment thread-wrap">
+    <img src="../images/Ellipse 27 (1).png" alt="avatar" />
+    <div class="text">
+      <div class="info">
+        <b class="name">${el.user.name}</b>
+      </div>
+      <p class="text-msg">
+       ${el.comment}
+      </p>
+      <br />
+      <div class="info">
+      <button role="checkbox" type="button" class="like"><i class="fa fa-heart"></i> <span class="count">${el.likes.length}</span> </button>
+        <button type="button" class="reply">Reply</button>
+        <p class="time-posted">3 hrs ago</p>
+      </div>
+    </div>
+  </article>`;
+    commentWrap.innerHTML += commentTemplate;
   });
+});
 
-//
-(function () {
-  let response;
-
-  // display first level comments on load
-  getData(`https://erudite-be.herokuapp.com/v1/comments/resource/${topicId}`)
-    .then(json => {
-      response = json;
-      console.log(json);
-      return json.map(el => el.userId);
-    })
-    .then(arr => {
-      let commentWrap = $(".comments-wrapper");
-      return fetchUsersData(arr).then(result => {
-        result.forEach((user, i) => {
-          if (user.success) {
-            let commentTemplate = `<article id="${
-              response[i]._id
-            }" class="first-level-comment thread-wrap">
-            <img src="${user.data.avatar}" alt="avatar" />
-            <div class="text">
-              <div class="info">
-                <b class="name">${user.data.username}</b>
-              </div>
-              <p class="text-msg">
-               ${response[i].comment}
-              </p>
-              <br />
-              <div class="info">
-              <input type="checkbox" onChange="likeFunc(this)" value="None" name="like-btn" id="${
-                response[i]._id + "1"
-              }"/>
-              <label for="${response[i]._id + "1"}" type="button" class="like ${
-              userAuth && response[i].likes.includes(userAuth.user.id)
-                ? "liked"
-                : ""
-            }"><i class="fa fa-heart"></i> <span class="count"> ${
-              response[i].likes.length
-            }</span> </label>
-                <button type="button" class="reply"><span class="stat"><i class="fas fa-comment-alt"></i>
-                &nbsp;&nbsp; <p>${response[i].replies.length}</p> </button>
-                 <p class="time-posted">${displayTime(
-                   response[i].createdAt
-                 )}</p></span>
-              </div>
-            <br>
-            <div class="loader"><span class="circle"></span></div>
-            </div>
-            </article>`;
-            commentWrap.innerHTML += commentTemplate;
-          }
-          if (response1.isClosed) {
-            $("#first-level-cm").innerHTML = `<div class="closed-topic">
-            This topic has been closed with comments deactivated till further
-            notice.
-            <a href="../policy/terms.html"
-              >Read our terms and conditions for more info</a
-            >`;
-            $$(".main button, .main textarea, .main input").forEach(
-              el => (el.disabled = true)
-            );
-          }
-        });
-      });
+let isLiked = false;
+comments.addEventListener("click", e => {
+  if (e.target.className.includes("like")) {
+    e.target.classList.toggle("liked");
+    e.target.animate([{transform: "scale(1.2)"}, {transform: "scale(1)"}], {
+      duration: 400,
     });
-})();
-
-// like and unlike
-function likeFunc(e) {
-  if (!userAuth) {
-    displayMsg(
-      "error",
-      `pls Login to enable this action`,
-      $("form.discuss-pop-up")
-    );
-    setTimeout(
-      () =>
-        (window.location.pathname = window.location.pathname.replace(
-          "forum/topic.html",
-          "registration/login.html"
-        )),
-      1000
-    );
-  }
-  let commentId = e.parentElement.parentElement.parentElement.id;
-  let requestBody = {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `bearer ${token}`,
-    },
-    body: JSON.stringify({
-      userId: JSON.parse(localStorage.getItem("erudite_auth")).user.id,
-    }),
-    redirect: "follow",
-  };
-
-  if (e.parentElement.children[1].className.includes("liked")) {
-    likeUnlike(
-      e.parentElement.children[1],
-      `https://erudite-be.herokuapp.com/v1/comments/unlike/${commentId}/`,
-      requestBody
-    );
-
-    setTimeout(
-      () => e.parentElement.children[1].classList.remove("liked"),
-      1000
-    );
-  } else {
-    likeUnlike(
-      e.parentElement.children[1],
-      `https://erudite-be.herokuapp.com/v1/comments/like/${commentId}/`,
-      requestBody
-    );
-
-    setTimeout(() => e.parentElement.children[1].classList.add("liked"), 1000);
-  }
-}
-
-async function likeUnlike(el, url, requestBody) {
-  try {
-    const res = await fetch(url, requestBody);
-    const response = await res.json();
-    console.log(response);
-    if (response.success == true) {
-      el.children[1].innerHTML = response.data.likes.length;
-      el.animate([{transform: "scale(1.2)"}, {transform: "scale(1)"}], {
-        duration: 400,
-      });
+    if (isLiked) {
+      likes.push(userAuth.userId);
+      e.target.querySelector(".count").innerHTML--;
+      isLiked = false;
     } else {
-      displayMsg("error", response.data.message, $(".msg-wrap"));
+      likes.pop();
+      e.target.querySelector(".count").innerHTML++;
+      isLiked = true;
     }
-  } catch (err) {
-    console.log(`Error: ${err}`);
-    displayMsg("error", err, $(".msg-wrap"));
-  }
-}
-
-// views api
-if (token) {
-  fetch(`https://erudite-be.herokuapp.com/v1/topics/addview/${topicId}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `bearer ${token}`,
-    },
-    redirect: "follow",
-  })
-    .then(res => res.json())
-    .then(json => json);
-}
-
-// flag topic
-$(".main").addEventListener("click", e => {
-  if (e.target.className.includes("flag")) {
-    var requestOptions = {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${token}`,
-      },
-      redirect: "follow",
-    };
-    fetch(
-      `https://erudite-be.herokuapp.com/v1/topics/flag/${topicId}`,
-      requestOptions
-    )
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          displayMsg("success", data.message);
-          // setTimeout(() => location.reload(), 1500);
-        } else {
-          displayMsg("error", data.message);
-        }
-      })
-      .catch(error => {
-        displayMsg("error", "Action failed, pls try again");
-        console.log(error);
-      });
+    console.log(likes, isLiked);
   }
 });

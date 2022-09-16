@@ -6,13 +6,7 @@ const signupForm = $(".signup-form ");
 signupForm.addEventListener("submit", e => {
   e.preventDefault();
 
-  if (!$("#email").value.includes(".")) {
-    displayMsg("error", "invalid email", signupForm);
-  } else if ($("#phone-num").value.length < 11) {
-    displayMsg("error", "Incorrect phone number", signupForm);
-  } else if ($("#gender").value == "null") {
-    displayMsg("error", "choose a correct gender", signupForm);
-  } else if ($("#pwd").value === $("#confirmpwd").value) {
+  if ($("#pwd").value === $("#confirmpwd").value) {
     const loginBtn = $(".signup-form .btn");
     loginBtn.textContent = "loading...";
     loginBtn.disabled = true;
@@ -41,14 +35,11 @@ signupForm.addEventListener("submit", e => {
         console.log(response);
         if (response.success == true) {
           displayMsg("success", response.message, signupForm);
-          setTimeout(
-            () =>
-              (window.location.pathname = window.location.pathname.replace(
-                "registration/signup.html",
-                "registration/login.html"
-              )),
-            1000
-          );
+          // setTimeout(() => {
+          //   window.location.replace(
+          //     "http://localhost:5501/registration/login.html"
+          //   );
+          // }, 1000);
         } else {
           displayMsg("error", response.message, signupForm);
         }
