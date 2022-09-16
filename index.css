@@ -120,7 +120,7 @@ header {
   /* font-family: ; */
 }
 .header-text {
-  border-left: 4px solid var(--primary-color);
+  /* border-left: 4px solid var(--primary-color); */
   padding-left: 0.6rem;
   align-items: flex-start !important;
 }
