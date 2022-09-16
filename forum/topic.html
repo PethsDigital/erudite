@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../nav-and-footer/nav.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -20,80 +20,21 @@
       href="./assets/css/mobile.css"
       media="(max-width: 790px)"
     />
-    <link
-      rel="shortcut icon"
-      href="https://res.cloudinary.com/tomiwadev/image/upload/v1613560587/erudite/logo-blue_zro7g4.png"
-      type="image/x-icon"
-    />
-    <link rel="canonical" href="https://erudite.ng" />
-    <meta name="robots" content="index, follow" />
-    <meta
-      name="description"
-      content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
-    />
-    <meta
-      property="og:title"
-      content="Erudite - Your guide to academic success"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://erudite.ng" />
-    <meta property="og:image" content="../images/mockup.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@eruditeng_" />
-    <meta name="twitter:creator" content="@eruditeng_" />
-    <meta name="twitter:image" content="../images/mockup.png" />
-    <meta name="twitter:title" content="Erudite" />
-    <meta
-      name="twitter:description"
-      content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
-    />
     <style>
-      /* body {
+      body {
         pointer-events: none;
-      } */
-    </style>
-    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-DZJNBS94DN"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
       }
-      gtag("js", new Date());
-
-      gtag("config", "G-DZJNBS94DN");
-    </script>
+    </style>
   </head>
   <body>
-    <div class="pre-loader">
-      <div class="wrap">
-        <img
-          src="https://res.cloudinary.com/tomiwadev/image/upload/v1613560587/erudite/logo-blue_zro7g4.png"
-          alt="logo"
-        />
-        <div class="circle"></div>
-      </div>
+    <div class="ball-loader">
+      <div class="cl"></div>
+      <div class="cl"></div>
+      <div class="cl"></div>
     </div>
     <nav class="navbar">
-      <a href="../" class="logo">
-        <img
-          src="https://res.cloudinary.com/tomiwadev/image/upload/v1613560587/erudite/logo-blue_zro7g4.png"
-          alt=""
-          class="logo-img"
-        />
-        <p class="logo-text">Erudite</p>
-      </a>
-      <div class="bar">
-        <span
-          class="iconify bar"
-          data-icon="radix-icons:hamburger-menu"
-          data-inline="false"
-        ></span>
-      </div>
+      <h1 class="logo-text"><a href="../">Erudite</a></h1>
+      <i class="fa fa-bars fa-2x"></i>
       <ul class="nav-menu">
         <li class="nav-item"><a href="../">Home</a></li>
         <li class="nav-item"><a href="../about/">About Us</a></li>
@@ -107,13 +48,9 @@
       </ul>
     </nav>
     <ul class="nav2">
-      <div class="close">
-        <span
-          class="iconify"
-          data-icon="clarity:times-line"
-          data-inline="false"
-        ></span>
-      </div>
+      <a href="#">
+        <i class="fa fa-times"></i>
+      </a>
       <li class="nav-item"><a href="../">Home</a></li>
       <li class="nav-item"><a href="../about/">About Us</a></li>
       <li class="nav-item">
@@ -146,7 +83,6 @@
         <textarea
           placeholder="write message here"
           id="discussion-input-txt"
-          required
         ></textarea>
       </div>
     </form>
@@ -154,39 +90,17 @@
     <main>
       <section class="top-search">
         <form class="form-group" id="search-title">
-          <input type="search" placeholder="Search for a topic" required />
-          <button aria-label="Search Topic" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
+          <input type="search" placeholder="Search for a topic" />
+          <button type="submit"><i class="fa fa-search"></i></button>
         </form>
         <div class="left">
-          <a href="../registration/login.html" id="signup" class="btn"
-            >Sign In</a
-          >
-          <div class="profile">
+          <a href="#" class="profile">
             <img
-              src="https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
+              src="../images/Ellipse 27 (1).png"
               alt="profile"
               class="profile-pic"
             />
-
-            <div class="drop-down">
-              <a class="list" href="../registration/profile.html">Profile</a>
-              <a class="list" href="../registration/edit-profile.html"
-                >Settings</a
-              >
-              <a class="list" href="../policy/policy.html">Privacy</a>
-
-              <button
-                id="sign-out"
-                aria-label="Sign Out"
-                class="list"
-                type="button"
-              >
-                Sign Out
-              </button>
-            </div>
-          </div>
+          </a>
           <button class="st-discuss">
             <img src="../images/pen.svg" alt="start discussion" />
             Start a discussion
@@ -196,16 +110,16 @@
 
       <section class="main">
         <div class="main-discussion right">
-          <a href="" class="forum-category breadcrumb-link">Forum Title</a>
-          <span class="breadcrumb-link">&gt; </span>
-          <a href="#" class="breadcrumb-link topic"></a>
+          <a href="#" class="breadcrumb-link">
+            <span class="forum-category">Forum Title</span>
+            <span class="topic">> Topic</span>
+          </a>
           <br />
           <br />
           <div class="description"></div>
           <!-- template from discussion.js goes here -->
           <br />
-
-          <div id="first-level-cm" class="comment-box-wrap thread-wrap">
+          <div class="comment-box-wrap thread-wrap">
             <img
               src="../images/Ellipse 27.png"
               alt="forum avatar"
@@ -226,7 +140,76 @@
             <h4 id="com-num">60 comments.</h4>
             <br />
             <div class="comments-wrapper">
-              <!-- template for comments go here -->
+              <article
+                id="template-comment"
+                class="first-level-comment thread-wrap"
+                style="display: none"
+              >
+                <img src="../images/Ellipse 27 (1).png" alt="avatar" />
+                <div class="text">
+                  <div class="info">
+                    <b class="name">James Mba</b>
+                  </div>
+                  <p class="text-msg">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Optio repudiandae dolorum dolorem est reprehenderit
+                    consectetur aperiam magnam ullam tempora hic?
+                  </p>
+                  <br />
+                  <div class="info">
+                    <button type="button" class="like">Like</button>
+                    <button type="button" class="reply">Reply</button>
+                    <p class="time-posted">3 hrs ago</p>
+                    <p class="time-posted like-count">22 Likes</p>
+                  </div>
+                  <br />
+
+                  <!-- PS: this form below is a template for javascript to hold onto it wont be displayed but cloned -->
+                  <div
+                    id="reply-comment-wrap"
+                    class="comment-box-wrap thread-wrap reply-comment-wrap"
+                  >
+                    <form class="comment-box reply-comment">
+                      <textarea
+                        required
+                        id="comment-input"
+                        placeholder="Type here to comment or reply the question"
+                      ></textarea>
+                      <div class="btn-group">
+                        <button class="btn submit-reply" type="submit">
+                          Post comment
+                        </button>
+                        <button
+                          type="reset"
+                          class="btn btn-cancel"
+                          type="button"
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </form>
+                    <br />
+                  </div>
+                  <article class="second-level-commentm thread-wrap">
+                    <img src="../images/Ellipse 27 (1).png" alt="avatar" />
+                    <div class="text">
+                      <div class="info">
+                        <b class="name">James Mba</b>
+                      </div>
+                      <p class="text-msg">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Optio repudiandae dolorum dolorem est reprehenderit
+                        consectetur aperiam magnam ullam tempora hic?
+                      </p>
+                      <br />
+                      <div class="info">
+                        <button type="button" class="like"><i class="fa fa-heart"></i>22</button>
+                        <p class="time-posted">3 hrs ago</p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </article>
             </div>
           </div>
         </div>
@@ -243,8 +226,6 @@
               These are questions that have not been answered by any member of
               the forum
             </p>
-            <div class="loader"><span class="circle"></span></div>
-
             <!-- template goes here -->
           </div>
         </aside>
@@ -252,24 +233,9 @@
     </main>
 
     <div class="oops">
-      <svg
-        class="heart"
-        width="70"
-        height="70"
-        viewBox="0 0 20 20"
-        fill="none"
-        fill-rule="evenodd"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path
-          d="M19 4.8a16 16 0 00-2-1.2m-3.3-1.2A16 16 0 001.1 4.7M16.7 8a12 12 0 00-2.8-1.4M10 6a12 12 0 00-6.7 2M12.3 14.7a4 4 0 00-4.5 0M14.5 11.4A8 8 0 0010 10M3 16L18 2M10 18h0"
-        ></path>
-      </svg>
-      <br />
+      <i class="fas fa-heart-broken heart"></i>
       <h1>Oops!</h1>
-      <p>An error ocurred, you might want to check your network connection</p>
+      <p>An error ocurred, pls try again</p>
     </div>
 
     <footer>
@@ -293,22 +259,13 @@
       </div>
       <div class="follow">
         <h4>Follow Us</h4>
-        <a
-          title="Instagram"
-          href="https://instagram.com/eruditeng__"
-          class="footer-link"
+        <a href="#" class="footer-link"
           ><i class="fab fa-instagram" aria-hidden="true"></i
         ></a>
-        <a
-          title="Twitter"
-          href="https://twitter.com/eruditeng__"
-          class="footer-link"
+        <a href="#" class="footer-link"
           ><i class="fab fa-twitter" aria-hidden="true"></i
         ></a>
-        <a
-          title="Facebook"
-          href="https://facebook.com/eruditeng"
-          class="footer-link"
+        <a href="#" class="footer-link"
           ><i class="fab fa-facebook" aria-hidden="true"></i
         ></a>
       </div>

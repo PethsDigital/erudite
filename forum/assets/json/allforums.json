@@ -1,0 +1,101 @@
+{
+  "success": true,
+  "data": [
+    {
+      "name": "UTME",
+      "userId": "string",
+      "forumId": "341347234",
+      "topics": [
+        {
+          "title": "string",
+          "description": "string",
+          "userId": "string",
+          "likes": ["string"],
+          "views": 0,
+          "comments": [
+            {
+              "topicId": "string",
+              "userId": "string",
+              "comment": "string",
+              "parrentComment": "string",
+              "replies": [null],
+              "likes": ["string"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UNILAG",
+      "userId": "string",
+      "forumId": "341347246634",
+      "topics": [
+        {
+          "title": "string",
+          "description": "string",
+          "userId": "string",
+          "likes": ["string"],
+          "views": 0,
+          "comments": [
+            {
+              "topicId": "string",
+              "userId": "string",
+              "comment": "string",
+              "parrentComment": "string",
+              "replies": [null],
+              "likes": ["string"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UNIVERSITY",
+      "userId": "string",
+      "forumId": "34436417234",
+      "topics": [
+        {
+          "title": "string",
+          "description": "string",
+          "userId": "string",
+          "likes": ["string"],
+          "views": 0,
+          "comments": [
+            {
+              "topicId": "string",
+              "userId": "string",
+              "comment": "string",
+              "parrentComment": "string",
+              "replies": [null],
+              "likes": ["string"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ERUDITYE",
+      "userId": "string",
+      "forumId": "34172794",
+      "topics": [
+        {
+          "title": "string",
+          "description": "string",
+          "userId": "string",
+          "likes": ["string"],
+          "views": 0,
+          "comments": [
+            {
+              "topicId": "string",
+              "userId": "string",
+              "comment": "string",
+              "parrentComment": "string",
+              "replies": [null],
+              "likes": ["string"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

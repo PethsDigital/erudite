@@ -1,25 +1,6 @@
-// show and hide forum drop down links
-if ($(".tag")) {
-  $(".tag").addEventListener("click", e => {
-    $(".wrap .drop-down").classList.toggle("show-cat-drp-dw");
-    e.target.firstElementChild.classList.toggle("rotate-drp-icon");
-  });
-}
-
-// create topic
 $("form.discuss-pop-up").addEventListener("submit", e => {
   e.preventDefault();
-  if (!userAuth) {
-    displayMsg(
-      "error",
-      `pls Login to enable this action`,
-      $("form.discuss-pop-up")
-    );
-    setTimeout(
-      () => (window.location.pathname = "/registration/login.html"),
-      3000
-    );
-  }
+
   const submit = $("#post-msg");
   submit.textContent = "loading...";
   submit.disabled = true;
@@ -34,19 +15,18 @@ $("form.discuss-pop-up").addEventListener("submit", e => {
     forumId: category,
     description: description.value,
     title: title.value,
-    userId: JSON.parse(localStorage.getItem("erudite_auth")).user.id,
+    userId: JSON.parse(localStorage.getItem("erudite_auth")).userId,
   };
-
+  console.log(topicDetails);
   let requestBody = {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      "Content-Type": "application/json; charset=utf-8",
+      Authorization: `bearer ${token}`,
     },
     body: JSON.stringify(topicDetails),
     redirect: "follow",
   };
-  console.log(requestBody);
 
   fetch("https://erudite-be.herokuapp.com/v1/topics/create", requestBody)
     .then(res => res.json())
@@ -76,7 +56,7 @@ $("form.discuss-pop-up").addEventListener("submit", e => {
     })
     .finally(_ => {
       $("form.discuss-pop-up").reset();
-      submit.textContent = "Post";
+      submit.textContent = "Submit";
       submit.disabled = false;
     });
 });
