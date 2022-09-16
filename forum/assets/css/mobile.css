@@ -1,13 +1,13 @@
 .main {
   flex-direction: column;
 }
-.main-discussion {
-  max-width: none;
+
+.main-discussion, .btn.submit-reply{
+  margin-right: 0;
 }
 
-.main-discussion,
-.btn.submit-reply {
-  margin-right: 0;
+.left{
+  margin-left: 0;
 }
 
 .btn-group {
@@ -35,15 +35,12 @@ textarea {
   width: 100%;
   justify-content: flex-start;
 }
-.left {
-  margin-left: 0;
-}
-
 .popular .topic-child {
   justify-content: space-between;
 }
 .topic-child,
 .un-topic-child {
+  border-bottom: 1px solid var(--input-border);
   margin-bottom: 0.8rem;
 }
 
@@ -67,10 +64,8 @@ textarea {
 .topics-card img {
   width: 70px;
   height: 70px;
-  margin: 0 0.6rem;
 }
 .stat-info {
-  font-size: 1rem;
   border-left: none;
   border-top: 1px solid var(--grey);
   padding-top: 1rem;
@@ -79,13 +74,6 @@ textarea {
   justify-content: center;
   align-items: center;
   width: 100%;
-}
-.stat-info p {
-  padding: 10px;
-}
-.stat-info .cm-icon,
-.stat-info .views {
-  margin: 0 0.4rem;
 }
 .stat-info hr {
   display: none;

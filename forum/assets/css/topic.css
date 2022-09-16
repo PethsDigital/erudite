@@ -1,5 +1,8 @@
 /* presets and css variables are in nav and footer css */
-
+:root {
+  --input-border: #e6e6e6;
+  --grey: #aaaaaa;
+}
 a {
   color: var(--text-color);
   transition: 0.4s;
@@ -17,14 +20,21 @@ button:focus {
 .btn-group {
   display: flex;
 }
-
+.btn.btn-cancel {
+  background-color: var(--input-border);
+  color: #cf0808;
+}
 form,
 input[type="search"] {
   flex-grow: 2;
 }
 
 /* pop-up */
-
+.discuss-pop-up .btns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
 .category-placeholder {
   color: var(--grey);
   margin: 1rem 0;
@@ -55,9 +65,10 @@ input[type="search"] {
 .discuss-pop-up input[type="radio"]:checked {
   background: var(--primary-color);
 }
-#comment-clone {
-  display: none;
+#reply-comment-wrap {
+  display: none !important;
 }
+
 .discuss-pop-up input[type="radio"]:checked::before {
   content: "\2713";
   display: block;
@@ -74,7 +85,17 @@ input[type="search"] {
 .discuss-pop-up label {
   cursor: pointer;
 }
-
+.discuss-pop-up .btns button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.discuss-pop-up .btns button:hover,
+.discuss-pop-up .btns button:focus {
+  background: var(--input-border);
+}
 .discuss-pop-up .form-control-group {
   width: 100%;
   margin: 1rem 0;
@@ -170,12 +191,6 @@ main {
   height: 25px;
   width: 25px;
 }
-.left .profile-pic {
-  height: 40px;
-  width: 40px;
-  cursor: pointer;
-}
-
 .left button {
   background-color: transparent;
   color: black;
@@ -206,9 +221,7 @@ textarea:focus {
   font-weight: 500;
   color: var(--primary-color);
 }
-a.breadcrumb-link:hover {
-  text-decoration: underline;
-}
+
 /* thread wrap */
 .thread-wrap {
   display: flex;
@@ -220,43 +233,19 @@ a.breadcrumb-link:hover {
   height: 40px;
 }
 
-.closed-topic {
-  color: #f81515;
-  background-color: rgba(241, 153, 153, 0.705);
-  border: 1px solid #f81515;
-  border-radius: 5px;
-  width: 100%;
-  padding: 0.5rem 1rem;
-  margin: 1.5rem 0;
-  font-size: 13px;
-}
-.closed-topic a {
-  color: #f81515;
-  font-weight: bold;
-  text-decoration: underline;
-}
 /* main-question */
 .info {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
-.user.info {
-  justify-content: space-between;
-}
-.time-posted {
+.info .time-posted {
   color: var(--grey);
   font-size: 0.7rem;
 }
-.info input[type="checkbox"] {
-  visibility: hidden;
-  margin: 0;
-  padding: 0;
-}
 
-.info button i,
-.info label i {
+.info button i {
   margin: 0 !important;
   color: #7a7a7a;
 }
@@ -266,29 +255,7 @@ a.breadcrumb-link:hover {
 .info .liked i {
   color: var(--primary-color);
 }
-.info .left-wrap {
-  display: flex;
-  justify-content: flex-start;
-  width: max-content;
-}
-.flag.btn {
-  color: red;
-  background-color: transparent;
-  border: 1px solid red;
-  display: flex;
-  align-items: center;
-  margin: 0 !important;
-  font-size: 13px;
-  padding: 0.2rem 0.5rem;
-  height: max-content;
-}
-.flag.btn:hover {
-  background-color: transparent;
-}
-.info i.fa-flag {
-  color: red;
-  margin: 0 0.5rem !important;
-}
+
 /* comment box */
 .comment-box-wrap .btn {
   margin: 1rem 0;
@@ -315,31 +282,7 @@ textarea {
   position: relative;
   padding-bottom: 1rem;
 }
-.unanswered .loader {
-  width: 100%;
-}
-.loader {
-  height: max-content;
-  display: none;
-  padding: 1rem;
-  width: 50%;
-  align-items: center;
-  justify-content: center;
-}
-.loader .circle {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 4px solid;
-  border-color: var(--primary-color) transparent;
-  animation: spin 1s infinite linear;
-}
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-/* 2021-02-18T09:19:33.820Z 2021-02-18T05:00:25.773Z */
+
 .comments .first-level-comment::after {
   content: "";
   position: absolute;
@@ -353,36 +296,22 @@ textarea {
 .comments .first-level-comment:last-child::after {
   display: none;
 }
-.info button,
-.info label {
+.info button {
   background-color: transparent;
   color: var(--text-color);
   border: none;
-  border-radius: 5px;
 }
-.left #signup {
-  padding: 0.45rem 1rem !important;
-  margin: 0 1rem;
-  display: none;
-  height: auto;
-  margin-left: 0;
-  font-size: 0.85rem;
-}
+
 .st-discuss,
-.info button,
-.info label {
+.info button {
   padding: 0.5rem;
-}
-.st-discuss {
-  background-color: rgba(120, 121, 122, 0.158) !important;
+  /* background-color: rgba(120, 121, 122, 0.158) !important; */
 }
 .st-discuss:hover,
-.info button:hover,
-.info label:hover {
+.info button:hover {
   background-color: var(--input-border);
 }
 .info button:focus,
-.info label:focus,
 .form-group input:focus,
 .form-group button:focus {
   box-shadow: none;
@@ -398,7 +327,6 @@ textarea {
 }
 .topic-child a {
   margin: 0.4rem 0.3rem 0.4rem 0;
-  flex-grow: 2;
 }
 .aside .topics h3 {
   color: var(--primary-color);
@@ -409,13 +337,6 @@ textarea {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-bottom: 0.5rem;
-}
-.topics .topic-child,
-.un-topic-child {
-  border-bottom: 1px solid var(--input-border);
-  margin: 0.5rem 0;
-  justify-content: space-between;
 }
 
 .stat {
@@ -429,7 +350,6 @@ input[type="radio"] {
 
 .text {
   width: 100%;
-  padding-right: 1rem;
 }
 
 .unanswered .info *:not(img) {
@@ -439,90 +359,16 @@ input[type="radio"] {
 .left {
   margin: 20px;
 }
-.reply .stat {
-  pointer-events: none;
-  margin: 0 !important;
-  padding: 0;
-}
-.reply:disabled,
-.reply:disabled i,
-input[type="checkbox"]:disabled ~ label,
-input[type="checkbox"]:disabled ~ label i {
-  color: var(--input-border);
-  cursor: not-allowed;
-}
-.reply:disabled:hover,
-input[type="checkbox"]:disabled ~ label:hover {
-  background-color: transparent;
-}
-.reply .fas {
-  font-size: 0.8rem;
-  transform: translateY(2px);
-}
-.drop-down {
-  position: absolute;
-  top: 110%;
-  left: 0;
-  z-index: 10;
-  width: max-content;
-  min-width: 230px;
-  padding: 0.3rem;
-  background: white;
-  word-wrap: none;
-  transform: scale(0);
-  transform-origin: top left;
-  border-radius: 8px;
-  box-shadow: 0px 20px 70px 0px #e0e0e0;
-  /* box-shadow: 0 0 0 4px var(--text-color); */
-  transition: transform 0.2s;
-}
-.drop-down .list {
-  padding: 0.5rem 0.8rem;
-  font-size: 0.9rem;
-  width: 100%;
-  display: block;
-  border-radius: 5px;
-}
-.wrap .drop-down {
-  transform: scaleY(0) scaleX(1);
-  transform-origin: top;
-  top: 100%;
-  border-radius: 0 0 8px 8px;
-  width: 100%;
-  max-height: 50vh;
-  overflow-y: auto;
-  min-width: none !important;
-}
-.rotate-drp-icon {
-  transform: rotate(180deg);
-}
-.show-cat-drp-dw {
-  transform: scaleY(1) scaleX(1) !important;
-}
-.list:hover {
-  background: var(--input-border);
-}
-.drop-down button.list {
-  margin-top: 0.5rem;
-  text-align: left;
-  border-top: 1px solid var(--input-border);
-}
-.drop-down-show {
-  transform: scale(1) !important;
-}
-
 .left .profile,
 .btn.submit-reply,
 .text .info *,
 .thread-wrap img {
   margin-right: 17px;
-  position: relative;
 }
 
 .main-discussion {
   margin-right: 50px;
-  flex-grow: 2;
-  max-width: 67%;
+  flex-grow: 3;
 }
 
 /* unawsered topics */
@@ -537,56 +383,7 @@ input[type="checkbox"]:disabled ~ label:hover {
 .unanswered .info {
   font-size: 0.7rem;
 }
-.search-results .wrapper {
-  flex-direction: column;
-  align-items: flex-start;
-}
-.search-results {
-  padding: 1rem !important;
-}
-.search-results:hover,
-.topics-card:hover {
-  box-shadow: 0px 44px 100px 0px #dddddd;
-}
-.search-results .wrapper img {
-  width: 50px;
-  height: 50px;
-  margin: 0 1rem 0 0;
-}
-.search-results .author {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-.search-results .forum-name {
-  background: var(--bg-color);
-  border-radius: 20px;
-  color: white;
-  padding: 0.4rem 1rem;
-}
-.search-results .bottom {
-  width: 100%;
-}
-.search-results .bottom,
-.search-results .stats {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.search-results .stats,
-.search-results .stat {
-  justify-content: space-evenly;
-  font-size: 0.9rem;
-}
-.stat i {
-  font-size: 1.2rem;
-}
-.search-results .stat img {
-  width: 1rem;
-  border-radius: 0;
-  height: 1rem;
-  margin: 0 0.5rem 0 1rem;
-}
+
 .un-topic-child {
   margin: 0.9rem 0;
 }
@@ -598,7 +395,7 @@ input[type="checkbox"]:disabled ~ label:hover {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   z-index: 10;
-  color: #878787;
+  color: var(--text-color);
 }
 
 .stat img {
@@ -609,25 +406,19 @@ input[type="checkbox"]:disabled ~ label:hover {
 /* forums page style */
 .wrap {
   width: 100%;
-  position: relative;
 }
 .tag {
   background: var(--primary-color);
   color: white;
   padding: 0.7rem 0.7rem 0.4rem 0.7rem;
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
+  display: inline;
   text-align: left;
-  cursor: pointer;
   font-weight: 400;
-}
-.tag i {
-  transition: 0.3s;
 }
 .hr {
   padding: 1.3px;
   background: var(--primary-color);
+  margin-top: 4px;
   width: 100%;
   margin-bottom: 1rem;
 }
@@ -688,7 +479,7 @@ input[type="checkbox"]:disabled ~ label:hover {
   background: white;
   border-radius: 5px;
   padding: 1rem;
-  min-height: auto;
+  min-height: 40vh;
   max-height: 70vh;
   overflow-y: auto;
 }
