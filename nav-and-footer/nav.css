@@ -10,12 +10,14 @@
   --focus-shadow: 0 0 0 4px rgba(95, 161, 236, 0.651);
   --text-color: #222;
   --white-bg: #fafafa;
+  --input-border: #e6e6e6;
+  --grey: #8d8c8c;
   scroll-behavior: smooth;
 }
 body {
   background: var(--white-bg);
   color: var(--text-color);
-  font-family: "Poppins";
+  font-family: "Poppins" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -25,7 +27,7 @@ body {
 /* body{
   pointer-events: none;
 } */
-.ball-loader {
+.pre-loader {
   width: 100vw;
   position: fixed;
   z-index: 1000;
@@ -36,6 +38,13 @@ body {
   align-items: center;
   background-color: white;
 }
+.topics .pre-loader,
+.main-discussion .pre-loader {
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  background-color: transparent;
+}
 @keyframes closeLoader {
   from {
     clip-path: inset(0 0 0 0);
@@ -45,70 +54,97 @@ body {
     display: none;
   }
 }
-.cl {
-  width: 20px;
-  height: 20px;
+.pre-loader .wrap {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  padding: 1rem;
+}
+.pre-loader img {
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.pre-loader .circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 120;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  background-color: #3d90ef;
-  margin: 1rem;
-  transform: translateY(-10px);
+  border: 2px solid;
+  border-color: var(--primary-color) transparent;
+  animation: spin 1s infinite linear;
 }
-.cl:nth-child(1) {
-  animation: circle 0.8s ease infinite alternate;
-}
-.cl:nth-child(2) {
-  animation: circle 0.8s ease infinite alternate 0.2s;
-}
-.cl:nth-child(3) {
-  animation: circle 0.8s ease infinite alternate 0.4s;
-}
-@keyframes circle {
-  from {
-    transform: translateY(-10px);
-  }
+
+@keyframes spin {
   to {
-    transform: translateY(40px);
+    transform: rotate(360deg);
   }
 }
+
 a {
   text-decoration: none;
 }
 
 .msg {
-  background-color: rgba(4, 182, 4, 0.781);
+  position: fixed;
+  background-color: rgb(4, 182, 4);
   border-radius: 5px;
   color: white;
   margin: 0.5rem auto;
-  transform: scaleY(0);
-  padding: 0.5rem 1rem;
-  transform-origin: top;
-  width: 95%;
+  transform: translateX(150vw);
+  padding: 0.5rem 4rem 0.5rem 2rem;
+  width: auto;
   display: block;
+  top: 0.5rem;
+  right: 2rem;
+  z-index: 100;
   -webkit-animation: msg 0.5s ease forwards;
   animation: msg 0.5s ease forwards;
 }
 
 @keyframes msg {
   to {
-    transform: scaleY(1);
+    transform: translateX(0);
   }
 }
 
-@keyframes msg {
-  to {
-    transform: scaleY(1);
+@media (max-width: 500px) {
+  .msg {
+    position: sticky;
+    width: 95%;
+    right: 0;
+    padding: 0.5rem 1.5rem;
+    transform: translate(0);
+    clip-path: inset(0 0 100% 0);
+    -webkit-animation: sm-msg 0.5s ease forwards;
+    animation: sm-msg 0.5s ease forwards;
+  }
+  @keyframes sm-msg {
+    to {
+      clip-path: inset(0 0 0 0);
+    }
   }
 }
 button,
 input {
   border-radius: 6px;
 }
+button:disabled {
+  cursor: not-allowed;
+}
 /* btn styling */
 .btn {
   background: var(--primary-color);
   color: white;
-  padding: 0.4rem 2rem;
+  padding: 0 3rem;
   border-radius: 6px;
+  height: 43px;
   text-decoration: none;
   margin: 1rem auto;
   transition: 0.5s;
@@ -124,7 +160,26 @@ input {
 }
 .btn:disabled {
   background-color: #96b7db;
-  cursor: wait;
+}
+.btn.btn-cancel {
+  background-color: var(--input-border);
+  color: #cf0808;
+}
+.modal .btns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.modal .btns button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.modal .btns button:hover,
+.modal .btns button:focus {
+  background: var(--input-border);
 }
 
 button:focus,
@@ -137,59 +192,62 @@ input:not([type="radio"]):focus {
 input {
   font-family: "Poppins";
 }
+nav {
+  width: 100vw;
+  background: var(--white-bg);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  padding: 9px 0;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 20;
-  background: var(--white-bg);
+  padding: 9px 0.5rem 9px 0;
+  margin: auto;
 }
 .logo {
-  font-weight: 400;
-  color: var(--primary-color);
-  font-size: 2rem;
-  user-select: none;
-  padding-left: 1.2rem;
-}
-.logo-text a {
+  padding-left: 0.6rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   text-decoration: none;
-  margin-left: 1rem;
 }
-.logo-text a:link,
-.logo-text a:visited,
-.logo-text a:hover,
-.logo-text a:active {
-  font-weight: 400;
+
+.logo img {
+  margin: 0 0.5rem;
+  width: 37px;
+  height: 37px;
+}
+.logo-text {
+  font-size: 1.7rem;
+  font-weight: 400 !important;
   color: var(--primary-color);
-  font-size: 2rem;
-  padding: 0.5rem;
+  user-select: none;
+}
+.logo:link,
+.logo:visited,
+.logo:hover,
+.logo:active {
+  color: var(--primary-color);
 }
 .navbar i {
+  padding-right: 1rem;
   color: var(--primary-color);
   cursor: pointer;
-  padding-right: 1.2rem;
+}
+.iconify {
+  color: var(--primary-color);
+  cursor: pointer;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-right: 1rem;
 }
 .nav-menu {
   display: none;
   padding-right: 1.2rem;
-  /* justify-content: center;
-  align-content: center;
-  position: absolute;
-  flex-direction: column;
-  top: 50px;
-  z-index: 20;
-  left: 0;
-  list-style: none;
-  width: 100%;
-  text-align: center;
-  clip-path: inset(0 0 100% 0);
-  transition: clip-path 0.5s;
-  background: var(--primary-color); */
 }
 .nav-item a {
   padding: 1rem;
@@ -226,13 +284,13 @@ input {
   -webkit-clip-path: circle(0% at 100% 1rem);
   clip-path: circle(0% at 100% 1rem);
 }
-.nav2 i {
+.nav2 .iconify {
   position: absolute;
   top: 1rem;
   z-index: 120;
   right: 1rem;
-  font-size: 1.5rem;
   color: white;
+  margin-right: 0.5rem;
 }
 .nav2 a {
   display: block;
@@ -244,11 +302,17 @@ footer {
   background: var(--primary-color);
   color: white;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   width: 100vw;
-  padding: 1.5rem;
+  padding: 1rem 2.5rem;
+}
+.footer-link-wrap img {
+  margin-left: 0;
+}
+footer .logo-text {
+  color: white;
 }
 
 .ft-wrap {
@@ -256,14 +320,27 @@ footer {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
+}
+.footer-link-wrap,
+.follow {
+  width: 47%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
   margin: 1rem auto;
 }
-.footer-link-wrap {
-  width: 50%;
+.follow {
+  display: inline-block;
+}
+.footer-sm .footer-link-wrap {
+  justify-content: center;
+}
+.footer-sm .follow {
+  margin: 0.5rem auto;
+  width: 47%;
   display: flex;
   justify-content: center;
 }
-
 .footer-link {
   color: white;
   margin: 0.6rem 0;
@@ -273,9 +350,24 @@ footer {
   font-size: 1.5rem;
   margin-right: 0.6rem;
 }
-@media (min-width: 760px) {
-  .navbar .fa {
+.footer-sm .footer-link-wrap,
+.footer-sm .follow {
+  width: 100%;
+}
+@media (min-width: 790px) {
+  .navbar .iconify {
     display: none;
+  }
+  .navbar {
+    width: 95vw;
+    padding: 9px 1rem;
+  }
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+  .logo-text {
+    font-size: 2rem;
   }
   .nav-menu {
     position: static;
@@ -308,10 +400,16 @@ footer {
     position: relative;
     color: var(--text-color);
   }
-
   .footer-link-wrap,
   .follow {
-    width: 20%;
+    width: 30%;
+  }
+  .ft-wrap {
+    margin: 1rem auto;
+  }
+  .footer-sm .footer-link-wrap,
+  .footer-sm .follow {
+    width: 30%;
   }
 }
 
@@ -344,19 +442,18 @@ textarea {
   display: none;
   max-height: 90vh;
   color: var(--text-color);
-  transform: translate(-50%, -50%) scale(0);
-  animation: modal 0.5s ease forwards;
+  transform: translate(-50%, -40%);
+  animation: modal 0.3s ease-out forwards;
 }
 @keyframes modal {
   to {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%);
   }
 }
 
 /* 404 page error message */
 .oops {
-  height: 60vh;
-  min-height: 300px;
+  min-height: 80vh;
   display: none;
   align-items: center;
   justify-content: center;
@@ -366,6 +463,13 @@ textarea {
   width: 95%;
   font-family: "Nunito";
 }
+.topics .oops,
+.main-discussion .oops {
+  display: flex;
+  min-height: auto;
+  margin: 2rem auto;
+  font-size: 15px;
+}
 .oops p {
   margin-top: 1rem;
   font-size: 1.2rem;
@@ -373,6 +477,9 @@ textarea {
   text-align: center;
 }
 .heart {
+  color: var(--text-color) !important;
   font-size: 6rem;
+  width: 120px;
+  height: 120px;
   animation: heartbeat 0.6s infinite;
 }

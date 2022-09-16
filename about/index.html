@@ -8,62 +8,110 @@
     <link rel="stylesheet" href="../nav-and-footer/nav.css" />
     <link
       rel="stylesheet"
-      href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="shortcut icon"
+      href="https://res.cloudinary.com/tomiwadev/image/upload/v1613560587/erudite/logo-blue_zro7g4.png"
+      type="image/x-icon"
+    />
+    <link rel="canonical" href="https://erudite.ng" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
+    />
+    <meta
+      property="og:title"
+      content="Erudite - Your guide to academic success"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://erudite.ng" />
+    <meta property="og:image" content="../images/mockup.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@eruditeng_" />
+    <meta name="twitter:creator" content="@eruditeng_" />
+    <meta name="twitter:image" content="../images/mockup.png" />
+    <meta name="twitter:title" content="Erudite" />
+    <meta
+      name="twitter:description"
+      content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
+    />
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-DZJNBS94DN"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-DZJNBS94DN");
+    </script>
   </head>
   <body>
-    <nav class="navbar">
-      <h1 class="logo-text"><a href="../">Erudite</a></h1>
-      <i class="fa fa-bars fa-2x"></i>
-      <ul class="nav-menu">
-        <li class="nav-item"><a href="../">Home</a></li>
-        <li class="nav-item active">
-          <a href="#">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a href="../hire-tutor/">Hire A Tutor</a>
-        </li>
-        <li class="nav-item"><a href="../news/">News</a></li>
-        <li class="nav-item">
-          <a href="../forum/">Forums</a>
-        </li>
-      </ul>
+    <nav>
+      <div class="navbar">
+        <a href="../" class="logo">
+          <img
+            src="https://res.cloudinary.com/tomiwadev/image/upload/v1613560587/erudite/logo-blue_zro7g4.png"
+            alt=""
+            class="logo-img"
+          />
+          <p class="logo-text">Erudite</p>
+        </a>
+        <div class="bar">
+          <span
+            class="iconify bar"
+            data-icon="radix-icons:hamburger-menu"
+            data-inline="false"
+          ></span>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="../">Home</a></li>
+          <li class="nav-item active"><a href="#">About Us</a></li>
+          <li class="nav-item">
+            <a href="#notify">Get Notified</a>
+          </li>
+        </ul>
+      </div>
     </nav>
     <ul class="nav2">
-      <a href="#">
-        <i class="fa fa-times"></i>
-      </a>
+      <div class="close">
+        <span
+          class="iconify"
+          data-icon="clarity:times-line"
+          data-inline="false"
+        ></span>
+      </div>
       <li class="nav-item"><a href="../">Home</a></li>
       <li class="nav-item"><a href="#">About Us</a></li>
-      <li class="nav-item">
-        <a href="../hire-tutor/">Hire A Tutor</a>
-      </li>
-      <li class="nav-item"><a href="../news/">News</a></li>
-      <li class="nav-item"><a href="../forum/">Forums</a></li>
+      <li class="nav-item"><a href="#notify">Get Notified</a></li>
     </ul>
     <main>
       <h1>About Us</h1>
       <img src="../images/about-img.png" alt="about img" class="about-img" />
       <p class="about-text">
-        We are a team of professionals dedicated to guide post-secondary
+        We are a team of professionals dedicated to guiding post-secondary
         students through the admission process, making the journey an easy and
         seamless one. To do this, we have set up a platform that provides
         information on subject combinations for their respective courses in
         different institutions. We publish
-        <a href="../news/" target="_blank" rel="noopener noreferrer"
+        <a href="../#notify" target="_blank" rel="noopener noreferrer"
           >news and articles</a
         >
         to keep you abreast of recent happenings and changes related to the
         process. We also provide
-        <a
-          href="../consult/consult.html"
-          target="_blank"
-          rel="noopener noreferrer"
+        <a href="../#notify" target="_blank" rel="noopener noreferrer"
           >consulting and tutoring service</a
         >
         to direct you to make beneficial choices and prepare you for examination
@@ -71,34 +119,55 @@
       </p>
     </main>
 
-    <footer>
-      <div class="footer-link-wrap">
-        <div class="ft-wrap">
-          <h4>Quick Links</h4>
-          <a href="../news/" class="footer-link">News</a>
-          <a href="#" class="footer-link">Articles</a>
-          <a href="#" class="footer-link">Resources</a>
-        </div>
+    <!-- Get notified -->
+    <section id="notify">
+      <div class="notify-text">
+        <h1>Subscribe to our newsletter</h1>
+        <p>
+          To get more updates from us, subscribe to our newsletter to get the
+          full Erudite experience.
+        </p>
+      </div>
+      <form class="notify-email">
+        <input
+          type="email"
+          id="get-email"
+          placeholder="Enter Your Email"
+          required
+        />
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </section>
+
+    <footer class="footer-sm">
+      <div class="logo footer-link-wrap">
+        <img
+          src="https://res.cloudinary.com/tomiwadev/image/upload/v1613560722/erudite/logo-white_b75afo.png"
+          alt=""
+          class="logo-img"
+        />
+        <p class="logo-text">Erudite</p>
       </div>
       <div class="footer-link-wrap">
-        <div class="ft-wrap">
-          <h4>Services</h4>
-          <a href="../hire-tutor/" class="footer-link">Hire A Tutor</a>
-          <a href="../forum/" class="footer-link">Forums</a>
-          <a href="../registration/signup.html" class="footer-link"
-            >Registration</a
-          >
-        </div>
+        <p>Your guide to academic success...</p>
       </div>
       <div class="follow">
-        <h4>Follow Us</h4>
-        <a href="#" class="footer-link"
+        <a
+          title="Instagram"
+          href="https://instagram.com/eruditeng__"
+          class="footer-link"
           ><i class="fab fa-instagram" aria-hidden="true"></i
         ></a>
-        <a href="#" class="footer-link"
+        <a
+          title="Twitter"
+          href="https://twitter.com/eruditeng__"
+          class="footer-link"
           ><i class="fab fa-twitter" aria-hidden="true"></i
         ></a>
-        <a href="#" class="footer-link"
+        <a
+          title="Facebook"
+          href="https://facebook.com/eruditeng"
+          class="footer-link"
           ><i class="fab fa-facebook" aria-hidden="true"></i
         ></a>
       </div>

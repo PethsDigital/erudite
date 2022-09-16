@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../nav-and-footer/nav.css" />
     <link
       rel="stylesheet"
-      href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -20,6 +20,48 @@
       href="./assets/css/mobile.css"
       media="(max-width: 790px)"
     />
+    <link
+      rel="shortcut icon"
+      href="https://res.cloudinary.com/tomiwadev/image/upload/v1613560587/erudite/logo-blue_zro7g4.png"
+      type="image/x-icon"
+    />
+    <link rel="canonical" href="https://erudite.ng" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
+    />
+    <meta
+      property="og:title"
+      content="Erudite - Your guide to academic success"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://erudite.ng" />
+    <meta property="og:image" content="../images/mockup.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@eruditeng_" />
+    <meta name="twitter:creator" content="@eruditeng_" />
+    <meta name="twitter:image" content="../images/mockup.png" />
+    <meta name="twitter:title" content="Erudite" />
+    <meta
+      name="twitter:description"
+      content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
+    />
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-DZJNBS94DN"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-DZJNBS94DN");
+    </script>
     <style>
       body {
         pointer-events: none;
@@ -27,14 +69,31 @@
     </style>
   </head>
   <body>
-    <div class="ball-loader">
-      <div class="cl"></div>
-      <div class="cl"></div>
-      <div class="cl"></div>
+    <div class="pre-loader">
+      <div class="wrap">
+        <img
+          src="https://res.cloudinary.com/tomiwadev/image/upload/v1613560587/erudite/logo-blue_zro7g4.png"
+          alt="logo"
+        />
+        <div class="circle"></div>
+      </div>
     </div>
     <nav class="navbar">
-      <h1 class="logo-text"><a href="../">Erudite</a></h1>
-      <i class="fa fa-bars fa-2x"></i>
+      <a href="../" class="logo">
+        <img
+          src="https://res.cloudinary.com/tomiwadev/image/upload/v1613560587/erudite/logo-blue_zro7g4.png"
+          alt=""
+          class="logo-img"
+        />
+        <p class="logo-text">Erudite</p>
+      </a>
+      <div class="bar">
+        <span
+          class="iconify bar"
+          data-icon="radix-icons:hamburger-menu"
+          data-inline="false"
+        ></span>
+      </div>
       <ul class="nav-menu">
         <li class="nav-item"><a href="../">Home</a></li>
         <li class="nav-item"><a href="../about/">About Us</a></li>
@@ -48,9 +107,13 @@
       </ul>
     </nav>
     <ul class="nav2">
-      <a href="#">
-        <i class="fa fa-times"></i>
-      </a>
+      <div class="close">
+        <span
+          class="iconify"
+          data-icon="clarity:times-line"
+          data-inline="false"
+        ></span>
+      </div>
       <li class="nav-item"><a href="../">Home</a></li>
       <li class="nav-item"><a href="../about/">About Us</a></li>
       <li class="nav-item">
@@ -81,6 +144,7 @@
           id="title"
         />
         <textarea
+          required
           placeholder="write message here"
           id="discussion-input-txt"
         ></textarea>
@@ -90,17 +154,39 @@
     <main>
       <section class="top-search">
         <form class="form-group" id="search-title">
-          <input type="search" placeholder="Search for a topic" />
-          <button type="submit"><i class="fa fa-search"></i></button>
+          <input type="search" placeholder="Search for a topic" required />
+          <button aria-label="Search Topic" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
         </form>
         <div class="left">
-          <a href="#" class="profile">
+          <a href="../registration/login.html" id="signup" class="btn"
+            >Sign In</a
+          >
+          <div class="profile">
             <img
-              src="../images/Profile-pic.png"
+              src="https://res.cloudinary.com/tomiwadev/image/upload/v1612047488/erudite/Profile_pic_1_xlepwh.png"
               alt="profile"
               class="profile-pic"
             />
-          </a>
+
+            <div class="drop-down">
+              <a class="list" href="../registration/profile.html">Profile</a>
+              <a class="list" href="../registration/edit-profile.html"
+                >Settings</a
+              >
+              <a class="list" href="../policy/policy.html">Privacy</a>
+
+              <button
+                id="sign-out"
+                aria-label="Sign Out"
+                class="list"
+                type="button"
+              >
+                Sign Out
+              </button>
+            </div>
+          </div>
           <button class="st-discuss">
             <img src="../images/pen.svg" alt="start discussion" />
             &nbsp; Start a discussion
@@ -114,23 +200,15 @@
               <h1 class="tag">UTME FORUM</h1>
             </div>
             <hr class="hr" />
-            <div class="topics-wrap"></div>
+            <div id="drop-down-select" class="drop-down">
+              <a href="./index.html" class="list">Erudite Forum</a>
+            </div>
           </div>
+          <div class="topics-wrap"></div>
         </div>
         <aside class="aside">
           <div class="popular topics">
             <h3>Popular Topics</h3>
-            <!-- <article class="topic-child">
-              <a href="#"> What is the cause of down syndrome? </a>
-              <p class="stat">
-                <img
-                  src="../images/msg-sq.svg"
-                  alt="forum avatar"
-                  class="comment-icon"
-                />
-                &nbsp; 46
-              </p>
-            </article> -->
           </div>
           <br />
           <div id="unanswered" class="unanswered topics">
@@ -139,38 +217,31 @@
               These are questions that have not been answered by any member of
               the forum
             </p>
-            <!-- <article class="un-topic-child">
-              <div class="info">
-                <img
-                  src="../images/Profile-pic.png"
-                  alt="avatar"
-                  class="avatar"
-                />
-                <b class="name">James Mba</b>
-                <p class="time-posted">3 hours ago</p>
-              </div>
-              <a href="#">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Exercitationem repellat.</a
-              >
-              <p class="stat">
-                <img
-                  src="../images/msg-sq.svg"
-                  alt="forum avatar"
-                  class="comment-icon"
-                />
-                &nbsp; 46 comments
-              </p>
-            </article> -->
+            <div class="loader"><span class="circle"></span></div>
           </div>
         </aside>
       </section>
     </main>
 
     <div class="oops">
-      <i class="fas fa-heart-broken heart"></i>
+      <svg
+        class="heart"
+        width="70"
+        height="70"
+        viewBox="0 0 20 20"
+        fill="none"
+        fill-rule="evenodd"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M19 4.8a16 16 0 00-2-1.2m-3.3-1.2A16 16 0 001.1 4.7M16.7 8a12 12 0 00-2.8-1.4M10 6a12 12 0 00-6.7 2M12.3 14.7a4 4 0 00-4.5 0M14.5 11.4A8 8 0 0010 10M3 16L18 2M10 18h0"
+        ></path>
+      </svg>
+      <br />
       <h1>Oops!</h1>
-      <p>An error ocurred, pls try again</p>
+      <p>An error ocurred, you might want to check your network connection</p>
     </div>
 
     <footer>
@@ -194,20 +265,27 @@
       </div>
       <div class="follow">
         <h4>Follow Us</h4>
-        <a href="#" class="footer-link"
+        <a
+          title="Instagram"
+          href="https://instagram.com/eruditeng__"
+          class="footer-link"
           ><i class="fab fa-instagram" aria-hidden="true"></i
         ></a>
-        <a href="#" class="footer-link"
+        <a
+          title="Twitter"
+          href="https://twitter.com/eruditeng__"
+          class="footer-link"
           ><i class="fab fa-twitter" aria-hidden="true"></i
         ></a>
-        <a href="#" class="footer-link"
+        <a
+          title="Facebook"
+          href="https://facebook.com/eruditeng"
+          class="footer-link"
           ><i class="fab fa-facebook" aria-hidden="true"></i
         ></a>
       </div>
     </footer>
     <script src="../nav-and-footer/nav.js"></script>
-    <!-- <script src="./assets/js/discussion.js"></script> -->
-    <!-- <script src="./assets/js/index.js"></script> -->
     <script src="./assets/js/each-forum.js"></script>
     <script src="./assets/js/aside.js"></script>
     <script src="./assets/js/createTopic.js"></script>

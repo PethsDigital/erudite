@@ -5,21 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Erudite | Sign Up</title>
     <link rel="stylesheet" href="../nav-and-footer/nav.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link
       rel="stylesheet"
-      href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="shortcut icon"
+      href="https://res.cloudinary.com/tomiwadev/image/upload/v1613560587/erudite/logo-blue_zro7g4.png"
+      type="image/x-icon"
+    />
+    <link rel="canonical" href="https://erudite.ng" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
+    />
+    <meta
+      property="og:title"
+      content="Erudite - Your guide to academic success"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://erudite.ng" />
+    <meta property="og:image" content="../images/mockup.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@eruditeng_" />
+    <meta name="twitter:creator" content="@eruditeng_" />
+    <meta name="twitter:image" content="../images/mockup.png" />
+    <meta name="twitter:title" content="Erudite" />
+    <meta
+      name="twitter:description"
+      content="Erudite is an educational platform made up of experts dedicated to guiding post-secondary school students towards academic success."
+    />
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-DZJNBS94DN"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-DZJNBS94DN");
+    </script>
   </head>
   <body>
     <nav class="navbar">
-      <h1 class="logo-text"><a href="../">Erudite</a></h1>
-      <i class="fa fa-bars fa-2x"></i>
+      <a href="../" class="logo">
+        <img
+          src="https://res.cloudinary.com/tomiwadev/image/upload/v1613560587/erudite/logo-blue_zro7g4.png"
+          alt=""
+          class="logo-img"
+        />
+        <p class="logo-text">Erudite</p>
+      </a>
+      <div class="bar">
+        <span
+          class="iconify bar"
+          data-icon="radix-icons:hamburger-menu"
+          data-inline="false"
+        ></span>
+      </div>
       <ul class="nav-menu">
         <li class="nav-item"><a href="../">Home</a></li>
         <li class="nav-item">
@@ -29,15 +84,19 @@
           <a href="../hire-tutor/">Hire A Tutor</a>
         </li>
         <li class="nav-item"><a href="../news/">News</a></li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <a href="../forum/">Forums</a>
         </li>
       </ul>
     </nav>
     <ul class="nav2">
-      <a href="#">
-        <i class="fa fa-times"></i>
-      </a>
+      <div class="close">
+        <span
+          class="iconify"
+          data-icon="clarity:times-line"
+          data-inline="false"
+        ></span>
+      </div>
       <li class="nav-item"><a href="../">Home</a></li>
       <li class="nav-item"><a href="../about/">About Us</a></li>
       <li class="nav-item">
@@ -47,7 +106,7 @@
       <li class="nav-item"><a href="../forum/">Forums</a></li>
     </ul>
 
-    <main class="container">
+    <main class="container align-top">
       <section class="signup-wrap">
         <div class="signup-text">
           <h3>Join the community!</h3>
@@ -80,12 +139,10 @@
           <div class="flex-form-grp">
             <div class="form-group sm-grp">
               <input
-                type="tel"
+                type="number"
                 id="phone-num"
                 required
                 placeholder="Phone Number"
-                maxlength="14"
-                minlength="11"
               />
               <label for="phone-num">Phone Number</label>
             </div>
@@ -109,9 +166,7 @@
                 placeholder="Password"
                 minlength="6"
               />
-              <button type="button" class="view-pwd">
-                <i class="fas fa-eye"></i>
-              </button>
+              <i class="fas fa-eye view-pwd"></i>
             </div>
             <label for="pwd">Password</label>
           </div>
@@ -126,13 +181,19 @@
                 placeholder="Confirm Password"
                 minlength="6"
               />
-              <button type="button" class="view-pwd">
-                <i class="fas fa-eye"></i>
-              </button>
+              <i class="fas fa-eye view-pwd"></i>
             </div>
             <label for="confirmpwd">Confirm Password</label>
           </div>
+
           <button type="submit" class="btn">Sign up</button>
+          <div class="form-check">
+            <input type="checkbox" name="t&c" id="t&c" required />
+            <label id="TnC" for="t&c"
+              >I agree to <a href="../policy/terms.html">Terms</a> And
+              <a href="../policy/policy.html">Conditions</a></label
+            >
+          </div>
           <p class="bottom-text">
             Already have an account?
             <a href="./login.html">Login.</a>

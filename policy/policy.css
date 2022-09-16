@@ -1,58 +1,82 @@
-main{
-    max-width: 1140px;
-    width: 85%;
-    margin: auto;
-    font-family: 'Poppins', sans-serif;
-    margin-top: 50px;
+main {
+  max-width: 1000px;
+  width: 90vw;
+  margin: auto;
+  font-family: "Poppins", sans-serif;
+  margin-top: 50px;
+  text-align: justify;
 }
-.heading{
-    margin-bottom: 40px;
-    text-align: center;
-    font-weight: 600;
-    color: rgba(18, 25, 33, 0.99);
+ol {
+  margin-left: 2rem;
 }
-.texts{
-    width: 100%;
+.heading {
+  font-weight: 600;
+  color: var(--grey);
+  text-align: left;
 }
-.texts p{
-    color: #121921;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 36px;
-
+.privacy-links {
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  white-space: nowrap;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  padding-right: 1rem;
 }
-.first{
+.privacy-links a {
+  padding: 0.5rem;
+  border-radius: 4px !important;
+}
+.privacy-links a.active {
+  color: white;
+  background: var(--primary-color);
+}
+.privacy-links a:last-child {
+  margin-left: 1rem;
+}
+.texts {
+  width: 100%;
+}
+.texts p {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 36px;
+}
+.first {
   margin-bottom: 30px;
+  font-size: 1.1rem;
 }
-.first a{
-    columns:#3D90EF;
-    text-decoration: none;
+a {
+  color: var(--primary-color);
+  text-decoration: none;
 }
-ol{
-    margin-left: 17px;
-}
-ol li{
-    color: #121921;
-    font-size: 16px;
-    font-weight: normal;
-}
-ol li{
-    margin-bottom: 15px;
-}
-p.second{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-p.third{
-    margin-top: 30px;
-    margin-bottom: 40px;
-}
-@media(max-width:500px){
-    main{
-        width: 90%;
-    }
-    .texts p,ol li{
-        font-size: 14px;
-    }
 
+ol li {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+p.second {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+p.third {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+@media (max-width: 500px) {
+  main {
+    width: 90%;
+  }
+  .privacy-links a {
+    font-size: 0.9rem;
+  }
+  .texts p,
+  ol li {
+    font-size: 14px;
+  }
 }
