@@ -18,45 +18,41 @@ let courseCodes;
 async function fetchData(url) {
   // disable btn
   btn.forEach(btn => (btn.disabled = true));
-  $("#loader").style.cssText = "display: flex;";
-  document.body.style.pointerEvents = "none";
+  $("#loader").style.cssText = "clip-path: inset(0 0 0 0);";
 
   try {
     const res = await fetch(url);
     const json = await res.json();
+    $("#loader").style.cssText = "clip-path: inset(0 0 100% 0);";
     return json;
   } finally {
-    $("#loader").style.cssText = "display: none;";
-    document.body.style.pointerEvents = "all";
+    //  catch (err) {
+    //   console.log(err);
+    // }
     btn.forEach(btn => (btn.textContent = "Check"));
     btn.forEach(btn => (btn.disabled = false));
   }
 }
 
+// `https://Erudite-api.herokuapp.com/codes/subjects`
+// https://Erudite-api.herokuapp.com/
 // dynamically load SUBJECT input option from the api
 function selectSubjects(el, callback) {
   fetch("./json/subjects.json")
     .then(res => res.json())
     .then(data => {
-      Object.filter = (obj, predicate) =>
-        Object.keys(obj)
-          .filter(key => predicate(obj[key]))
-          .reduce((res, key) => ((res[key] = obj[key]), res), {});
-      let filteredData = Object.filter(data, el => el !== "Use of English");
       courseCodes = data;
-      callback(el, Object.values(filteredData));
+      callback(el, Object.values(data));
     })
     .catch(err => console.log(err));
 }
 selects.forEach(select => selectSubjects(select, autocomplete));
 
 // dynamically load COURSE input option from the api
-fetch(`https://jambito-api.herokuapp.com/`)
+fetch(`https://Erudite-api.herokuapp.com/`)
   .then(res => res.json())
   .then(data => {
-    jsonData = data;
-    console.log(data);
-    autocomplete(course, Object.keys(data.results));
+    autocomplete(course, Object.keys(data.results.results));
   })
   .catch(err => console.log(err));
 
@@ -66,12 +62,8 @@ function displayCourseResult(sub) {
   $(".course-result-modal.modal").style.cssText = "display: block;";
   $(".overlay").style.display = "block";
   $(".course-result-modal.modal h2").textContent = "Courses You Can Study";
-  if (sub.length > 0) {
-    for (let el of sub) {
-      courseDiv.innerHTML += `<p class="course-child">${el}</p>`;
-    }
-  } else {
-    courseDiv.innerHTML += `<p style="text-align: center;">0 results found</p>`;
+  for (let el of sub) {
+    courseDiv.innerHTML += `<h4 class="course-child">${el}</h4>`;
   }
   /* for (let key in sub) {
         courseDiv.innerHTML += `<h4 class="course-title">${key}</h4>`;
@@ -93,11 +85,12 @@ function displayCourseSubject(key, sub) {
   $(".course-result-modal.modal").style.cssText = "display: block;";
   $(".overlay").style.display = "block";
   $(".course-result-modal.modal h2").textContent =
-    "UTME Combination For Your Course";
+    "Jamb Combination For Your Course";
   courseDiv.innerHTML += `<h4 class="course-title">${course.value}</h4>`;
   sub.compulsory.forEach(code => {
     courseDiv.innerHTML += `<p class="course-child">${code} (Compulsory)</p>`;
   });
+
   for (key in sub.optional) {
     sub.optional[key].forEach(code => {
       courseDiv.innerHTML += `<p class="course-child">${code} (Optional)</p>`;
@@ -162,6 +155,11 @@ checkCourse.addEventListener("submit", e => {
       setTimeout(() => displayCourseResult(result, 400));
     })
     .catch(err => {
+      displayMsg(
+        "error",
+        "Request failed please try again later :)",
+        checkCourse
+      );
       console.log(`Error: ${err}`);
     });
   e.preventDefault();
@@ -169,27 +167,38 @@ checkCourse.addEventListener("submit", e => {
 
 // function for courses subject combo (form2)
 courseCombo.addEventListener("submit", e => {
-  e.preventDefault();
-  if (jsonData.results.hasOwnProperty(course.value)) {
-    for (let key in jsonData.results) {
-      if (`${key}` == course.value) {
-        displayCourseSubject(key, jsonData.results[key].subjects);
-        courseDiv.innerHTML += `<h4 class="course-title">List Of Schools:</h4>`;
-        jsonData.results[key].schools.forEach(sch => {
-          courseDiv.innerHTML += `<span>${sch}</span>&nbsp; | &nbsp;`;
-        });
+  $("#course-combo button").textContent = "loading...";
+
+  fetchData("https://Erudite-api.herokuapp.com/")
+    .then(data => {
+      //console.log(data);
+      for (let key in data.results.results) {
+        //console.log(`${key}`,course.value);
+        if (`${key}` == course.value) {
+          displayCourseSubject(key, data.results.results[key].subjects);
+          courseDiv.innerHTML += `<h4 class="course-title">List Of Schools:</h4>`;
+          data.results.results[key].schools.forEach(sch => {
+            courseDiv.innerHTML += `<span>${sch}</span> &nbsp;&nbsp;`;
+          });
+        }
       }
-    }
-  } else if (!jsonData.results.hasOwnProperty(course.value)) {
-    displayMsg("error", "Course Not Found...", courseCombo);
-  }
+    })
+    .catch(err => {
+      displayMsg(
+        "error",
+        "Request failed please try again later :)",
+        courseCombo
+      );
+      console.log(`Error: ${err}`);
+    });
+  e.preventDefault();
 });
 
 // close modals function
 closeBtn.forEach(btn =>
   btn.addEventListener("click", () => {
     $(".course-result-modal.modal").style.cssText = "display: none";
-    // $(".feedback-modal.modal").style.cssText = "display: none";
+    $(".feedback-modal.modal").style.cssText = "display: none";
     $(".overlay").style.display = "none";
     course.value = "";
     selects.forEach(sub => (sub.value = ""));
