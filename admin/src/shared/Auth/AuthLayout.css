@@ -1,0 +1,12 @@
+h3,
+span,
+p,
+button {
+  font-family: var(--body-font-family);
+}
+
+.auth-right {
+  background-image: url("../../assets/images/auth-bg.png");
+  background-size: cover;
+  border-radius: 15px 0px 0px 15px;
+}
