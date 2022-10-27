@@ -1,9 +1,8 @@
 import React, { FormEvent, useState } from "react";
 import googleIcon from "../assets/icons/google.svg";
 
-import { NavLink } from "react-router-dom";
-import PasswordInput from "../components/PasswordInput";
-import TextInput from "../components/TextInput";
+import { NavLink, useNavigate } from "react-router-dom";
+import { TextInput, PasswordInput } from "../components";
 
 export default function Login() {
   const [values, setValues] = useState({
@@ -11,6 +10,8 @@ export default function Login() {
     password: "",
     showPassword: false,
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (prop: any) => (event: any) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -25,6 +26,10 @@ export default function Login() {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
+
+    // Temporarily navigate to forum page on Login
+
+    navigate("/forum");
   };
 
   return (

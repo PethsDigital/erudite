@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import PasswordInput from "../components/PasswordInput";
-import TextInput from "../components/TextInput";
 import googleIcon from "../assets/icons/google.svg";
-import SelectInput from "../components/SelectInput";
+import { PasswordInput, SelectInput, TextInput } from "../components";
 
 export default function Signup() {
   const [values, setValues] = useState({

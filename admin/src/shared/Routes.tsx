@@ -1,14 +1,17 @@
 import React from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
-import { Login, Signup } from "../pages";
+import { Forum, Login, Signup } from "../pages";
 // import LayoutRoutes from "./LayoutRoutes";
 import AuthLayout from "./Auth/AuthLayout";
+import PageLayout from "./UI/PageLayout";
 
 export default function AppRoutes() {
   const navigate = useNavigate();
 
   return (
     <Routes>
+      <Route path="/forum/*" element={<PageLayout Page={Forum} />} />
+
       <Route
         path="/login"
         element={

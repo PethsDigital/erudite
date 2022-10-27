@@ -1,0 +1,9 @@
+.navbar {
+  display: none;
+}
+
+@media (min-width: 567px) {
+  .navbar {
+    display: flex;
+  }
+}
