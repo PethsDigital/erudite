@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { getCategories } from "../../../api/data";
 import { ICategory } from "../../../api/models";
 import WidgetLayout from "../WidgetLayout";
@@ -16,7 +17,9 @@ export default function CategoryWidget() {
   const View = () => (
     <div className="border-t border-[#E8E8E8] mt-[24.5px]">
       {categories.slice(0, 5).map((category) => (
-        <CategoryCard category={category} key={category.id} />
+        <NavLink to={`category/${category.id}`} key={category.id}>
+          <CategoryCard category={category} />
+        </NavLink>
       ))}
     </div>
   );

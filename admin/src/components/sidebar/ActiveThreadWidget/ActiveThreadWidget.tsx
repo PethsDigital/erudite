@@ -3,6 +3,7 @@ import WidgetLayout from "../WidgetLayout";
 import { IThread } from "../../../api/models/thread";
 import { getThreads } from "../../../api/data";
 import ThreadCard from "../ThreadCard";
+import { NavLink } from "react-router-dom";
 
 export default function ActiveThreadWidget() {
   const [threads, setThreads] = useState<IThread[]>([]);
@@ -17,7 +18,9 @@ export default function ActiveThreadWidget() {
     <React.Fragment>
       {/* Show only two of the latest threads */}
       {threads.slice(0, 2).map((thread) => (
-        <ThreadCard thread={thread} key={thread.id} />
+        <NavLink key={thread.id} to={"" + thread.id}>
+          <ThreadCard thread={thread} />
+        </NavLink>
       ))}
     </React.Fragment>
   );

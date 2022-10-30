@@ -1,3 +1,3 @@
-import { Home } from "./Forum";
+import { Home, Single } from "./Forum";
 
-export { Home };
+export { Home, Single };

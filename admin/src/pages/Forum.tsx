@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { SearchBar, Widget } from "../components";
-import { Home } from "../views";
+import { Home, Single } from "../views";
 import { profileIcon, writeIcon } from "../assets/icons";
 
 export default function Forum() {
@@ -37,6 +37,7 @@ export default function Forum() {
         <div className="w-full sm:w-3/5 xl:w-[807px]">
           <main>
             <Routes>
+              <Route path=":forumId" element={<Single />} />
               <Route path="" element={<Home />} />
             </Routes>
           </main>
