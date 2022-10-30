@@ -1,4 +1,4 @@
-export interface Forum {
+export interface IForum {
   id: number;
   imageUrl: string;
   title: string;

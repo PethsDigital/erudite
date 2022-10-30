@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { getNavLinks } from "../../api/config";
+import { getNavLinks } from "../../../api/config";
 import "./Navbar.css";
 
 export default function Navbar() {

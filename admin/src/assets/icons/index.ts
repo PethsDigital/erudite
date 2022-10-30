@@ -4,6 +4,7 @@ import googleIcon from "./google.svg";
 import writeIcon from "./write.svg";
 import timeIcon from "./time.svg";
 import openEyeIcon from "./openeye.svg";
+import chatIcon from "./chat.svg";
 
 export {
   profileIcon,
@@ -12,4 +13,5 @@ export {
   writeIcon,
   timeIcon,
   openEyeIcon,
+  chatIcon,
 };

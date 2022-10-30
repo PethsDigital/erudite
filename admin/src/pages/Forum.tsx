@@ -35,13 +35,17 @@ export default function Forum() {
 
       <div className="flex flex-col sm:flex-row mt-10">
         <div className="w-full sm:w-3/5 xl:w-[807px]">
-          <Routes>
-            <Route path="" element={<Home />} />
-          </Routes>
+          <main>
+            <Routes>
+              <Route path="" element={<Home />} />
+            </Routes>
+          </main>
         </div>
 
-        <div className="w-full sm:w-2/5 xl:w-[378px]">
-          <Widget />
+        <div className="w-full sm:w-2/5 xl:w-[378px] mt-4 sm:mt-0 sm:ml-2 xl:ml-[55px]">
+          <aside>
+            <Widget />
+          </aside>
         </div>
       </div>
     </React.Fragment>

@@ -1,15 +1,15 @@
 import React from "react";
-import { Forum } from "../../api/models/forum";
+import { IForum } from "../../api/models";
 import { profileIcon, openEyeIcon, timeIcon } from "../../assets/icons";
 import "./ForumCard.css";
 
 interface ForumCardProps {
-  forum: Forum;
+  forum: IForum;
 }
 
 export default function ForumCard({ forum }: ForumCardProps) {
   return (
-    <div className="flex flex-col lg:flex-row items-center bg-white mt-8">
+    <div className="flex flex-col lg:flex-row items-center bg-white mt-8 py-2 lg:py-0 hover:shadow-md">
       <div className="flex">
         <div className="p-6">
           {forum.imageUrl && (
@@ -24,7 +24,7 @@ export default function ForumCard({ forum }: ForumCardProps) {
           <h3 className="text-poppins font-medium text-2xl leading-9 text-[#4F4F4FFC]/[99%]">
             {forum.title}
           </h3>
-          <span className="text-poppins text-[#4F4F4FFC]/[99%] text-base leading-6 font-medium">
+          <span className="text-poppins text-[#4F4F4FFC]/[99%] block my-2 lg:my-0 text-base leading-6 font-medium underline lg:no-underline">
             {forum.description}
           </span>
         </div>
